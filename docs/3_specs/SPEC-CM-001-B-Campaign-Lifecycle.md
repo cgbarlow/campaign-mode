@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-001-B |
 | **Parent ADR** | [ADR-CM-001](../adrs/ADR-CM-001-Campaign-Mode-Architecture.md) |
-| **Version** | 1.4 |
+| **Version** | 1.5 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -21,6 +21,9 @@ The user is the **protagonist** throughout — the decision-maker who drives the
 ## Campaign Flow
 
 ```
+   Council (optional)       →  Animals analyse project; Simon synthesises; report saved
+        │                      (can be invoked before or during a quest)
+        │
 1. Quest Definition       →  User selects campaign mode; Gandalf frames the challenge
         │
 2. Character Setup        →  Animals adopt campaign roles (optional; mode-dependent)
@@ -37,6 +40,22 @@ The user is the **protagonist** throughout — the decision-maker who drives the
 ---
 
 ## Phase Definitions
+
+### Pre-Campaign: Council (Optional)
+
+| Aspect | Detail |
+|--------|--------|
+| **Primary Actor** | User + Animal Agents + Simon |
+| **Trigger** | User invokes `/council` — either after `/campaign-setup`, during an active quest, or standalone |
+| **Activities** | All six animal agents sequentially analyse the project through their archetype lenses (Bear: vision, Cat: risk, Owl: process, Puppy: opportunities, Rabbit: resources, Wolf: cohesion). Simon synthesises findings into a consensus with prioritised next steps. |
+| **Outputs** | Conversational analysis (animals speak in character), persistent report (`.campaign/council-report.md`) |
+| **Transition** | Council complete → user chooses: start a quest (Phase 1), return to active quest (Phase 3), or end session. Transition facilitated through `AskUserQuestion`. |
+
+The Council is **not a numbered phase** — it is an optional diagnostic that can be invoked at any point: before a quest begins, during campaign execution, or standalone without any quest context. It does not advance the campaign phase counter.
+
+**NPC roles:** Simon synthesises; Gandalf activates only if the user starts a quest. Guardian and Dragon do not participate in the Council.
+
+**Report persistence:** The council report is written to `.campaign/council-report.md` and overwrites on re-invocation. Gandalf reads the report (if it exists) during Phase 1 to inform quest framing.
 
 ### Phase 1: Quest Definition
 
@@ -206,4 +225,5 @@ Quest Definition → Execution → Checkpoint → Execution → Checkpoint → D
 | 1.1 | 2026-02-14 | Chris Barlow | Added mode selection to Phase 1, mode annotations to all phases, user-as-protagonist framing |
 | 1.2 | 2026-02-14 | Chris Barlow | Replaced Phase 2 placeholder with full character generation spec, added SPEC-CM-006-A and SPEC-CM-006-B references |
 | 1.3 | 2026-02-14 | Chris Barlow | Added Phase Transition Protocol, updated all phase Transition rows with proactive elicitation via `AskUserQuestion` (ADR-CM-008) |
+| 1.5 | 2026-02-14 | Chris Barlow | Added optional pre-campaign Council step, updated flow diagram (ADR-CM-011) |
 | 1.4 | 2026-02-14 | Chris Barlow | Added `/start-quest` as Phase 1 entry point, added `/continue-quest` mid-campaign re-entry note (ADR-CM-009) |

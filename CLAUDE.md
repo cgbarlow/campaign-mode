@@ -44,7 +44,9 @@ Isolation is enforced by instruction and sub-agent invocation. Do not voluntaril
 
 ## Campaign Lifecycle
 
-Campaigns follow six phases:
+Campaigns follow six phases, with an optional Council step:
+
+- **Council (optional)** — All six animal agents analyse the project through their archetype lenses; Simon synthesises findings. Can be invoked before or during a quest via `/council`. Report saved to `.campaign/council-report.md`.
 
 1. **Quest Definition** — User chooses campaign mode. Gandalf frames the challenge and establishes success criteria collaboratively.
 2. **Character Setup** — Users optionally assign character profiles to animals. Encouraged in Grow mode, streamlined in Ship mode.
@@ -97,9 +99,10 @@ Character profiles live in `.campaign/profiles/` as markdown files (one per anim
 |-----------|---------|
 | `skills/` | Canonical NPC skill definitions (SKILL.md files) |
 | `.claude/skills/` | Auto-discovery copies for clone-path users |
-| `commands/` | Slash commands (e.g., `/campaign-setup`, `/start-quest`, `/continue-quest`) |
+| `commands/` | Slash commands (e.g., `/campaign-setup`, `/start-quest`, `/continue-quest`, `/council`) |
 | `.campaign/` | Campaign state directory (created per project) |
 | `.campaign/profiles/` | Character profile files |
+| `.campaign/council-report.md` | Council analysis report (multi-perspective diagnostic from `/council`) |
 
 ## User as Protagonist
 

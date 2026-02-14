@@ -13,14 +13,25 @@ Use the Glob tool to check if `.campaign/quest.md` exists in the user's project 
 
 **If `.campaign/quest.md` does not exist:**
 
-Inform the user:
+Check if `.campaign/council-report.md` exists. If it does, inform the user:
+
+> No active quest detected, but a council report exists from a previous session. You can start a quest informed by that analysis, reconvene the council for a fresh look, or start from scratch.
+
+Use `AskUserQuestion` to offer:
+
+1. **Start a new quest** — Begin with Gandalf to frame a challenge (the council report will inform quest framing).
+2. **Reconvene the council** — Get a fresh multi-perspective analysis of the project.
+3. **Not right now** — Exit without starting a quest.
+
+If no council report exists, inform the user:
 
 > No active quest detected. You can start a new quest to begin a campaign.
 
 Use `AskUserQuestion` to offer:
 
 1. **Start a new quest** — Begin fresh with Gandalf to frame a challenge and establish success criteria.
-2. **Not right now** — Exit without starting a quest.
+2. **Convene the council** — Have your animal advisors analyse the project before choosing a direction.
+3. **Not right now** — Exit without starting a quest.
 
 If the user chooses to start a new quest, invoke the Gandalf agent by loading the skill from `skills/gandalf-agent/SKILL.md` and beginning Phase 1 (Quest Definition).
 
@@ -50,5 +61,6 @@ Use `AskUserQuestion` to offer these options (using profile names where they exi
 3. **Consult Gandalf for strategic counsel** — Get mentorship on your current challenge or revisit quest framing.
 4. **Face the Dragon** — Test whether your success criteria are genuinely met.
 5. **Consult an animal advisor** — Get a specific animal perspective on your work.
+6. **Reconvene the council** — Get a fresh multi-perspective analysis from all six animal advisors.
 
 Invoke the appropriate agent based on the user's choice. When invoking an agent, load their skill from `skills/{agent}/SKILL.md` and adopt the full identity defined in the skill file.

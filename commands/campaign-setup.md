@@ -97,11 +97,15 @@ mkdir -p .campaign/profiles
 
 ## Step 4: Confirm Setup
 
-Summarise what was done and tell the user:
+Summarise what was done:
 
 > Campaign Mode is set up in your project:
 > - Six Animals: [installed as plugin/cloned to project/already present/skipped]
 > - CLAUDE.md campaign guidelines: [copied/appended/skipped]
 > - `.campaign/profiles/` directory: ready for character profiles
->
-> Run `/start-quest` to begin a quest.
+
+Then use `AskUserQuestion` to offer next steps:
+
+1. **Start a quest** — Begin with Gandalf to frame a challenge and establish success criteria.
+2. **Convene the council** — Have your animal advisors analyse the project first, then decide on a direction.
+3. **Just exploring** — Exit setup. You can start a quest or convene the council any time.

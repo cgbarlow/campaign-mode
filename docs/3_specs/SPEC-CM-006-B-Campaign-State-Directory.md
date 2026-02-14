@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-006-B |
 | **Parent ADR** | [ADR-CM-006](../adrs/ADR-CM-006-Character-Generation.md) |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -12,7 +12,7 @@
 
 ## Overview
 
-This specification defines the `.campaign/` directory structure used to store campaign state. The directory stores character profile files and the quest definition file (`quest.md`) which tracks campaign mode, success criteria, current phase, and progress log. This specification establishes the directory convention, quest file format, and export protocol.
+This specification defines the `.campaign/` directory structure used to store campaign state. The directory stores character profile files, the quest definition file (`quest.md`) which tracks campaign mode, success criteria, current phase, and progress log, and the council report file (`council-report.md`) which captures multi-perspective project analysis. This specification establishes the directory convention, file formats, and export protocol.
 
 ---
 
@@ -21,6 +21,7 @@ This specification defines the `.campaign/` directory structure used to store ca
 ```
 .campaign/
 ├── quest.md                    # Quest definition (mode, criteria, narrative, progress log)
+├── council-report.md           # Council analysis report (multi-perspective diagnostic)
 └── profiles/                   # Character profiles
     ├── bear.md                 # Animal profile (if profiled)
     ├── cat.md                  # Animal profile (if profiled)
@@ -137,6 +138,80 @@ created: 2026-02-14
 
 ---
 
+## Council Report File
+
+### `council-report.md`
+
+The council report file captures the output of a `/council` invocation — a multi-perspective project analysis from all six animal agents, synthesised by Simon.
+
+### Format
+
+```yaml
+---
+created: 2026-02-14
+council-type: standalone
+---
+
+# Council Report
+
+## Animal Perspectives
+
+### Bear — Vision & Direction
+[Summary of Bear's observations]
+
+### Cat — Risk & Scope
+[Summary of Cat's observations]
+
+### Owl — Process & Structure
+[Summary of Owl's observations]
+
+### Puppy — Opportunities & Momentum
+[Summary of Puppy's observations]
+
+### Rabbit — Resources & Stakeholders
+[Summary of Rabbit's observations]
+
+### Wolf — Cohesion & Balance
+[Summary of Wolf's observations]
+
+## Consensus
+[Common themes, key tensions, overall assessment from Simon]
+
+## Recommended Next Steps
+1. [Prioritised action]
+2. [Prioritised action]
+3. [Prioritised action]
+```
+
+### Frontmatter Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `created` | Date (ISO 8601) | Date the council was convened |
+| `council-type` | String | One of `standalone` (no active quest) or `quest-informed` (active quest provided context) |
+
+### Profile Name Overrides
+
+When character profiles exist in `.campaign/profiles/`, section headers use the profile name with the archetype in parentheses (e.g., `### Paladin (Bear) — Vision & Direction`).
+
+### Lifecycle
+
+1. File does not exist before the first `/council` invocation
+2. The `/council` command creates the file after all animal analyses and Simon's synthesis
+3. The file is overwritten on each subsequent `/council` invocation (no history)
+4. Gandalf reads the file during quest definition (Phase 1) if it exists, to inform quest framing
+5. The `/continue-quest` command detects the file and offers it as context when no active quest exists
+6. File persists indefinitely as a project diagnostic artefact
+
+### Who Writes What
+
+| Agent | Action | When |
+|-------|--------|------|
+| **Council command** | Creates `council-report.md` with all sections | End of `/council` invocation |
+| **Gandalf** | Reads report to inform quest framing | Phase 1 (if report exists) |
+
+---
+
 ## Export Protocol
 
 ### User-Managed Export
@@ -184,6 +259,7 @@ This is a user decision -- Gandalf does not manage `.gitignore` entries.
 - `.campaign/profiles/` directory for character profile storage
 - Profile file naming convention
 - `quest.md` creation by Gandalf, read/append by Guardian and Dragon
+- `council-report.md` creation by `/council`, read by Gandalf and `/continue-quest`
 - Campaign progress tracking via append-only Progress Log
 - Export protocol (user-managed copy)
 - Import recognition by Gandalf
@@ -212,5 +288,6 @@ This specification resolves Open Question #5 (State Management) from the north-s
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
+| 1.2 | 2026-02-14 | Chris Barlow | Added council-report.md format specification, lifecycle, and read/write protocol (ADR-CM-011). |
 | 1.1 | 2026-02-14 | Chris Barlow | Added quest.md format specification, progress log, NPC read/write protocol. Moved quest.md from reserved to fully specified. Resolved Open Question #5. |
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |

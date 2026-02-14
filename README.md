@@ -4,6 +4,18 @@ A quest-based extension for the [Six Animals](https://github.com/SimonMcCallum/s
 
 Where Six Animals answers *"how should we work together?"*, Campaign Mode answers *"what are we working toward, and what stands in our way?"*
 
+## Quick Start
+
+1. **Install Claude Code** — `curl -fsSL https://claude.ai/install.sh | bash` ([full guide](https://code.claude.com/docs/en/quickstart))
+2. **Add the marketplace** — in a Claude Code session: `/plugin marketplace add cgbarlow/campaign-mode`
+3. **Install the plugin** — `/plugin install campaign-mode@campaign-mode-marketplace`
+4. **Set up your project** — `/campaign-setup` (checks for Six Animals, copies guidelines, creates `.campaign/`)
+5. **Choose your path:**
+   - `/council` — Have all six animal advisors analyse your project before deciding what to work on
+   - `/start-quest` — Jump straight into quest framing with Gandalf
+
+That's it. Every agent offers you structured next steps — you never need to memorise commands after setup.
+
 ## Why Campaign Mode?
 
 You have a challenge. You want diverse perspectives, structured progress, and confidence that your work holds up. Campaign Mode provides:
@@ -92,6 +104,10 @@ Simon remains the educator and meta-analyst from Six Animals, with extended resp
 ### Campaign Flow
 
 ```
+   Council (optional)     Animals analyse the project; Simon synthesises findings
+        |                 Report saved to .campaign/council-report.md
+        |                 Options: Start a quest / Council complete
+        |
 1. Quest Definition       You choose your mode. Gandalf frames the challenge.
         |                 Gandalf writes .campaign/quest.md with criteria, mode, narrative
         |                 Gandalf offers: Begin working / Review summary / Consult advisor
@@ -174,6 +190,7 @@ Note: Personal skills do not include CLAUDE.md or commands. Use the plugin insta
 | Command | What it does |
 |---------|-------------|
 | `/campaign-setup` | Set up Campaign Mode in your project — install Six Animals if needed, copy guidelines, create `.campaign/` directory |
+| `/council` | Convene the Council — all six animal agents analyse your project, then Simon synthesises their findings into a consensus |
 | `/start-quest` | Begin a new quest — checks for active campaigns, then invokes Gandalf to frame the challenge |
 | `/continue-quest` | Re-enter an active campaign — detects where you left off and offers next-step options |
 | `/gandalf-agent` | Frame a quest, choose your campaign mode, and establish success criteria |
@@ -207,6 +224,7 @@ Architectural decisions are documented as ADRs using the WH(Y) format in [docs/2
 | [ADR-CM-008](docs/2_adrs/ADR-CM-008-Proactive-Elicitation.md) | Proactive Elicitation |
 | [ADR-CM-009](docs/2_adrs/ADR-CM-009-Quest-Entry-Commands.md) | Quest Entry Commands |
 | [ADR-CM-010](docs/2_adrs/ADR-CM-010-Quest-State-Tracking.md) | Quest State Tracking |
+| [ADR-CM-011](docs/2_adrs/ADR-CM-011-Council-Feature.md) | Council Feature |
 
 Supporting specifications and reference materials live alongside the ADRs in [docs/3_specs/](docs/3_specs/) and [docs/2_adrs/reference/](docs/2_adrs/reference/).
 
@@ -216,6 +234,7 @@ Supporting specifications and reference materials live alongside the ADRs in [do
 campaign-mode/
 ├── .campaign/                           # Campaign state directory
 │   ├── quest.md                         # Quest definition, criteria, progress log (created Phase 1)
+│   ├── council-report.md               # Council analysis report (created by /council)
 │   └── profiles/                        # Character profiles (.md files per animal/NPC)
 ├── .claude/
 │   └── skills/                          # Claude Code skill auto-discovery (clone path)
@@ -236,6 +255,7 @@ campaign-mode/
 │       └── SKILL.md
 ├── commands/                            # Slash commands (plugin path)
 │   ├── campaign-setup.md               # /campaign-setup command
+│   ├── council.md                      # /council command
 │   ├── start-quest.md                  # /start-quest command
 │   └── continue-quest.md              # /continue-quest command
 ├── docs/
@@ -273,7 +293,14 @@ campaign-mode/
 
 ## Roadmap
 
-### v0.1 — Current Release
+### v0.2 — Current Release
+
+- `/council` command — multi-perspective project diagnostic from all six animal agents with Simon synthesis, persistent report in `.campaign/council-report.md`
+- `/campaign-setup` now offers structured next steps (start quest, convene council, just exploring) instead of slash command references
+- `/continue-quest` detects council reports and offers reconvene option in both no-quest and mid-campaign paths
+- Quick Start guide in README
+
+### v0.1
 
 - Gandalf, Dragon, and Guardian skill definitions with mode-aware behaviour
 - Campaign mode selection: Grow, Ship, Grow & Ship
@@ -288,7 +315,7 @@ campaign-mode/
 - Quest state persistence — campaign mode, success criteria, and progress log stored in `.campaign/quest.md` for durable state across sessions
 - Speaker identification — every agent response begins with an emoji + bold name tag; profile name overrides apply when character profiles are assigned
 - User-as-protagonist framing throughout
-- Architecture Decision Records documenting key design choices (ADR-CM-001 through ADR-CM-010)
+- Architecture Decision Records documenting key design choices (ADR-CM-001 through ADR-CM-011)
 - Design specifications for each agent, lifecycle, mode profiles, context isolation, character profiles, and plugin structure
 - North-star vision document with open questions
 

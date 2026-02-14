@@ -1,7 +1,7 @@
 {
   "name": "campaign-mode",
   "description": "Quest-based extension for AI-assisted work. Three NPC agents (Gandalf, Dragon, Guardian) provide mentorship, adversarial testing, and quality gates for structured campaigns.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "Chris Barlow"
   }

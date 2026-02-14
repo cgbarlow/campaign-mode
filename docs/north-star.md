@@ -77,6 +77,7 @@ Simon remains the **educator and meta-analyst**, operating above the quest narra
 
 ## How It Works (Envisioned Flow)
 
+0. **Council (Optional)** - All six animal agents analyse the project through their archetype lenses (Bear: vision, Cat: risk, Owl: process, Puppy: opportunities, Rabbit: resources, Wolf: cohesion). Simon synthesises their findings into a consensus with prioritised next steps. Report saved to `.campaign/council-report.md`. Can be invoked before or during a quest.
 1. **Quest Definition** - You choose your campaign mode (Grow / Ship / Grow & Ship). Gandalf frames the challenge and establishes success criteria.
 2. **Character Setup** - Users optionally assign character profiles to animals (depth: flavour or modifier; theme: neutral, fantasy, or custom). Gandalf facilitates. Encouraged in Grow mode, skipped in Ship mode. Profiles stored in `.campaign/profiles/`.
 3. **Campaign Execution** - You work through the quest, invoking animal agents for their archetype strengths
@@ -103,6 +104,7 @@ Campaign Mode is delivered as a **Claude Code plugin** distributed via the marke
 - Plugin packaging for Claude Code marketplace distribution ([ADR-CM-007](2_adrs/ADR-CM-007-Plugin-Based-Distribution.md))
 - CLAUDE.md campaign guidelines loaded per session
 - `/campaign-setup` command for project onboarding
+- `/council` command — multi-perspective project diagnostic from all six animal agents with Simon synthesis
 - Quest lifecycle slash commands (e.g., `/start-campaign`, `/checkpoint`, `/confront-dragon`)
 - Integration stubs in animal agent definitions for campaign-aware behaviour
 - Simon's campaign-mode extensions (GM responsibilities, debrief protocol)
