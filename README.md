@@ -171,6 +171,8 @@ Note: Personal skills do not include CLAUDE.md or commands. Use the plugin insta
 | Command | What it does |
 |---------|-------------|
 | `/campaign-setup` | Set up Campaign Mode in your project — install Six Animals if needed, copy guidelines, create `.campaign/` directory |
+| `/start-quest` | Begin a new quest — checks for active campaigns, then invokes Gandalf to frame the challenge |
+| `/continue-quest` | Re-enter an active campaign — detects where you left off and offers next-step options |
 | `/gandalf-agent` | Frame a quest, choose your campaign mode, and establish success criteria |
 | `/dragon-agent` | Challenge your work — test whether success criteria are genuinely met |
 | `/guardian-agent` | Evaluate progress at a checkpoint — approve, block, or conditionally approve |
@@ -200,6 +202,7 @@ Architectural decisions are documented as ADRs using the WH(Y) format in [docs/2
 | [ADR-CM-006](docs/2_adrs/ADR-CM-006-Character-Generation.md) | Character Generation |
 | [ADR-CM-007](docs/2_adrs/ADR-CM-007-Plugin-Based-Distribution.md) | Plugin-Based Distribution |
 | [ADR-CM-008](docs/2_adrs/ADR-CM-008-Proactive-Elicitation.md) | Proactive Elicitation |
+| [ADR-CM-009](docs/2_adrs/ADR-CM-009-Quest-Entry-Commands.md) | Quest Entry Commands |
 
 Supporting specifications and reference materials live alongside the ADRs in [docs/3_specs/](docs/3_specs/) and [docs/2_adrs/reference/](docs/2_adrs/reference/).
 
@@ -227,7 +230,9 @@ campaign-mode/
 │   └── guardian-agent/
 │       └── SKILL.md
 ├── commands/                            # Slash commands (plugin path)
-│   └── campaign-setup.md               # /campaign-setup command
+│   ├── campaign-setup.md               # /campaign-setup command
+│   ├── start-quest.md                  # /start-quest command
+│   └── continue-quest.md              # /continue-quest command
 ├── docs/
 │   ├── north-star.md                    # Vision, architecture, and open questions
 │   ├── 1_initiation/                    # Design conversation history
@@ -274,6 +279,7 @@ campaign-mode/
 - Plugin packaging for Claude Code marketplace distribution
 - CLAUDE.md campaign guidelines loaded per session
 - `/campaign-setup` command for project onboarding
+- `/start-quest` and `/continue-quest` commands for ergonomic quest entry and mid-campaign re-entry
 - User-as-protagonist framing throughout
 - Architecture Decision Records documenting key design choices (ADR-CM-001 through ADR-CM-008)
 - Design specifications for each agent, lifecycle, mode profiles, context isolation, character profiles, and plugin structure

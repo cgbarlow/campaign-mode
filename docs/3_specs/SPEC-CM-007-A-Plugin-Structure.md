@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-007-A |
 | **Parent ADR** | [ADR-CM-007](../2_adrs/ADR-CM-007-Plugin-Based-Distribution.md) |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -49,7 +49,9 @@ campaign-mode/
 │   └── guardian-agent/
 │       └── SKILL.md
 ├── commands/                           # Plugin commands (auto-discovered)
-│   └── campaign-setup.md              # /campaign-setup slash command
+│   ├── campaign-setup.md              # /campaign-setup slash command
+│   ├── start-quest.md                 # /start-quest slash command
+│   └── continue-quest.md             # /continue-quest slash command
 ├── CLAUDE.md                           # Campaign guidelines (loaded per session)
 └── README.md
 ```
@@ -132,7 +134,7 @@ Note: Personal skills do not include CLAUDE.md or commands. Use the plugin insta
 |---------|---------------|------------|
 | Skill auto-discovery | Yes (plugin infrastructure) | Yes (.claude/skills/) |
 | CLAUDE.md per session | Yes | Yes |
-| `/campaign-setup` command | Yes | No |
+| `/campaign-setup`, `/start-quest`, `/continue-quest` commands | Yes | No |
 | Marketplace updates | Yes | Manual (git pull) |
 | Marketplace discoverability | Yes | No |
 | Contribution workflow | No (install is read-only) | Yes (full repo access) |
@@ -154,3 +156,4 @@ Note: Personal skills do not include CLAUDE.md or commands. Use the plugin insta
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
+| 1.1 | 2026-02-14 | Chris Barlow | Added `/start-quest` and `/continue-quest` commands to plugin structure and feature comparison |

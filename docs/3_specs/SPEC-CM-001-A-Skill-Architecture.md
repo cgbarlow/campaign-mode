@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-001-A |
 | **Parent ADR** | [ADR-CM-001](../adrs/ADR-CM-001-Campaign-Mode-Architecture.md) |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -40,7 +40,9 @@ campaign-mode/
 │   └── guardian-agent/
 │       └── SKILL.md
 ├── commands/                      # Slash commands (plugin path)
-│   └── campaign-setup.md
+│   ├── campaign-setup.md
+│   ├── start-quest.md
+│   └── continue-quest.md
 ├── docs/
 │   ├── 2_adrs/                    # Architecture Decision Records
 │   │   ├── reference/             # ADR framework reference docs
@@ -171,3 +173,4 @@ Campaign Mode is designed to complement [Six Animals](https://github.com/SimonMc
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
+| 1.1 | 2026-02-14 | Chris Barlow | Added `/start-quest` and `/continue-quest` commands to directory structure |

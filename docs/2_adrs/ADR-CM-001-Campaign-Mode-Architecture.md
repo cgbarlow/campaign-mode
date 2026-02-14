@@ -72,6 +72,7 @@ Campaign Mode decomposes the monolithic quest-agent into three focused NPCs whil
 | ADR-CM-006 | Character Generation | Proposed | 1 | — | Chris Barlow |
 | ADR-CM-007 | Plugin-Based Distribution | Proposed | 2 | ADR-CM-004 | Chris Barlow |
 | ADR-CM-008 | Proactive Elicitation | Proposed | 1 | — | Chris Barlow |
+| ADR-CM-009 | Quest Entry Commands | Proposed | 2 | ADR-CM-008 | Chris Barlow |
 
 ## Decision Sequencing
 

@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-001-B |
 | **Parent ADR** | [ADR-CM-001](../adrs/ADR-CM-001-Campaign-Mode-Architecture.md) |
-| **Version** | 1.3 |
+| **Version** | 1.4 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -43,7 +43,7 @@ The user is the **protagonist** throughout — the decision-maker who drives the
 | Aspect | Detail |
 |--------|--------|
 | **Primary Actor** | User + Gandalf (Mentor) |
-| **Trigger** | User invokes `/gandalf-agent` to begin a campaign |
+| **Trigger** | User invokes `/start-quest` (or `/gandalf-agent` directly) to begin a campaign |
 | **Activities** | **Campaign mode selection** (Grow / Ship / Grow & Ship); frame the quest narrative; establish success criteria; identify the anticipated dragon (internal obstacle); define what "done" looks like |
 | **Outputs** | Campaign mode selection + quest definition (narrative, success criteria, anticipated challenges) |
 | **Transition** | Quest definition complete → Phase 2 or Phase 3. Gandalf facilitates the transition through `AskUserQuestion`, offering options to begin working, review the quest summary, or consult an animal advisor. |
@@ -161,6 +161,8 @@ Every phase transition is facilitated by the active agent through `AskUserQuesti
 | **Dragon** | After Dragon Slain | Begin the debrief, Celebrate first |
 | **Dragon** | After Dragon Prevails | Return to the quest, Consult Gandalf, Request a Guardian checkpoint |
 
+**Mid-campaign re-entry:** Users returning to an active campaign after a break can invoke `/continue-quest` to detect the current campaign state and receive context-aware next-step options. This extends proactive elicitation to cover the re-entry gap between sessions. See [ADR-CM-009](../2_adrs/ADR-CM-009-Quest-Entry-Commands.md).
+
 **Flow drop rule:** Ending a phase without a next-step `AskUserQuestion` is a flow drop and a bug.
 
 ---
@@ -204,3 +206,4 @@ Quest Definition → Execution → Checkpoint → Execution → Checkpoint → D
 | 1.1 | 2026-02-14 | Chris Barlow | Added mode selection to Phase 1, mode annotations to all phases, user-as-protagonist framing |
 | 1.2 | 2026-02-14 | Chris Barlow | Replaced Phase 2 placeholder with full character generation spec, added SPEC-CM-006-A and SPEC-CM-006-B references |
 | 1.3 | 2026-02-14 | Chris Barlow | Added Phase Transition Protocol, updated all phase Transition rows with proactive elicitation via `AskUserQuestion` (ADR-CM-008) |
+| 1.4 | 2026-02-14 | Chris Barlow | Added `/start-quest` as Phase 1 entry point, added `/continue-quest` mid-campaign re-entry note (ADR-CM-009) |

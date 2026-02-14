@@ -73,7 +73,7 @@ Character profiles live in `.campaign/profiles/` as markdown files (one per anim
 |-----------|---------|
 | `skills/` | Canonical NPC skill definitions (SKILL.md files) |
 | `.claude/skills/` | Auto-discovery copies for clone-path users |
-| `commands/` | Slash commands (e.g., `/campaign-setup`) |
+| `commands/` | Slash commands (e.g., `/campaign-setup`, `/start-quest`, `/continue-quest`) |
 | `.campaign/` | Campaign state directory (created per project) |
 | `.campaign/profiles/` | Character profile files |
 

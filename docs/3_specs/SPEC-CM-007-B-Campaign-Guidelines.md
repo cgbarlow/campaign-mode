@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-007-B |
 | **Parent ADR** | [ADR-CM-007](../2_adrs/ADR-CM-007-Plugin-Based-Distribution.md) |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -68,7 +68,7 @@ allowed-tools: [Read, Write, Bash, Glob]
    - If no existing CLAUDE.md: copy directly
    - If existing CLAUDE.md: ask user to choose: append, replace, or skip
 2. **Create `.campaign/profiles/` directory** if it doesn't exist
-3. **Confirm setup** and suggest `/gandalf-agent` to begin a campaign
+3. **Confirm setup** and suggest `/start-quest` to begin a campaign
 
 ### User Interaction Flow
 
@@ -80,14 +80,14 @@ Agent: [Checks for existing CLAUDE.md]
 If no CLAUDE.md:
   → Copies guidelines to project root
   → Creates .campaign/profiles/
-  → "Campaign Mode is set up. Run /gandalf-agent to begin a quest."
+  → "Campaign Mode is set up. Run /start-quest to begin a quest."
 
 If CLAUDE.md exists:
   → "Found existing CLAUDE.md. How should I add campaign guidelines?"
   → Options: Append | Replace | Skip
   → Proceeds based on user choice
   → Creates .campaign/profiles/ if needed
-  → "Campaign Mode is set up. Run /gandalf-agent to begin a quest."
+  → "Campaign Mode is set up. Run /start-quest to begin a quest."
 ```
 
 ---
@@ -119,8 +119,22 @@ Users who copy skills to their project should also run `/campaign-setup` (plugin
 
 ---
 
+## Quest Entry Commands
+
+Two additional commands complement `/campaign-setup` for quest lifecycle management:
+
+| Command | Purpose |
+|---------|---------|
+| `/start-quest` | Begin a new quest. Checks for active campaigns, then delegates to Gandalf for Phase 1 quest framing. |
+| `/continue-quest` | Re-enter an active campaign. Reads `.campaign/quest.md` to detect campaign state, then offers context-aware next-step options via `AskUserQuestion`. |
+
+Both commands follow the proactive elicitation pattern (ADR-CM-008): natural-language options, no slash command references in user-facing text. See [ADR-CM-009](../2_adrs/ADR-CM-009-Quest-Entry-Commands.md) for the decision record.
+
+---
+
 ## Changelog
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
+| 1.1 | 2026-02-14 | Chris Barlow | Added `/start-quest` and `/continue-quest` documentation, updated `/gandalf-agent` references to `/start-quest` |

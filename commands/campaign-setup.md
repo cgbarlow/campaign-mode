@@ -104,4 +104,4 @@ Summarise what was done and tell the user:
 > - CLAUDE.md campaign guidelines: [copied/appended/skipped]
 > - `.campaign/profiles/` directory: ready for character profiles
 >
-> Run `/gandalf-agent` to begin framing a quest.
+> Run `/start-quest` to begin a quest.
