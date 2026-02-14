@@ -1,6 +1,6 @@
 # Campaign Mode
 
-A quest-based extension for the [Six Animals](https://github.com/cgbarlow/six-animals) team collaboration framework. Campaign Mode transforms the six animal archetypes from standalone advisory roles into an **active party** working together on structured quests, guided and challenged by NPC (non-player character) agents.
+A quest-based extension for the [Six Animals](https://github.com/SimonMcCallum/six-animals) team collaboration framework. Campaign Mode transforms the six animal archetypes from standalone advisory roles into an **active party** working together on structured quests, guided and challenged by NPC (non-player character) agents.
 
 Where Six Animals answers *"how should we work together?"*, Campaign Mode answers *"what are we working toward, and what stands in our way?"*
 
