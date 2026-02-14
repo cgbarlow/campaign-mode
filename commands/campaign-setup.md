@@ -95,17 +95,23 @@ Create the `.campaign/profiles/` directory in the user's project root if it does
 mkdir -p .campaign/profiles
 ```
 
-## Step 4: Confirm Setup
+## Step 4: Confirm Setup and Offer Next Steps
 
-Summarise what was done:
+This step has TWO parts that MUST both happen. Do not skip the second part.
+
+**Part A — Summarise what was done** (output as text):
 
 > Campaign Mode is set up in your project:
 > - Six Animals: [installed as plugin/cloned to project/already present/skipped]
 > - CLAUDE.md campaign guidelines: [copied/appended/skipped]
 > - `.campaign/profiles/` directory: ready for character profiles
 
-**IMPORTANT:** You MUST then use the `AskUserQuestion` tool to offer next steps. Do NOT end with a text-only message telling the user to run a slash command. Present these options:
+**Part B — Immediately call `AskUserQuestion`** to offer next steps. This is mandatory. Do NOT end your response with text instead. Do NOT write "Run /start-quest" or mention any slash command. Your response must end with this tool call, not with text.
 
-1. **Start a quest** — Begin with Gandalf to frame a challenge and establish success criteria.
-2. **Convene the council** — Have your animal advisors analyse the project first, then decide on a direction.
-3. **Just exploring** — Exit setup. You can start a quest or convene the council any time.
+Use `AskUserQuestion` with these options:
+
+| Option | Description |
+|--------|-------------|
+| **Start a quest** | Begin with Gandalf to frame a challenge and establish success criteria |
+| **Convene the council** | Have your animal advisors analyse the project first, then decide on a direction |
+| **Just exploring** | Exit setup — you can start a quest or convene the council any time |
