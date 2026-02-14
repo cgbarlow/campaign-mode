@@ -107,6 +107,18 @@ Simon remains the educator and meta-analyst from Six Animals, with extended resp
 
 ## Installation
 
+### Install Claude Code
+
+Campaign Mode runs on [Claude Code](https://code.claude.com/docs/en/quickstart). On macOS, Linux, or WSL:
+
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+See the [quickstart guide](https://code.claude.com/docs/en/quickstart) for full instructions and other platforms.
+
+### Install Campaign Mode
+
 **Option 1: Plugin install (recommended)**
 
 Add the Campaign Mode marketplace and install:
