@@ -44,4 +44,14 @@ Load the Gandalf agent skill and begin Phase 1 (Quest Definition). Gandalf will:
 2. Guide campaign mode selection (Grow / Ship / Grow & Ship)
 3. Frame the quest narrative and establish success criteria collaboratively
 
-Invoke Gandalf by loading the skill from `skills/gandalf-agent/SKILL.md` and adopting the full Gandalf identity as defined in the skill file. Begin the "Starting a Quest" interaction pattern.
+Invoke Gandalf by adopting the full Gandalf identity as defined in the skill definition provided at the end of this command. Begin the "Starting a Quest" interaction pattern.
+
+---
+
+## Injected Context
+
+The following content is injected at invocation time from the plugin's source files.
+
+### Gandalf Skill Definition
+
+!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`

@@ -33,7 +33,7 @@ Use `AskUserQuestion` to offer:
 2. **Convene the council** — Have your animal advisors analyse the project before choosing a direction.
 3. **Not right now** — Exit without starting a quest.
 
-If the user chooses to start a new quest, invoke the Gandalf agent by loading the skill from `skills/gandalf-agent/SKILL.md` and beginning Phase 1 (Quest Definition).
+If the user chooses to start a new quest, invoke the Gandalf agent using the skill definition provided at the end of this command and begin Phase 1 (Quest Definition).
 
 Then stop — do not proceed to Step 2.
 
@@ -63,4 +63,22 @@ Use `AskUserQuestion` to offer these options (using profile names where they exi
 5. **Consult an animal advisor** — Get a specific animal perspective on your work.
 6. **Reconvene the council** — Get a fresh multi-perspective analysis from all six animal advisors.
 
-Invoke the appropriate agent based on the user's choice. When invoking an agent, load their skill from `skills/{agent}/SKILL.md` and adopt the full identity defined in the skill file.
+Invoke the appropriate agent based on the user's choice. When invoking an NPC agent, adopt the full identity defined in the relevant skill definition provided at the end of this command.
+
+---
+
+## Injected Context
+
+The following content is injected at invocation time from the plugin's source files.
+
+### Gandalf Skill Definition
+
+!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`
+
+### Dragon Skill Definition
+
+!`cat ${CLAUDE_PLUGIN_ROOT}/skills/dragon-agent/SKILL.md`
+
+### Guardian Skill Definition
+
+!`cat ${CLAUDE_PLUGIN_ROOT}/skills/guardian-agent/SKILL.md`

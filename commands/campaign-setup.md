@@ -76,7 +76,7 @@ Proceed based on the user's choice.
 Check if a CLAUDE.md file exists in the user's project root.
 
 **If no CLAUDE.md exists:**
-- Read the Campaign Mode CLAUDE.md from this plugin's root directory
+- Use the Campaign Mode CLAUDE.md content provided at the end of this command
 - Write it to the user's project root as CLAUDE.md
 
 **If CLAUDE.md already exists:**
@@ -115,3 +115,13 @@ Use `AskUserQuestion` with these options:
 | **Start a quest** | Begin with Gandalf to frame a challenge and establish success criteria |
 | **Convene the council** | Have your animal advisors analyse the project first, then decide on a direction |
 | **Just exploring** | Exit setup — you can start a quest or convene the council any time |
+
+---
+
+## Injected Context
+
+The following content is injected at invocation time from the plugin's source files.
+
+### Campaign Mode CLAUDE.md
+
+!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`
