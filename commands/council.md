@@ -196,3 +196,7 @@ The following content is injected at invocation time from the plugin's source fi
 ### Gandalf Skill Definition
 
 !`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`
+
+### Animal Campaign Extensions
+
+!`cat ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`

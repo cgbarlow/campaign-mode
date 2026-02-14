@@ -33,7 +33,7 @@ If the user chooses to continue the existing quest, present mid-campaign options
 Then invoke the appropriate agent based on the user's choice:
 
 - **NPC agents** (Gandalf, Dragon, Guardian) — adopt the full identity defined in the relevant skill definition provided at the end of this command.
-- **Animal agents** (Bear, Cat, Owl, Puppy, Rabbit, Wolf) — invoke via the Skill tool using their skill name (e.g., `bear-agent`, `cat-agent`). Do NOT attempt to read skill files from the filesystem.
+- **Animal agents** (Bear, Cat, Owl, Puppy, Rabbit, Wolf) — invoke via the Skill tool using their skill name (e.g., `bear-agent`, `cat-agent`). Do NOT attempt to read skill files from the filesystem. When in Phase 3 or later, include the Animal Campaign Extensions context in your invocation message so the animal agent is quest-aware.
 
 **If `.campaign/quest.md` does not exist:**
 
@@ -62,3 +62,7 @@ The following content is injected at invocation time from the plugin's source fi
 ### Gandalf Skill Definition
 
 !`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`
+
+### Animal Campaign Extensions
+
+!`cat ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`
