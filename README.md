@@ -126,6 +126,17 @@ Campaign state is persisted in `.campaign/quest.md` — so you can leave and ret
 
 At every phase transition, the active agent offers you structured next-step options — you never need to remember slash commands to keep the campaign moving.
 
+## Examples
+
+| Example | Description |
+|---------|-------------|
+| [Council Report](docs/4_examples/council-report.md) | Multi-perspective project diagnostic from all six animal agents with Simon synthesis |
+| [Bear — The Paladin](docs/4_examples/profiles/bear-paladin.md) | Flavour-depth fantasy profile for Bear |
+| [Cat — The Rogue](docs/4_examples/profiles/cat-rogue.md) | Modifier-depth fantasy profile for Cat (includes behavioural modifiers) |
+| [Wolf — The Warden](docs/4_examples/profiles/wolf-warden.md) | Flavour-depth fantasy profile for Wolf |
+
+See [SPEC-CM-006-A](docs/3_specs/SPEC-CM-006-A-Character-Profile-Format.md) for the character profile format specification.
+
 ## Installation
 
 ### Install Claude Code
@@ -351,17 +362,6 @@ Six Animals works without Campaign Mode. Campaign Mode's NPC agents can be invok
 |---------|-------|--------|
 | [Six Animals](https://github.com/SimonMcCallum/six-animals) | Team roles and collaboration dynamics | Bear, Cat, Owl, Puppy, Rabbit, Wolf + Simon |
 | Campaign Mode | Quest structure, mentorship, and adversarial challenge | Gandalf, Dragon, Guardian |
-
-## Examples
-
-| Example | Description |
-|---------|-------------|
-| [Council Report](docs/4_examples/council-report.md) | Multi-perspective project diagnostic from all six animal agents with Simon synthesis |
-| [Bear — The Paladin](docs/4_examples/profiles/bear-paladin.md) | Flavour-depth fantasy profile for Bear |
-| [Cat — The Rogue](docs/4_examples/profiles/cat-rogue.md) | Modifier-depth fantasy profile for Cat (includes behavioural modifiers) |
-| [Wolf — The Warden](docs/4_examples/profiles/wolf-warden.md) | Flavour-depth fantasy profile for Wolf |
-
-See [SPEC-CM-006-A](docs/3_specs/SPEC-CM-006-A-Character-Profile-Format.md) for the character profile format specification.
 
 ## Contributing
 
