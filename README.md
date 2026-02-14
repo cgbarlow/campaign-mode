@@ -123,8 +123,13 @@ See the [quickstart guide](https://code.claude.com/docs/en/quickstart) for full 
 
 Start Claude Code (`claude` in your terminal), then run these commands inside the session:
 
+Add the Campaign Mode marketplace:
 ```
 /plugin marketplace add cgbarlow/campaign-mode
+```
+
+Install the plugin:
+```
 /plugin install campaign-mode@campaign-mode-marketplace
 ```
 
