@@ -5,7 +5,7 @@
 | **Roadmap ID** | ROADMAP-CM-002 |
 | **Version** | 0.2.7 |
 | **Parent ADR** | [ADR-CM-014](../2_adrs/ADR-CM-014-Animal-Campaign-Extensions.md) |
-| **Status** | In Progress |
+| **Status** | Complete |
 | **Date** | 2026-02-14 |
 
 ---
@@ -36,27 +36,27 @@ CLAUDE.md requires all agents to track campaign progress during Phase 3+, but an
 - [x] Create `docs/5_roadmap/ROADMAP-CM-002-Animal-Campaign-Extensions.md` (this file)
 - [x] Bump `plugin.json` to v0.2.7
 - [x] Update README with v0.2.7 roadmap section, ADR-CM-014, project structure
-- [ ] Create commits per commit strategy
-- [ ] Merge to main, tag v0.2.7, create GitHub release
+- [x] Create commits per commit strategy
+- [x] Merge to main, tag v0.2.7, create GitHub release
 
 ### Six Animals Repo (Cross-Project)
 
 - [x] Add Context Extensions stub to all 7 canonical SKILL.md files
 - [x] Mirror to all 7 clone-path SKILL.md files
-- [ ] Create commits per commit strategy
-- [ ] Merge to main in six-animals repo
+- [x] Create commits per commit strategy
+- [x] Merge to main in six-animals repo
 
 ## Verification Checklist
 
-- [ ] Gandalf SKILL.md Section 4 has Phase 3 progress tracking with Read/Write tool instructions
-- [ ] Both Gandalf SKILL.md copies (canonical + clone-path) are identical
-- [ ] `extensions/animal-campaign-context.md` exists with progress tracking mechanics
-- [ ] Extension injection appears in continue-quest, council, and start-quest Injected Context sections
-- [ ] Animal invocation instructions in continue-quest and start-quest reference extensions
-- [ ] ADR-CM-014 follows WH(Y) format, documents cross-project dependency
-- [ ] SPEC-CM-008-A includes context window impact, stub text, maintenance checklist
-- [ ] ROADMAP-CM-002 lists all work items and verification checks
-- [ ] plugin.json bumped to v0.2.7
-- [ ] README has v0.2.7 roadmap entry, ADR-CM-014 in ADR table, `extensions/` in project structure
-- [ ] All 7 six-animals SKILL.md files have identical Context Extensions section at end
-- [ ] Context Extensions stub is generic (no campaign-mode references)
+- [x] Gandalf SKILL.md Section 4 has Phase 3 progress tracking with Read/Write tool instructions
+- [x] Both Gandalf SKILL.md copies (canonical + clone-path) are identical
+- [x] `extensions/animal-campaign-context.md` exists with progress tracking mechanics
+- [x] Extension injection appears in continue-quest, council, and start-quest Injected Context sections
+- [x] Animal invocation instructions in continue-quest and start-quest reference extensions
+- [x] ADR-CM-014 follows WH(Y) format, documents cross-project dependency
+- [x] SPEC-CM-008-A includes context window impact, stub text, maintenance checklist
+- [x] ROADMAP-CM-002 lists all work items and verification checks
+- [x] plugin.json bumped to v0.2.7
+- [x] README has v0.2.7 roadmap entry, ADR-CM-014 in ADR table, `extensions/` in project structure
+- [x] All 7 six-animals SKILL.md files have identical Context Extensions section at end
+- [x] Context Extensions stub is generic (no campaign-mode references)

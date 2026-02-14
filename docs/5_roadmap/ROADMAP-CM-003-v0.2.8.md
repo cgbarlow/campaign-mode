@@ -5,7 +5,7 @@
 | **Roadmap ID** | ROADMAP-CM-003 |
 | **Version** | 0.2.8 |
 | **Parent ADR** | [ADR-CM-015](../2_adrs/ADR-CM-015-Plugin-Injection-Sandbox-Fix.md) |
-| **Status** | In Progress |
+| **Status** | Complete |
 | **Date** | 2026-02-14 |
 
 ---
@@ -52,16 +52,16 @@ Additionally, six-animals agents need an `AskUserQuestion` interaction pattern f
 - [x] Create ROADMAP-CM-003 (this file)
 - [x] Bump plugin.json to v0.2.8
 - [x] Update README with v0.2.8 roadmap section and ADR-CM-015 in ADR table
-- [ ] Create commits per commit strategy
-- [ ] Merge to main, tag v0.2.8
+- [x] Create commits per commit strategy
+- [x] Merge to main, tag v0.2.8
 
 ### Six Animals Repo (Cross-Project)
 
 - [x] Add Interaction Mechanics section to all 7 canonical SKILL.md files
 - [x] Mirror to all 7 clone-path SKILL.md files
 - [x] Bump plugin.json to v0.1.2
-- [ ] Create commits per commit strategy
-- [ ] Merge to main in six-animals repo
+- [x] Create commits per commit strategy
+- [x] Merge to main in six-animals repo
 
 ## Verification Checklist
 
