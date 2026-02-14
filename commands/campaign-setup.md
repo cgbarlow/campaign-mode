@@ -11,16 +11,27 @@ You are setting up Campaign Mode in the user's project. Follow these steps in or
 
 Campaign Mode is designed to work with [Six Animals](https://github.com/cgbarlow/simons-six-animals). Check if Six Animals skills are available.
 
-**Check for Six Animals skills** by looking for any of these:
-- `.claude/skills/bear-agent/SKILL.md` in the user's project
-- `~/.claude/skills/bear-agent/SKILL.md` (personal skills)
-- Check if the `six-animals` plugin is installed by running: `ls ~/.claude/plugins/*/skills/bear-agent/SKILL.md 2>/dev/null`
+**Check for Six Animals skills** by running ALL of the following checks. If ANY check succeeds, Six Animals is present:
 
-**If Six Animals skills ARE found:**
+```bash
+# Check 1: Plugin installed (check settings files for "six-animals" in enabledPlugins)
+grep -l "six-animals" ~/.claude/settings.json .claude/settings.json .claude/settings.local.json 2>/dev/null
 
-Tell the user: "Six Animals skills detected." and continue to Step 2.
+# Check 2: Skills in project
+ls .claude/skills/bear-agent/SKILL.md 2>/dev/null
 
-**If Six Animals skills are NOT found anywhere:**
+# Check 3: Personal skills
+ls ~/.claude/skills/bear-agent/SKILL.md 2>/dev/null
+
+# Check 4: Plugin cache (search recursively for bear-agent SKILL.md under plugins directory)
+find ~/.claude/plugins -name "SKILL.md" -path "*/bear-agent/*" 2>/dev/null
+```
+
+**If ANY check finds Six Animals:**
+
+Tell the user: "Six Animals detected." and continue to Step 2.
+
+**If NO check finds Six Animals:**
 
 Tell the user:
 
@@ -33,7 +44,7 @@ Offer these options:
    ```
    /plugin install six-animals@campaign-mode-marketplace
    ```
-   Then restart Claude Code and re-run `/campaign-setup` to continue.
+   Then restart Claude Code and re-run `/campaign-mode:campaign-setup` to continue.
 
 2. **Clone to project** — You will run:
    ```bash
