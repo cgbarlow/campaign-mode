@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-007-C |
 | **Parent ADR** | [ADR-CM-012](../2_adrs/ADR-CM-012-Plugin-Desktop-Compatibility.md) |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -35,41 +35,53 @@ These paths resolve against the user's project directory, not the plugin cache. 
 
 ### Injection Syntax
 
-Claude Code supports injecting external content into command prompts at invocation time:
+Claude Code supports injecting shell command output into command prompts at invocation time:
 
 ```
 !`shell-command`
 ```
 
-The shell command is executed when the command is invoked, and its output replaces the directive in the prompt. Combined with `${CLAUDE_PLUGIN_ROOT}`:
+The shell command is executed when the command is invoked, and its output replaces the directive in the prompt.
 
-```
-!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`
-```
+### Two-Phase Injection Pattern (v1.2)
 
-This injects the full skill definition into the command prompt, eliminating the need for the agent to locate and read the file at runtime.
+The original approach used `!`cat`` to inject file contents directly. However, Claude Code's sandbox blocks `cat` from reading files outside the working directory, causing silent failures for plugin installations (see [ADR-CM-015](../2_adrs/ADR-CM-015-Plugin-Injection-Sandbox-Fix.md)).
 
-### Injection Pattern
+The current approach uses a two-phase pattern:
 
-Each command file appends injection blocks at the end of the file, after all behavioural instructions. The command text references these injected definitions rather than file paths.
+1. **Phase 1 (invocation time):** `!`echo`` injects the resolved absolute file path
+2. **Phase 2 (runtime):** The agent uses the Read tool to load file contents from the resolved path
 
 ```markdown
 # Command Title
 
-[Command instructions reference "the skill definition provided below"
-rather than file paths]
+[Command instructions reference "the skill definition loaded from
+the Injected Context paths below" rather than file paths]
 
 ---
 
 ## Injected Context
 
-The following content is injected at invocation time and should not be
-modified directly. Edit the source files instead.
+The following files contain essential context for this command. Their absolute
+paths are resolved below. **Before proceeding with Step 1, use the Read tool
+to load every file listed in this section.** Read them in parallel if possible.
+Do not skip any.
 
-### Gandalf Skill Definition
+If any path below is empty or shows an error, the plugin root could not be
+resolved. Fall back to the Campaign Conventions already embedded in NPC skill
+definitions. Inform the user that full context loading failed and suggest
+running `/campaign-setup` to copy guidelines to the project root.
 
-!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`
+- Gandalf Skill Definition: !`echo ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`
 ```
+
+### Fallback Behaviour
+
+If path resolution fails (empty output or error), the agent should:
+
+1. Fall back to Campaign Conventions embedded in NPC SKILL.md files (added in SPEC-CM-007-D)
+2. Inform the user that full context loading failed
+3. Suggest running `/campaign-setup` to copy guidelines to the project root
 
 ---
 
@@ -79,38 +91,41 @@ modified directly. Edit the source files instead.
 
 | What | Injection |
 |------|-----------|
-| CLAUDE.md | `!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` |
-| Gandalf skill | `!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`` |
+| CLAUDE.md | `!`echo ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` |
+| Gandalf skill | `!`echo ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`` |
+| Animal extensions | `!`echo ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`` |
 
-**Command text change:** Step 2 references "the Gandalf skill definition provided at the end of this command" instead of a file path. CLAUDE.md injected for campaign conventions (v0.2.6).
+**Command text change:** References updated to "loaded from the Injected Context paths below". CLAUDE.md injected for campaign conventions (v0.2.6). Animal extensions injected (v0.2.7).
 
 ### `continue-quest.md`
 
 | What | Injection |
 |------|-----------|
-| CLAUDE.md | `!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` |
-| Gandalf skill | `!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`` |
-| Dragon skill | `!`cat ${CLAUDE_PLUGIN_ROOT}/skills/dragon-agent/SKILL.md`` |
-| Guardian skill | `!`cat ${CLAUDE_PLUGIN_ROOT}/skills/guardian-agent/SKILL.md`` |
+| CLAUDE.md | `!`echo ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` |
+| Gandalf skill | `!`echo ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`` |
+| Dragon skill | `!`echo ${CLAUDE_PLUGIN_ROOT}/skills/dragon-agent/SKILL.md`` |
+| Guardian skill | `!`echo ${CLAUDE_PLUGIN_ROOT}/skills/guardian-agent/SKILL.md`` |
+| Animal extensions | `!`echo ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`` |
 
-**Command text change:** All path references replaced with "the skill definitions provided at the end of this command". All three NPC skills are injected because the user's choice at runtime determines which agent is invoked. CLAUDE.md injected for campaign conventions (v0.2.6).
+**Command text change:** All path references replaced with "loaded from the Injected Context paths below". All three NPC skills injected because the user's choice at runtime determines which agent is invoked. CLAUDE.md injected (v0.2.6). Animal extensions injected (v0.2.7).
 
 ### `council.md`
 
 | What | Injection |
 |------|-----------|
-| CLAUDE.md | `!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` |
-| Gandalf skill | `!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`` |
+| CLAUDE.md | `!`echo ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` |
+| Gandalf skill | `!`echo ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`` |
+| Animal extensions | `!`echo ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`` |
 
-**Command text change:** Step 7 transition references "the Gandalf skill definition provided at the end of this command" instead of a file path. CLAUDE.md injected for campaign conventions (v0.2.6).
+**Command text change:** Step 7 transition references "loaded from the Injected Context paths below". CLAUDE.md injected (v0.2.6). Animal extensions injected (v0.2.7).
 
 ### `campaign-setup.md`
 
 | What | Injection |
 |------|-----------|
-| CLAUDE.md | `!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` |
+| CLAUDE.md | `!`echo ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` |
 
-**Command text change:** Step 2 references "the Campaign Mode CLAUDE.md content provided at the end of this command" instead of "this plugin's root directory".
+**Command text change:** Step 2 references "loaded from the Injected Context path below" instead of "provided at the end of this command".
 
 ---
 
@@ -164,3 +179,4 @@ No changes are made to `.claude/skills/`, `skills/`, or CLAUDE.md files.
 |---------|------|--------|---------|
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
 | 1.1 | 2026-02-14 | Chris Barlow | Added CLAUDE.md as injection point for start-quest, continue-quest, council. Updated context window impact table. Added SPEC-CM-007-D reference. |
+| 1.2 | 2026-02-14 | Chris Barlow | Replaced `!cat` with `!echo` + Read tool two-phase pattern (ADR-CM-015). Updated all injection point tables. Added fallback section. Updated injection points to include animal extensions. |

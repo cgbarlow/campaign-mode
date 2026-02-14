@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-007-D |
 | **Parent ADR** | [ADR-CM-013](../2_adrs/ADR-CM-013-Plugin-Guidelines-Parity.md) |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -33,7 +33,7 @@ Plugin users who invoke agents without setup operate without these conventions. 
 
 ### Path 1: Command Injection
 
-Add `!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` to the Injected Context section of each command file, following the pattern established in SPEC-CM-007-C.
+Add `!`echo ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` to the Injected Context section of each command file, following the two-phase pattern established in SPEC-CM-007-C v1.2.
 
 #### Injection Points
 
@@ -149,3 +149,4 @@ When CLAUDE.md conventions change, the condensed SKILL.md subset should be revie
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
+| 1.1 | 2026-02-14 | Chris Barlow | Updated injection syntax from `!cat` to `!echo` per ADR-CM-015 two-phase pattern |
