@@ -64,7 +64,9 @@ Implement NPCs as SKILL.md files following the Claude Code skill format:
 
 Implement NPCs as Claude plugins with dedicated API endpoints and session management.
 
-**Why rejected:** The Claude plugin ecosystem is immature. Developing plugins requires significantly more infrastructure than skills. The overhead is not justified for v1, where the NPC agents are instruction-based and don't require custom API endpoints. This may be appropriate for future evolution, particularly for hard context isolation.
+**Why rejected:** The Claude plugin ecosystem was immature at the time of this decision. Developing plugins required significantly more infrastructure than skills. The overhead was not justified for v1, where the NPC agents are instruction-based and don't require custom API endpoints.
+
+> **Update (ADR-CM-007):** The plugin ecosystem has since matured. [ADR-CM-007](ADR-CM-007-Plugin-Based-Distribution.md) extends this decision by adding plugin-based distribution as the primary installation path, while retaining skills as the implementation format. Skills remain the authoring unit; the plugin is a distribution wrapper.
 
 ### Option 3: MCP Servers (Rejected)
 
@@ -99,7 +101,7 @@ Campaign Mode skills follow these conventions (detailed in SPEC-CM-004-A):
 
 | Spec ID | Title | Description |
 |---------|-------|-------------|
-| [SPEC-CM-004-A](../specs/SPEC-CM-004-A-Skill-File-Structure.md) | Skill File Structure and Conventions | YAML frontmatter requirements, naming, progressive disclosure, compatibility with Six Animals |
+| [SPEC-CM-004-A](../3_specs/SPEC-CM-004-A-Skill-File-Structure.md) | Skill File Structure and Conventions | YAML frontmatter requirements, naming, progressive disclosure, compatibility with Six Animals |
 
 ---
 
@@ -110,6 +112,7 @@ Campaign Mode skills follow these conventions (detailed in SPEC-CM-004-A):
 | Part Of | ADR-CM-001 | Campaign Mode Architecture | Parent initiative |
 | Relates To | ADR-CM-002 | Quest Agent Decomposition | Skills are the delivery mechanism for the three NPCs |
 | Relates To | ADR-CM-003 | NPC Context Isolation | Skills enforce isolation through instructions |
+| Extended By | ADR-CM-007 | Plugin-Based Distribution | Plugin adds distribution layer around skills |
 
 ---
 

@@ -54,7 +54,7 @@ Before the quest begins, you choose how you want to approach the campaign:
 | **Ship** | Get work done | "What will you deliver? What does done look like?" |
 | **Grow & Ship** (Default) | Both | "What will you learn AND deliver?" |
 
-Your mode tunes how every NPC behaves — from how Gandalf frames the quest, to what the Dragon evaluates, to how fast the Guardian lets you progress. See [ADR-CM-005](docs/adrs/ADR-CM-005-Campaign-Mode-Selection.md) for the full decision record.
+Your mode tunes how every NPC behaves — from how Gandalf frames the quest, to what the Dragon evaluates, to how fast the Guardian lets you progress. See [ADR-CM-005](docs/2_adrs/ADR-CM-005-Campaign-Mode-Selection.md) for the full decision record.
 
 ### Your Advisory Council (Six Animals)
 
@@ -107,34 +107,45 @@ Simon remains the educator and meta-analyst from Six Animals, with extended resp
 
 ## Installation
 
-**Option 1: Clone the repo (project-level skills)**
+**Option 1: Plugin install (recommended)**
+
+Install from the Claude Code marketplace:
+
+```
+/install campaign-mode
+```
+
+Then run `/campaign-setup` in your project to copy campaign guidelines and create the `.campaign/` directory.
+
+**Option 2: Clone the repo (for contributors)**
 
 ```bash
 git clone https://github.com/cgbarlow/campaign-mode.git
 cd campaign-mode
-# Skills are available as /gandalf-agent, /dragon-agent, /guardian-agent
+# Skills auto-discovered via .claude/skills/
+# CLAUDE.md guidelines loaded per session
 ```
 
-**Option 2: Copy to your project**
+**Option 3: Copy to your project**
 
 ```bash
-# Copy the .claude/skills/ directory to your project
 cp -r campaign-mode/.claude/skills/ your-project/.claude/skills/
+cp campaign-mode/CLAUDE.md your-project/CLAUDE.md
 ```
 
-**Option 3: Personal skills (all projects)**
+**Option 4: Personal skills (all projects)**
 
 ```bash
-# Copy to your personal skills directory
 cp -r campaign-mode/.claude/skills/ ~/.claude/skills/
 ```
 
-Claude Code auto-discovers `SKILL.md` files in `.claude/skills/` directories. Once copied, the NPC commands are available in any Claude Code session within that project (Options 1-2) or globally (Option 3).
+Note: Personal skills do not include CLAUDE.md or commands. Use the plugin install for the full experience.
 
 ## Available Commands
 
 | Command | What it does |
 |---------|-------------|
+| `/campaign-setup` | Set up Campaign Mode in your project — copy guidelines and create `.campaign/` directory |
 | `/gandalf-agent` | Frame a quest, choose your campaign mode, and establish success criteria |
 | `/dragon-agent` | Challenge your work — test whether success criteria are genuinely met |
 | `/guardian-agent` | Evaluate progress at a checkpoint — approve, block, or conditionally approve |
@@ -151,18 +162,19 @@ These work alongside the existing Six Animals commands (`/bear-agent`, `/cat-age
 
 ## Architecture Decisions
 
-Architectural decisions are documented as ADRs using the WH(Y) format in [docs/adrs/](docs/adrs/). Each ADR captures the context, decision, and reasoning behind key design choices.
+Architectural decisions are documented as ADRs using the WH(Y) format in [docs/2_adrs/](docs/2_adrs/). Each ADR captures the context, decision, and reasoning behind key design choices.
 
 | ADR | Title |
 |-----|-------|
-| [ADR-CM-001](docs/adrs/ADR-CM-001-Campaign-Mode-Architecture.md) | Campaign Mode Architecture |
-| [ADR-CM-002](docs/adrs/ADR-CM-002-Quest-Agent-Decomposition.md) | Quest Agent Decomposition |
-| [ADR-CM-003](docs/adrs/ADR-CM-003-NPC-Context-Isolation.md) | NPC Context Isolation |
-| [ADR-CM-004](docs/adrs/ADR-CM-004-Skill-Based-Implementation.md) | Skill-Based Implementation |
-| [ADR-CM-005](docs/adrs/ADR-CM-005-Campaign-Mode-Selection.md) | Campaign Mode Selection |
-| [ADR-CM-006](docs/adrs/ADR-CM-006-Character-Generation.md) | Character Generation |
+| [ADR-CM-001](docs/2_adrs/ADR-CM-001-Campaign-Mode-Architecture.md) | Campaign Mode Architecture |
+| [ADR-CM-002](docs/2_adrs/ADR-CM-002-Quest-Agent-Decomposition.md) | Quest Agent Decomposition |
+| [ADR-CM-003](docs/2_adrs/ADR-CM-003-NPC-Context-Isolation.md) | NPC Context Isolation |
+| [ADR-CM-004](docs/2_adrs/ADR-CM-004-Skill-Based-Implementation.md) | Skill-Based Implementation |
+| [ADR-CM-005](docs/2_adrs/ADR-CM-005-Campaign-Mode-Selection.md) | Campaign Mode Selection |
+| [ADR-CM-006](docs/2_adrs/ADR-CM-006-Character-Generation.md) | Character Generation |
+| [ADR-CM-007](docs/2_adrs/ADR-CM-007-Plugin-Based-Distribution.md) | Plugin-Based Distribution |
 
-Supporting specifications and reference materials live alongside the ADRs in [docs/specs/](docs/specs/) and [docs/adrs/reference/](docs/adrs/reference/).
+Supporting specifications and reference materials live alongside the ADRs in [docs/3_specs/](docs/3_specs/) and [docs/2_adrs/reference/](docs/2_adrs/reference/).
 
 ## Project Structure
 
@@ -171,13 +183,15 @@ campaign-mode/
 ├── .campaign/                           # Campaign state directory (created during Phase 2)
 │   └── profiles/                        # Character profiles (.md files per animal/NPC)
 ├── .claude/
-│   └── skills/                          # Claude Code skill auto-discovery directory
+│   └── skills/                          # Claude Code skill auto-discovery (clone path)
 │       ├── gandalf-agent/
 │       │   └── SKILL.md
 │       ├── dragon-agent/
 │       │   └── SKILL.md
 │       └── guardian-agent/
 │           └── SKILL.md
+├── .claude-plugin/
+│   └── plugin.json                      # Plugin manifest (plugin path)
 ├── skills/                              # Canonical skill definitions
 │   ├── gandalf-agent/
 │   │   └── SKILL.md
@@ -185,28 +199,24 @@ campaign-mode/
 │   │   └── SKILL.md
 │   └── guardian-agent/
 │       └── SKILL.md
+├── commands/                            # Slash commands (plugin path)
+│   └── campaign-setup.md               # /campaign-setup command
 ├── docs/
 │   ├── north-star.md                    # Vision, architecture, and open questions
-│   ├── initiation/                      # Design conversation history
+│   ├── 1_initiation/                    # Design conversation history
 │   │   └── initial-thinking-on-campaign-mode.txt
-│   ├── reference/
+│   ├── 0_reference/
 │   │   └── The-Complete-Guide-to-Building-Skill-for-Claude.pdf
-│   ├── adrs/                            # Architecture Decision Records
+│   ├── 2_adrs/                          # Architecture Decision Records
 │   │   ├── ADR-CM-001-Campaign-Mode-Architecture.md
 │   │   ├── ADR-CM-002-Quest-Agent-Decomposition.md
 │   │   ├── ADR-CM-003-NPC-Context-Isolation.md
 │   │   ├── ADR-CM-004-Skill-Based-Implementation.md
 │   │   ├── ADR-CM-005-Campaign-Mode-Selection.md
 │   │   ├── ADR-CM-006-Character-Generation.md
+│   │   ├── ADR-CM-007-Plugin-Based-Distribution.md
 │   │   └── reference/                   # ADR format specifications and references
-│   │       ├── ADR-FORMAT.md
-│   │       ├── Recording_Architecture_Decisions.md
-│   │       ├── SPEC-ADR-A-WHY-Format.md
-│   │       ├── SPEC-ADR-B-Minimalism.md
-│   │       ├── SPEC-ADR-C-Dependencies.md
-│   │       ├── SPEC-ADR-D-Master-ADRs.md
-│   │       └── SPEC-ADR-E-Definition-of-Done.md
-│   └── specs/                           # Design specifications
+│   └── 3_specs/                         # Design specifications
 │       ├── SPEC-CM-001-A-Skill-Architecture.md
 │       ├── SPEC-CM-001-B-Campaign-Lifecycle.md
 │       ├── SPEC-CM-002-A-Gandalf-Agent.md
@@ -216,7 +226,10 @@ campaign-mode/
 │       ├── SPEC-CM-004-A-Skill-File-Structure.md
 │       ├── SPEC-CM-005-A-Campaign-Mode-Profiles.md
 │       ├── SPEC-CM-006-A-Character-Profile-Format.md
-│       └── SPEC-CM-006-B-Campaign-State-Directory.md
+│       ├── SPEC-CM-006-B-Campaign-State-Directory.md
+│       ├── SPEC-CM-007-A-Plugin-Structure.md
+│       └── SPEC-CM-007-B-Campaign-Guidelines.md
+├── CLAUDE.md                            # Campaign guidelines (loaded per session)
 └── README.md
 ```
 
@@ -227,9 +240,12 @@ campaign-mode/
 - Gandalf, Dragon, and Guardian skill definitions with mode-aware behaviour (complete)
 - Campaign mode selection: Grow, Ship, Grow & Ship (complete)
 - Character generation system — two-depth profiles (flavour + behavioural modifiers), theme-agnostic, user-assigned, stored in `.campaign/profiles/` (complete)
+- Plugin packaging for Claude Code marketplace distribution (complete)
+- CLAUDE.md campaign guidelines loaded per session (complete)
+- `/campaign-setup` command for project onboarding (complete)
 - User-as-protagonist framing throughout (complete)
 - Architecture Decision Records documenting key design choices (complete)
-- Design specifications for each agent, lifecycle, mode profiles, context isolation, and character profiles (complete)
+- Design specifications for each agent, lifecycle, mode profiles, context isolation, character profiles, and plugin structure (complete)
 - North-star vision document with open questions (complete)
 
 ### Future

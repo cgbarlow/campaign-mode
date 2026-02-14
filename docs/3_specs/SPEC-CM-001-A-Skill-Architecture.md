@@ -23,13 +23,15 @@ Campaign Mode uses a dual-location convention for skill files:
 ```
 campaign-mode/
 ├── .claude/
-│   └── skills/                    # Auto-discovery directory (Claude Code)
+│   └── skills/                    # Auto-discovery directory (clone path)
 │       ├── gandalf-agent/
 │       │   └── SKILL.md
 │       ├── dragon-agent/
 │       │   └── SKILL.md
 │       └── guardian-agent/
 │           └── SKILL.md
+├── .claude-plugin/
+│   └── plugin.json                # Plugin manifest (plugin path)
 ├── skills/                        # Canonical skill definitions
 │   ├── gandalf-agent/
 │   │   └── SKILL.md
@@ -37,19 +39,18 @@ campaign-mode/
 │   │   └── SKILL.md
 │   └── guardian-agent/
 │       └── SKILL.md
+├── commands/                      # Slash commands (plugin path)
+│   └── campaign-setup.md
 ├── docs/
-│   ├── adrs/                      # Architecture Decision Records
+│   ├── 2_adrs/                    # Architecture Decision Records
 │   │   ├── reference/             # ADR framework reference docs
 │   │   ├── ADR-CM-001-*.md
-│   │   ├── ADR-CM-002-*.md
-│   │   ├── ADR-CM-003-*.md
-│   │   └── ADR-CM-004-*.md
-│   ├── specs/                     # Detailed specifications
+│   │   └── ...
+│   ├── 3_specs/                   # Detailed specifications
 │   │   ├── SPEC-CM-001-*.md
-│   │   ├── SPEC-CM-002-*.md
-│   │   ├── SPEC-CM-003-*.md
-│   │   └── SPEC-CM-004-*.md
+│   │   └── ...
 │   └── north-star.md              # Vision document
+├── CLAUDE.md                      # Campaign guidelines (loaded per session)
 └── README.md
 ```
 
@@ -109,7 +110,17 @@ Every NPC skill must include:
 
 ## Installation Methods
 
-### Method 1: Clone Repository (Project-Level)
+### Method 1: Plugin Install (Primary)
+
+Install from the Claude Code marketplace:
+
+```
+/install campaign-mode
+```
+
+Skills are auto-discovered by the plugin infrastructure. CLAUDE.md guidelines are loaded per session. Run `/campaign-setup` to copy guidelines to your project. See [SPEC-CM-007-A](SPEC-CM-007-A-Plugin-Structure.md) for full plugin structure.
+
+### Method 2: Clone Repository (Project-Level)
 
 ```bash
 git clone https://github.com/cgbarlow/campaign-mode.git
@@ -117,13 +128,13 @@ cd campaign-mode
 # Skills auto-discovered via .claude/skills/
 ```
 
-### Method 2: Copy to Existing Project
+### Method 3: Copy to Existing Project
 
 ```bash
 cp -r campaign-mode/.claude/skills/ your-project/.claude/skills/
 ```
 
-### Method 3: Personal Skills (All Projects)
+### Method 4: Personal Skills (All Projects)
 
 ```bash
 cp -r campaign-mode/.claude/skills/ ~/.claude/skills/
@@ -151,6 +162,7 @@ Campaign Mode is designed to complement [Six Animals](https://github.com/SimonMc
 |---------|-------|--------------|
 | [SPEC-CM-001-B](SPEC-CM-001-B-Campaign-Lifecycle.md) | Campaign Lifecycle | Defines the flow that these skills participate in |
 | [SPEC-CM-004-A](SPEC-CM-004-A-Skill-File-Structure.md) | Skill File Structure and Conventions | Detailed skill authoring conventions |
+| [SPEC-CM-007-A](SPEC-CM-007-A-Plugin-Structure.md) | Plugin Structure | Plugin manifest, directory layout, plugin installation method |
 
 ---
 
