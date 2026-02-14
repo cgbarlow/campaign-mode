@@ -13,8 +13,8 @@
       "name": "six-animals",
       "description": "Six psychologically-grounded team role agents (Bear, Cat, Owl, Puppy, Rabbit, Wolf) plus Simon as educator/supervisor. Prerequisite for the full Campaign Mode experience.",
       "source": {
-        "source": "github",
-        "repo": "cgbarlow/simons-six-animals"
+        "source": "url",
+        "url": "https://github.com/cgbarlow/simons-six-animals.git"
       },
       "author": {
         "name": "Dr. Simon McCallum"
@@ -26,8 +26,8 @@
       "name": "campaign-mode",
       "description": "Quest-based extension for AI-assisted work. Three NPC agents (Gandalf, Dragon, Guardian) provide mentorship, adversarial testing, and quality gates for structured campaigns.",
       "source": {
-        "source": "github",
-        "repo": "cgbarlow/campaign-mode"
+        "source": "url",
+        "url": "https://github.com/cgbarlow/campaign-mode.git"
       },
       "author": {
         "name": "Chris Barlow"
