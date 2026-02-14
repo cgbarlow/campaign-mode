@@ -28,7 +28,14 @@ Then stop — do not proceed to Step 2.
 
 **If `.campaign/quest.md` exists:**
 
-Read the file to understand the current quest context (narrative, success criteria, campaign mode, current phase). Briefly summarise the active quest for the user, then proceed to Step 2.
+Read the file to understand the current quest context. Present a progress summary to the user so they know exactly where they left off:
+
+- **Quest:** One-line summary of the quest narrative
+- **Campaign mode:** Grow / Ship / Grow & Ship
+- **Current phase:** Phase number and name (e.g., "Phase 3 — Campaign Execution")
+- **Recent progress:** The last 3 entries from the Progress Log (or all entries if fewer than 3)
+
+Then proceed to Step 2.
 
 ## Step 2: Present Mid-Campaign Options
 

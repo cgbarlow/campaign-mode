@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-006-B |
 | **Parent ADR** | [ADR-CM-006](../adrs/ADR-CM-006-Character-Generation.md) |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -12,7 +12,7 @@
 
 ## Overview
 
-This specification defines the `.campaign/` directory structure used to store campaign state. In v1, the directory stores character profile files only. Full state management (quest progress, checkpoint status, etc.) is deferred -- this specification establishes the directory convention and export protocol.
+This specification defines the `.campaign/` directory structure used to store campaign state. The directory stores character profile files and the quest definition file (`quest.md`) which tracks campaign mode, success criteria, current phase, and progress log. This specification establishes the directory convention, quest file format, and export protocol.
 
 ---
 
@@ -20,7 +20,7 @@ This specification defines the `.campaign/` directory structure used to store ca
 
 ```
 .campaign/
-├── quest.md                    # Quest definition (mode, criteria, narrative) — reserved, not yet specified
+├── quest.md                    # Quest definition (mode, criteria, narrative, progress log)
 └── profiles/                   # Character profiles
     ├── bear.md                 # Animal profile (if profiled)
     ├── cat.md                  # Animal profile (if profiled)
@@ -58,17 +58,82 @@ Profile files follow the format defined in [SPEC-CM-006-A](SPEC-CM-006-A-Charact
 
 ---
 
-## Reserved Files
+## Quest Definition File
 
 ### `quest.md`
 
-Reserved for future use. When implemented, `quest.md` will store the quest definition including:
-- Campaign mode selection (Grow / Ship / Grow & Ship)
-- Quest narrative and framing
-- Success criteria
-- Anticipated dragon (internal obstacle)
+The quest definition file stores durable campaign state. It is the canonical source of truth for campaign mode, success criteria, quest narrative, and campaign progress. NPC agents read this file rather than relying on conversation context.
 
-This file is **not** created or managed in v1. Its inclusion in the directory structure is forward-looking.
+### Format
+
+The file uses YAML frontmatter (matching the profile file pattern from [SPEC-CM-006-A](SPEC-CM-006-A-Character-Profile-Format.md)) with a markdown body:
+
+```yaml
+---
+campaign-mode: Grow & Ship
+phase: 3
+created: 2026-02-14
+---
+
+## Quest Narrative
+[Gandalf's framing of the quest — stakes, challenge, invitation]
+
+## Success Criteria
+1. [Criterion text as agreed with the user]
+2. [Criterion text as agreed with the user]
+3. [Criterion text as agreed with the user]
+
+## Anticipated Dragon
+[The internal obstacle or resistance the user identified]
+
+## Progress Log
+- **Phase 1 complete** — Quest defined (2026-02-14)
+- **Phase 2 skipped** — Ship mode (2026-02-14)
+- **Guardian checkpoint** — Conditional Approval: "API design is solid but error handling needs work" (2026-02-14)
+- **Guardian checkpoint** — Approved (2026-02-14)
+- **Dragon confrontation** — Dragon Slain: "All criteria met" (2026-02-14)
+```
+
+### Frontmatter Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `campaign-mode` | String | One of `Grow`, `Ship`, or `Grow & Ship` |
+| `phase` | Integer (1–6) | Current campaign phase |
+| `created` | Date (ISO 8601) | Date the quest was defined |
+
+### Body Sections
+
+| Section | Description | Written by |
+|---------|-------------|------------|
+| **Quest Narrative** | Gandalf's framing of the quest | Gandalf (Phase 1) |
+| **Success Criteria** | Numbered list of testable criteria | Gandalf (Phase 1) |
+| **Anticipated Dragon** | The internal obstacle the user identified | Gandalf (Phase 1) |
+| **Progress Log** | Append-only log of phase transitions and NPC verdicts | All NPCs |
+
+### Who Writes What
+
+| Agent | Action | When |
+|-------|--------|------|
+| **Gandalf** | Creates `quest.md` with all sections | End of Phase 1 |
+| **Gandalf** | Updates `phase`, appends Phase 2 log entry | End of Phase 2 (or skip) |
+| **Guardian** | Appends checkpoint result to Progress Log | After delivering verdict |
+| **Dragon** | Appends confrontation result to Progress Log, updates `phase` | After delivering verdict |
+
+### Progress Log Entry Formats
+
+- Phase transitions: `- **Phase N complete** — [description] ([date])`
+- Guardian checkpoint: `- **Guardian checkpoint** — {Approved|Blocked|Conditional Approval}: "[brief summary]" ([date])`
+- Dragon confrontation: `- **Dragon confrontation** — {Dragon Slain|Dragon Prevails}: "[brief reason]" ([date])`
+
+### Lifecycle
+
+1. File does not exist before Phase 1
+2. Gandalf creates the file at the end of Phase 1 (quest definition complete)
+3. File is read by `/continue-quest` to reconstruct campaign context
+4. Guardian and Dragon read the file for success criteria and campaign mode
+5. Guardian and Dragon append to the Progress Log after delivering verdicts
+6. File persists after campaign completion as a record of the quest
 
 ---
 
@@ -114,22 +179,22 @@ This is a user decision -- Gandalf does not manage `.gitignore` entries.
 
 ## Scope Boundary
 
-### In Scope (v1)
+### In Scope
 
 - `.campaign/profiles/` directory for character profile storage
 - Profile file naming convention
+- `quest.md` creation by Gandalf, read/append by Guardian and Dragon
+- Campaign progress tracking via append-only Progress Log
 - Export protocol (user-managed copy)
 - Import recognition by Gandalf
 
 ### Out of Scope (Deferred)
 
-- `quest.md` creation and management
-- Checkpoint state persistence
-- Campaign progress tracking
 - Automated export/import tooling
 - Campaign archival or history
+- Multi-quest campaign arcs
 
-This specification partially resolves Open Question #5 (State Management) from the north-star by establishing the directory convention. Full state management remains an open question.
+This specification resolves Open Question #5 (State Management) from the north-star. Campaign state is persisted in `.campaign/quest.md` and profiles in `.campaign/profiles/`.
 
 ---
 
@@ -147,4 +212,5 @@ This specification partially resolves Open Question #5 (State Management) from t
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
+| 1.1 | 2026-02-14 | Chris Barlow | Added quest.md format specification, progress log, NPC read/write protocol. Moved quest.md from reserved to fully specified. Resolved Open Question #5. |
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |

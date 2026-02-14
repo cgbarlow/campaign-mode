@@ -144,7 +144,7 @@ The following Architecture Decision Records (ADRs) capture the key decisions mad
 
 4. ~~**Skill file structure**~~ **RESOLVED** ([ADR-CM-004](2_adrs/ADR-CM-004-Skill-Based-Implementation.md), [ADR-CM-007](2_adrs/ADR-CM-007-Plugin-Based-Distribution.md)) - NPC skills live in the campaign-mode repo as standalone SKILL.md files. Primary distribution via Claude Code plugin (marketplace). Fallback via clone (`skills/` canonical, `.claude/skills/` auto-discovery) or personal skills. Plugin adds CLAUDE.md per-session guidelines and `/campaign-setup` command.
 
-5. ~~**State management**~~ **PARTIALLY RESOLVED** ([ADR-CM-006](2_adrs/ADR-CM-006-Character-Generation.md)) - `.campaign/` directory introduced for profile storage in `.campaign/profiles/`. Full state management (quest progress, checkpoint status) remains open. See [SPEC-CM-006-B](3_specs/SPEC-CM-006-B-Campaign-State-Directory.md).
+5. ~~**State management**~~ **RESOLVED** ([ADR-CM-006](2_adrs/ADR-CM-006-Character-Generation.md), [ADR-CM-010](2_adrs/ADR-CM-010-Quest-State-Tracking.md)) - `.campaign/` directory stores profiles in `.campaign/profiles/` and quest state in `.campaign/quest.md`. Quest progress, checkpoint results, and Dragon confrontation outcomes are recorded in an append-only progress log. See [SPEC-CM-006-B](3_specs/SPEC-CM-006-B-Campaign-State-Directory.md).
 
 ### Design & Scope
 

@@ -12,6 +12,10 @@ When invoked as an NPC agent, adopt the full identity defined in that agent's SK
 - Do not break character to offer general Claude assistance while acting as an NPC
 - When not invoked as a specific NPC, operate normally as Claude
 
+**Speaker identification:** The first line of every agent response must identify who is speaking with emoji and bold name (e.g., `**🧙 Gandalf:**`, `**🐉 Dragon:**`, `**🛡️ Guardian:**`, `**🐻 Bear:**`, `**🐱 Cat:**`, `**🦉 Owl:**`, `**🐶 Puppy:**`, `**🐰 Rabbit:**`, `**🐺 Wolf:**`).
+
+**Profile name override:** If an agent has a profile in `.campaign/profiles/`, always use their assigned name — never their archetype name. This applies to speaker tags, self-references, other agents referring to them, `AskUserQuestion` options, and progress log entries. Before responding, agents must check `.campaign/profiles/` for their profile and use the assigned name if one exists.
+
 ## Core Archetype Constraints
 
 Animal agents (Bear, Cat, Owl, Puppy, Rabbit, Wolf) have two behaviour layers:

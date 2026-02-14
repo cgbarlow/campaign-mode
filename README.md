@@ -93,17 +93,20 @@ Simon remains the educator and meta-analyst from Six Animals, with extended resp
 
 ```
 1. Quest Definition       You choose your mode. Gandalf frames the challenge.
+        |                 Gandalf writes .campaign/quest.md with criteria, mode, narrative
         |                 Gandalf offers: Begin working / Review summary / Consult advisor
 2. Character Setup        Assign character profiles to animals (optional, mode-dependent)
         |
 3. Campaign Execution     You work the quest, invoking animals for their strengths
         |                 Say "I'm ready for a checkpoint" or "I'm ready to face the Dragon"
-4. Guardian Checkpoint    Guardian evaluates readiness (mode-aware)
-        |                 Guardian offers next step based on verdict (repeats at key stages)
-5. Dragon Confrontation   Dragon tests success criteria (mode-aware)
-        |                 Dragon offers: Begin debrief / Return to quest
+4. Guardian Checkpoint    Guardian reads quest.md, evaluates readiness (mode-aware)
+        |                 Guardian logs verdict to quest.md, offers next step (repeats at key stages)
+5. Dragon Confrontation   Dragon reads quest.md, tests success criteria (mode-aware)
+        |                 Dragon logs verdict to quest.md. Dragon offers: Begin debrief / Return to quest
 6. Debrief                Simon provides feedback (depth varies by mode)
 ```
+
+Campaign state is persisted in `.campaign/quest.md` — so you can leave and return between sessions. Use `/continue-quest` to pick up where you left off.
 
 At every phase transition, the active agent offers you structured next-step options — you never need to remember slash commands to keep the campaign moving.
 
@@ -203,6 +206,7 @@ Architectural decisions are documented as ADRs using the WH(Y) format in [docs/2
 | [ADR-CM-007](docs/2_adrs/ADR-CM-007-Plugin-Based-Distribution.md) | Plugin-Based Distribution |
 | [ADR-CM-008](docs/2_adrs/ADR-CM-008-Proactive-Elicitation.md) | Proactive Elicitation |
 | [ADR-CM-009](docs/2_adrs/ADR-CM-009-Quest-Entry-Commands.md) | Quest Entry Commands |
+| [ADR-CM-010](docs/2_adrs/ADR-CM-010-Quest-State-Tracking.md) | Quest State Tracking |
 
 Supporting specifications and reference materials live alongside the ADRs in [docs/3_specs/](docs/3_specs/) and [docs/2_adrs/reference/](docs/2_adrs/reference/).
 
@@ -210,7 +214,8 @@ Supporting specifications and reference materials live alongside the ADRs in [do
 
 ```
 campaign-mode/
-├── .campaign/                           # Campaign state directory (created during Phase 2)
+├── .campaign/                           # Campaign state directory
+│   ├── quest.md                         # Quest definition, criteria, progress log (created Phase 1)
 │   └── profiles/                        # Character profiles (.md files per animal/NPC)
 ├── .claude/
 │   └── skills/                          # Claude Code skill auto-discovery (clone path)
@@ -280,8 +285,10 @@ campaign-mode/
 - CLAUDE.md campaign guidelines loaded per session
 - `/campaign-setup` command for project onboarding
 - `/start-quest` and `/continue-quest` commands for ergonomic quest entry and mid-campaign re-entry
+- Quest state persistence — campaign mode, success criteria, and progress log stored in `.campaign/quest.md` for durable state across sessions
+- Speaker identification — every agent response begins with an emoji + bold name tag; profile name overrides apply when character profiles are assigned
 - User-as-protagonist framing throughout
-- Architecture Decision Records documenting key design choices (ADR-CM-001 through ADR-CM-008)
+- Architecture Decision Records documenting key design choices (ADR-CM-001 through ADR-CM-010)
 - Design specifications for each agent, lifecycle, mode profiles, context isolation, character profiles, and plugin structure
 - North-star vision document with open questions
 
