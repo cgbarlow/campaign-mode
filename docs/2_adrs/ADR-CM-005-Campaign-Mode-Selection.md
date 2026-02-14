@@ -6,7 +6,7 @@
 | **Initiative** | Campaign Mode |
 | **Proposed By** | Chris Barlow |
 | **Date** | 2026-02-14 |
-| **Status** | Proposed |
+| **Status** | Accepted |
 
 ---
 
@@ -155,3 +155,4 @@ A spectrum from "pure learning" to "pure shipping" with infinite granularity.
 | Status | Approver | Date |
 |--------|----------|------|
 | Proposed | Chris Barlow | 2026-02-14 |
+| Accepted | Chris Barlow | 2026-02-14 |

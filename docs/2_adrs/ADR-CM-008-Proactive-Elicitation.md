@@ -8,7 +8,7 @@
 | **Initiative** | Campaign Mode |
 | **Proposed By** | Chris Barlow |
 | **Date** | 2026-02-14 |
-| **Status** | Proposed |
+| **Status** | Accepted |
 
 ---
 
@@ -94,3 +94,4 @@ Keep the current pattern where agents deliver output and wait for the user to in
 | Status | Approver | Date |
 |--------|----------|------|
 | Proposed | Chris Barlow | 2026-02-14 |
+| Accepted | Chris Barlow | 2026-02-14 |
