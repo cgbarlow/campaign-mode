@@ -246,6 +246,11 @@ campaign-mode/
 │           └── SKILL.md
 ├── .claude-plugin/
 │   └── plugin.json                      # Plugin manifest (plugin path)
+├── .github/
+│   └── ISSUE_TEMPLATE/                  # GitHub issue templates
+│       ├── bug-report.md
+│       ├── feature-request.md
+│       └── profile-submission.md
 ├── skills/                              # Canonical skill definitions
 │   ├── gandalf-agent/
 │   │   └── SKILL.md
@@ -260,10 +265,10 @@ campaign-mode/
 │   └── continue-quest.md              # /continue-quest command
 ├── docs/
 │   ├── north-star.md                    # Vision, architecture, and open questions
-│   ├── 1_initiation/                    # Design conversation history
-│   │   └── initial-thinking-on-campaign-mode.txt
 │   ├── 0_reference/
 │   │   └── The-Complete-Guide-to-Building-Skill-for-Claude.pdf
+│   ├── 1_initiation/                    # Design conversation history
+│   │   └── initial-thinking-on-campaign-mode.txt
 │   ├── 2_adrs/                          # Architecture Decision Records
 │   │   ├── ADR-CM-001-Campaign-Mode-Architecture.md
 │   │   ├── ADR-CM-002-Quest-Agent-Decomposition.md
@@ -274,20 +279,27 @@ campaign-mode/
 │   │   ├── ADR-CM-007-Plugin-Based-Distribution.md
 │   │   ├── ADR-CM-008-Proactive-Elicitation.md
 │   │   └── reference/                   # ADR format specifications and references
-│   └── 3_specs/                         # Design specifications
-│       ├── SPEC-CM-001-A-Skill-Architecture.md
-│       ├── SPEC-CM-001-B-Campaign-Lifecycle.md
-│       ├── SPEC-CM-002-A-Gandalf-Agent.md
-│       ├── SPEC-CM-002-B-Dragon-Agent.md
-│       ├── SPEC-CM-002-C-Guardian-Agent.md
-│       ├── SPEC-CM-003-A-Context-Isolation-Protocol.md
-│       ├── SPEC-CM-004-A-Skill-File-Structure.md
-│       ├── SPEC-CM-005-A-Campaign-Mode-Profiles.md
-│       ├── SPEC-CM-006-A-Character-Profile-Format.md
-│       ├── SPEC-CM-006-B-Campaign-State-Directory.md
-│       ├── SPEC-CM-007-A-Plugin-Structure.md
-│       └── SPEC-CM-007-B-Campaign-Guidelines.md
+│   ├── 3_specs/                         # Design specifications
+│   │   ├── SPEC-CM-001-A-Skill-Architecture.md
+│   │   ├── SPEC-CM-001-B-Campaign-Lifecycle.md
+│   │   ├── SPEC-CM-002-A-Gandalf-Agent.md
+│   │   ├── SPEC-CM-002-B-Dragon-Agent.md
+│   │   ├── SPEC-CM-002-C-Guardian-Agent.md
+│   │   ├── SPEC-CM-003-A-Context-Isolation-Protocol.md
+│   │   ├── SPEC-CM-004-A-Skill-File-Structure.md
+│   │   ├── SPEC-CM-005-A-Campaign-Mode-Profiles.md
+│   │   ├── SPEC-CM-006-A-Character-Profile-Format.md
+│   │   ├── SPEC-CM-006-B-Campaign-State-Directory.md
+│   │   ├── SPEC-CM-007-A-Plugin-Structure.md
+│   │   └── SPEC-CM-007-B-Campaign-Guidelines.md
+│   └── 4_examples/                      # Example content
+│       ├── council-report.md            # Example council diagnostic report
+│       └── profiles/                    # Example character profiles
+│           ├── bear-paladin.md
+│           ├── cat-rogue.md
+│           └── wolf-warden.md
 ├── CLAUDE.md                            # Campaign guidelines (loaded per session)
+├── CONTRIBUTING.md                      # Contribution guidelines
 └── README.md
 ```
 
@@ -339,6 +351,25 @@ Six Animals works without Campaign Mode. Campaign Mode's NPC agents can be invok
 |---------|-------|--------|
 | [Six Animals](https://github.com/SimonMcCallum/six-animals) | Team roles and collaboration dynamics | Bear, Cat, Owl, Puppy, Rabbit, Wolf + Simon |
 | Campaign Mode | Quest structure, mentorship, and adversarial challenge | Gandalf, Dragon, Guardian |
+
+## Examples
+
+| Example | Description |
+|---------|-------------|
+| [Council Report](docs/4_examples/council-report.md) | Multi-perspective project diagnostic from all six animal agents with Simon synthesis |
+| [Bear — The Paladin](docs/4_examples/profiles/bear-paladin.md) | Flavour-depth fantasy profile for Bear |
+| [Cat — The Rogue](docs/4_examples/profiles/cat-rogue.md) | Modifier-depth fantasy profile for Cat (includes behavioural modifiers) |
+| [Wolf — The Warden](docs/4_examples/profiles/wolf-warden.md) | Flavour-depth fantasy profile for Wolf |
+
+See [SPEC-CM-006-A](docs/3_specs/SPEC-CM-006-A-Character-Profile-Format.md) for the character profile format specification.
+
+## Contributing
+
+Contributions are welcome — bug reports, feature ideas, character profiles, campaign experiences, and documentation improvements. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+## Acknowledgements
+
+"Gandalf" is a trademark of Middle-earth Enterprises, used here as a cultural reference to describe an archetypal mentor role. Campaign Mode is not affiliated with or endorsed by the Tolkien Estate or Middle-earth Enterprises. "Dragon" and "Guardian" are generic terms used in their common English sense.
 
 ## License
 

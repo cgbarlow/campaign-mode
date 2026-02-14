@@ -8,7 +8,7 @@
 | **Initiative** | Campaign Mode |
 | **Proposed By** | Chris Barlow |
 | **Date** | 2026-02-14 |
-| **Status** | Proposed |
+| **Status** | Accepted |
 
 ---
 
@@ -100,3 +100,4 @@ Require a Council session before any quest can begin.
 | Status | Approver | Date |
 |--------|----------|------|
 | Proposed | Chris Barlow | 2026-02-14 |
+| Accepted | Chris Barlow | 2026-02-14 |

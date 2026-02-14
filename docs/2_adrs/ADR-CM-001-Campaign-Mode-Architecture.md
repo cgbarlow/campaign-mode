@@ -7,7 +7,7 @@
 | **Initiative** | Campaign Mode |
 | **Proposed By** | Chris Barlow |
 | **Date** | 2026-02-14 |
-| **Aggregate Status** | In Progress |
+| **Aggregate Status** | Accepted |
 
 ---
 
@@ -65,16 +65,16 @@ Campaign Mode decomposes the monolithic quest-agent into three focused NPCs whil
 
 | ADR ID | Title | Status | Phase | Dependencies | Owner |
 |--------|-------|--------|-------|--------------|-------|
-| ADR-CM-002 | Quest Agent Decomposition | Proposed | 1 | — | Chris Barlow |
-| ADR-CM-003 | NPC Context Isolation | Proposed | 1 | — | Chris Barlow |
-| ADR-CM-004 | Skill-Based Implementation | Proposed | 1 | — | Chris Barlow |
-| ADR-CM-005 | Campaign Mode Selection | Proposed | 1 | — | Chris Barlow |
-| ADR-CM-006 | Character Generation | Proposed | 1 | — | Chris Barlow |
-| ADR-CM-007 | Plugin-Based Distribution | Proposed | 2 | ADR-CM-004 | Chris Barlow |
-| ADR-CM-008 | Proactive Elicitation | Proposed | 1 | — | Chris Barlow |
-| ADR-CM-009 | Quest Entry Commands | Proposed | 2 | ADR-CM-008 | Chris Barlow |
-| ADR-CM-010 | Quest State Tracking | Proposed | 2 | ADR-CM-006 | Chris Barlow |
-| ADR-CM-011 | Council Feature | Proposed | 2 | ADR-CM-008, ADR-CM-009 | Chris Barlow |
+| ADR-CM-002 | Quest Agent Decomposition | Accepted | 1 | — | Chris Barlow |
+| ADR-CM-003 | NPC Context Isolation | Accepted | 1 | — | Chris Barlow |
+| ADR-CM-004 | Skill-Based Implementation | Accepted | 1 | — | Chris Barlow |
+| ADR-CM-005 | Campaign Mode Selection | Accepted | 1 | — | Chris Barlow |
+| ADR-CM-006 | Character Generation | Accepted | 1 | — | Chris Barlow |
+| ADR-CM-007 | Plugin-Based Distribution | Accepted | 2 | ADR-CM-004 | Chris Barlow |
+| ADR-CM-008 | Proactive Elicitation | Accepted | 1 | — | Chris Barlow |
+| ADR-CM-009 | Quest Entry Commands | Accepted | 2 | ADR-CM-008 | Chris Barlow |
+| ADR-CM-010 | Quest State Tracking | Accepted | 2 | ADR-CM-006 | Chris Barlow |
+| ADR-CM-011 | Council Feature | Accepted | 2 | ADR-CM-008, ADR-CM-009 | Chris Barlow |
 
 ## Decision Sequencing
 
@@ -137,3 +137,4 @@ All Phase 1 ADRs can proceed in parallel as they address orthogonal concerns:
 | Status | Approver | Date |
 |--------|----------|------|
 | Proposed | Chris Barlow | 2026-02-14 |
+| Accepted | Chris Barlow | 2026-02-14 |

@@ -6,7 +6,7 @@
 | **Initiative** | Campaign Mode |
 | **Proposed By** | Chris Barlow |
 | **Date** | 2026-02-14 |
-| **Status** | Proposed |
+| **Status** | Accepted |
 
 ---
 
@@ -153,3 +153,4 @@ Split into a Mentor (combining mentorship and gatekeeping) and an Adversary.
 | Status | Approver | Date |
 |--------|----------|------|
 | Proposed | Chris Barlow | 2026-02-14 |
+| Accepted | Chris Barlow | 2026-02-14 |

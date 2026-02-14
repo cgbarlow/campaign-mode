@@ -142,7 +142,7 @@ The following Architecture Decision Records (ADRs) capture the key decisions mad
 
 2. **Simon's dual role** - Simon is currently the educator/supervisor in Six Animals. In Campaign Mode, should Simon also absorb the GM (Game Master) role, or should GM be a distinct fourth NPC? Combining simplifies the NPC count but risks role overload.
 
-3. **Slash command design** - What is the full command vocabulary for campaign lifecycle? How does `/start-campaign` differ from the original `/start-quest`? What commands does the user need vs. what happens automatically?
+3. ~~**Slash command design**~~ **RESOLVED** ([ADR-CM-009](2_adrs/ADR-CM-009-Quest-Entry-Commands.md)) - Four command files implemented: `/campaign-setup` (onboarding), `/start-quest` (begin new quest), `/continue-quest` (re-enter active campaign), `/council` (multi-perspective diagnostic). Proactive elicitation means users never need to remember commands after setup.
 
 4. ~~**Skill file structure**~~ **RESOLVED** ([ADR-CM-004](2_adrs/ADR-CM-004-Skill-Based-Implementation.md), [ADR-CM-007](2_adrs/ADR-CM-007-Plugin-Based-Distribution.md)) - NPC skills live in the campaign-mode repo as standalone SKILL.md files. Primary distribution via Claude Code plugin (marketplace). Fallback via clone (`skills/` canonical, `.claude/skills/` auto-discovery) or personal skills. Plugin adds CLAUDE.md per-session guidelines and `/campaign-setup` command.
 
@@ -152,9 +152,9 @@ The following Architecture Decision Records (ADRs) capture the key decisions mad
 
 6. ~~**Character generation**~~ **RESOLVED** ([ADR-CM-006](2_adrs/ADR-CM-006-Character-Generation.md)) - Two-depth character profiles (flavour + behavioural modifiers), theme-agnostic, user-assigned, stored as `.campaign/profiles/*.md`. See [SPEC-CM-006-A](3_specs/SPEC-CM-006-A-Character-Profile-Format.md).
 
-7. **Dragon success criteria** - Who defines what the Dragon checks for? Is it Gandalf (quest-giver defines acceptance), the user, or derived from the animal agents' own goals?
+7. ~~**Dragon success criteria**~~ **RESOLVED** (Dragon SKILL.md, [SPEC-CM-002-B](3_specs/SPEC-CM-002-B-Dragon-Agent.md)) - Gandalf defines success criteria collaboratively with the user during Phase 1 (Quest Definition). The Dragon receives only these criteria, the campaign mode, and the final work product at maximum isolation. The user shapes what "done" looks like; Gandalf facilitates; the Dragon evaluates.
 
-8. **Guardian trigger points** - What triggers a Guardian checkpoint? Is it time-based, milestone-based, or manually invoked? How do we prevent the party (or the AI) from bypassing the Guardian?
+8. ~~**Guardian trigger points**~~ **RESOLVED** (Guardian SKILL.md, [SPEC-CM-002-C](3_specs/SPEC-CM-002-C-Guardian-Agent.md)) - Guardian checkpoints are milestone-based and user-invoked. The user says "I'm ready for a checkpoint" and invokes the Guardian. Bypassing is prevented by design: proactive elicitation guides users toward checkpoints at natural stage boundaries, and the Guardian's three gate decisions (approve, block, conditional) control progression.
 
 9. ~~**Fantasy framing vs. neutral framing**~~ **RESOLVED** - Decided to use Gandalf/Dragon/Guardian naming. Gandalf has broad cultural recognition, Dragon is universal, Guardian is already neutral. The names are evocative and memorable. Per the Extensible Archetypes principle, they can be re-skinned for different cultural contexts later.
 
@@ -170,4 +170,4 @@ The following Architecture Decision Records (ADRs) capture the key decisions mad
 
 14. **Feedback loop to Six Animals** - Campaign Mode will surface insights about how the animal roles interact under pressure. How do those insights flow back to improve the core Six Animals framework?
 
-15. **Licensing alignment** - Six Animals uses MIT (code) + CC-BY-SA-4.0 (content). Does Campaign Mode follow the same model? Are there IP considerations with Gandalf/Dragon naming (Tolkien estate)?
+15. ~~**Licensing alignment**~~ **RESOLVED** - Campaign Mode is licensed CC-BY-SA-4.0 (content-only project, no runtime code). "Gandalf" is a trademark of Middle-earth Enterprises, acknowledged in README as a cultural reference. Campaign Mode is not affiliated with or endorsed by the Tolkien Estate or Middle-earth Enterprises.

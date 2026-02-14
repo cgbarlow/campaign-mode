@@ -6,7 +6,7 @@
 | **Initiative** | Campaign Mode |
 | **Proposed By** | Chris Barlow |
 | **Date** | 2026-02-14 |
-| **Status** | Proposed |
+| **Status** | Accepted |
 
 ---
 
@@ -139,3 +139,4 @@ Campaign Mode skills follow these conventions (detailed in SPEC-CM-004-A):
 | Status | Approver | Date |
 |--------|----------|------|
 | Proposed | Chris Barlow | 2026-02-14 |
+| Accepted | Chris Barlow | 2026-02-14 |
