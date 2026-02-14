@@ -181,4 +181,14 @@ Use `AskUserQuestion` to offer next steps. The options depend on whether an acti
 1. **Return to the quest** — Continue working with fresh perspectives from the Council.
 2. **Council complete** — End the session with the report saved.
 
-If the user chooses to start a quest, invoke Gandalf by loading the skill from `skills/gandalf-agent/SKILL.md` and beginning Phase 1 (Quest Definition). Gandalf should read `.campaign/council-report.md` to inform quest framing.
+If the user chooses to start a quest, invoke Gandalf using the skill definition provided at the end of this command and begin Phase 1 (Quest Definition). Gandalf should read `.campaign/council-report.md` to inform quest framing.
+
+---
+
+## Injected Context
+
+The following content is injected at invocation time from the plugin's source files.
+
+### Gandalf Skill Definition
+
+!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`

@@ -236,6 +236,7 @@ Architectural decisions are documented as ADRs using the WH(Y) format in [docs/2
 | [ADR-CM-009](docs/2_adrs/ADR-CM-009-Quest-Entry-Commands.md) | Quest Entry Commands |
 | [ADR-CM-010](docs/2_adrs/ADR-CM-010-Quest-State-Tracking.md) | Quest State Tracking |
 | [ADR-CM-011](docs/2_adrs/ADR-CM-011-Council-Feature.md) | Council Feature |
+| [ADR-CM-012](docs/2_adrs/ADR-CM-012-Plugin-Desktop-Compatibility.md) | Plugin Desktop Compatibility |
 
 Supporting specifications and reference materials live alongside the ADRs in [docs/3_specs/](docs/3_specs/) and [docs/2_adrs/reference/](docs/2_adrs/reference/).
 
@@ -289,6 +290,7 @@ campaign-mode/
 │   │   ├── ADR-CM-006-Character-Generation.md
 │   │   ├── ADR-CM-007-Plugin-Based-Distribution.md
 │   │   ├── ADR-CM-008-Proactive-Elicitation.md
+│   │   ├── ADR-CM-012-Plugin-Desktop-Compatibility.md
 │   │   └── reference/                   # ADR format specifications and references
 │   ├── 3_specs/                         # Design specifications
 │   │   ├── SPEC-CM-001-A-Skill-Architecture.md
@@ -302,7 +304,8 @@ campaign-mode/
 │   │   ├── SPEC-CM-006-A-Character-Profile-Format.md
 │   │   ├── SPEC-CM-006-B-Campaign-State-Directory.md
 │   │   ├── SPEC-CM-007-A-Plugin-Structure.md
-│   │   └── SPEC-CM-007-B-Campaign-Guidelines.md
+│   │   ├── SPEC-CM-007-B-Campaign-Guidelines.md
+│   │   └── SPEC-CM-007-C-Plugin-Path-Resolution.md
 │   └── 4_examples/                      # Example content
 │       ├── council-report.md            # Example council diagnostic report
 │       └── profiles/                    # Example character profiles
@@ -316,7 +319,13 @@ campaign-mode/
 
 ## Roadmap
 
-### v0.2 — Current Release
+### v0.2.4 — Current Release
+
+- Plugin commands now work in Claude Desktop via dynamic context injection (`!`command`` syntax with `${CLAUDE_PLUGIN_ROOT}`)
+- Commands inject skill definitions at invocation time instead of referencing file paths at runtime
+- ADR-CM-012 and SPEC-CM-007-C document the approach
+
+### v0.2
 
 - `/council` command — multi-perspective project diagnostic from all six animal agents with Simon synthesis, persistent report in `.campaign/council-report.md`
 - `/campaign-setup` now offers structured next steps (start quest, convene council, just exploring) instead of slash command references

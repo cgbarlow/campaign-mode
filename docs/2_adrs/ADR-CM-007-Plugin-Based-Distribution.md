@@ -38,7 +38,7 @@ Additionally, there is no CLAUDE.md establishing cross-cutting campaign conventi
 
 | Decision | Answer |
 |----------|--------|
-| **Target interface** | Claude Code only (no Desktop, no Claude.ai Projects) |
+| **Target interface** | Claude Code CLI and Claude Desktop (see [ADR-CM-012](ADR-CM-012-Plugin-Desktop-Compatibility.md)) |
 | **Packaging** | Claude Code plugin, distributed via marketplace |
 | **CLAUDE.md** | Include in plugin, auto-copy to user's project via `/campaign-setup` command |
 | **Install paths** | Plugin-first (primary), clone-as-fallback (secondary) |
@@ -110,6 +110,7 @@ Both paths coexist. `skills/` serves plugin users, `.claude/skills/` serves clon
 | Extends | ADR-CM-004 | Skill-Based Implementation | Adds distribution layer, does not replace skills |
 | Relates To | ADR-CM-003 | NPC Context Isolation | CLAUDE.md reinforces isolation conventions |
 | Relates To | ADR-CM-005 | Campaign Mode Selection | CLAUDE.md codifies mode-aware conventions |
+| Extended By | ADR-CM-012 | Plugin Desktop Compatibility | Supersedes "Claude Code only" target interface constraint |
 
 ---
 
