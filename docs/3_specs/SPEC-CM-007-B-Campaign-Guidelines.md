@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-007-B |
 | **Parent ADR** | [ADR-CM-007](../2_adrs/ADR-CM-007-Plugin-Based-Distribution.md) |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -96,7 +96,12 @@ If CLAUDE.md exists:
 
 ### Plugin Users
 
-CLAUDE.md is included in the plugin root. Claude Code loads it automatically at the start of every session when the plugin is installed.
+CLAUDE.md is included in the plugin root but is **not** auto-loaded by Claude Code when the plugin is installed. Plugin CLAUDE.md files are not automatically injected into sessions — only CLAUDE.md files in the user's project root are loaded per session.
+
+To ensure conventions are available, Campaign Mode uses two mechanisms:
+- **Commands** (`/start-quest`, `/continue-quest`, `/council`) inject CLAUDE.md via `!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` at invocation time (see [SPEC-CM-007-D](SPEC-CM-007-D-Plugin-Guidelines-Injection.md))
+- **Direct skills** (`/gandalf-agent`, `/dragon-agent`, `/guardian-agent`) include a condensed "Campaign Conventions" subset directly in their SKILL.md files
+- **`/campaign-setup`** copies CLAUDE.md to the user's project root, ensuring per-session loading for all subsequent sessions
 
 ### Clone Users
 
@@ -138,3 +143,4 @@ Both commands follow the proactive elicitation pattern (ADR-CM-008): natural-lan
 |---------|------|--------|---------|
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
 | 1.1 | 2026-02-14 | Chris Barlow | Added `/start-quest` and `/continue-quest` documentation, updated `/gandalf-agent` references to `/start-quest` |
+| 1.2 | 2026-02-14 | Chris Barlow | Corrected Plugin Users section: CLAUDE.md is NOT auto-loaded by plugin infrastructure. Documented hybrid injection approach (SPEC-CM-007-D). |

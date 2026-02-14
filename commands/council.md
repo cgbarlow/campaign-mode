@@ -189,6 +189,10 @@ If the user chooses to start a quest, invoke Gandalf using the skill definition 
 
 The following content is injected at invocation time from the plugin's source files.
 
+### Campaign Guidelines
+
+!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`
+
 ### Gandalf Skill Definition
 
 !`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`

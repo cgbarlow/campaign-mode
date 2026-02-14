@@ -250,6 +250,7 @@ Architectural decisions are documented as ADRs using the WH(Y) format in [docs/2
 | [ADR-CM-010](docs/2_adrs/ADR-CM-010-Quest-State-Tracking.md) | Quest State Tracking |
 | [ADR-CM-011](docs/2_adrs/ADR-CM-011-Council-Feature.md) | Council Feature |
 | [ADR-CM-012](docs/2_adrs/ADR-CM-012-Plugin-Desktop-Compatibility.md) | Plugin Desktop Compatibility |
+| [ADR-CM-013](docs/2_adrs/ADR-CM-013-Plugin-Guidelines-Parity.md) | Plugin Guidelines Parity |
 
 Supporting specifications and reference materials live alongside the ADRs in [docs/3_specs/](docs/3_specs/) and [docs/2_adrs/reference/](docs/2_adrs/reference/).
 
@@ -304,6 +305,7 @@ campaign-mode/
 │   │   ├── ADR-CM-007-Plugin-Based-Distribution.md
 │   │   ├── ADR-CM-008-Proactive-Elicitation.md
 │   │   ├── ADR-CM-012-Plugin-Desktop-Compatibility.md
+│   │   ├── ADR-CM-013-Plugin-Guidelines-Parity.md
 │   │   └── reference/                   # ADR format specifications and references
 │   ├── 3_specs/                         # Design specifications
 │   │   ├── SPEC-CM-001-A-Skill-Architecture.md
@@ -318,13 +320,16 @@ campaign-mode/
 │   │   ├── SPEC-CM-006-B-Campaign-State-Directory.md
 │   │   ├── SPEC-CM-007-A-Plugin-Structure.md
 │   │   ├── SPEC-CM-007-B-Campaign-Guidelines.md
-│   │   └── SPEC-CM-007-C-Plugin-Path-Resolution.md
-│   └── 4_examples/                      # Example content
-│       ├── council-report.md            # Example council diagnostic report
-│       └── profiles/                    # Example character profiles
-│           ├── bear-paladin.md
-│           ├── cat-rogue.md
-│           └── wolf-warden.md
+│   │   ├── SPEC-CM-007-C-Plugin-Path-Resolution.md
+│   │   └── SPEC-CM-007-D-Plugin-Guidelines-Injection.md
+│   ├── 4_examples/                      # Example content
+│   │   ├── council-report.md            # Example council diagnostic report
+│   │   └── profiles/                    # Example character profiles
+│   │       ├── bear-paladin.md
+│   │       ├── cat-rogue.md
+│   │       └── wolf-warden.md
+│   └── 5_roadmap/                       # Roadmap documents
+│       └── ROADMAP-CM-001-Guidelines-Parity.md
 ├── CLAUDE.md                            # Campaign guidelines (loaded per session)
 ├── CONTRIBUTING.md                      # Contribution guidelines
 └── README.md
@@ -332,7 +337,15 @@ campaign-mode/
 
 ## Roadmap
 
-### v0.2.5 — Current Release
+### v0.2.6 — Current Release
+
+- CLAUDE.md campaign conventions now injected into all command invocation paths (`/start-quest`, `/continue-quest`, `/council`) via dynamic context injection
+- NPC SKILL.md files now include a condensed "Campaign Conventions" section covering cross-cutting rules (identity, lifecycle, elicitation, debrief) for direct skill invocations
+- Corrected SPEC-CM-007-B: plugin CLAUDE.md is NOT auto-loaded by the plugin infrastructure
+- ADR-CM-013 and SPEC-CM-007-D document the hybrid injection + condensed subset approach
+- See [ROADMAP-CM-001](docs/5_roadmap/ROADMAP-CM-001-Guidelines-Parity.md) for full details
+
+### v0.2.5
 
 - Claude Desktop installation instructions in Quick Start and Installation sections
 - `start-quest` and `continue-quest` now invoke animal agents via the Skill tool instead of attempting to read skill files from the filesystem — animal skills belong to the Six Animals plugin, not Campaign Mode
