@@ -33,7 +33,7 @@ Use `AskUserQuestion` to offer:
 2. **Convene the council** — Have your animal advisors analyse the project before choosing a direction.
 3. **Not right now** — Exit without starting a quest.
 
-If the user chooses to start a new quest, invoke the Gandalf agent using the skill definition provided at the end of this command and begin Phase 1 (Quest Definition).
+If the user chooses to start a new quest, invoke the Gandalf agent using the skill definition loaded from the Injected Context paths below and begin Phase 1 (Quest Definition).
 
 Then stop — do not proceed to Step 2.
 
@@ -59,37 +59,27 @@ Use `AskUserQuestion` to offer these options (using profile names where they exi
 1. **Continue working on the quest** — Return to campaign execution with the full quest context.
 2. **Request a Guardian checkpoint** — Have the Guardian evaluate your progress against quality criteria.
 3. **Consult Gandalf for strategic counsel** — Get mentorship on your current challenge or revisit quest framing.
-4. **Face the Dragon** — Test whether your success criteria are genuinely met.
-5. **Consult an animal advisor** — Get a specific animal perspective on your work.
-6. **Reconvene the council** — Get a fresh multi-perspective analysis from all six animal advisors.
+4. **Consult Simon for reflection** — Step back for meta-analysis: how are you working, what roles are you playing, what patterns is Simon noticing?
+5. **Face the Dragon** — Test whether your success criteria are genuinely met.
+6. **Consult an animal advisor** — Get a specific animal perspective on your work.
+7. **Reconvene the council** — Get a fresh multi-perspective analysis from all six animal advisors.
 
 Invoke the appropriate agent based on the user's choice:
 
-- **NPC agents** (Gandalf, Dragon, Guardian) — adopt the full identity defined in the relevant skill definition provided at the end of this command.
+- **NPC agents** (Gandalf, Dragon, Guardian) — adopt the full identity defined in the relevant skill definition loaded from the Injected Context paths below.
+- **Simon** — invoke via the Skill tool using `simon-agent`. Provide quest context and ask Simon for meta-analysis of the user's working patterns, role performance, and campaign dynamics.
 - **Animal agents** (Bear, Cat, Owl, Puppy, Rabbit, Wolf) — invoke via the Skill tool using their skill name (e.g., `bear-agent`, `cat-agent`). Do NOT attempt to read skill files from the filesystem. When in Phase 3 or later, include the Animal Campaign Extensions context in your invocation message so the animal agent is quest-aware.
 
 ---
 
 ## Injected Context
 
-The following content is injected at invocation time from the plugin's source files.
+The following files contain essential context for this command. Their absolute paths are resolved below. **Before proceeding with Step 1, use the Read tool to load every file listed in this section.** Read them in parallel if possible. Do not skip any.
 
-### Campaign Guidelines
+If any path below is empty or shows an error, the plugin root could not be resolved. Fall back to the Campaign Conventions already embedded in NPC skill definitions. Inform the user that full context loading failed and suggest running `/campaign-setup` to copy guidelines to the project root.
 
-!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`
-
-### Gandalf Skill Definition
-
-!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`
-
-### Dragon Skill Definition
-
-!`cat ${CLAUDE_PLUGIN_ROOT}/skills/dragon-agent/SKILL.md`
-
-### Guardian Skill Definition
-
-!`cat ${CLAUDE_PLUGIN_ROOT}/skills/guardian-agent/SKILL.md`
-
-### Animal Campaign Extensions
-
-!`cat ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`
+- Campaign Guidelines: !`echo ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`
+- Gandalf Skill Definition: !`echo ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`
+- Dragon Skill Definition: !`echo ${CLAUDE_PLUGIN_ROOT}/skills/dragon-agent/SKILL.md`
+- Guardian Skill Definition: !`echo ${CLAUDE_PLUGIN_ROOT}/skills/guardian-agent/SKILL.md`
+- Animal Campaign Extensions: !`echo ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`

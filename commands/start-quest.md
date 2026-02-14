@@ -27,12 +27,14 @@ If the user chooses to continue the existing quest, present mid-campaign options
 1. **Continue working on the quest** — Return to campaign execution.
 2. **Request a Guardian checkpoint** — Have the Guardian evaluate your progress.
 3. **Consult Gandalf for strategic counsel** — Get mentorship on your current challenge.
-4. **Face the Dragon** — Test whether your success criteria are met.
-5. **Consult an animal advisor** — Get a specific animal perspective on your work.
+4. **Consult Simon for reflection** — Step back for meta-analysis: how are you working, what roles are you playing, what patterns is Simon noticing?
+5. **Face the Dragon** — Test whether your success criteria are met.
+6. **Consult an animal advisor** — Get a specific animal perspective on your work.
 
 Then invoke the appropriate agent based on the user's choice:
 
-- **NPC agents** (Gandalf, Dragon, Guardian) — adopt the full identity defined in the relevant skill definition provided at the end of this command.
+- **NPC agents** (Gandalf, Dragon, Guardian) — adopt the full identity defined in the relevant skill definition loaded from the Injected Context paths below.
+- **Simon** — invoke via the Skill tool using `simon-agent`. Provide quest context and ask Simon for meta-analysis of the user's working patterns, role performance, and campaign dynamics.
 - **Animal agents** (Bear, Cat, Owl, Puppy, Rabbit, Wolf) — invoke via the Skill tool using their skill name (e.g., `bear-agent`, `cat-agent`). Do NOT attempt to read skill files from the filesystem. When in Phase 3 or later, include the Animal Campaign Extensions context in your invocation message so the animal agent is quest-aware.
 
 **If `.campaign/quest.md` does not exist:**
@@ -47,22 +49,16 @@ Load the Gandalf agent skill and begin Phase 1 (Quest Definition). Gandalf will:
 2. Guide campaign mode selection (Grow / Ship / Grow & Ship)
 3. Frame the quest narrative and establish success criteria collaboratively
 
-Invoke Gandalf by adopting the full Gandalf identity as defined in the skill definition provided at the end of this command. Begin the "Starting a Quest" interaction pattern.
+Invoke Gandalf by adopting the full Gandalf identity as defined in the skill definition loaded from the Injected Context paths below. Begin the "Starting a Quest" interaction pattern.
 
 ---
 
 ## Injected Context
 
-The following content is injected at invocation time from the plugin's source files.
+The following files contain essential context for this command. Their absolute paths are resolved below. **Before proceeding with Step 1, use the Read tool to load every file listed in this section.** Read them in parallel if possible. Do not skip any.
 
-### Campaign Guidelines
+If any path below is empty or shows an error, the plugin root could not be resolved. Fall back to the Campaign Conventions already embedded in NPC skill definitions. Inform the user that full context loading failed and suggest running `/campaign-setup` to copy guidelines to the project root.
 
-!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`
-
-### Gandalf Skill Definition
-
-!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`
-
-### Animal Campaign Extensions
-
-!`cat ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`
+- Campaign Guidelines: !`echo ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`
+- Gandalf Skill Definition: !`echo ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`
+- Animal Campaign Extensions: !`echo ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`

@@ -181,22 +181,16 @@ Use `AskUserQuestion` to offer next steps. The options depend on whether an acti
 1. **Return to the quest** — Continue working with fresh perspectives from the Council.
 2. **Council complete** — End the session with the report saved.
 
-If the user chooses to start a quest, invoke Gandalf using the skill definition provided at the end of this command and begin Phase 1 (Quest Definition). Gandalf should read `.campaign/council-report.md` to inform quest framing.
+If the user chooses to start a quest, invoke Gandalf using the skill definition loaded from the Injected Context paths below and begin Phase 1 (Quest Definition). Gandalf should read `.campaign/council-report.md` to inform quest framing.
 
 ---
 
 ## Injected Context
 
-The following content is injected at invocation time from the plugin's source files.
+The following files contain essential context for this command. Their absolute paths are resolved below. **Before proceeding with Step 1, use the Read tool to load every file listed in this section.** Read them in parallel if possible. Do not skip any.
 
-### Campaign Guidelines
+If any path below is empty or shows an error, the plugin root could not be resolved. Fall back to the Campaign Conventions already embedded in NPC skill definitions. Inform the user that full context loading failed and suggest running `/campaign-setup` to copy guidelines to the project root.
 
-!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`
-
-### Gandalf Skill Definition
-
-!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`
-
-### Animal Campaign Extensions
-
-!`cat ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`
+- Campaign Guidelines: !`echo ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`
+- Gandalf Skill Definition: !`echo ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`
+- Animal Campaign Extensions: !`echo ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`
