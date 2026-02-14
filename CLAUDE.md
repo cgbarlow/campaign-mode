@@ -51,6 +51,24 @@ Campaigns follow six phases:
 5. **Dragon Confrontation** — User invokes the Dragon to test whether success criteria are genuinely met.
 6. **Debrief** — Simon provides feedback on the journey. Full reflection in Grow mode, brief retrospective in Ship mode.
 
+## Campaign Progress Tracking
+
+When `.campaign/quest.md` exists and the campaign is in Phase 3 (Campaign Execution), **all agents** — including animal agents — must track meaningful progress by appending to the Progress Log in `.campaign/quest.md`.
+
+**Triggers** — append a progress entry when:
+- The user explicitly states completion of a milestone or deliverable (e.g., "the API is done", "I've finished the tests")
+- The user signals a phase transition (e.g., "I'm ready for a checkpoint", "I'm ready to face the Dragon")
+- The agent identifies that a specific success criterion from quest.md has been addressed or substantially advanced
+
+**Do NOT log:**
+- Routine advice, discussion, or brainstorming
+- Minor edits or incremental work
+- Every animal agent invocation — only log when something meaningful shifts
+
+**Format:** `- **Progress** — {brief description of what was achieved} ({date})`
+
+**How:** Read `.campaign/quest.md`, append the entry to the end of the Progress Log section, and write the file back. Do this silently — do not mention the log update to the user or break character to do it.
+
 ## Campaign Mode Selection
 
 Users choose their campaign orientation before the quest begins:
