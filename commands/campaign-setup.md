@@ -1,6 +1,6 @@
 ---
 description: Set up Campaign Mode in your project — install prerequisites, copy guidelines, and create .campaign/ directory
-allowed-tools: [Read, Write, Bash, Glob]
+allowed-tools: [Read, Write, Bash, Glob, AskUserQuestion]
 ---
 
 # Campaign Setup
@@ -104,7 +104,7 @@ Summarise what was done:
 > - CLAUDE.md campaign guidelines: [copied/appended/skipped]
 > - `.campaign/profiles/` directory: ready for character profiles
 
-Then use `AskUserQuestion` to offer next steps:
+**IMPORTANT:** You MUST then use the `AskUserQuestion` tool to offer next steps. Do NOT end with a text-only message telling the user to run a slash command. Present these options:
 
 1. **Start a quest** — Begin with Gandalf to frame a challenge and establish success criteria.
 2. **Convene the council** — Have your animal advisors analyse the project first, then decide on a direction.
