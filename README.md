@@ -251,6 +251,7 @@ Architectural decisions are documented as ADRs using the WH(Y) format in [docs/2
 | [ADR-CM-011](docs/2_adrs/ADR-CM-011-Council-Feature.md) | Council Feature |
 | [ADR-CM-012](docs/2_adrs/ADR-CM-012-Plugin-Desktop-Compatibility.md) | Plugin Desktop Compatibility |
 | [ADR-CM-013](docs/2_adrs/ADR-CM-013-Plugin-Guidelines-Parity.md) | Plugin Guidelines Parity |
+| [ADR-CM-014](docs/2_adrs/ADR-CM-014-Animal-Campaign-Extensions.md) | Animal Campaign Extensions |
 
 Supporting specifications and reference materials live alongside the ADRs in [docs/3_specs/](docs/3_specs/) and [docs/2_adrs/reference/](docs/2_adrs/reference/).
 
@@ -272,6 +273,8 @@ campaign-mode/
 │           └── SKILL.md
 ├── .claude-plugin/
 │   └── plugin.json                      # Plugin manifest (plugin path)
+├── extensions/
+│   └── animal-campaign-context.md       # Animal agent campaign behaviour extensions
 ├── .github/
 │   └── ISSUE_TEMPLATE/                  # GitHub issue templates
 │       ├── bug-report.md
@@ -337,7 +340,16 @@ campaign-mode/
 
 ## Roadmap
 
-### v0.2.6 — Current Release
+### v0.2.7 — Current Release
+
+- Gandalf SKILL.md now has mechanical Phase 3 progress tracking instructions (Read/Write tool steps) matching the detail level of Phase 1/2 — fixes Gandalf not updating `quest.md` during campaign execution
+- Animal agents (Bear, Cat, Owl, Puppy, Rabbit, Wolf) now receive campaign extensions when invoked through quest commands — enabling quest-aware advice, progress tracking, and phase transition awareness
+- New `extensions/animal-campaign-context.md` defines campaign behaviour extensions for animal agents, injected into `/continue-quest`, `/start-quest`, and `/council` via dynamic context injection
+- Six Animals SKILL.md files gain a generic "Context Extensions" stub, priming animals to respect supplementary instructions from any orchestration context
+- ADR-CM-014 and SPEC-CM-008-A document the animal campaign extensions approach and cross-project dependency
+- See [ROADMAP-CM-002](docs/5_roadmap/ROADMAP-CM-002-Animal-Campaign-Extensions.md) for full details
+
+### v0.2.6
 
 - CLAUDE.md campaign conventions now injected into all command invocation paths (`/start-quest`, `/continue-quest`, `/council`) via dynamic context injection
 - NPC SKILL.md files now include a condensed "Campaign Conventions" section covering cross-cutting rules (identity, lifecycle, elicitation, debrief) for direct skill invocations
