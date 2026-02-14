@@ -319,7 +319,11 @@ campaign-mode/
 
 ## Roadmap
 
-### v0.2.4 — Current Release
+### v0.2.5 — Current Release
+
+- `start-quest` and `continue-quest` now invoke animal agents via the Skill tool instead of attempting to read skill files from the filesystem — animal skills belong to the Six Animals plugin, not Campaign Mode
+
+### v0.2.4
 
 - Plugin commands now work in Claude Desktop via dynamic context injection (`!`command`` syntax with `${CLAUDE_PLUGIN_ROOT}`)
 - Commands inject skill definitions at invocation time instead of referencing file paths at runtime
