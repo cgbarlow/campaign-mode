@@ -58,17 +58,26 @@ Gandalf draws from the Quest Definition Framework (quest-agent source) and the "
 
 | Aspect | Detail |
 |--------|--------|
-| **Primary Actor** | User + Party (Animals) |
-| **Trigger** | Quest definition complete, user opts into character profiles |
-| **Activities** | Animals adopt characterisations (e.g., Bear becomes a Human Paladin, Cat becomes a Halfling Thief) |
-| **Outputs** | Character profiles for each animal |
+| **Primary Actor** | User (facilitated by Gandalf) |
+| **Trigger** | Quest definition complete, mode allows (Grow: encouraged, Ship: skipped, Grow & Ship: optional) |
+| **Activities** | User selects profile depth (vanilla/flavour/modifier), chooses theme (neutral/fantasy/custom), assigns profiles to selected animals, optionally skins NPCs. Gandalf facilitates and enforces archetype compatibility. |
+| **Outputs** | Character profile files in `.campaign/profiles/`. Each profile defines tone, voice, and optionally behavioural modifiers. |
 | **Transition** | Setup complete → Phase 3 |
 
-This phase is **optional** and adds narrative flavour. It does not alter the animals' core behavioural archetypes — a Bear with a Paladin skin still provides vision and leadership.
+This phase is **optional** and user-driven. Gandalf facilitates the process, offering depth selection, theme selection, and per-animal profile assignment. Users can profile any subset of animals — the rest stay vanilla (default archetypes).
+
+**Profile Depths:**
+- **Vanilla** — No profile. Animal uses its default archetype.
+- **Flavour** — Narrative only. Changes tone, voice, vocabulary, and metaphors. Core behaviours unchanged.
+- **Modifier** — Narrative + behavioural tuning. Tunes flex behaviours within archetype bounds. Core behaviours unchanged.
+
+**Archetype Guardrails:** Core animal behaviours are non-negotiable. Gandalf warns AND blocks incompatible profiles. A Bear without vision isn't Bear. See [SPEC-CM-006-A](SPEC-CM-006-A-Character-Profile-Format.md) for the core vs flex behaviour matrix.
+
+**NPC Skins:** NPCs (Gandalf, Dragon, Guardian) can optionally receive light thematic skins — changing presentation, vocabulary, and display name without altering core NPC behaviour.
 
 **Mode effects:** In Grow mode, character setup is encouraged as it adds reflective depth. In Ship mode, this phase is skipped — it is not productivity-relevant. In Grow & Ship mode, it is the user's choice.
 
-**Note:** Character generation is post-v1 scope. In v1, this phase is a simple narrative exercise.
+**Storage:** Profiles are stored as markdown files in `.campaign/profiles/`. See [SPEC-CM-006-B](SPEC-CM-006-B-Campaign-State-Directory.md) for the directory structure and export protocol.
 
 ### Phase 3: Campaign Execution
 
@@ -156,6 +165,8 @@ Quest Definition → Execution → Checkpoint → Execution → Checkpoint → D
 | [SPEC-CM-001-A](SPEC-CM-001-A-Skill-Architecture.md) | Skill Architecture | Structure of the skills that participate in this lifecycle |
 | [SPEC-CM-003-A](SPEC-CM-003-A-Context-Isolation-Protocol.md) | Context Isolation Protocol | How NPC independence is maintained during phases 4 and 5 |
 | [SPEC-CM-005-A](SPEC-CM-005-A-Campaign-Mode-Profiles.md) | Campaign Mode Profiles | How mode selection tunes behaviour across all phases |
+| [SPEC-CM-006-A](SPEC-CM-006-A-Character-Profile-Format.md) | Character Profile Format | Profile file structure, depth levels, themes, and core vs flex behaviours |
+| [SPEC-CM-006-B](SPEC-CM-006-B-Campaign-State-Directory.md) | Campaign State Directory | Where profile files are stored and export protocol |
 
 ---
 
@@ -165,3 +176,4 @@ Quest Definition → Execution → Checkpoint → Execution → Checkpoint → D
 |---------|------|--------|---------|
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
 | 1.1 | 2026-02-14 | Chris Barlow | Added mode selection to Phase 1, mode annotations to all phases, user-as-protagonist framing |
+| 1.2 | 2026-02-14 | Chris Barlow | Replaced Phase 2 placeholder with full character generation spec, added SPEC-CM-006-A and SPEC-CM-006-B references |

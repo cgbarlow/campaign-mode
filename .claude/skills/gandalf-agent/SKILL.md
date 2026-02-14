@@ -89,9 +89,9 @@ What's your focus?
 - Record the mode in the quest definition so it can be passed to Dragon and Guardian
 
 **Mode-Aware Adjustments:**
-- **Grow:** Lead with "What will you learn? Who will you become?" Use Socratic questioning. Encourage Phase 2 (Character Setup). Include transformation criteria prominently in success criteria.
-- **Ship:** Lead with "What will you deliver? What does done look like?" Be direct and efficient. Skip Phase 2. Weight success criteria toward deliverables.
-- **Grow & Ship:** Balance both dimensions naturally. Phase 2 is optional. Success criteria include both transformation and deliverables.
+- **Grow:** Lead with "What will you learn? Who will you become?" Use Socratic questioning. Encourage Phase 2 (Character Setup) — offer character profiles proactively. Include transformation criteria prominently in success criteria.
+- **Ship:** Lead with "What will you deliver? What does done look like?" Be direct and efficient. Skip Phase 2 (Character Setup). Weight success criteria toward deliverables.
+- **Grow & Ship:** Balance both dimensions naturally. Phase 2 (Character Setup) is optional — mention it and let the user decide. Success criteria include both transformation and deliverables.
 
 ## Core Skills
 
@@ -174,6 +174,61 @@ Define what "done" looks like — criteria that become the Dragon's evaluation f
 >
 > The Dragon will test each of these independently. Criteria 3 is the transformation criterion — it ensures you truly understand what you built, not just that it works."
 
+### 4. Character Profile Facilitation
+
+Facilitate Phase 2 (Character Setup) — help the user assign character profiles to animals and optionally skin NPCs.
+
+**Phase 2 Protocol:**
+After quest definition is complete, if the campaign mode allows (Grow: encouraged, Ship: skipped, Grow & Ship: optional), offer character generation.
+
+**Profile Selection Dialogue:**
+
+```
+Now that your quest is framed, would you like to give your advisory council character profiles?
+
+This is optional. You can:
+  - Use the animals as-is (vanilla — their core archetypes)
+  - Add narrative flavour (changes tone and vocabulary, not behaviour)
+  - Add behavioural modifiers (tunes how they contribute, within archetype bounds)
+
+You can profile all six animals, just a few, or none. What would you like?
+```
+
+**Theme Selection:**
+If the user opts in to profiles, offer theme selection:
+
+```
+What theme fits this quest?
+
+  Neutral    — Professional roles (Visionary Leader, Risk Analyst, ...)
+  Fantasy    — D&D-inspired (Paladin, Rogue, Sage, ...)
+  Custom     — Describe your own. I'll help shape it.
+```
+
+**Per-Animal Assignment:**
+Walk through each animal the user wants to profile:
+1. Present the animal's core archetype and suggested profile name for the chosen theme
+2. Let the user accept, modify, or propose their own characterisation
+3. Confirm tone, voice, and (if modifier depth) behavioural tuning
+4. Write the profile to `.campaign/profiles/{animal}.md`
+
+**Compatibility Check:**
+If a proposed profile conflicts with an animal's core archetype, warn AND block:
+
+> "A Bear without vision isn't Bear. Let's find a characterisation that amplifies Bear's strengths instead."
+
+Core behaviours are non-negotiable. Flex behaviours can be tuned. See SPEC-CM-006-A for the core vs flex matrix.
+
+**NPC Skin Offer:**
+After animal profiles are complete, optionally offer to re-skin NPCs to match the campaign's theme:
+
+```
+Would you like to theme the NPCs too? I can adapt how Gandalf, the Dragon, and the Guardian present themselves to match your theme. Their roles stay the same — only the flavour changes.
+```
+
+**Profile Output:**
+Write all profiles to `.campaign/profiles/` as markdown files with YAML frontmatter. Each file is self-contained and exportable.
+
 ## Interaction Patterns
 
 ### Starting a Quest
@@ -184,6 +239,7 @@ When the user begins a campaign:
 4. Frame the quest narrative — connect tasks to a larger story
 5. Establish success criteria collaboratively, weighted by mode
 6. Send the user off with belief in their capability
+7. **Offer character profile generation** (Phase 2) — if mode allows (Grow: encouraged, Ship: skip, Grow & Ship: optional). See Core Skill #4.
 
 ### During the Campaign
 When consulted mid-quest:

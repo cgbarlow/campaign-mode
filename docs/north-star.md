@@ -78,7 +78,7 @@ Simon remains the **educator and meta-analyst**, operating above the quest narra
 ## How It Works (Envisioned Flow)
 
 1. **Quest Definition** - You choose your campaign mode (Grow / Ship / Grow & Ship). Gandalf frames the challenge and establishes success criteria.
-2. **Character Setup** - Animals optionally adopt characterisations/profiles (encouraged in Grow mode, skipped in Ship mode)
+2. **Character Setup** - Users optionally assign character profiles to animals (depth: flavour or modifier; theme: neutral, fantasy, or custom). Gandalf facilitates. Encouraged in Grow mode, skipped in Ship mode. Profiles stored in `.campaign/profiles/`.
 3. **Campaign Execution** - You work through the quest, invoking animal agents for their archetype strengths
 4. **Guardian Checkpoints** - At key stages, you invoke the Guardian to evaluate whether you're ready to progress
 5. **Dragon Confrontation** - You invoke the Dragon to test whether all success criteria have been genuinely met
@@ -90,7 +90,7 @@ Simon remains the **educator and meta-analyst**, operating above the quest narra
 2. **Context Isolation** - NPCs must NOT share context with party members. The Guardian and Dragon need independent judgement, not information contaminated by the party's reasoning. Three isolation levels are defined: advisory (Gandalf), independent (Guardian), maximum (Dragon). In v1, isolation is enforced by instruction and sub-agent invocation; future plugin/API evolution may provide hard architectural enforcement. *(See [ADR-CM-003](adrs/ADR-CM-003-NPC-Context-Isolation.md))*
 3. **Broad Appeal First** - The quest/D&D framing is exciting but niche. The core value proposition must be accessible to people who've never rolled a d20. Lead with *problems solved*, layer in the narrative for those who want it.
 4. **Complementary, Not Coupled** - Six Animals works without Campaign Mode. Campaign Mode's NPC agents can be invoked standalone but are designed to complement the animal agents.
-5. **MVP Discipline** - The Cat is concerned about scope creep. Start with the three NPCs and quest structure. Character generation, alternative cultural mappings, and extended NPC rosters are post-v1.
+5. **MVP Discipline** - The Cat is concerned about scope creep. Start with the three NPCs, quest structure, and character generation. Alternative cultural mappings and extended NPC rosters are post-v1.
 6. **Extensible Archetypes** - The animal archetypes are portable. They've already been mapped to Brazilian jungle animals. Campaign Mode should support different characterisations without being locked to fantasy/D&D.
 
 ## Implementation Strategy
@@ -99,12 +99,12 @@ Campaign Mode will be delivered as **Claude Code skills** (matching the Six Anim
 
 ### v1 Scope
 - Gandalf, Dragon, and Guardian skill definitions (SKILL.md files)
+- Character generation system — two-depth profiles (flavour + behavioural modifiers), theme-agnostic, user-assigned, stored as `.campaign/profiles/*.md`
 - Quest lifecycle slash commands (e.g., `/start-campaign`, `/checkpoint`, `/confront-dragon`)
 - Integration stubs in animal agent definitions for campaign-aware behaviour
 - Simon's campaign-mode extensions (GM responsibilities, debrief protocol)
 
 ### Post-v1 Possibilities
-- Character generation system (animal + character profile combinations)
 - Alternative cultural/thematic mappings (NZ native animals, musical instruments, etc.)
 - Extended NPC roster
 - Multi-quest campaign arcs
@@ -124,6 +124,7 @@ The following Architecture Decision Records (ADRs) capture the key decisions mad
 | [ADR-CM-003](adrs/ADR-CM-003-NPC-Context-Isolation.md) | NPC Context Isolation | Three isolation levels (advisory, independent, maximum) enforced by instruction, with future evolution path |
 | [ADR-CM-004](adrs/ADR-CM-004-Skill-Based-Implementation.md) | Skill-Based Implementation | Claude Code skills (SKILL.md files) as implementation format, matching Six Animals patterns |
 | [ADR-CM-005](adrs/ADR-CM-005-Campaign-Mode-Selection.md) | Campaign Mode Selection | Three campaign modes (Grow, Ship, Grow & Ship) selected by user, tuning all NPC behaviour |
+| [ADR-CM-006](adrs/ADR-CM-006-Character-Generation.md) | Character Generation | User-driven character profiles (flavour + behavioural modifiers), theme-agnostic, stored in `.campaign/profiles/` |
 
 ---
 
@@ -139,11 +140,11 @@ The following Architecture Decision Records (ADRs) capture the key decisions mad
 
 4. ~~**Skill file structure**~~ **RESOLVED** ([ADR-CM-004](adrs/ADR-CM-004-Skill-Based-Implementation.md)) - NPC skills live in the campaign-mode repo as standalone SKILL.md files in dual locations: `skills/` (canonical) and `.claude/skills/` (auto-discovery). Installation via clone, copy, or personal skills. Follows the same pattern as Six Animals.
 
-5. **State management** - How does campaign state persist across sessions? Where does quest progress, checkpoint status, and character profiles live?
+5. ~~**State management**~~ **PARTIALLY RESOLVED** ([ADR-CM-006](adrs/ADR-CM-006-Character-Generation.md)) - `.campaign/` directory introduced for profile storage in `.campaign/profiles/`. Full state management (quest progress, checkpoint status) remains open. See [SPEC-CM-006-B](specs/SPEC-CM-006-B-Campaign-State-Directory.md).
 
 ### Design & Scope
 
-6. **Character generation** - Is this v1 or post-v1? The conversation wavered. If v1, how deep does it go - simple flavour text, or mechanically meaningful profiles that alter agent behaviour?
+6. ~~**Character generation**~~ **RESOLVED** ([ADR-CM-006](adrs/ADR-CM-006-Character-Generation.md)) - Two-depth character profiles (flavour + behavioural modifiers), theme-agnostic, user-assigned, stored as `.campaign/profiles/*.md`. See [SPEC-CM-006-A](specs/SPEC-CM-006-A-Character-Profile-Format.md).
 
 7. **Dragon success criteria** - Who defines what the Dragon checks for? Is it Gandalf (quest-giver defines acceptance), the user, or derived from the animal agents' own goals?
 

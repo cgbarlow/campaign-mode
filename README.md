@@ -94,7 +94,7 @@ Simon remains the educator and meta-analyst from Six Animals, with extended resp
 ```
 1. Quest Definition       You choose your mode. Gandalf frames the challenge.
         |
-2. Character Setup        Animals optionally adopt character profiles (mode-dependent)
+2. Character Setup        Assign character profiles to animals (optional, mode-dependent)
         |
 3. Campaign Execution     You work the quest, invoking animals for their strengths
         |
@@ -160,6 +160,7 @@ Architectural decisions are documented as ADRs using the WH(Y) format in [docs/a
 | [ADR-CM-003](docs/adrs/ADR-CM-003-NPC-Context-Isolation.md) | NPC Context Isolation |
 | [ADR-CM-004](docs/adrs/ADR-CM-004-Skill-Based-Implementation.md) | Skill-Based Implementation |
 | [ADR-CM-005](docs/adrs/ADR-CM-005-Campaign-Mode-Selection.md) | Campaign Mode Selection |
+| [ADR-CM-006](docs/adrs/ADR-CM-006-Character-Generation.md) | Character Generation |
 
 Supporting specifications and reference materials live alongside the ADRs in [docs/specs/](docs/specs/) and [docs/adrs/reference/](docs/adrs/reference/).
 
@@ -167,6 +168,8 @@ Supporting specifications and reference materials live alongside the ADRs in [do
 
 ```
 campaign-mode/
+├── .campaign/                           # Campaign state directory (created during Phase 2)
+│   └── profiles/                        # Character profiles (.md files per animal/NPC)
 ├── .claude/
 │   └── skills/                          # Claude Code skill auto-discovery directory
 │       ├── gandalf-agent/
@@ -194,6 +197,7 @@ campaign-mode/
 │   │   ├── ADR-CM-003-NPC-Context-Isolation.md
 │   │   ├── ADR-CM-004-Skill-Based-Implementation.md
 │   │   ├── ADR-CM-005-Campaign-Mode-Selection.md
+│   │   ├── ADR-CM-006-Character-Generation.md
 │   │   └── reference/                   # ADR format specifications and references
 │   │       ├── ADR-FORMAT.md
 │   │       ├── Recording_Architecture_Decisions.md
@@ -210,7 +214,9 @@ campaign-mode/
 │       ├── SPEC-CM-002-C-Guardian-Agent.md
 │       ├── SPEC-CM-003-A-Context-Isolation-Protocol.md
 │       ├── SPEC-CM-004-A-Skill-File-Structure.md
-│       └── SPEC-CM-005-A-Campaign-Mode-Profiles.md
+│       ├── SPEC-CM-005-A-Campaign-Mode-Profiles.md
+│       ├── SPEC-CM-006-A-Character-Profile-Format.md
+│       └── SPEC-CM-006-B-Campaign-State-Directory.md
 └── README.md
 ```
 
@@ -220,16 +226,16 @@ campaign-mode/
 
 - Gandalf, Dragon, and Guardian skill definitions with mode-aware behaviour (complete)
 - Campaign mode selection: Grow, Ship, Grow & Ship (complete)
+- Character generation system — two-depth profiles (flavour + behavioural modifiers), theme-agnostic, user-assigned, stored in `.campaign/profiles/` (complete)
 - User-as-protagonist framing throughout (complete)
 - Architecture Decision Records documenting key design choices (complete)
-- Design specifications for each agent, lifecycle, mode profiles, and context isolation (complete)
+- Design specifications for each agent, lifecycle, mode profiles, context isolation, and character profiles (complete)
 - North-star vision document with open questions (complete)
 
 ### Future
 
 - Integration stubs in animal agent definitions for campaign-aware behaviour
 - Simon's campaign-mode extensions (GM responsibilities, debrief protocol)
-- Character generation system (animal + character profile combinations)
 - Alternative cultural and thematic mappings
 - Multi-quest campaign arcs
 - Extended NPC roster
