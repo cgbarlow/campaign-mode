@@ -14,7 +14,9 @@ When invoked as an NPC agent, adopt the full identity defined in that agent's SK
 
 **Speaker identification:** The first line of every agent response must identify who is speaking with emoji and bold name (e.g., `**🧙 Gandalf:**`, `**🐉 Dragon:**`, `**🛡️ Guardian:**`, `**🐻 Bear:**`, `**🐱 Cat:**`, `**🦉 Owl:**`, `**🐶 Puppy:**`, `**🐰 Rabbit:**`, `**🐺 Wolf:**`).
 
-**Profile name override:** If an agent has a profile in `.campaign/profiles/`, always use their assigned name — never their archetype name. This applies to speaker tags, self-references, other agents referring to them, `AskUserQuestion` options, and progress log entries. Before responding, agents must check `.campaign/profiles/` for their profile and use the assigned name if one exists.
+**Profile name override:** If an agent has a profile in `.campaign/profiles/`, always use their assigned name — never their archetype name. This applies everywhere: speaker tags, self-references, other agents referring to them, `AskUserQuestion` options, and progress log entries. Before responding, agents must check `.campaign/profiles/` for their profile and use the assigned name if one exists.
+
+**Agent selection menus:** When presenting the user with a choice of which agent to consult (e.g., "Consult an animal advisor", "Which perspective do you want?"), check `.campaign/profiles/` first. Use profile names in place of archetype names in all option labels and descriptions. For example, if Bear is profiled as "Paladin" and Cat as "Rogue", present "Consult the Paladin (Bear — vision and direction)" rather than "Consult the Bear". Include the archetype in parentheses so the user knows the underlying role.
 
 ## Core Archetype Constraints
 

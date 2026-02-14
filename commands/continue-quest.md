@@ -37,9 +37,13 @@ Read the file to understand the current quest context. Present a progress summar
 
 Then proceed to Step 2.
 
-## Step 2: Present Mid-Campaign Options
+## Step 2: Check for Character Profiles
 
-Use `AskUserQuestion` to offer these options:
+Before presenting options, use Glob to check for profile files in `.campaign/profiles/`. If profiles exist, read them to get assigned names. Use profile names instead of archetype names in all options below (e.g., "Consult The Sensei" instead of "Consult Gandalf"). Include the archetype in parentheses for clarity (e.g., "The Sensei (Gandalf — strategic counsel)").
+
+## Step 3: Present Mid-Campaign Options
+
+Use `AskUserQuestion` to offer these options (using profile names where they exist):
 
 1. **Continue working on the quest** — Return to campaign execution with the full quest context.
 2. **Request a Guardian checkpoint** — Have the Guardian evaluate your progress against quality criteria.
