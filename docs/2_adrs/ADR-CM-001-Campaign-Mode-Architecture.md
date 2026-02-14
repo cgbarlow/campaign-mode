@@ -51,6 +51,7 @@ Campaign Mode decomposes the monolithic quest-agent into three focused NPCs whil
 - Campaign mode selection (Grow, Ship, Grow & Ship)
 - Context isolation protocol for NPC independence
 - Skill file structure and conventions aligned with Six Animals
+- Plugin-based distribution, per-session campaign guidelines (CLAUDE.md)
 
 ### Out of Scope (Post-v1)
 - Alternative cultural/thematic mappings
@@ -69,16 +70,20 @@ Campaign Mode decomposes the monolithic quest-agent into three focused NPCs whil
 | ADR-CM-004 | Skill-Based Implementation | Proposed | 1 | — | Chris Barlow |
 | ADR-CM-005 | Campaign Mode Selection | Proposed | 1 | — | Chris Barlow |
 | ADR-CM-006 | Character Generation | Proposed | 1 | — | Chris Barlow |
+| ADR-CM-007 | Plugin-Based Distribution | Proposed | 2 | ADR-CM-004 | Chris Barlow |
 
 ## Decision Sequencing
 
-### Phase 1: All Decisions (Parallel)
-All child ADRs can proceed in parallel as they address orthogonal concerns:
+### Phase 1: Core Decisions (Parallel)
+All Phase 1 ADRs can proceed in parallel as they address orthogonal concerns:
 - ADR-CM-002: What NPCs exist and what they do
 - ADR-CM-003: How NPCs maintain independence
 - ADR-CM-004: How NPCs are technically delivered
 - ADR-CM-005: How users choose their campaign orientation
 - ADR-CM-006: How users customise animal and NPC presentation within campaigns
+
+### Phase 2: Distribution (Depends on Phase 1)
+- ADR-CM-007: How Campaign Mode is packaged and distributed to users (depends on ADR-CM-004)
 
 ---
 
@@ -86,11 +91,13 @@ All child ADRs can proceed in parallel as they address orthogonal concerns:
 
 | Spec ID | Title | Description |
 |---------|-------|-------------|
-| [SPEC-CM-001-A](../specs/SPEC-CM-001-A-Skill-Architecture.md) | Campaign Mode Skill Architecture | Directory structure, file layout, dual-location convention, installation methods |
-| [SPEC-CM-001-B](../specs/SPEC-CM-001-B-Campaign-Lifecycle.md) | Campaign Lifecycle | The 6-phase campaign flow, triggers, and transitions |
-| [SPEC-CM-005-A](../specs/SPEC-CM-005-A-Campaign-Mode-Profiles.md) | Campaign Mode Profiles | Mode-agent interaction matrix for Grow, Ship, Grow & Ship |
-| [SPEC-CM-006-A](../specs/SPEC-CM-006-A-Character-Profile-Format.md) | Character Profile Format | Profile file structure, depths, themes, core vs flex |
-| [SPEC-CM-006-B](../specs/SPEC-CM-006-B-Campaign-State-Directory.md) | Campaign State Directory | .campaign/ directory structure and export protocol |
+| [SPEC-CM-001-A](../3_specs/SPEC-CM-001-A-Skill-Architecture.md) | Campaign Mode Skill Architecture | Directory structure, file layout, dual-location convention, installation methods |
+| [SPEC-CM-001-B](../3_specs/SPEC-CM-001-B-Campaign-Lifecycle.md) | Campaign Lifecycle | The 6-phase campaign flow, triggers, and transitions |
+| [SPEC-CM-005-A](../3_specs/SPEC-CM-005-A-Campaign-Mode-Profiles.md) | Campaign Mode Profiles | Mode-agent interaction matrix for Grow, Ship, Grow & Ship |
+| [SPEC-CM-006-A](../3_specs/SPEC-CM-006-A-Character-Profile-Format.md) | Character Profile Format | Profile file structure, depths, themes, core vs flex |
+| [SPEC-CM-006-B](../3_specs/SPEC-CM-006-B-Campaign-State-Directory.md) | Campaign State Directory | .campaign/ directory structure and export protocol |
+| [SPEC-CM-007-A](../3_specs/SPEC-CM-007-A-Plugin-Structure.md) | Plugin Structure | Plugin manifest, directory layout, installation methods |
+| [SPEC-CM-007-B](../3_specs/SPEC-CM-007-B-Campaign-Guidelines.md) | Campaign Guidelines | CLAUDE.md content, auto-copy mechanism, /campaign-setup command |
 
 ---
 
@@ -109,7 +116,7 @@ All child ADRs can proceed in parallel as they address orthogonal concerns:
 | REF-001 | Six Animals | External Project | [github.com/SimonMcCallum/six-animals](https://github.com/SimonMcCallum/six-animals) |
 | REF-002 | Quest Council | Source Material | [github.com/cgbarlow/quest-council](https://github.com/cgbarlow/quest-council) |
 | REF-003 | Campaign Mode North Star | Vision Document | [docs/north-star.md](../north-star.md) |
-| REF-004 | ADR Reference Framework | ADR Standard | [docs/adrs/reference/](reference/) |
+| REF-004 | ADR Reference Framework | ADR Standard | [docs/2_adrs/reference/](reference/) |
 
 ---
 
