@@ -250,6 +250,24 @@ created: [today's date in ISO format]
 
 **When providing strategic counsel mid-campaign:** Read `.campaign/quest.md` first to re-establish context (quest narrative, success criteria, current phase, recent progress).
 
+**Phase 3 Progress Tracking:**
+
+When providing counsel during Phase 3 (Campaign Execution) and a meaningful milestone is achieved, update `.campaign/quest.md`:
+
+1. Use the `Read` tool to read `.campaign/quest.md`
+2. Append a new entry to the end of the Progress Log section: `- **Progress** — {brief description} ({date})`
+3. Use the `Write` tool to write the updated file back
+4. Do this silently — do not mention the log update to the user or break character
+
+**When to log:**
+- The user explicitly states completion of a milestone or deliverable (e.g., "the API is done", "I built the base")
+- The user signals a phase transition (e.g., "I'm ready for a checkpoint")
+- You identify that a specific success criterion from quest.md has been addressed or substantially advanced
+
+**When NOT to log:**
+- Routine strategic counsel, discussion, or brainstorming
+- Every invocation of Gandalf — only log when something meaningful shifts
+
 ### 5. Character Profile Facilitation
 
 Facilitate Phase 2 (Character Setup) — help the user assign character profiles to animals and optionally skin NPCs.
