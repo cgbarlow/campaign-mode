@@ -109,13 +109,19 @@ Simon remains the educator and meta-analyst from Six Animals, with extended resp
 
 **Option 1: Plugin install (recommended)**
 
-Install from the Claude Code marketplace:
+Add the Campaign Mode marketplace and install:
 
 ```
-/install campaign-mode
+/plugin marketplace add cgbarlow/campaign-mode
+/plugin install campaign-mode@campaign-mode-marketplace
 ```
 
-Then run `/campaign-setup` in your project to copy campaign guidelines and create the `.campaign/` directory.
+Then run `/campaign-setup` in your project — it will check for Six Animals prerequisites, copy campaign guidelines, and create the `.campaign/` directory.
+
+> `/campaign-setup` will offer to install [Six Animals](https://github.com/SimonMcCallum/six-animals) if it's not already present. You can also install it separately from the same marketplace:
+> ```
+> /plugin install six-animals@campaign-mode-marketplace
+> ```
 
 **Option 2: Clone the repo (for contributors)**
 
@@ -145,7 +151,7 @@ Note: Personal skills do not include CLAUDE.md or commands. Use the plugin insta
 
 | Command | What it does |
 |---------|-------------|
-| `/campaign-setup` | Set up Campaign Mode in your project — copy guidelines and create `.campaign/` directory |
+| `/campaign-setup` | Set up Campaign Mode in your project — install Six Animals if needed, copy guidelines, create `.campaign/` directory |
 | `/gandalf-agent` | Frame a quest, choose your campaign mode, and establish success criteria |
 | `/dragon-agent` | Challenge your work — test whether success criteria are genuinely met |
 | `/guardian-agent` | Evaluate progress at a checkpoint — approve, block, or conditionally approve |

@@ -1,0 +1,39 @@
+{
+  "name": "campaign-mode-marketplace",
+  "metadata": {
+    "description": "Campaign Mode plugin and Six Animals prerequisite for quest-based AI-assisted work.",
+    "version": "1.0.0"
+  },
+  "owner": {
+    "name": "Chris Barlow",
+    "url": "https://github.com/cgbarlow"
+  },
+  "plugins": [
+    {
+      "name": "six-animals",
+      "description": "Six psychologically-grounded team role agents (Bear, Cat, Owl, Puppy, Rabbit, Wolf) plus Simon as educator/supervisor. Prerequisite for the full Campaign Mode experience.",
+      "source": {
+        "source": "github",
+        "repo": "SimonMcCallum/six-animals"
+      },
+      "author": {
+        "name": "Dr. Simon McCallum"
+      },
+      "license": "CC-BY-SA-4.0",
+      "keywords": ["team-roles", "collaboration", "animals", "agents"]
+    },
+    {
+      "name": "campaign-mode",
+      "description": "Quest-based extension for AI-assisted work. Three NPC agents (Gandalf, Dragon, Guardian) provide mentorship, adversarial testing, and quality gates for structured campaigns.",
+      "source": {
+        "source": "github",
+        "repo": "cgbarlow/campaign-mode"
+      },
+      "author": {
+        "name": "Chris Barlow"
+      },
+      "license": "CC-BY-SA-4.0",
+      "keywords": ["quest", "campaign", "npcs", "mentorship", "adversarial-testing", "quality-gates"]
+    }
+  ]
+}

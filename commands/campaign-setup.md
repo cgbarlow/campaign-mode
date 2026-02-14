@@ -1,13 +1,40 @@
 ---
-description: Set up Campaign Mode in your project — copy guidelines and create .campaign/ directory
+description: Set up Campaign Mode in your project — install prerequisites, copy guidelines, and create .campaign/ directory
 allowed-tools: [Read, Write, Bash, Glob]
 ---
 
 # Campaign Setup
 
-You are setting up Campaign Mode in the user's project. Follow these steps:
+You are setting up Campaign Mode in the user's project. Follow these steps in order.
 
-## Step 1: Copy Campaign Guidelines
+## Step 1: Check Six Animals Prerequisites
+
+Campaign Mode is designed to work with [Six Animals](https://github.com/SimonMcCallum/six-animals). Check if Six Animals skills are available.
+
+**Check for Six Animals skills** by looking for any of these:
+- `.claude/skills/bear-agent/SKILL.md` in the user's project
+- `~/.claude/skills/bear-agent/SKILL.md` (personal skills)
+- Check if the `six-animals` plugin is installed by running: `ls ~/.claude/plugins/*/skills/bear-agent/SKILL.md 2>/dev/null`
+
+**If Six Animals skills are NOT found anywhere:**
+
+Tell the user:
+
+> Campaign Mode works best with Six Animals (Bear, Cat, Owl, Puppy, Rabbit, Wolf, Simon).
+> Six Animals is not currently installed. Would you like to install it?
+
+Offer these options:
+- **Install as plugin** — Run: `claude /plugin install six-animals@campaign-mode-marketplace` (requires the campaign-mode marketplace to be added first)
+- **Clone to project** — Run: `git clone https://github.com/SimonMcCallum/six-animals.git /tmp/six-animals && cp -r /tmp/six-animals/.claude/skills/* .claude/skills/ && rm -rf /tmp/six-animals`
+- **Skip** — Continue without Six Animals (Campaign Mode NPCs work standalone, but the full party experience requires the animal agents)
+
+Proceed based on the user's choice.
+
+**If Six Animals skills ARE found:**
+
+Tell the user: "Six Animals skills detected." and continue to Step 2.
+
+## Step 2: Copy Campaign Guidelines
 
 Check if a CLAUDE.md file exists in the user's project root.
 
@@ -23,7 +50,7 @@ Check if a CLAUDE.md file exists in the user's project root.
   - **Skip** — Leave CLAUDE.md unchanged
 - Proceed based on their choice
 
-## Step 2: Create Campaign Directory
+## Step 3: Create Campaign Directory
 
 Create the `.campaign/profiles/` directory in the user's project root if it doesn't already exist.
 
@@ -31,12 +58,13 @@ Create the `.campaign/profiles/` directory in the user's project root if it does
 mkdir -p .campaign/profiles
 ```
 
-## Step 3: Confirm Setup
+## Step 4: Confirm Setup
 
-Tell the user:
+Summarise what was done and tell the user:
 
 > Campaign Mode is set up in your project:
-> - CLAUDE.md campaign guidelines [copied/appended/skipped]
-> - `.campaign/profiles/` directory ready for character profiles
+> - Six Animals: [installed/already present/skipped]
+> - CLAUDE.md campaign guidelines: [copied/appended/skipped]
+> - `.campaign/profiles/` directory: ready for character profiles
 >
 > Run `/gandalf-agent` to begin framing a quest.
