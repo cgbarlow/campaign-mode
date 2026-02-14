@@ -6,6 +6,18 @@ Where Six Animals answers *"how should we work together?"*, Campaign Mode answer
 
 ## Quick Start
 
+### Claude Desktop
+
+1. **Open Settings** — Claude Desktop → Settings → Plugins
+2. **Add the marketplace** — paste: `https://raw.githubusercontent.com/cgbarlow/campaign-mode/refs/heads/main/.claude-plugin/marketplace.json`
+3. **Install the plugin** — find Campaign Mode in the marketplace and install
+4. **Set up your project** — run `/campaign-setup` (checks for Six Animals, copies guidelines, creates `.campaign/`)
+5. **Choose your path:**
+   - `/council` — Have all six animal advisors analyse your project before deciding what to work on
+   - `/start-quest` — Jump straight into quest framing with Gandalf
+
+### Claude Code CLI
+
 1. **Install Claude Code** — `curl -fsSL https://claude.ai/install.sh | bash` ([full guide](https://code.claude.com/docs/en/quickstart))
 2. **Add the marketplace** — in a Claude Code session: `/plugin marketplace add cgbarlow/campaign-mode`
 3. **Install the plugin** — `/plugin install campaign-mode@campaign-mode-marketplace`
@@ -32,9 +44,9 @@ Six Animals doesn't tell you who you are — it gives tools to communicate, sugg
 
 ## Prerequisites
 
-### Claude Code
+### Claude Desktop or Claude Code
 
-Campaign Mode is delivered as [Claude Code skills](https://docs.anthropic.com/en/docs/claude-code) — markdown-based agent definitions that Claude Code discovers and makes available as slash commands. You need [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and working.
+Campaign Mode is delivered as a plugin with [Claude Code skills](https://docs.anthropic.com/en/docs/claude-code) — markdown-based agent definitions available as slash commands. It works with both [Claude Desktop](https://claude.ai/download) and [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code).
 
 ### Six Animals (Recommended)
 
@@ -139,40 +151,41 @@ See [SPEC-CM-006-A](docs/3_specs/SPEC-CM-006-A-Character-Profile-Format.md) for 
 
 ## Installation
 
-### Install Claude Code
+### Option 1: Claude Desktop (recommended)
 
-Campaign Mode runs on [Claude Code](https://code.claude.com/docs/en/quickstart). On macOS, Linux, or WSL:
+1. Open Claude Desktop → Settings → Plugins
+2. Add the Campaign Mode marketplace URL:
+   ```
+   https://raw.githubusercontent.com/cgbarlow/campaign-mode/refs/heads/main/.claude-plugin/marketplace.json
+   ```
+3. Find Campaign Mode in the marketplace and install
+4. Run `/campaign-setup` in your project to complete setup
+
+> `/campaign-setup` will offer to install [Six Animals](https://github.com/SimonMcCallum/six-animals) if it's not already present.
+
+### Option 2: Claude Code CLI
+
+Install [Claude Code](https://code.claude.com/docs/en/quickstart) if you haven't already:
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-See the [quickstart guide](https://code.claude.com/docs/en/quickstart) for full instructions and other platforms.
+Then in a Claude Code session:
 
-### Install Campaign Mode
-
-**Option 1: Plugin install (recommended)**
-
-Start Claude Code (`claude` in your terminal), then run these commands inside the session:
-
-Add the Campaign Mode marketplace:
 ```
 /plugin marketplace add cgbarlow/campaign-mode
-```
-
-Install the plugin:
-```
 /plugin install campaign-mode@campaign-mode-marketplace
 ```
 
-Then run `/campaign-setup` in your project — it will check for Six Animals prerequisites, copy campaign guidelines, and create the `.campaign/` directory.
+Run `/campaign-setup` in your project to complete setup.
 
 > `/campaign-setup` will offer to install [Six Animals](https://github.com/SimonMcCallum/six-animals) if it's not already present. You can also install it separately from the same marketplace:
 > ```
 > /plugin install six-animals@campaign-mode-marketplace
 > ```
 
-**Option 2: Clone the repo (for contributors)**
+### Option 3: Clone the repo (for contributors)
 
 ```bash
 git clone https://github.com/cgbarlow/campaign-mode.git
@@ -181,20 +194,20 @@ cd campaign-mode
 # CLAUDE.md guidelines loaded per session
 ```
 
-**Option 3: Copy to your project**
+### Option 4: Copy to your project
 
 ```bash
 cp -r campaign-mode/.claude/skills/ your-project/.claude/skills/
 cp campaign-mode/CLAUDE.md your-project/CLAUDE.md
 ```
 
-**Option 4: Personal skills (all projects)**
+### Option 5: Personal skills (all projects)
 
 ```bash
 cp -r campaign-mode/.claude/skills/ ~/.claude/skills/
 ```
 
-Note: Personal skills do not include CLAUDE.md or commands. Use the plugin install for the full experience.
+Note: Personal skills do not include CLAUDE.md or commands. Use a plugin install for the full experience.
 
 ## Available Commands
 
@@ -321,6 +334,7 @@ campaign-mode/
 
 ### v0.2.5 — Current Release
 
+- Claude Desktop installation instructions in Quick Start and Installation sections
 - `start-quest` and `continue-quest` now invoke animal agents via the Skill tool instead of attempting to read skill files from the filesystem — animal skills belong to the Six Animals plugin, not Campaign Mode
 
 ### v0.2.4
