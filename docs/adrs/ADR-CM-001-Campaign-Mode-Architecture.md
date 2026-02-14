@@ -53,7 +53,6 @@ Campaign Mode decomposes the monolithic quest-agent into three focused NPCs whil
 - Skill file structure and conventions aligned with Six Animals
 
 ### Out of Scope (Post-v1)
-- Character generation system
 - Alternative cultural/thematic mappings
 - Multi-quest campaign arcs
 - Extended NPC roster
@@ -69,6 +68,7 @@ Campaign Mode decomposes the monolithic quest-agent into three focused NPCs whil
 | ADR-CM-003 | NPC Context Isolation | Proposed | 1 | — | Chris Barlow |
 | ADR-CM-004 | Skill-Based Implementation | Proposed | 1 | — | Chris Barlow |
 | ADR-CM-005 | Campaign Mode Selection | Proposed | 1 | — | Chris Barlow |
+| ADR-CM-006 | Character Generation | Proposed | 1 | — | Chris Barlow |
 
 ## Decision Sequencing
 
@@ -78,6 +78,7 @@ All child ADRs can proceed in parallel as they address orthogonal concerns:
 - ADR-CM-003: How NPCs maintain independence
 - ADR-CM-004: How NPCs are technically delivered
 - ADR-CM-005: How users choose their campaign orientation
+- ADR-CM-006: How users customise animal and NPC presentation within campaigns
 
 ---
 
@@ -88,6 +89,8 @@ All child ADRs can proceed in parallel as they address orthogonal concerns:
 | [SPEC-CM-001-A](../specs/SPEC-CM-001-A-Skill-Architecture.md) | Campaign Mode Skill Architecture | Directory structure, file layout, dual-location convention, installation methods |
 | [SPEC-CM-001-B](../specs/SPEC-CM-001-B-Campaign-Lifecycle.md) | Campaign Lifecycle | The 6-phase campaign flow, triggers, and transitions |
 | [SPEC-CM-005-A](../specs/SPEC-CM-005-A-Campaign-Mode-Profiles.md) | Campaign Mode Profiles | Mode-agent interaction matrix for Grow, Ship, Grow & Ship |
+| [SPEC-CM-006-A](../specs/SPEC-CM-006-A-Character-Profile-Format.md) | Character Profile Format | Profile file structure, depths, themes, core vs flex |
+| [SPEC-CM-006-B](../specs/SPEC-CM-006-B-Campaign-State-Directory.md) | Campaign State Directory | .campaign/ directory structure and export protocol |
 
 ---
 
