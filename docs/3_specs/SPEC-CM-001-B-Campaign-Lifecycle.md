@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-001-B |
 | **Parent ADR** | [ADR-CM-001](../adrs/ADR-CM-001-Campaign-Mode-Architecture.md) |
-| **Version** | 1.0 |
+| **Version** | 1.3 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -46,7 +46,7 @@ The user is the **protagonist** throughout — the decision-maker who drives the
 | **Trigger** | User invokes `/gandalf-agent` to begin a campaign |
 | **Activities** | **Campaign mode selection** (Grow / Ship / Grow & Ship); frame the quest narrative; establish success criteria; identify the anticipated dragon (internal obstacle); define what "done" looks like |
 | **Outputs** | Campaign mode selection + quest definition (narrative, success criteria, anticipated challenges) |
-| **Transition** | Quest definition complete → Phase 2 or Phase 3 |
+| **Transition** | Quest definition complete → Phase 2 or Phase 3. Gandalf facilitates the transition through `AskUserQuestion`, offering options to begin working, review the quest summary, or consult an animal advisor. |
 
 **Campaign Mode Selection:** Before framing the quest, Gandalf asks the user to choose their campaign mode. This is the user's first act of agency as protagonist — choosing how they want to approach the campaign. See [SPEC-CM-005-A](SPEC-CM-005-A-Campaign-Mode-Profiles.md) for how each mode tunes NPC behaviour. The default is Grow & Ship.
 
@@ -62,7 +62,7 @@ Gandalf draws from the Quest Definition Framework (quest-agent source) and the "
 | **Trigger** | Quest definition complete, mode allows (Grow: encouraged, Ship: skipped, Grow & Ship: optional) |
 | **Activities** | User selects profile depth (vanilla/flavour/modifier), chooses theme (neutral/fantasy/custom), assigns profiles to selected animals, optionally skins NPCs. Gandalf facilitates and enforces archetype compatibility. |
 | **Outputs** | Character profile files in `.campaign/profiles/`. Each profile defines tone, voice, and optionally behavioural modifiers. |
-| **Transition** | Setup complete → Phase 3 |
+| **Transition** | Setup complete → Phase 3. Gandalf facilitates the transition through `AskUserQuestion` (same options as Phase 1 transition). |
 
 This phase is **optional** and user-driven. Gandalf facilitates the process, offering depth selection, theme selection, and per-animal profile assignment. Users can profile any subset of animals — the rest stay vanilla (default archetypes).
 
@@ -87,7 +87,7 @@ This phase is **optional** and user-driven. Gandalf facilitates the process, off
 | **Trigger** | Quest defined (Phase 1 complete) |
 | **Activities** | The user works through the quest, invoking animal agents for their archetype strengths. Gandalf provides strategic counsel when consulted. |
 | **Outputs** | Work product, decisions, progress toward success criteria |
-| **Transition** | Key milestone reached → Phase 4; all criteria addressed → Phase 5 |
+| **Transition** | Key milestone reached → Phase 4; all criteria addressed → Phase 5. The user triggers transitions using natural-language phrases planted during Phase 1 (e.g., "I'm ready for a checkpoint", "I'm ready to face the Dragon"). |
 
 The user drives the work. Animals provide perspectives and support; NPCs operate with isolated context (they cannot see party reasoning).
 
@@ -101,7 +101,7 @@ The user drives the work. Animals provide perspectives and support; NPCs operate
 | **Trigger** | User reaches a key milestone; user invokes `/guardian-agent` |
 | **Activities** | Guardian independently evaluates progress against quality criteria. Reviews work product without access to the user's internal reasoning or party discussions. |
 | **Outputs** | Gate decision: Approve (proceed), Block (with feedback), or Conditional Approval (proceed with caveats) |
-| **Transition** | Approved → Phase 3 (next stage) or Phase 5; Blocked → Phase 3 (rework) |
+| **Transition** | Approved → Phase 3 (next stage) or Phase 5; Blocked → Phase 3 (rework). Guardian facilitates the transition through `AskUserQuestion`, offering options appropriate to the gate decision (continue, face Dragon, consult Gandalf, address gaps, or discuss the verdict). |
 
 Guardian checkpoints can repeat multiple times during a campaign. Each checkpoint evaluates the current stage's deliverables against readiness criteria.
 
@@ -117,7 +117,7 @@ Guardian checkpoints can repeat multiple times during a campaign. Each checkpoin
 | **Trigger** | User believes all success criteria are met; user invokes `/dragon-agent` |
 | **Activities** | Dragon adversarially tests whether Gandalf's success criteria have been genuinely met. Stress-tests the work. Challenges assumptions. |
 | **Outputs** | Confrontation result: Dragon Slain (criteria met), Dragon Prevails (criteria not met, with specific feedback) |
-| **Transition** | Dragon Slain → Phase 6; Dragon Prevails → Phase 3 (rework) |
+| **Transition** | Dragon Slain → Phase 6; Dragon Prevails → Phase 3 (rework). Dragon facilitates the transition through `AskUserQuestion`, offering options appropriate to the verdict (begin debrief, celebrate, return to quest, consult Gandalf, or request Guardian checkpoint). |
 
 The Dragon is the culminating test. It operates adversarially but fairly — rigorous but not destructive.
 
@@ -133,9 +133,35 @@ The Dragon is the culminating test. It operates adversarially but fairly — rig
 | **Trigger** | Dragon confrontation complete (regardless of outcome) |
 | **Activities** | Simon provides feedback on the journey. Analyses role performance, group dynamics, what was learned. Pulls back the curtain on pedagogical dynamics. |
 | **Outputs** | Debrief insights, growth reflections, recommendations for future quests |
-| **Transition** | Campaign complete; optionally leads to next quest definition (Phase 1) |
+| **Transition** | Campaign complete; optionally leads to next quest definition (Phase 1). Simon facilitates the transition through `AskUserQuestion`, offering options to begin a new quest or conclude. |
 
 **Mode effects:** In Grow mode, full pedagogical reflection — deep analysis of learning moments, role performance, and personal growth. In Ship mode, brief retrospective focused on process effectiveness and improvement. In Grow & Ship mode, balanced debrief covering both dimensions.
+
+---
+
+## Phase Transition Protocol
+
+Every phase transition is facilitated by the active agent through `AskUserQuestion`. No agent should end a phase with a passive statement — every phase boundary must present the user with structured next-step options.
+
+**Principles:**
+- **Proactive, not passive** — Agents offer the next step; they never assume the user knows what to do next
+- **Natural language, not commands** — Transition options use plain language ("Face the Dragon", "Consult Gandalf") rather than slash commands (`/dragon-agent`, `/gandalf-agent`)
+- **User retains agency** — The user chooses from options; the agent does not advance the campaign autonomously
+- **Context isolation preserved** — Transition handoffs respect NPC isolation boundaries. When Gandalf hands off to the Dragon, only success criteria, campaign mode, and work product are passed.
+
+**Transition responsibilities by agent:**
+
+| Agent | Transition Points | Options Offered |
+|-------|-------------------|-----------------|
+| **Gandalf** | After quest framing/character setup | Begin working, Review quest summary, Consult an animal advisor |
+| **Gandalf** | Before Dragon Confrontation | Face the Dragon, Address gaps first, Request a Guardian checkpoint first |
+| **Guardian** | After Approve | Continue the quest, Face the Dragon, Consult Gandalf |
+| **Guardian** | After Block | Address the gaps, Consult Gandalf, Discuss the verdict |
+| **Guardian** | After Conditional Approval | Continue the quest, Address conditions first, Consult Gandalf |
+| **Dragon** | After Dragon Slain | Begin the debrief, Celebrate first |
+| **Dragon** | After Dragon Prevails | Return to the quest, Consult Gandalf, Request a Guardian checkpoint |
+
+**Flow drop rule:** Ending a phase without a next-step `AskUserQuestion` is a flow drop and a bug.
 
 ---
 
@@ -177,3 +203,4 @@ Quest Definition → Execution → Checkpoint → Execution → Checkpoint → D
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
 | 1.1 | 2026-02-14 | Chris Barlow | Added mode selection to Phase 1, mode annotations to all phases, user-as-protagonist framing |
 | 1.2 | 2026-02-14 | Chris Barlow | Replaced Phase 2 placeholder with full character generation spec, added SPEC-CM-006-A and SPEC-CM-006-B references |
+| 1.3 | 2026-02-14 | Chris Barlow | Added Phase Transition Protocol, updated all phase Transition rows with proactive elicitation via `AskUserQuestion` (ADR-CM-008) |

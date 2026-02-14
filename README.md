@@ -93,17 +93,19 @@ Simon remains the educator and meta-analyst from Six Animals, with extended resp
 
 ```
 1. Quest Definition       You choose your mode. Gandalf frames the challenge.
-        |
+        |                 Gandalf offers: Begin working / Review summary / Consult advisor
 2. Character Setup        Assign character profiles to animals (optional, mode-dependent)
         |
 3. Campaign Execution     You work the quest, invoking animals for their strengths
-        |
-4. Guardian Checkpoint    You invoke the Guardian to evaluate readiness (mode-aware)
-        |                 (repeats at key stages)
-5. Dragon Confrontation   You invoke the Dragon to test success criteria (mode-aware)
-        |
+        |                 Say "I'm ready for a checkpoint" or "I'm ready to face the Dragon"
+4. Guardian Checkpoint    Guardian evaluates readiness (mode-aware)
+        |                 Guardian offers next step based on verdict (repeats at key stages)
+5. Dragon Confrontation   Dragon tests success criteria (mode-aware)
+        |                 Dragon offers: Begin debrief / Return to quest
 6. Debrief                Simon provides feedback (depth varies by mode)
 ```
+
+At every phase transition, the active agent offers you structured next-step options — you never need to remember slash commands to keep the campaign moving.
 
 ## Installation
 
@@ -178,10 +180,11 @@ These work alongside the existing Six Animals commands (`/bear-agent`, `/cat-age
 ## Design Principles
 
 1. **User Agency First** — You are the protagonist. Every design choice increases your agency. Mode selection, quest shaping, agent invocation — you drive.
-2. **Context Isolation** — NPCs must not share context with party members. The Dragon operates at maximum isolation (success criteria + campaign mode + work product only). The Guardian evaluates each checkpoint independently.
-3. **Complementary, Not Coupled** — Six Animals works without Campaign Mode. Campaign Mode's NPC agents can be invoked standalone but are designed to complement the animal agents.
-4. **Broad Appeal First** — The quest framing is engaging but optional. Lead with problems solved, layer in the narrative for those who want it.
-5. **Extensible Archetypes** — The animal archetypes are portable across cultures and themes. Campaign Mode supports different characterisations without being locked to any single genre.
+2. **Proactive Elicitation** — Agents offer the next step at every phase transition. You never need to remember slash commands — you choose from options. Ending a phase without offering next steps is a bug.
+3. **Context Isolation** — NPCs must not share context with party members. The Dragon operates at maximum isolation (success criteria + campaign mode + work product only). The Guardian evaluates each checkpoint independently.
+4. **Complementary, Not Coupled** — Six Animals works without Campaign Mode. Campaign Mode's NPC agents can be invoked standalone but are designed to complement the animal agents.
+5. **Broad Appeal First** — The quest framing is engaging but optional. Lead with problems solved, layer in the narrative for those who want it.
+6. **Extensible Archetypes** — The animal archetypes are portable across cultures and themes. Campaign Mode supports different characterisations without being locked to any single genre.
 
 ## Architecture Decisions
 
@@ -196,6 +199,7 @@ Architectural decisions are documented as ADRs using the WH(Y) format in [docs/2
 | [ADR-CM-005](docs/2_adrs/ADR-CM-005-Campaign-Mode-Selection.md) | Campaign Mode Selection |
 | [ADR-CM-006](docs/2_adrs/ADR-CM-006-Character-Generation.md) | Character Generation |
 | [ADR-CM-007](docs/2_adrs/ADR-CM-007-Plugin-Based-Distribution.md) | Plugin-Based Distribution |
+| [ADR-CM-008](docs/2_adrs/ADR-CM-008-Proactive-Elicitation.md) | Proactive Elicitation |
 
 Supporting specifications and reference materials live alongside the ADRs in [docs/3_specs/](docs/3_specs/) and [docs/2_adrs/reference/](docs/2_adrs/reference/).
 
@@ -238,6 +242,7 @@ campaign-mode/
 │   │   ├── ADR-CM-005-Campaign-Mode-Selection.md
 │   │   ├── ADR-CM-006-Character-Generation.md
 │   │   ├── ADR-CM-007-Plugin-Based-Distribution.md
+│   │   ├── ADR-CM-008-Proactive-Elicitation.md
 │   │   └── reference/                   # ADR format specifications and references
 │   └── 3_specs/                         # Design specifications
 │       ├── SPEC-CM-001-A-Skill-Architecture.md
@@ -258,23 +263,26 @@ campaign-mode/
 
 ## Roadmap
 
-### v1 — Current State
+### v0.1 — Current Release
 
-- Gandalf, Dragon, and Guardian skill definitions with mode-aware behaviour (complete)
-- Campaign mode selection: Grow, Ship, Grow & Ship (complete)
-- Character generation system — two-depth profiles (flavour + behavioural modifiers), theme-agnostic, user-assigned, stored in `.campaign/profiles/` (complete)
-- Plugin packaging for Claude Code marketplace distribution (complete)
-- CLAUDE.md campaign guidelines loaded per session (complete)
-- `/campaign-setup` command for project onboarding (complete)
-- User-as-protagonist framing throughout (complete)
-- Architecture Decision Records documenting key design choices (complete)
-- Design specifications for each agent, lifecycle, mode profiles, context isolation, character profiles, and plugin structure (complete)
-- North-star vision document with open questions (complete)
+- Gandalf, Dragon, and Guardian skill definitions with mode-aware behaviour
+- Campaign mode selection: Grow, Ship, Grow & Ship
+- Character generation system — two-depth profiles (flavour + behavioural modifiers), theme-agnostic, user-assigned, stored in `.campaign/profiles/`
+- Proactive elicitation — agents offer structured next-step options at every phase transition via `AskUserQuestion`; no slash command references in user-facing text
+- Campaign Debrief Protocol — Dragon-to-Simon handoff with mode-aware context
+- Dragon Voice and Tone — imposing, terse, authoritative confrontation presence
+- Plugin packaging for Claude Code marketplace distribution
+- CLAUDE.md campaign guidelines loaded per session
+- `/campaign-setup` command for project onboarding
+- User-as-protagonist framing throughout
+- Architecture Decision Records documenting key design choices (ADR-CM-001 through ADR-CM-008)
+- Design specifications for each agent, lifecycle, mode profiles, context isolation, character profiles, and plugin structure
+- North-star vision document with open questions
 
 ### Future
 
 - Integration stubs in animal agent definitions for campaign-aware behaviour
-- Simon's campaign-mode extensions (GM responsibilities, debrief protocol)
+- Simon's campaign-mode extensions (GM responsibilities, expanded debrief)
 - Alternative cultural and thematic mappings
 - Multi-quest campaign arcs
 - Extended NPC roster

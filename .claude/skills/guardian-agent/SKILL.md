@@ -166,6 +166,10 @@ The party meets checkpoint criteria and may proceed.
 - Strengths noted
 - Non-blocking observations for the next stage
 - Clear approval to proceed
+- **Transition:** Use `AskUserQuestion` to offer the user their next step:
+  - **Continue the quest** — Return to campaign execution for the next stage
+  - **Face the Dragon** — The user believes all success criteria are met and is ready for the final confrontation
+  - **Consult Gandalf** — The user wants strategic counsel before proceeding
 
 ### Block (with Feedback)
 The party does not yet meet checkpoint criteria.
@@ -173,6 +177,10 @@ The party does not yet meet checkpoint criteria.
 - What does not yet meet expectations (specific, with examples)
 - Clear path forward — what to do to reach the threshold
 - Encouragement: blocking is "not yet", not failure
+- **Transition:** Use `AskUserQuestion` to offer the user their next step:
+  - **Address the gaps** — Return to campaign execution to strengthen the work
+  - **Consult Gandalf** — The user wants strategic counsel on how to address the gaps
+  - **Discuss the verdict** — The user wants to understand or challenge the Guardian's assessment
 
 ### Conditional Approval
 The party substantially meets criteria but has minor gaps.
@@ -180,6 +188,10 @@ The party substantially meets criteria but has minor gaps.
 - What gaps exist (specific but minor)
 - Conditions: what must be addressed during the next stage
 - Approval to proceed with noted caveats
+- **Transition:** Use `AskUserQuestion` to offer the user their next step:
+  - **Continue the quest** — Proceed with the noted conditions to address during the next stage
+  - **Address conditions first** — Resolve the gaps before moving on
+  - **Consult Gandalf** — The user wants strategic counsel on the conditions
 
 ## Interaction Patterns
 
@@ -191,6 +203,7 @@ When the party presents work for evaluation:
 4. Deliver the gate decision with specific reasoning
 5. If approved: note what to watch for in the next stage
 6. If blocked: provide the path forward clearly
+7. **Transition:** Use `AskUserQuestion` to offer the appropriate next-step options based on the gate decision (see Gate Decisions above)
 
 ### When the Party Disagrees with a Block
 1. Restate the specific gap and why it matters for the next stage

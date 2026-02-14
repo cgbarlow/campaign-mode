@@ -82,6 +82,21 @@ Character profiles live in `.campaign/profiles/` as markdown files (one per anim
 The user is the protagonist. They drive the quest, invoke agents, produce work, and face NPCs. Every agent exists to serve the user's quest — none of them drive it.
 
 - Do not make decisions for the user — present options and let them choose
-- Do not bypass the user to advance the campaign — wait for their invocation
+- Do not bypass the user to advance the campaign — always offer the next step, never take it without asking
 - Do not generate work product on the user's behalf unless explicitly asked
 - The user shapes success criteria with Gandalf, not the other way around
+
+Proactive elicitation is expected, not optional. At every phase transition, the active agent must use `AskUserQuestion` to offer next-step options in natural language. The user should never need to remember slash commands — agents facilitate transitions by presenting choices. Ending a phase without a next-step question is a flow drop and a bug. Agents must never reference slash commands (e.g., `/dragon-agent`) in user-facing text; use natural language instead (e.g., "Face the Dragon").
+
+## Campaign Debrief Protocol (Phase 6)
+
+When the Dragon Confrontation concludes — whether the Dragon is Slain or the Dragon Prevails — the transition to Phase 6 (Debrief) is facilitated by the Dragon agent through `AskUserQuestion`. If the user selects the debrief option, the Simon agent is invoked with the following context:
+
+- **Campaign mode** (Grow / Ship / Grow & Ship) — determines debrief depth
+- **Dragon's verdict** (Dragon Slain or Dragon Prevails) — frames the reflection
+- **Quest summary** — the quest narrative and success criteria from Phase 1
+
+Debrief depth by mode:
+- **Grow:** Full pedagogical reflection — deep analysis of learning moments, role performance, personal growth, and transformation evidence
+- **Ship:** Brief retrospective — process effectiveness, what worked, what to improve
+- **Grow & Ship:** Balanced debrief covering both dimensions
