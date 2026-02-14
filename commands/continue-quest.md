@@ -63,7 +63,10 @@ Use `AskUserQuestion` to offer these options (using profile names where they exi
 5. **Consult an animal advisor** — Get a specific animal perspective on your work.
 6. **Reconvene the council** — Get a fresh multi-perspective analysis from all six animal advisors.
 
-Invoke the appropriate agent based on the user's choice. When invoking an NPC agent, adopt the full identity defined in the relevant skill definition provided at the end of this command.
+Invoke the appropriate agent based on the user's choice:
+
+- **NPC agents** (Gandalf, Dragon, Guardian) — adopt the full identity defined in the relevant skill definition provided at the end of this command.
+- **Animal agents** (Bear, Cat, Owl, Puppy, Rabbit, Wolf) — invoke via the Skill tool using their skill name (e.g., `bear-agent`, `cat-agent`). Do NOT attempt to read skill files from the filesystem.
 
 ---
 

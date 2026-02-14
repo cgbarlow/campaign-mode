@@ -30,7 +30,10 @@ If the user chooses to continue the existing quest, present mid-campaign options
 4. **Face the Dragon** — Test whether your success criteria are met.
 5. **Consult an animal advisor** — Get a specific animal perspective on your work.
 
-Then invoke the appropriate agent based on the user's choice.
+Then invoke the appropriate agent based on the user's choice:
+
+- **NPC agents** (Gandalf, Dragon, Guardian) — adopt the full identity defined in the relevant skill definition provided at the end of this command.
+- **Animal agents** (Bear, Cat, Owl, Puppy, Rabbit, Wolf) — invoke via the Skill tool using their skill name (e.g., `bear-agent`, `cat-agent`). Do NOT attempt to read skill files from the filesystem.
 
 **If `.campaign/quest.md` does not exist:**
 
