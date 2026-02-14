@@ -1,0 +1,112 @@
+Conversation between Simon and Chris:
+[10/02/2026, 11:50:34 AM] Simon McCallum: you could use different D&D character types
+[10/02/2026, 11:50:35 AM] Chris Barlow: replace the quest agent from the council with an orchestrator
+[10/02/2026, 11:50:56 AM] Chris Barlow: maybe that's the rabbit anyway
+[10/02/2026, 11:51:24 AM] Simon McCallum: The quest agent is like me the supervisor
+[10/02/2026, 11:51:32 AM] Chris Barlow: ahh yep
+[10/02/2026, 11:51:40 AM] Chris Barlow: we need to define that role better
+[10/02/2026, 11:52:02 AM] Simon McCallum: I also like the dragon as the enemy stuff.  So perhaps a Gandalf/ Zoo Keepter
+[10/02/2026, 11:52:52 AM] Chris Barlow: yes we need a foil
+[10/02/2026, 11:53:18 AM] Simon McCallum: You could lean into the orchestra and make the agents musical instruments
+[10/02/2026, 11:53:25 AM] Chris Barlow: hah
+[10/02/2026, 11:53:43 AM] Chris Barlow: zuza's idea was to make them NZ native animals
+[10/02/2026, 11:54:35 AM] Simon McCallum: that way you could talk about different sections, and different types within sections and you could just be looking for a standard pop band - but if you want more interesting output you need better orchestration
+[10/02/2026, 11:55:03 AM] Chris Barlow: this is where my comment about archetypes is relevant - we can apply these animal archetypes to other environments with different labels
+[10/02/2026, 11:55:08 AM] Simon McCallum: I had a South american academic map them to Brazilian jungle animals for his culture
+[10/02/2026, 11:55:45 AM] Chris Barlow: The Cat is concerned about scope creep
+[10/02/2026, 11:56:35 AM] Chris Barlow: I think there are various angles here to explore, lets get the MVP out and then think about extensions
+[10/02/2026, 11:57:23 AM] Chris Barlow: I'd consider quests, dragons, different mappings as bolt ons, not sure on best implementation but I like the idea of NPC agents
+[10/02/2026, 11:57:28 AM] Simon McCallum: Indeed - the issue with NZ animals is that they are mostly birds, and the birds to not have cultural archetypes of Nordic animals I used
+[10/02/2026, 11:58:30 AM] Chris Barlow: Perhaps Gandalf character as the supervisor could make it to v1
+[10/02/2026, 11:59:21 AM] Chris Barlow: although that kindof leads to defeating smaug
+[10/02/2026, 11:59:38 AM] Simon McCallum: Gandelf probably has enough cultural recognition.  Perhaps a Dumbledoor but there are still some issues with Harry Potter
+[10/02/2026, 11:59:58 AM] Chris Barlow: if you're keen to roll with quests angle we can make that part of initial release
+[10/02/2026, 12:00:13 PM] Chris Barlow: defeating the dragon gives this purpose
+[10/02/2026, 12:00:44 PM] Chris Barlow: in an agentic context
+[10/02/2026, 12:00:56 PM] Simon McCallum: There becomes a bit of the dwarfs in the hobbit model, but the dwarfs do not have clean mental separatons
+[10/02/2026, 12:01:17 PM] Chris Barlow: leave the dwarves out of this lol
+[10/02/2026, 12:01:47 PM] Simon McCallum: Thorin - Dwarfs - Hobbit is mostly how my brain remembers the book
+[10/02/2026, 12:01:59 PM] Chris Barlow: i do wonder though if we lose people if we go too deep into quests and fantasy realms - people might be into the group dynamics but not LoTR
+[10/02/2026, 12:02:35 PM] Simon McCallum: I wonder if we could use the amazing race as a model
+[10/02/2026, 12:03:39 PM] Chris Barlow: could do I guess what I'm saying is do we need another model
+[10/02/2026, 12:04:02 PM] Chris Barlow: can we make it work without
+[10/02/2026, 12:04:10 PM] Simon McCallum: Just wondering if there is a quest giver supervisor that is a good model a Lion perhaps - Aslan or something who is above it all.  "Steve jobs"
+[10/02/2026, 12:04:32 PM] Chris Barlow: yes something that maps to the animals
+[10/02/2026, 12:04:40 PM] Chris Barlow: but then its the 7 animals
+[10/02/2026, 12:05:01 PM] Simon McCallum: happy to support you in what works and if it is tightly linked cool - if it is "inspired by" also cool
+[10/02/2026, 12:05:32 PM] Chris Barlow: thanks and I'm keen for your input on getting the supervisor role right
+[10/02/2026, 12:05:35 PM] Simon McCallum: But the lion is not part of the team - they are separate
+[10/02/2026, 12:06:12 PM] Chris Barlow: is there a human supervisor - maybe its just Simon
+[10/02/2026, 12:06:23 PM] Simon McCallum: Simon Says
+[10/02/2026, 12:06:39 PM] Simon McCallum: But I am not trying to catch you out
+[10/02/2026, 12:06:58 PM] Simon McCallum: It links to the playful mental model of keeping it light
+[10/02/2026, 12:07:12 PM] Chris Barlow: it works
+[10/02/2026, 12:07:38 PM] Chris Barlow: And you get the feeling that Dr Simon is observing
+[10/02/2026, 12:07:54 PM] Simon McCallum: we could include the mini-game of the pattern matching as an easter egg
+[10/02/2026, 12:08:01 PM] Chris Barlow: ?
+[10/02/2026, 12:08:27 PM] Simon McCallum: https://en.wikipedia.org/wiki/Simon_(game)
+[10/02/2026, 12:09:05 PM] Chris Barlow: can you whip up rough notes please I can use for a spec/definition for simon supervisor agent?
+[10/02/2026, 12:10:01 PM] Chris Barlow: Also, if there is anything you feel needs tightening up in the animal skill definitions let me knwo
+[10/02/2026, 12:10:39 PM] Chris Barlow: i'll use this as basis and remove the quest-agent
+[10/02/2026, 12:10:42 PM] Chris Barlow: https://github.com/cgbarlow/quest-council/
+[10/02/2026, 12:11:03 PM] Chris Barlow: We'll bring the quest stuff in as an extension later
+[10/02/2026, 12:12:11 PM] Chris Barlow: If you want feel free to just create/tune the simon skill yourself
+[10/02/2026, 12:12:30 PM] Simon McCallum: should I add a folder for the simon-agent and update the quest-agent as a simon-agent
+[10/02/2026, 12:12:46 PM] Chris Barlow: Wait let me clone this repo
+[10/02/2026, 12:16:59 PM] Chris Barlow: using the clone repo function in github is very slow it seems
+[10/02/2026, 12:24:23 PM] Chris Barlow: https://github.com/cgbarlow/six-animals/invitations
+[10/02/2026, 12:24:39 PM] Chris Barlow: i removed the quest agent
+[10/02/2026, 12:25:08 PM] Chris Barlow: feel free to use anything in quest-agent as part of re-imagining it as simon-agent
+[10/02/2026, 12:52:24 PM] Chris Barlow: If you can focus on defining simons role once we have that I’ll work on how we can integrate it via slash commands
+[10/02/2026, 12:52:58 PM] Chris Barlow: Ie in the quest council implementation we had /start-quest
+[10/02/2026, 12:56:26 PM] Chris Barlow: In case you didn’t realise Claude just knows how to make skills so don’t bother trying to hand crank it just ask
+[10/02/2026, 1:04:36 PM] Chris Barlow: Gandalf is perfect as a natural addition to six-animals and Simon NPCs. He can work independently of six animals but can be added to provide the quest functionality
+[10/02/2026, 1:05:27 PM] Chris Barlow: I’m also thinking it might be fun to add the dragon as an enemy agent when you want to confront your dragon
+[10/02/2026, 1:06:24 PM] Chris Barlow: Their job is to check if success criteria for all the animals has been met
+[10/02/2026, 1:09:13 PM] Chris Barlow: Simon can debrief and provide learning insights after the battle
+[10/02/2026, 1:10:20 PM] Chris Barlow: There may be aspects of the GM in simons role
+[10/02/2026, 1:11:39 PM] Chris Barlow: Perhaps only activated if Gandalf in play
+[10/02/2026, 1:13:31 PM] Simon McCallum: Yes there is a bunch of GM role but also the educator and guide role.
+[10/02/2026, 1:14:27 PM] Chris Barlow: May be a bit of cross over between Gandalf and Simon
+[10/02/2026, 1:14:47 PM] Chris Barlow: Think about separation of concerns
+[10/02/2026, 1:14:57 PM] Chris Barlow: And keeping NPC count to MVP
+[10/02/2026, 1:16:29 PM] Simon McCallum: The animal roles are about performing.  Gandalf could be mentor and Simon educator. I think we could have dragon and guardian of the gate. The guardian has to approve of something before you can move on
+[10/02/2026, 1:18:12 PM] Chris Barlow: Like it
+[10/02/2026, 1:18:52 PM] Chris Barlow: Gandalf, dragon and guardian for the quest package
+[10/02/2026, 1:19:02 PM] Simon McCallum: I think we are seeing that the guardian is missing when Claude goes crazy trying to get around the obstacle I have seen that with it trying to work out how to get around sudo on my server
+[10/02/2026, 1:19:45 PM] Chris Barlow: Well it may be a case of asking does this even make sense
+[10/02/2026, 1:19:46 PM] Simon McCallum: They are all roles outside of the team of agents trying to solve the problem
+[10/02/2026, 1:20:03 PM] Chris Barlow: That’s a cat function
+[10/02/2026, 1:20:26 PM] Simon McCallum: But the cat is biased as they are part of the team
+[10/02/2026, 1:20:35 PM] Chris Barlow: Hmmm true
+[10/02/2026, 1:21:03 PM] Simon McCallum: They are supposed to be able to think about and model the guardian but they are not the guardian
+[10/02/2026, 1:21:18 PM] Chris Barlow: If that’s the case we need to ensure NPCs do not share context with party members
+[10/02/2026, 1:21:30 PM] Chris Barlow: This conversation is wild bro loving it
+[10/02/2026, 1:22:23 PM] Chris Barlow: We may need to deploy this as a Claude plugin to make sure it is setup properly
+[10/02/2026, 1:22:25 PM] Simon McCallum: We probably need to have a separation as we know the agentuc AI will try and rig the game if they can
+[10/02/2026, 1:22:50 PM] Chris Barlow: It’s all doable within a single Claude instance
+[10/02/2026, 1:23:27 PM] Chris Barlow: New Claude Agents team functionality in Claude is perfect for party dynamics with shared context
+[10/02/2026, 1:24:14 PM] Chris Barlow: Sub agents for guardian, dragon, Gandalf
+[10/02/2026, 1:25:37 PM] Chris Barlow: Changed my mind I think we need to do quest bolt on with v1 animals release!
+[10/02/2026, 1:27:00 PM] Chris Barlow: On the website though I think we should make them independent but complementary things
+[10/02/2026, 1:31:04 PM] Simon McCallum: Yep I think the quest creates an environment for agents to work within. The GM = ref/ world knowledge. Gandalf = mentor helping with your performance on the quest. Simon = Educator who gives education feedback and talks about the meta of the entire system. Shows the players behind the curtain a bit
+[10/02/2026, 1:39:54 PM] Chris Barlow: you see the GM as a different role?
+[10/02/2026, 1:40:14 PM] Chris Barlow: Or does Simon take that role in quest-mode?
+[10/02/2026, 1:46:32 PM] Simon McCallum: You could combine Simon and GM
+[10/02/2026, 1:58:33 PM] Chris Barlow: i was just thinking to have a stub of sorts set up in the animal agent definitions to allow for extended capabilities. In quest mode, we can get the animals to act as part of the party, and define the interactions / guidelines when used with the 3 quest NPCs. Also, adding the ability to apply different characterizations / character profiles to the animals (Cat becomes Human Paladin or perhaps Halfling Thief)
+[10/02/2026, 2:01:35 PM] Chris Barlow: Essentially quest mode can become a campaign starting with character generation
+[10/02/2026, 2:02:06 PM] Chris Barlow: (Optional)
+[10/02/2026, 2:04:24 PM] Simon McCallum: That would be interesting to play with
+[12/02/2026, 7:58:10 AM] Chris Barlow: I’ve been thinking about how we can make six animals appealing for mainstream audiences. There was a conversation the other day, often as fans or experts in an area we take our knowledge for granted. We are already operating at level 11, so talking to people about the step from 10-11 which is interesting to me is impossible for people who haven’t taken step 2 yet to engage with
+[12/02/2026, 8:01:06 AM] Chris Barlow: So it got me thinking that while applying six animals archetypes to role playing characters and going on quests with them is super exciting to me I took a step back and thought what does step 1 look like - what’s the core of the story and fundamental value proposition we can build from
+[12/02/2026, 8:03:43 AM] Chris Barlow: That said I accept quests may not be for everyone and dnd is a niche, just thinking about broad appeal
+[12/02/2026, 8:04:01 AM] Chris Barlow: What problems does this solve?
+[12/02/2026, 8:04:24 AM] Chris Barlow: The other thought I had is you could insert the six animals video on your website
+[12/02/2026, 8:07:18 AM] Simon McCallum: Yep I have it there too put in. I'll do that today
+[12/02/2026, 8:31:52 AM] Simon McCallum: Rachael thinks the key insights are: it does not say who you are but gives tools to help you communicate in the team you are in, it suggests you can learn new behaviours, it encourages people to give space to others so they can help, it validates different ways if thinking.
+[12/02/2026, 8:32:14 AM] Simon McCallum: Of thinking
+[12/02/2026, 8:41:22 AM] Chris Barlow: that's great
+[12/02/2026, 8:41:42 AM] Chris Barlow: that would be great on the website
+[12/02/2026, 8:48:25 AM] Chris Barlow: We can riff on the story telling around the digital setting for the animals, giving them an environment to play in and introducing some new characters to aid in your development through quests
+[12/02/2026, 8:49:45 AM] Chris Barlow: Linking in with your game theory background
+[12/02/2026, 10:33:21 PM] Chris Barlow: I’ll need to spend some time working on reshaping quests with the new 3 agent model. Could use your help on the design for the roles and how they might gel with 6A + Simon. i’m going to call the quest NPCs addition for six-animals ‘campaign mode’
