@@ -14,7 +14,7 @@
       "description": "Six psychologically-grounded team role agents (Bear, Cat, Owl, Puppy, Rabbit, Wolf) plus Simon as educator/supervisor. Prerequisite for the full Campaign Mode experience.",
       "source": {
         "source": "github",
-        "repo": "SimonMcCallum/six-animals"
+        "repo": "cgbarlow/simons-six-animals"
       },
       "author": {
         "name": "Dr. Simon McCallum"

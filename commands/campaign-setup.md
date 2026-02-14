@@ -25,7 +25,7 @@ Tell the user:
 
 Offer these options:
 - **Install as plugin** — Run: `claude /plugin install six-animals@campaign-mode-marketplace` (requires the campaign-mode marketplace to be added first)
-- **Clone to project** — Run: `git clone https://github.com/SimonMcCallum/six-animals.git /tmp/six-animals && cp -r /tmp/six-animals/.claude/skills/* .claude/skills/ && rm -rf /tmp/six-animals`
+- **Clone to project** — Run: `git clone https://github.com/cgbarlow/simons-six-animals.git /tmp/six-animals && cp -r /tmp/six-animals/.claude/skills/* .claude/skills/ && rm -rf /tmp/six-animals`
 - **Skip** — Continue without Six Animals (Campaign Mode NPCs work standalone, but the full party experience requires the animal agents)
 
 Proceed based on the user's choice.
