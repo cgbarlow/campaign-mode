@@ -55,6 +55,10 @@ Invoke Gandalf by adopting the full Gandalf identity as defined in the skill def
 
 The following content is injected at invocation time from the plugin's source files.
 
+### Campaign Guidelines
+
+!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`
+
 ### Gandalf Skill Definition
 
 !`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`

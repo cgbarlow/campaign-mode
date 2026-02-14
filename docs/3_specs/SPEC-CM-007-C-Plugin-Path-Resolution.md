@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-007-C |
 | **Parent ADR** | [ADR-CM-012](../2_adrs/ADR-CM-012-Plugin-Desktop-Compatibility.md) |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -79,27 +79,30 @@ modified directly. Edit the source files instead.
 
 | What | Injection |
 |------|-----------|
+| CLAUDE.md | `!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` |
 | Gandalf skill | `!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`` |
 
-**Command text change:** Step 2 references "the Gandalf skill definition provided at the end of this command" instead of a file path.
+**Command text change:** Step 2 references "the Gandalf skill definition provided at the end of this command" instead of a file path. CLAUDE.md injected for campaign conventions (v0.2.6).
 
 ### `continue-quest.md`
 
 | What | Injection |
 |------|-----------|
+| CLAUDE.md | `!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` |
 | Gandalf skill | `!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`` |
 | Dragon skill | `!`cat ${CLAUDE_PLUGIN_ROOT}/skills/dragon-agent/SKILL.md`` |
 | Guardian skill | `!`cat ${CLAUDE_PLUGIN_ROOT}/skills/guardian-agent/SKILL.md`` |
 
-**Command text change:** All path references replaced with "the skill definitions provided at the end of this command". All three NPC skills are injected because the user's choice at runtime determines which agent is invoked.
+**Command text change:** All path references replaced with "the skill definitions provided at the end of this command". All three NPC skills are injected because the user's choice at runtime determines which agent is invoked. CLAUDE.md injected for campaign conventions (v0.2.6).
 
 ### `council.md`
 
 | What | Injection |
 |------|-----------|
+| CLAUDE.md | `!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`` |
 | Gandalf skill | `!`cat ${CLAUDE_PLUGIN_ROOT}/skills/gandalf-agent/SKILL.md`` |
 
-**Command text change:** Step 7 transition references "the Gandalf skill definition provided at the end of this command" instead of a file path.
+**Command text change:** Step 7 transition references "the Gandalf skill definition provided at the end of this command" instead of a file path. CLAUDE.md injected for campaign conventions (v0.2.6).
 
 ### `campaign-setup.md`
 
@@ -117,12 +120,19 @@ Each injection adds to the command's prompt size:
 
 | Content | Approximate Size |
 |---------|-----------------|
-| Gandalf SKILL.md | ~300 lines |
-| Dragon SKILL.md | ~250 lines |
-| Guardian SKILL.md | ~200 lines |
-| CLAUDE.md | ~120 lines |
+| CLAUDE.md | ~130 lines |
+| Gandalf SKILL.md | ~310 lines |
+| Dragon SKILL.md | ~260 lines |
+| Guardian SKILL.md | ~210 lines |
 
-Worst case (`continue-quest.md` with all three NPC skills): ~750 additional lines. This is within acceptable limits for command prompts and is offset by eliminating failed file reads and retry attempts.
+| Command | Total Injected Content |
+|---------|----------------------|
+| `campaign-setup.md` | ~130 lines (CLAUDE.md only) |
+| `start-quest.md` | ~440 lines (CLAUDE.md + Gandalf) |
+| `council.md` | ~440 lines (CLAUDE.md + Gandalf) |
+| `continue-quest.md` | ~910 lines (CLAUDE.md + all three NPCs) |
+
+Worst case (`continue-quest.md` with CLAUDE.md and all three NPC skills): ~910 additional lines. This is within acceptable limits for command prompts and is offset by eliminating failed file reads and retry attempts.
 
 ---
 
@@ -144,6 +154,7 @@ No changes are made to `.claude/skills/`, `skills/`, or CLAUDE.md files.
 |---------|-------|--------------|
 | [SPEC-CM-007-A](SPEC-CM-007-A-Plugin-Structure.md) | Plugin Structure | Defines command directory and plugin layout |
 | [SPEC-CM-007-B](SPEC-CM-007-B-Campaign-Guidelines.md) | Campaign Guidelines | Defines CLAUDE.md content and `/campaign-setup` command |
+| [SPEC-CM-007-D](SPEC-CM-007-D-Plugin-Guidelines-Injection.md) | Plugin Guidelines Injection | Extends this spec with CLAUDE.md injection and SKILL.md subset |
 
 ---
 
@@ -152,3 +163,4 @@ No changes are made to `.claude/skills/`, `skills/`, or CLAUDE.md files.
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
+| 1.1 | 2026-02-14 | Chris Barlow | Added CLAUDE.md as injection point for start-quest, continue-quest, council. Updated context window impact table. Added SPEC-CM-007-D reference. |
