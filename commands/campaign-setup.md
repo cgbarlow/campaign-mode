@@ -11,27 +11,43 @@ You are setting up Campaign Mode in the user's project. Follow these steps in or
 
 Campaign Mode is designed to work with [Six Animals](https://github.com/cgbarlow/simons-six-animals). Check if Six Animals skills are available.
 
-**Check for Six Animals skills** by running ALL of the following checks. If ANY check succeeds, Six Animals is present:
+**IMPORTANT: You MUST use the Bash tool to run the following detection script.** Do NOT use Glob, Grep, or Read for this step — those tools cannot check the paths needed. Run this exact script with Bash:
 
 ```bash
-# Check 1: Plugin installed (check settings files for "six-animals" in enabledPlugins)
-grep -l "six-animals" ~/.claude/settings.json .claude/settings.json .claude/settings.local.json 2>/dev/null
-
+SIX_ANIMALS_FOUND=false
+# Check 1: Plugin listed in any settings file
+for f in ~/.claude/settings.json .claude/settings.json .claude/settings.local.json; do
+  if [ -f "$f" ] && grep -q "six-animals" "$f" 2>/dev/null; then
+    SIX_ANIMALS_FOUND=true
+    echo "FOUND: six-animals in $f"
+  fi
+done
 # Check 2: Skills in project
-ls .claude/skills/bear-agent/SKILL.md 2>/dev/null
-
+if [ -f .claude/skills/bear-agent/SKILL.md ]; then
+  SIX_ANIMALS_FOUND=true
+  echo "FOUND: project skills"
+fi
 # Check 3: Personal skills
-ls ~/.claude/skills/bear-agent/SKILL.md 2>/dev/null
-
-# Check 4: Plugin cache (search recursively for bear-agent SKILL.md under plugins directory)
-find ~/.claude/plugins -name "SKILL.md" -path "*/bear-agent/*" 2>/dev/null
+if [ -f ~/.claude/skills/bear-agent/SKILL.md ]; then
+  SIX_ANIMALS_FOUND=true
+  echo "FOUND: personal skills"
+fi
+# Check 4: Plugin cache
+if find ~/.claude/plugins -name "SKILL.md" -path "*/bear-agent/*" 2>/dev/null | grep -q .; then
+  SIX_ANIMALS_FOUND=true
+  echo "FOUND: plugin cache"
+fi
+# Check 5: Skills already loaded in this session (slash commands available)
+if [ "$SIX_ANIMALS_FOUND" = false ]; then
+  echo "NOT_FOUND: Six Animals not detected"
+else
+  echo "SIX_ANIMALS_DETECTED"
+fi
 ```
 
-**If ANY check finds Six Animals:**
+If the output contains `SIX_ANIMALS_DETECTED` or any line starting with `FOUND:`, tell the user: "Six Animals detected." and continue to Step 2.
 
-Tell the user: "Six Animals detected." and continue to Step 2.
-
-**If NO check finds Six Animals:**
+If the output contains `NOT_FOUND`, Six Animals is not installed.
 
 Tell the user:
 
