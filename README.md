@@ -107,11 +107,17 @@ NPCs are deliberately isolated from party context. The Guardian and Dragon need 
 
 ### The Supervisor (Simon)
 
-Simon remains the educator and meta-analyst from Six Animals, with extended responsibilities in Campaign Mode:
-- Debriefs after encounters and provides learning insights
-- Coaches role performance across both animals and NPCs
-- Optionally takes on GM (Game Master) responsibilities
-- Shows you "behind the curtain" — the pedagogical and psychological dynamics at work
+Simon is the educator, meta-analyst, and synthesiser — operating *above* the quest while Gandalf operates *within* it. Where Gandalf mentors your actions and frames challenges, Simon observes your patterns, reflects on how you are working, and coaches role performance.
+
+**Simon's three campaign touchpoints:**
+- **Council synthesis** — After all six animals deliver their perspectives, Simon pulls threads together, identifies patterns the individual animals couldn't see alone, and produces a consensus assessment
+- **Mid-campaign reflection** — Available at any time during the campaign for meta-analysis: how are you working, what roles are you playing, what dynamics is Simon noticing?
+- **Post-Dragon debrief** — After the Dragon confrontation concludes, Simon provides a reflective debrief scaled to your campaign mode (full pedagogical reflection in Grow, brief retrospective in Ship)
+
+**How Simon differs from Gandalf:**
+- Gandalf guides action — "Here is how to frame this challenge"
+- Simon reflects on patterns — "Here is how you have been working, and what I notice about your approach"
+- Gandalf is a quest-level mentor; Simon is a meta-level educator
 
 ### Campaign Flow
 
@@ -126,6 +132,7 @@ Simon remains the educator and meta-analyst from Six Animals, with extended resp
 2. Character Setup        Assign character profiles to animals (optional, mode-dependent)
         |
 3. Campaign Execution     You work the quest, invoking animals for their strengths
+        |                 Simon available for mid-campaign reflection at any time
         |                 Say "I'm ready for a checkpoint" or "I'm ready to face the Dragon"
 4. Guardian Checkpoint    Guardian reads quest.md, evaluates readiness (mode-aware)
         |                 Guardian logs verdict to quest.md, offers next step (repeats at key stages)
@@ -252,6 +259,7 @@ Architectural decisions are documented as ADRs using the WH(Y) format in [docs/2
 | [ADR-CM-012](docs/2_adrs/ADR-CM-012-Plugin-Desktop-Compatibility.md) | Plugin Desktop Compatibility |
 | [ADR-CM-013](docs/2_adrs/ADR-CM-013-Plugin-Guidelines-Parity.md) | Plugin Guidelines Parity |
 | [ADR-CM-014](docs/2_adrs/ADR-CM-014-Animal-Campaign-Extensions.md) | Animal Campaign Extensions |
+| [ADR-CM-015](docs/2_adrs/ADR-CM-015-Plugin-Injection-Sandbox-Fix.md) | Plugin Injection Sandbox Fix |
 
 Supporting specifications and reference materials live alongside the ADRs in [docs/3_specs/](docs/3_specs/) and [docs/2_adrs/reference/](docs/2_adrs/reference/).
 
@@ -309,6 +317,8 @@ campaign-mode/
 │   │   ├── ADR-CM-008-Proactive-Elicitation.md
 │   │   ├── ADR-CM-012-Plugin-Desktop-Compatibility.md
 │   │   ├── ADR-CM-013-Plugin-Guidelines-Parity.md
+│   │   ├── ADR-CM-014-Animal-Campaign-Extensions.md
+│   │   ├── ADR-CM-015-Plugin-Injection-Sandbox-Fix.md
 │   │   └── reference/                   # ADR format specifications and references
 │   ├── 3_specs/                         # Design specifications
 │   │   ├── SPEC-CM-001-A-Skill-Architecture.md
@@ -324,7 +334,8 @@ campaign-mode/
 │   │   ├── SPEC-CM-007-A-Plugin-Structure.md
 │   │   ├── SPEC-CM-007-B-Campaign-Guidelines.md
 │   │   ├── SPEC-CM-007-C-Plugin-Path-Resolution.md
-│   │   └── SPEC-CM-007-D-Plugin-Guidelines-Injection.md
+│   │   ├── SPEC-CM-007-D-Plugin-Guidelines-Injection.md
+│   │   └── SPEC-CM-008-A-Animal-Campaign-Extensions.md
 │   ├── 4_examples/                      # Example content
 │   │   ├── council-report.md            # Example council diagnostic report
 │   │   └── profiles/                    # Example character profiles
@@ -332,7 +343,9 @@ campaign-mode/
 │   │       ├── cat-rogue.md
 │   │       └── wolf-warden.md
 │   └── 5_roadmap/                       # Roadmap documents
-│       └── ROADMAP-CM-001-Guidelines-Parity.md
+│       ├── ROADMAP-CM-001-Guidelines-Parity.md
+│       ├── ROADMAP-CM-002-Animal-Campaign-Extensions.md
+│       └── ROADMAP-CM-003-v0.2.8.md
 ├── CLAUDE.md                            # Campaign guidelines (loaded per session)
 ├── CONTRIBUTING.md                      # Contribution guidelines
 └── README.md
@@ -340,7 +353,17 @@ campaign-mode/
 
 ## Roadmap
 
-### v0.2.7 — Current Release
+### v0.2.8 — Current Release
+
+- **Critical fix:** Plugin injection now works for all installation methods — replaced `!`cat`` with `!`echo`` + Read tool to bypass Claude Code's sandbox restriction (GitHub #9354). Affects all 12 injection points across 4 command files.
+- `/campaign-setup` now begins with a Gandalf welcome greeting explaining Campaign Mode, all agent roles (NPCs, animals, Simon), and what to expect
+- Simon is now offered as a mid-campaign option in `/continue-quest` and `/start-quest` for meta-analysis and reflection
+- Expanded "The Supervisor (Simon)" section in README to clarify the Gandalf/Simon distinction and Simon's three campaign touchpoints
+- ADR-CM-015 documents the plugin injection sandbox fix
+- Updated SPEC-CM-007-C (v1.2), SPEC-CM-007-D (v1.1), SPEC-CM-008-A (v1.1) with new injection syntax
+- See [ROADMAP-CM-003](docs/5_roadmap/ROADMAP-CM-003-v0.2.8.md) for full details
+
+### v0.2.7
 
 - Gandalf SKILL.md now has mechanical Phase 3 progress tracking instructions (Read/Write tool steps) matching the detail level of Phase 1/2 — fixes Gandalf not updating `quest.md` during campaign execution
 - Animal agents (Bear, Cat, Owl, Puppy, Rabbit, Wolf) now receive campaign extensions when invoked through quest commands — enabling quest-aware advice, progress tracking, and phase transition awareness

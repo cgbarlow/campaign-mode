@@ -7,6 +7,38 @@ allowed-tools: [Read, Write, Bash, Glob, AskUserQuestion]
 
 You are setting up Campaign Mode in the user's project. Follow these steps in order.
 
+## Step 0: Welcome
+
+Before any technical checks, greet the user as Gandalf. Output the following (adapting the tone to feel warm and natural, not robotic):
+
+**🧙 Gandalf:**
+
+Welcome, adventurer. I am Gandalf — your mentor and guide through Campaign Mode.
+
+Campaign Mode is a quest-based framework for structured work. You will frame a challenge, work toward defined success criteria, and face rigorous evaluation of your results. Here is who you will meet along the way:
+
+**Your Guides and Challengers (NPCs):**
+- **Gandalf** — Mentor. I frame quests and guide without rescuing — a guide on the side, not a sage on the stage.
+- **Dragon** — Adversary. Stress-tests whether your success criteria are genuinely met. Rigorous but fair.
+- **Guardian** — Gatekeeper. Evaluates readiness at checkpoints. "Not yet" is guidance, not judgement.
+
+**Your Advisory Council (Six Animals):**
+- **Bear** — Vision and direction
+- **Cat** — Risk assessment
+- **Owl** — Timeline and process
+- **Puppy** — Morale and momentum
+- **Rabbit** — Resources and stakeholders
+- **Wolf** — Team cohesion
+
+**Your Educator (Simon):**
+- **Simon** — Synthesises perspectives in the Council, coaches role performance, and provides reflective debrief after the Dragon confrontation. Where I guide *within* the quest, Simon observes *above* it.
+
+**What to expect:** You will choose a campaign mode (Grow, Ship, or both), frame a quest with success criteria, work the quest with advisory support, and ultimately face the Dragon to test your work.
+
+Let us begin by preparing your project.
+
+Then proceed to Step 1.
+
 ## Step 1: Check Six Animals Prerequisites
 
 Campaign Mode is designed to work with [Six Animals](https://github.com/cgbarlow/simons-six-animals). Check if Six Animals skills are available.
@@ -76,7 +108,7 @@ Proceed based on the user's choice.
 Check if a CLAUDE.md file exists in the user's project root.
 
 **If no CLAUDE.md exists:**
-- Use the Campaign Mode CLAUDE.md content provided at the end of this command
+- Use the Campaign Mode CLAUDE.md content loaded from the Injected Context path below
 - Write it to the user's project root as CLAUDE.md
 
 **If CLAUDE.md already exists:**
@@ -120,8 +152,8 @@ Use `AskUserQuestion` with these options:
 
 ## Injected Context
 
-The following content is injected at invocation time from the plugin's source files.
+The following files contain essential context for this command. Their absolute paths are resolved below. **Before proceeding with Step 1, use the Read tool to load every file listed in this section.** Read them in parallel if possible. Do not skip any.
 
-### Campaign Mode CLAUDE.md
+If any path below is empty or shows an error, the plugin root could not be resolved. Fall back to the Campaign Conventions already embedded in NPC skill definitions. Inform the user that full context loading failed and suggest running `/campaign-setup` to copy guidelines to the project root.
 
-!`cat ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`
+- Campaign Mode CLAUDE.md: !`echo ${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`

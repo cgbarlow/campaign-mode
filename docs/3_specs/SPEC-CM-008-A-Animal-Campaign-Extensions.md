@@ -4,7 +4,7 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-008-A |
 | **Parent ADR** | [ADR-CM-014](../2_adrs/ADR-CM-014-Animal-Campaign-Extensions.md) |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Draft |
 | **Last Updated** | 2026-02-14 |
 
@@ -48,12 +48,10 @@ The extension file covers three concerns:
 
 ## Injection Points
 
-The extension file is injected into quest commands using the established `!`cat`` pattern (SPEC-CM-007-C):
+The extension file is injected into quest commands using the two-phase `!`echo`` pattern (SPEC-CM-007-C v1.2):
 
 ```markdown
-### Animal Campaign Extensions
-
-!`cat ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`
+- Animal Campaign Extensions: !`echo ${CLAUDE_PLUGIN_ROOT}/extensions/animal-campaign-context.md`
 ```
 
 | Command | Injection Location | Notes |
@@ -147,7 +145,7 @@ The stub primes animals to respect supplementary instructions from any orchestra
 
 When updating animal campaign extensions:
 
-1. **Extension content changes** — Edit `extensions/animal-campaign-context.md`. Changes propagate automatically via `!`cat`` injection.
+1. **Extension content changes** — Edit `extensions/animal-campaign-context.md`. Changes propagate automatically via `!`echo`` path injection + Read tool loading.
 2. **New command needs animal extensions** — Add the injection block to the command's Injected Context section and add animal invocation instruction if the command Skill-invokes animals.
 3. **New animal agent added to Six Animals** — No Campaign Mode change needed (extensions apply generically). Ensure the new agent's SKILL.md has the Context Extensions stub.
 4. **Progress tracking format changes** — Update both `extensions/animal-campaign-context.md` and the corresponding section in NPC SKILL.md files (Gandalf Phase 3, Dragon, Guardian) to maintain consistency.
@@ -159,7 +157,7 @@ When updating animal campaign extensions:
 
 | Spec ID | Title | Relationship |
 |---------|-------|--------------|
-| [SPEC-CM-007-C](SPEC-CM-007-C-Plugin-Path-Resolution.md) | Plugin Path Resolution | Establishes `!`cat`` injection pattern |
+| [SPEC-CM-007-C](SPEC-CM-007-C-Plugin-Path-Resolution.md) | Plugin Path Resolution | Establishes `!`echo`` two-phase injection pattern |
 | [SPEC-CM-007-D](SPEC-CM-007-D-Plugin-Guidelines-Injection.md) | Plugin Guidelines Injection | Previous injection additions; context window baseline |
 | [SPEC-CM-001-B](SPEC-CM-001-B-Campaign-Lifecycle.md) | Campaign Lifecycle | Defines Phase 3 and progress tracking requirements |
 
@@ -170,3 +168,4 @@ When updating animal campaign extensions:
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
+| 1.1 | 2026-02-14 | Chris Barlow | Updated injection syntax from `!cat` to `!echo` two-phase pattern per ADR-CM-015 |
