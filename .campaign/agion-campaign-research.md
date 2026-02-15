@@ -6,6 +6,8 @@ This document analyses how Campaign Mode could be adapted to support and acceler
 
 The expanded analysis (Parts 8-14) deepens the case by examining Campaign Mode's theoretical grounding in Dr McCallum's Six-Animal Model and Self-Determination Theory, the role of cognitive diversity in preventing the blind spots that plague AI governance at scale, neurodiversity as a lens for seeing gaps in teams and workflows, Conway's Law implications for agent architecture, barriers specific to Agion's market position, and how Campaign Mode could serve as an internal operating system for Agion's own teams.
 
+The DoView Planning analysis (Parts 16-20) introduces Dr Paul Duignan's visual strategy methodology — DoView Planning — grounded in outcomes theory, and explores the deep structural parallels between DoView diagrams, Campaign Mode, Six Animals, and the Agion platform. The analysis identifies DoView as the missing "strategy blueprint" layer in the governance stack and proposes a four-layer convergence thesis: visual outcomes architecture (DoView), cognitive diversity (Six Animals), lifecycle governance (Campaign Mode), and machine-speed enforcement (Agion).
+
 ---
 
 ## Part 1: Agion Mission Analysis
@@ -1104,3 +1106,79 @@ The expanded thesis becomes: **"AI without *visible, diverse, tested* control is
 Four layers. Four theoretical traditions. One complete governance stack.
 
 That is a product story that scales from a CIO's board presentation to a developer's command line — and no competitor has anything like it.
+
+---
+---
+
+# SOURCES & CITATIONS
+
+---
+
+## DoView Planning — Primary Sources
+
+### Website
+- **DoView Planning** — https://www.doviewplanning.org/ — Official site for DoView Planning methodology, examples, handbook, free app, and AI integration resources. All DoView website citations below are subpages of this domain.
+
+### Subpages Consulted
+- **DoView Planning Method** — https://www.doviewplanning.org/method — Five-step DoView Planning process (Visualise, Prioritise, Measure, Evaluate, Dashboard), drawing rules, and methodology overview.
+- **DoView Planning Theory** — https://www.doviewplanning.org/theory — Outcomes theory foundation, two foundational propositions, seven theoretical components, psychological grounding (cognitive load, psychological momentum, controllability gradient), and human-AI collaboration principles.
+- **AI Systems Management** — https://www.doviewplanning.org/aiuse — Application of DoView Planning to AI agent governance, alignment, transparency, and the DoView Planning Handbook Part J (tools J1-J7 for AI applications).
+- **AI System DoViews** — https://www.doviewplanning.org/aisystemdoviews — Specific DoView examples for AI: Paperclip Problem DoViews (good/bad alignment), Claude Constitution DoView [/a057], AI Governance and Risk Management DoView [/a064], AI Agent Swarm Development DoView [/a031], Moltbook Strategy X-Ray [/a065].
+- **DoView Planning Uses** — https://www.doviewplanning.org/uses — Three primary application domains: Government, Research, AI Systems Management.
+- **Government Use** — https://www.doviewplanning.org/governmentuse — Ten-step government planning/implementation/reporting cycle; budget optimisation example ($80M reduced to $14M via DoView Visual Alignment).
+- **AI DoView Drawing Prompt** — https://www.doviewplanning.org/prompt — Three-stage AI prompt system for generating DoView diagrams: structure definition, detailed content, Python/PowerPoint code generation. Drawing rules, quality controls, and user-AI collaboration checkpoints.
+- **Collaborate** — https://www.doviewplanning.org/collaborate — Open collaboration model: free adoption with attribution, open invitation to joint ventures, permissive intellectual property approach.
+- **DoView Planning Handbook** — https://www.doviewplanning.org/book — *DoView Planning and Outcomes Theory Handbook: 100+ Innovative, Integrated Tools for Solving Key Issues in Planning, Implementation, Contracting, Measurement, Evaluation and Reporting (for Humans and AI Agents)* by Dr Paul Duignan (2025). 100+ tools across 10 parts (A-J).
+- **Free App** — https://www.doviewplanning.org/app — Legacy DoView app (Windows, free, formerly paid), Gartner Cool Vendor Award recipient. XML-saveable, mergeable files, drill-down subpages.
+
+### DoView Examples Consulted
+- **Large Company DoViews** — https://www.doviewplanning.org/largecompanydoviews — Illustrative strategy diagrams for Amazon [/a060], Anthropic [/a034], Apple [/a036], Google [/a037], JPMorgan Chase, KPMG US [/a053], Microsoft [/a032], Nike [/a039], OpenAI [/a033], Tesla. (Not endorsed by these companies; created from public information.)
+- **Generic DoViews** — https://www.doviewplanning.org/genericdoviews — Templates for Company, Early Childhood Centre, Gym/Fitness Centre, Law Firm, Police District, Restaurant/Cafe, School.
+- **NZ Government DoViews** — https://www.doviewplanning.org/nzgovernmentdoviews — New Zealand government illustrative examples (not endorsed by NZ government).
+- **NZ Company DoViews** — https://www.doviewplanning.org/nzcompanydoviews
+- **EU DoViews** — https://www.doviewplanning.org/eudoviews
+- **UK Government DoViews** — https://www.doviewplanning.org/ukgovernmentdoviews
+- **International Collaboration DoViews** — https://www.doviewplanning.org/internationalcollaborationdoviews — U.S., China, and E.U. collaboration on reducing risk of Artificial General Intelligence DoView.
+- **World Economic Forum DoViews** — https://www.doviewplanning.org/worldeconomicforumdoviews — Three DoViews derived from WEF Global Risk Report 2026: Governments Response [/a054], Corporates Response [/a055], Civil Society Response [/a056].
+- **Research Domain DoViews** — https://www.doviewplanning.org/researchdomaindoviews — Space-Based Infrastructure [/a030], Climate Tipping Points [/a031].
+
+### Substack Article
+- Duignan, P. (2025). "DoViews as GUIs for Building and Running AI Agent Systems." *Dr Paul Duignan's Substack.* https://drpaulduignan.substack.com/p/doviews-as-guis-for-building-and — Core argument: DoView diagrams should serve as visual development/management interfaces for AI agent systems, replacing text-based prompts/logs/configs. Customer Service Agent Swarm mock-up. Comparison to 1980s text-based computing. Differentiation from LangFlow, OpenAI Swarm, CrewAI, Miro.
+
+### Academic Publication
+- Duignan, P. (2009). "Using Outcomes Theory to Solve Important Conceptual and Practical Problems in Evaluation, Monitoring and Performance Management Systems." — Seminal paper describing outcomes theory in comprehensive detail. Referenced throughout the DoView Planning methodology as the theoretical foundation.
+
+### Author Background
+- **Dr Paul Duignan** — Strategy psychologist and outcomes theorist. Doctoral studies in strategic evaluation. University research group management. National Parliament research unit directorship. Fulbright Senior Scholar at the Urban Institute, Washington D.C. Consulting across hundreds of organisations globally, including governments and international bodies (IMF).
+
+---
+
+## Agion — Primary Sources
+
+- **Agion Website** — https://agion.ai/ — "The Agentic OS for the Sovereign Enterprise." Governance-as-Code platform for enterprise AI agent deployments.
+- **AANG Framework** — Agion's five governance principles: Mission-as-Code, Dynamic Trust, Governance-as-Code, Radical Transparency, Human-AI Partnership. (Referenced from Agion website and product documentation.)
+
+---
+
+## Self-Determination Theory & Six-Animal Model — Primary Sources
+
+- Deci, E.L. & Ryan, R.M. (1985). *Intrinsic Motivation and Self-Determination in Human Behavior.* Plenum Press. — Foundational SDT text establishing the three basic psychological needs: Competence, Relatedness, Autonomy.
+- Deci, E.L. & Ryan, R.M. (2000). "The 'What' and 'Why' of Goal Pursuits: Human Needs and the Self-Determination of Behavior." *Psychological Inquiry, 11*(4), 227-268. — Extended SDT framework referenced for motivational need theory.
+- **Dr Simon McCallum** — Six-Animal Model mapping team archetypes to SDT needs. Bear (vision/direction), Cat (risk/caution), Owl (process/accountability), Puppy (morale/motivation), Rabbit (resources/facilitation), Wolf (cohesion/culture). (Referenced from Campaign Mode CLAUDE.md and skill definitions.)
+
+---
+
+## Conway's Law — Sources
+
+- Conway, M.E. (1968). "How Do Committees Invent?" *Datamation, 14*(4), 28-31. — Original statement of Conway's Law: "Organizations which design systems are constrained to produce designs which are copies of the communication structures of those organizations." (First circulated 1967, published 1968.)
+- LeRoy, J. & Simons, M. (2010). *Reverse Conway Maneuver.* — Concept of deliberately restructuring teams to produce desired system architecture, rather than letting organisational structure dictate architecture. (Referenced in Part 12.)
+
+---
+
+## Other Sources Referenced
+
+- **Harvard Business Review (HBR)** — Referenced in Part 8 for research showing cognitively diverse teams solve problems up to three times faster than homogeneous teams.
+- **Gartner** — DoView app received Gartner "Cool Vendor" Award for enterprise portfolio management. Referenced for Agentic AI adoption projections (under 5% of applications embedding agent capabilities in 2025, projected 40% in 2026).
+- **EU AI Act** — European Union's regulatory framework for AI systems, requiring documented risk assessment and human oversight. Referenced as compliance driver for DoView-based governance artefacts.
+- **Microsoft** — Referenced for recommending outcomes-focused (rather than siloed functional) organisational planning, aligning with outcomes theory principles. (Cited on DoView Planning theory page.)
+- **World Economic Forum** — WEF Global Risk Report 2026 used as source for three illustrative DoViews (Government, Corporate, Civil Society risk responses).
