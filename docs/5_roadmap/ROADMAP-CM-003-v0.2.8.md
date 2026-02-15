@@ -52,6 +52,7 @@ Additionally, six-animals agents need an `AskUserQuestion` interaction pattern f
 - [x] Create ROADMAP-CM-003 (this file)
 - [x] Bump plugin.json to v0.2.8
 - [x] Update README with v0.2.8 roadmap section and ADR-CM-015 in ADR table
+- [x] Add hero image (D&D tavern scene with all agents) to README and docs/
 - [x] Create commits per commit strategy
 - [x] Merge to main, tag v0.2.8
 

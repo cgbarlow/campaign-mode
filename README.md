@@ -357,6 +357,7 @@ campaign-mode/
 
 ### v0.2.8 — Current Release
 
+- Added hero image to README — D&D concept art tavern scene featuring all Campaign Mode agents
 - **Critical fix:** Plugin injection now works for all installation methods — replaced `!`cat`` with `!`echo`` + Read tool to bypass Claude Code's sandbox restriction (GitHub #9354). Affects all 12 injection points across 4 command files.
 - `/campaign-setup` now begins with a Gandalf welcome greeting explaining Campaign Mode, all agent roles (NPCs, animals, Simon), and what to expect
 - Simon is now offered as a mid-campaign option in `/continue-quest` and `/start-quest` for meta-analysis and reflection
