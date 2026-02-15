@@ -703,3 +703,404 @@ Together, they address both sides of what Conway's Law tells us: **systems mirro
 The differentiator is not "we have better technology" — every governance vendor claims that. The differentiator is: **"We have a psychologically grounded methodology for ensuring the humans who design AI governance are as rigorous as the platform that enforces it."**
 
 That is a story no competitor can tell.
+
+---
+---
+
+# DOVIEW PLANNING ANALYSIS
+
+---
+
+## Part 16: DoView Planning — Deep Research
+
+### 16.1 What DoView Planning Is
+
+DoView Planning is a visual strategy methodology developed by Dr Paul Duignan (strategy psychologist, outcomes theorist, Fulbright Senior Scholar). It uses standardised "This-Then" logic diagrams — called DoView strategy/outcomes diagrams — to make the causal structure of any initiative explicit and visible.
+
+The core insight: **every initiative attempting action in the world has an implicit or explicit outcomes system — a set of causal claims about what will happen if certain actions are taken.** DoView Planning makes those claims visible, testable, and shareable.
+
+**Key characteristics:**
+- **Open and free** — anyone can use, teach, and build on the methodology with attribution
+- **Grounded in outcomes theory** — a unified theoretical framework applicable to any agent (human or AI) taking action in the world
+- **Visual-first** — diagrams are the primary artefact, not text documents
+- **Tool-agnostic** — works in PowerPoint, Google Slides, or the free legacy DoView app (used in 55+ countries)
+- **AI-native** — explicitly designed for human-AI collaboration, with AI DoView Drawing Prompts available
+- **Gartner-recognised** — won Gartner's "Cool Vendor" award for enterprise portfolio management
+
+### 16.2 Outcomes Theory: The Theoretical Foundation
+
+DoView Planning rests on **outcomes theory**, which Duignan developed after observing "confused and inconsistent approaches to outcomes issues" across hundreds of organisations globally, including governments and international bodies like the IMF.
+
+**Two foundational propositions:**
+1. Any action taken in the world — by humans or AI agents — can be conceptualised as an outcomes system
+2. Claims about causal "This-Then" logic underlying outcomes systems are best represented as DoView strategy/outcomes diagrams
+
+**The theory comprises:**
+- **Definitions Framework** — Precise differentiation of outcomes, indicators, outputs, inputs, and controllability classifications
+- **Outcomes System Concept** — Recognition that every initiative has an implicit or explicit outcomes system underpinning it
+- **DoView Planning Framework** — Specifies essential components any outcomes system should include
+- **DoView Strategy Diagrams** — Visual representation of causal hierarchies
+- **13 Drawing Rules** — Formal protocols ensuring diagrams are fit-for-purpose
+- **Typology of Box Elements** — Classification system resolving terminological confusion
+- **Evaluation & Economic Design Frameworks** — Assessment and impact tools
+
+**Academic reference:** Duignan, P. (2009) "Using Outcomes Theory to Solve Important Conceptual and Practical Problems in Evaluation, Monitoring and Performance Management Systems"
+
+### 16.3 How DoView Diagrams Work
+
+A DoView diagram maps all steps needed to achieve desired high-level outcomes:
+
+**Structure:**
+- **Boxes** represent outcomes and intermediate steps
+- **Arrows** show logical "This-Then" connections (causal or temporal)
+- **Left-to-right flow** — earlier/more controllable steps on the left, higher-level/less controllable outcomes on the right
+- **Overview pages** with drill-down subpages for detail
+- **Navigation** between helicopter views and granular details
+
+**Five-step planning process:**
+1. **Visualise** — Create DoView diagrams showing outcomes and steps
+2. **Prioritise** — Rate boxes (A/B/C/D/E or BAU) for each planning period
+3. **Measure** — Attach KPIs and indicators to specific boxes, with "@" notation distinguishing controllable from non-controllable indicators
+4. **Evaluate** — Map evaluation questions to specific boxes to reveal coverage gaps
+5. **Dashboard** — Traffic-light (colour-code) progress status on each box
+
+**Psychological grounding of the visual format:**
+- Left-to-right flow matches how many cultures process sequences, reducing cognitive load
+- Continuous flow creates psychological momentum ("going on a journey" metaphor)
+- Stable structure helps users build consistent mental models
+- Controllability gradient (more controllable left → less controllable right) mirrors natural reasoning
+
+### 16.4 DoViews for AI Systems — The GUI Thesis
+
+Dr Duignan's Substack article argues that the current state of AI system management resembles 1980s text-based computing: developers rely on "prompts, logs, and configuration files" — a text-centric approach that doesn't scale for managing agent swarms.
+
+**The core argument:** Just as graphical user interfaces revolutionised computing, **DoView diagrams should become the visual development and management interface for AI agent systems.** The visual representation itself becomes the development interface, not hidden code-based construction.
+
+**How DoView GUIs function:**
+- **Status tracking** — Traffic-light visualisation (yellow for in-progress, green for completed) on each agent task/outcome
+- **Interactive feedback** — AI requests human input on specific components shown visually
+- **Dynamic iteration** — Diagrams update as the system develops
+- **Governance integration** — Humans approve significant decisions (like escalation thresholds) at specific boxes
+- **Transparent dependencies** — Visual mapping of prerequisites and relationships
+
+**The Customer Service Agent Swarm example** demonstrates:
+- Initial diagram establishing all necessary components
+- Prioritised task sequencing
+- Real-time status updates with annotations
+- Human approval gates for critical decisions
+- Addition of new elements with explicit authorisation
+
+**Key differentiator from existing tools:** LangFlow, OpenAI Swarm, CrewAI, and Miro offer visualisation but lack DoView's iterative approach where *"the diagram becomes both the development method and the collaboration interface."*
+
+### 16.5 DoViews Applied to AI Governance
+
+The DoView site provides specific AI governance applications:
+
+**AI Alignment & Constitution Mapping.** Claude's 80-page constitution was converted into a DoView diagram, enabling rapid visual overview of behavioural guidelines. This means anyone can *"produce a DoView outcomes diagram of the constitution or alignment documentation of any AI system"* for auditing actual versus intended conduct.
+
+**The Paperclip Problem visualised.** Two contrasting DoViews show alignment failure: a "Bad Paperclip AI Agent" pursuing unconstrained production versus a "Good Paperclip AI Agent" including resource constraints and human safety. The visual format makes the failure mode instantly comprehensible.
+
+**AI Governance Framework.** An organisational AI governance DoView can be used in meetings to verify *"whether or not they are implementing AI governance and risk management appropriately"* — enabling tailored deployment oversight.
+
+**Agent Swarm Development.** DoViews structure the development of multi-agent systems, mapping outcomes and concrete steps for agent swarm deployment.
+
+**Behavioural Analysis (Strategy X-Ray).** DoView methodology can extract underlying behavioural claims from AI agent outputs, revealing actionable "This-Then" patterns — essentially making implicit agent reasoning explicit and auditable.
+
+**Five-Step AI Management Cycle (Tool J2):**
+1. Define intended outcomes and beneficiaries
+2. Map intermediate outcomes and AI-influenceable activities
+3. Specify constraints, assumptions, risks explicitly
+4. Attach indicators and evaluation plans
+5. Review and revise diagrams based on observed impacts
+
+---
+
+## Part 17: Structural Parallels — DoView × Campaign Mode × Six Animals × Agion
+
+### 17.1 The Three-Layer Convergence
+
+These three frameworks address different layers of the same fundamental problem: **how do you ensure that complex, multi-agent initiatives (human or AI) achieve their intended outcomes while maintaining quality, accountability, and oversight?**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  Layer 1: WHAT — Outcomes Architecture (DoView Planning)        │
+│  Visual strategy maps showing what we're trying to achieve,     │
+│  the causal logic connecting actions to outcomes, and how        │
+│  we'll measure success. The blueprint.                          │
+├─────────────────────────────────────────────────────────────────┤
+│  Layer 2: WHO — Cognitive Coverage (Six Animals)                │
+│  Ensuring all necessary human perspectives are represented:     │
+│  vision, risk, process, morale, resources, cohesion.            │
+│  SDT-grounded team completeness. The team.                      │
+├─────────────────────────────────────────────────────────────────┤
+│  Layer 3: HOW — Lifecycle Governance (Campaign Mode)            │
+│  Structured phases from definition through adversarial testing  │
+│  to debrief, with quality gates, mentorship, and context        │
+│  isolation. The process.                                        │
+├─────────────────────────────────────────────────────────────────┤
+│  Foundation: ENFORCEMENT (Agion Platform)                       │
+│  Technical governance-as-code enforcing policies at machine     │
+│  speed with immutable audit trails. The engine.                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+No single framework covers all four layers. Agion provides the enforcement engine. DoView provides the strategy blueprint. Six Animals provides the team diversity model. Campaign Mode provides the lifecycle process. Together, they constitute a **complete governance stack** for enterprise AI agent deployments.
+
+### 17.2 Specific Structural Parallels
+
+| DoView Concept | Campaign Mode Equivalent | Agion Equivalent |
+|---------------|-------------------------|-----------------|
+| "This-Then" causal logic | Success criteria (testable conditions) | Mission-as-Code (KPIs as executable missions) |
+| Traffic-light status tracking | Progress log (append-only audit trail) | Immutable audit trail |
+| Priority ratings (A/B/C/D/E) | Campaign modes (Grow/Ship) prioritise learning vs. delivery | Dynamic Trust tiers (escalating autonomy) |
+| Evaluation questions mapped to boxes | Dragon confrontation (adversarial evaluation against criteria) | Policy validation (<10ms) |
+| Human approval gates in diagrams | Guardian checkpoints (approve/block/conditional) | Governance-as-Code (automated policy enforcement) |
+| Overview + drill-down subpages | Council (overview) + animal perspectives (detail) | Dashboard + agent-level monitoring |
+| Drawing Rules (13 formal protocols) | SKILL.md definitions (formal NPC behaviour rules) | AANG Framework (five governance principles) |
+| Draft → Review → Update workflow | Quest Definition → Execution → Checkpoint → Confrontation | Discovery → Deployment → Go-live |
+| Outcomes theory (any agent taking action) | SDT (any human with motivational needs) | Governance-as-Code (any AI agent executing) |
+| Shared thinking tool | Council synthesis | Radical transparency |
+
+### 17.3 Complementary Strengths — Where Each Framework Fills Gaps
+
+**What DoView provides that Campaign Mode lacks:**
+- **Visual strategy representation.** Campaign Mode's quest.md is text-based. DoView provides a visual blueprint showing causal relationships between outcomes. A campaign's success criteria would be dramatically more understandable as a DoView diagram than as a markdown list.
+- **Outcomes architecture.** DoView's five-step process (Visualise → Prioritise → Measure → Evaluate → Dashboard) provides the structural backbone that Campaign Mode's phases lack. Campaign Mode has quality gates but no visual strategy map.
+- **Controllability gradient.** DoView explicitly maps which outcomes are controllable versus influenceable versus beyond control. Campaign Mode doesn't distinguish between criteria the team can directly control and those dependent on external factors.
+- **Multi-level detail management.** DoView's overview/subpage architecture handles complexity through layers. Campaign Mode's single quest.md file doesn't scale to complex multi-team initiatives.
+
+**What Campaign Mode provides that DoView lacks:**
+- **Adversarial testing.** DoView has evaluation questions but no structurally isolated, adversarial evaluator. The Dragon confrontation fills a critical gap — someone who tests whether the outcomes DoView claims to achieve are genuinely achieved, without access to the team's reasoning.
+- **Quality gates with gatekeepers.** DoView has checkpoints but no independent gatekeeper. The Guardian's role — independently evaluating readiness before advancement — is not part of DoView's methodology.
+- **Mentorship.** DoView is a planning methodology, not a coaching framework. Gandalf's "guide on the side" mentorship fills the gap between having a plan and being able to execute it.
+- **Cognitive diversity.** DoView doesn't prescribe who should be involved in planning. Six Animals' SDT-grounded archetypes ensure all necessary perspectives are represented when creating and evaluating DoView diagrams.
+- **Transformation tracking.** DoView tracks outcome achievement. Campaign Mode (in Grow mode) tracks whether the team has genuinely learned, not just delivered — a dimension DoView doesn't address.
+
+**What Six Animals provides that both DoView and Campaign Mode need:**
+- **Perspective completeness guarantee.** Neither DoView nor Campaign Mode ensures that the humans using them represent all necessary cognitive perspectives. The Six-Animal Model provides a theoretically complete SDT-grounded coverage model: if all six perspectives are active, no critical dimension is overlooked.
+- **Diagnostic capability.** When a DoView is poorly constructed or a campaign is failing, Six Animals can diagnose why: "No Cat perspective led to a DoView that omits risk pathways" or "No Owl perspective led to a campaign without process accountability."
+
+**What Agion provides that the frameworks need:**
+- **Machine-speed enforcement.** Frameworks produce plans and governance processes. Agion enforces them at <10ms validation speed across thousands of agents.
+- **Hard architectural isolation.** Campaign Mode's instruction-based NPC isolation is soft. Agion's platform could provide the hard architectural boundaries needed for genuinely independent evaluation.
+- **Scale.** DoView, Campaign Mode, and Six Animals are designed for human-scale initiatives. Agion operates at enterprise scale with thousands of agents.
+
+### 17.4 The Integration Vision: DoView as the Strategy Layer for Agion's Governance Stack
+
+**Conceptual Architecture:**
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  DoView Visual Strategy Layer                                       │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │ Agent Mission DoView — visual blueprint of what the agent    │   │
+│  │ swarm should achieve, with causal logic, priority ratings,   │   │
+│  │ controllability indicators, and evaluation questions          │   │
+│  └──────────────────────────┬──────────────────────────────────┘   │
+│                              │ Outcomes, criteria, measures         │
+│  ┌──────────────────────────▼──────────────────────────────────┐   │
+│  │ Campaign Mode Lifecycle — structured phases:                  │   │
+│  │ Define mission (DoView) → Assign perspectives (Six Animals)  │   │
+│  │ → Execute → Guardian checkpoint → Dragon confrontation       │   │
+│  │ → Debrief                                                    │   │
+│  └──────────────────────────┬──────────────────────────────────┘   │
+│                              │ Validated outcomes, audit trail      │
+│  ┌──────────────────────────▼──────────────────────────────────┐   │
+│  │ Agion Platform — Governance-as-Code engine enforcing policies │   │
+│  │ at machine speed, with Dynamic Trust and immutable logging    │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**How this works in practice:**
+
+1. **Mission Planning.** Customer team creates a DoView diagram for their agent deployment initiative. The Council (all six animal perspectives) reviews the DoView, ensuring it includes risk pathways (Cat), resource dependencies (Rabbit), stakeholder alignment (Wolf), process milestones (Owl), adoption drivers (Puppy), and strategic coherence (Bear).
+
+2. **Success Criteria Extraction.** The Advisor (Gandalf) translates the DoView's highest-level outcome boxes into testable success criteria for the campaign. The DoView's priority ratings map to campaign mode selection (Ship for operational deployment, Grow for capability-building, Grow & Ship for both).
+
+3. **Execution with Visual Tracking.** During campaign execution, the DoView diagram serves as the real-time status dashboard — boxes are traffic-lighted as agent components are deployed. The progress log in quest.md provides narrative context alongside the visual status.
+
+4. **Guardian Checkpoints Against DoView.** The Guardian evaluates readiness by reviewing the DoView's traffic-light status. Are the prerequisite boxes (left side) green before advancing to outcome boxes (right side)? Are measurement indicators attached and reporting?
+
+5. **Dragon Confrontation Against DoView.** The Dragon receives the DoView diagram and the success criteria derived from it. It adversarially tests whether the claimed causal logic actually holds: "You claim THIS leads to THEN — show me the evidence."
+
+6. **Agion Enforcement.** Once the Dragon confirms the governance architecture is sound, Agion's platform enforces the validated policies at machine speed. The DoView becomes the documented governance blueprint; the campaign lifecycle provides the quality assurance process; Agion provides the enforcement engine.
+
+---
+
+## Part 18: DoView × Agion — Specific Opportunities
+
+### 18.1 Opportunity: Agent Mission DoViews as Standard Governance Artefacts
+
+**The problem Agion's customers face:** When deploying thousands of AI agents, each agent's mission, constraints, and expected outcomes exist as configuration files, prompts, and scattered documentation. No standardised visual format makes the governance architecture legible to non-technical stakeholders.
+
+**The DoView solution:** Every agent deployment creates a DoView diagram as a standard governance artefact. The diagram shows:
+- What the agent is intended to achieve (outcome boxes, right side)
+- What steps the agent takes (activity boxes, left side)
+- What constraints apply (constraint boxes)
+- What risks are mitigated (risk boxes)
+- How success is measured (indicator attachments)
+- What human approval gates exist (approval boxes)
+
+**Value for Agion:**
+- **Regulatory compliance.** EU AI Act requires documented risk assessment and human oversight. A DoView diagram is a visual compliance artefact showing exactly how governance is structured.
+- **Stakeholder communication.** CIOs, compliance officers, and board members can understand agent governance from a DoView in minutes, without reading technical documentation.
+- **Audit trail.** The DoView's traffic-light history provides a visual audit record showing when each governance milestone was reached.
+
+### 18.2 Opportunity: DoView as the 90-Day Implementation Blueprint
+
+Agion's 90-day customer implementation maps naturally to a DoView:
+
+| DoView Box (Left → Right) | 90-Day Phase | Campaign Phase |
+|---------------------------|-------------|----------------|
+| Discovery workshop completed | Day 1 | Quest Definition |
+| Agent inventory catalogued | Week 1-2 | Execution |
+| Governance policies defined | Week 2-3 | Execution |
+| Pilot agents deployed | Week 3-4 | Guardian Checkpoint |
+| Trust scoring calibrated | Week 4-5 | Execution |
+| Integration testing passed | Week 5-6 | Guardian Checkpoint |
+| Production readiness verified | Week 6-7 | Dragon Confrontation |
+| Full deployment live | Week 7-8 | Execution |
+| Monitoring dashboard active | Week 8-10 | Guardian Checkpoint |
+| Customer team self-sufficient | Week 10-12 | Dragon Confrontation / Debrief |
+
+The DoView makes the implementation roadmap visual and trackable. Each box can be traffic-lighted in real time. Priority ratings can shift if customer needs change. Measurement indicators attach to specific boxes to verify progress.
+
+### 18.3 Opportunity: AI Alignment Auditing via DoView
+
+Duignan's work converting Claude's 80-page constitution into a DoView diagram demonstrates a powerful auditing technique. Applied to Agion's context:
+
+- Each AI agent deployed through Agion has a mission definition (Mission-as-Code)
+- That mission can be converted into a DoView showing the causal logic: "If the agent does THIS, THEN this outcome results"
+- Auditors can compare the DoView (intended behaviour) against the agent's actual behaviour (logged by Agion's immutable audit trail)
+- Discrepancies between the DoView and actual behaviour reveal governance gaps
+
+This creates a **visual alignment verification loop**: DoView (intent) → Agion enforcement (execution) → Audit trail (evidence) → DoView comparison (verification).
+
+### 18.4 Opportunity: The "Strategy X-Ray" for Agent Swarm Behaviour
+
+Duignan's "Strategy X-Ray" technique extracts underlying "This-Then" claims from communications. Applied to agent swarms:
+
+- Agion logs all agent actions and decisions
+- A Strategy X-Ray automatically generates a DoView diagram showing the *actual* causal patterns in agent behaviour
+- Comparing the "intended DoView" (what the agent was designed to do) with the "actual DoView" (what the agent actually did) reveals drift, unexpected behaviours, and emergent patterns
+- This is radically more legible than reviewing log files
+
+### 18.5 Opportunity: Shared Thinking Tool for Governance Teams
+
+Duignan's concept of DoViews as "shared thinking tools" that bring *"people's mental models out of their heads"* directly addresses a core Agion challenge: governance teams where different stakeholders have different mental models of what the agent deployment is supposed to achieve.
+
+When combined with Six Animals perspectives:
+- **Bear** creates the DoView's high-level vision (rightmost outcome boxes)
+- **Cat** adds risk pathways and constraint boxes
+- **Owl** structures the timeline and milestones (left-to-right sequence)
+- **Puppy** ensures adoption and change management boxes are included
+- **Rabbit** maps resource dependencies and external stakeholder connections
+- **Wolf** ensures all team functions are represented in the diagram
+
+The result: a DoView that no single perspective could have created alone, with guaranteed cognitive diversity in the planning process.
+
+---
+
+## Part 19: The Convergence Thesis — Why These Frameworks Belong Together
+
+### 19.1 Three Theoretical Traditions, One Problem
+
+| Framework | Theoretical Tradition | Core Question |
+|-----------|----------------------|---------------|
+| **DoView Planning** | Outcomes theory (Duignan, 2009) | "What are we trying to achieve and what causal logic connects our actions to those outcomes?" |
+| **Six Animals** | Self-Determination Theory (Deci & Ryan, 1985) | "Do we have all the human perspectives needed to make this work?" |
+| **Campaign Mode** | Constructivist pedagogy + adversarial evaluation | "Are we genuinely ready, and how do we test that rigorously?" |
+| **Agion** | Governance-as-Code | "How do we enforce these decisions at machine speed across thousands of agents?" |
+
+These are not competing approaches — they are **orthogonal solutions to different dimensions of the same problem.** An initiative can have a perfect DoView (clear outcomes) but fail because the team lacks cognitive diversity (missing Six Animals). A team can have diverse perspectives but no structured quality gates (missing Campaign Mode). A campaign can have quality gates but no visual strategy map (missing DoView). And all three can be perfect but unenforced at scale (missing Agion).
+
+### 19.2 The Cognitive Load Argument
+
+DoView Planning explicitly addresses cognitive load: *"Left-to-right flow fits with how humans within many cultures process sequences, reducing mental effort required to understand the model."*
+
+Campaign Mode addresses cognitive load through structured phases: you don't have to think about everything at once — quest definition, then execution, then checkpoint, then confrontation, each with clear boundaries.
+
+Six Animals addresses cognitive load through role specialisation: you don't have to think about everything from every perspective — Bear thinks about vision, Cat thinks about risk, each perspective has a defined scope.
+
+Together, they create a **layered cognitive load management system**:
+1. **DoView** reduces the load of understanding the strategy (visual > text)
+2. **Six Animals** reduces the load of perspective coverage (specialised roles > "everyone think about everything")
+3. **Campaign Mode** reduces the load of process management (structured phases > "figure it out as you go")
+4. **Agion** reduces the load of enforcement (automated governance > manual oversight)
+
+### 19.3 The Universal Agent Theory Connection
+
+Duignan's outcomes theory makes a striking claim: it is *"a general theory that applies to any agent (human or AI) seeking to take any type of action in the world."*
+
+The Six-Animal Model makes a parallel claim: it maps to the three universal psychological needs (Competence, Relatedness, Agency) that drive all human behaviour.
+
+Campaign Mode's lifecycle reflects universal patterns found in any structured endeavour: define → execute → evaluate → reflect.
+
+Agion's AANG Framework applies universal governance principles: mission definition, policy enforcement, trust calibration, transparency, human-AI partnership.
+
+**The convergence is not coincidental.** All four frameworks are attempting to formalise universal patterns in how agents (human or AI) plan, collaborate, evaluate, and govern complex initiatives. They arrive at the same territory from different theoretical starting points — outcomes theory, motivational psychology, pedagogical theory, and software governance — and find complementary rather than competing solutions.
+
+### 19.4 Revised Positioning for Agion
+
+The three-framework convergence enables a significantly stronger market position for Agion:
+
+**Before (technical differentiation only):**
+> "Agion provides governance-as-code for enterprise AI agents — LLM-agnostic, cloud-agnostic, EU AI Act compliant."
+
+**After (methodology + technical differentiation):**
+> "Agion provides the complete governance stack for enterprise AI agents:
+> - **Visual strategy** (DoView) — see what your agents are trying to achieve and why
+> - **Cognitive diversity** (Six Animals) — ensure your governance team covers all perspectives
+> - **Structured quality assurance** (Campaign Mode) — test whether your governance is genuinely ready
+> - **Machine-speed enforcement** (Agion Platform) — enforce validated policies across thousands of agents
+>
+> No other vendor offers a psychologically grounded, theoretically unified methodology alongside their governance platform."
+
+---
+
+## Part 20: Revised Strategic Recommendation (Final)
+
+The addition of DoView Planning to the analysis adds a new dimension to the phased approach:
+
+```
+Phase 1 (Now):     Option D — Internal dogfooding at Agion
+                   + Create DoView diagram of Agion's own product strategy
+                   + Council diagnostic of Agion's team structure
+                   + Conway's Law assessment via DoView comparison
+                   ↓ learnings
+
+Phase 2 (Near):    Option A — Enterprise skin ("Mission Mode")
+                   + DoView template for "Agent Mission Blueprint"
+                   + Six-Animal diagnostic as discovery tool
+                   + Neurodiversity-aware onboarding language
+                   ↓ enables
+
+Phase 3 (Near):    Option B — 90-Day Implementation template
+                   + DoView as the visual implementation roadmap
+                   + Campaign lifecycle for quality assurance
+                   + EU AI Act compliance campaign template
+                   ↓ validates
+
+Phase 4 (Medium):  Option C — Full platform integration
+                   + DoView as the visual governance interface
+                   + Campaign Mode lifecycle for human-side QA
+                   + Six Animals for cognitive diversity metrics
+                   + Agion platform for machine-speed enforcement
+                   + Strategy X-Ray for agent behaviour auditing
+```
+
+### The Final Thesis
+
+Agion's market thesis is *"AI without control is as useless as no AI at all."*
+
+The expanded thesis becomes: **"AI without *visible, diverse, tested* control is as useless as no AI at all."**
+
+- **Visible** — DoView makes governance legible (visual strategy diagrams, not buried configuration)
+- **Diverse** — Six Animals ensures governance teams represent all necessary perspectives (SDT-complete coverage)
+- **Tested** — Campaign Mode provides adversarial quality assurance (Dragon confrontation, Guardian checkpoints)
+- **Enforced** — Agion Platform executes validated governance at machine speed
+
+Four layers. Four theoretical traditions. One complete governance stack.
+
+That is a product story that scales from a CIO's board presentation to a developer's command line — and no competitor has anything like it.
