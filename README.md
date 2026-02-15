@@ -4,6 +4,8 @@ A quest-based extension for the [Six Animals](https://github.com/SimonMcCallum/s
 
 Where Six Animals answers *"how should we work together?"*, Campaign Mode answers *"what are we working toward, and what stands in our way?"*
 
+![Campaign Mode agents gathered in a fantasy tavern — the six animal advisors (Bear, Cat, Owl, Puppy, Rabbit, Wolf) plan around a map table while Simon observes from by the hearth, Gandalf and the Guardian stand watch, and the Dragon peers in through the window](docs/campaign-mode-agents.jpg)
+
 ## Quick Start
 
 ### Claude Desktop
