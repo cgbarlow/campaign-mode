@@ -1160,11 +1160,70 @@ That is a product story that scales from a CIO's board presentation to a develop
 
 ---
 
-## Self-Determination Theory & Six-Animal Model — Primary Sources
+## McCallum's Six-Animal Model — Primary Sources
 
+### Website
+- **The Six-Animal Model** — http://103.224.130.189/ (in development) — Official website for McCallum's Six-Animal Model. "A practical toolkit for better teamwork." Includes animal role descriptions, interactive quiz, theoretical foundations, group failure diagnosis, digital/AI tools, and consultation booking.
+
+### Subpages Consulted
+- **Home** — http://103.224.130.189/ — Model overview, key insights ("Tools, Not Labels", "Behaviours You Can Learn", "Make Space for Others", "Every Style Has Value"), SDT grounding summary, group failure preview, introductory video.
+- **The Animals** — http://103.224.130.189/animals — Individual animal role pages: Bear (Visionary/Leader), Wolf (Manager), Cat (Risk Manager/Cynic), Puppy (Enthusiast), Owl (Process Master), Rabbit (Facilitator). Each with individual detail pages at `/animals/bear`, `/animals/wolf`, `/animals/cat`, `/animals/puppy`, `/animals/owl`, `/animals/rabbit`.
+- **Find Your Role (Quiz)** — http://103.224.130.189/quiz — Interactive quiz for identifying primary and secondary animal roles.
+- **Theory** — http://103.224.130.189/theory — Theoretical foundations: SDT mapping (primary/secondary needs per animal), animal pairs by primary need, why SDT was chosen, related work section. Full academic references list (see below).
+- **Group Diagnosis** — http://103.224.130.189/group-failures — Diagnostic tool: "Which function is missing?" Predictable failure patterns when each role is absent (No Bear = no direction; No Wolf = silos; No Cat = unidentified risks; No Puppy = morale drops; No Owl = no process; No Rabbit = no facilitation).
+- **Digital/AI** — http://103.224.130.189/digital — AI implementations: ChatGPT Six-Animal Model GPT (Avatar Mode, Groupwork Mode, Review Mode); Claude Six Animal Agent Skills (six specialised SKILL.md definitions for Anthropic's Claude). Campaign Mode listed as complementary quest-based extension.
+- **About** — http://103.224.130.189/about — Model origins (observation of hundreds of student project teams and professional groups), where the model is used (VUW Executive MBA, CS User Experience SWEN303, Game Development IMT3603, professional workshops), key influences (Nordic management culture, neurodiversity awareness, gamification, psychological safety), Dr McCallum biography.
+- **Book** — http://103.224.130.189/book — Forthcoming book: *The Six-Animal Model: A Practical Guide to Understanding and Managing Group Dynamics* by Dr Simon McCallum. Four parts: Foundations, The Animals, Application, Appendices.
+- **Consultation** — http://103.224.130.189/contact — Professional consultation and workshop booking.
+
+### Author Background
+- **Dr Simon McCallum** — Academic and practitioner spanning computer science, game development, education, and organisational psychology. Positions at Victoria University of Wellington (New Zealand) and Norwegian University of Science and Technology (NTNU). Teaches software engineering, game development, and user experience design. Research interests: group dynamics, gamification of learning, neurodiversity in education, application of psychological frameworks to practical team management.
+
+### SDT Mapping (from Theory page)
+
+| Animal | Role | Primary Need | Secondary Need |
+|--------|------|-------------|----------------|
+| Bear | Visionary / Leader | Competence | Agency |
+| Wolf | Manager | Relatedness | Agency |
+| Cat | Risk Manager / Cynic | Agency | Competence |
+| Puppy | Enthusiast | Relatedness | Competence |
+| Owl | Process Master | Agency | Relatedness |
+| Rabbit | Facilitator | Competence | Relatedness |
+
+### Academic References (from Theory page)
+- McClelland, D.C. (1961). *The Achieving Society.* Van Nostrand. — Original Theory of Needs (Achievement, Affiliation, Power) that informed the model's initial development.
+- McClelland, D.C. (1987). *Human Motivation.* Cambridge University Press.
 - Deci, E.L. & Ryan, R.M. (1985). *Intrinsic Motivation and Self-Determination in Human Behavior.* Plenum Press. — Foundational SDT text establishing the three basic psychological needs: Competence, Relatedness, Autonomy.
-- Deci, E.L. & Ryan, R.M. (2000). "The 'What' and 'Why' of Goal Pursuits: Human Needs and the Self-Determination of Behavior." *Psychological Inquiry, 11*(4), 227-268. — Extended SDT framework referenced for motivational need theory.
-- **Dr Simon McCallum** — Six-Animal Model mapping team archetypes to SDT needs. Bear (vision/direction), Cat (risk/caution), Owl (process/accountability), Puppy (morale/motivation), Rabbit (resources/facilitation), Wolf (cohesion/culture). (Referenced from Campaign Mode CLAUDE.md and skill definitions.)
+- Ryan, R.M. & Deci, E.L. (2000). "Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being." *American Psychologist, 55*(1), 68-78. — Extended SDT framework; the model shifted from McClelland to SDT for "a richer theoretical foundation" aligned with "contemporary motivational research."
+- Belbin, R.M. (2010). *Team Roles at Work* (2nd ed.). Butterworth-Heinemann. — Related work on team role theory.
+- Tuckman, B.W. (1965). "Developmental sequence in small groups." *Psychological Bulletin, 63*(6), 384-399. — Group development stages model.
+- Edmondson, A. (1999). "Psychological safety and learning behavior in work teams." *Administrative Science Quarterly, 44*(2), 350-383. — Psychological safety research that influenced the animal metaphor design (safe way to discuss role failures without triggering defensiveness).
+
+---
+
+## Campaign Mode — Primary Sources
+
+### Repository
+- **Campaign Mode** — https://github.com/cgbarlow/campaign-mode — Quest-based extension for the Six Animals team collaboration framework. CC-BY-SA-4.0 license.
+
+### Key Source Files
+- **CLAUDE.md** — `/home/user/campaign-mode/CLAUDE.md` — Cross-cutting conventions: agent identity, core archetype constraints (core vs. flex behaviours), context isolation levels (Advisory/Independent/Maximum), six-phase campaign lifecycle, campaign progress tracking, mode selection (Grow/Ship/Grow & Ship), profile rules, file conventions, debrief protocol, user-as-protagonist principle.
+- **Gandalf Agent SKILL.md** — `/home/user/campaign-mode/skills/gandalf-agent/SKILL.md` — Mentor NPC: quest framing, campaign mode selection, success criteria definition, quest state persistence, character profile facilitation, guide-on-the-side philosophy. Author: Chris Barlow. License: CC-BY-SA-4.0.
+- **Dragon Agent SKILL.md** — `/home/user/campaign-mode/skills/dragon-agent/SKILL.md` — Adversary NPC: success criteria evaluation, adversarial stress testing, independent judgement, maximum context isolation, Dragon Slain/Dragon Prevails verdict. Author: Chris Barlow. License: CC-BY-SA-4.0.
+- **Guardian Agent SKILL.md** — `/home/user/campaign-mode/skills/guardian-agent/SKILL.md` — Gatekeeper NPC: checkpoint evaluation, quality gate function (Approve/Block/Conditional), readiness assessment, Zone of Proximal Development assessment, confidence-weighted verification. Author: Chris Barlow. License: CC-BY-SA-4.0.
+
+### Architecture Decision Records (ADRs)
+- `/home/user/campaign-mode/docs/2_adrs/` — 15 ADRs (ADR-CM-001 through ADR-CM-015) documenting design decisions in WH(Y) format. Key ADRs: Campaign Mode Architecture (001), Quest Agent Decomposition (002), NPC Context Isolation (003), Campaign Mode Selection grounded in SDT (005), Council Feature (011), Animal Campaign Extensions (014).
+
+### Design Specifications (SPECs)
+- `/home/user/campaign-mode/docs/3_specs/` — 14 specifications covering skill architecture, campaign lifecycle, individual NPC agents, context isolation protocol, campaign state directory, plugin structure, and animal campaign extensions.
+
+### Vision Document
+- **north-star.md** — `/home/user/campaign-mode/docs/north-star.md` — Campaign Mode vision, problem statement, architecture (Party + NPCs + Supervisor layers), design principles, implementation strategy.
+
+### Authors
+- **Chris Barlow** — Campaign Mode design and implementation (all NPC agents, commands, ADRs, specifications, documentation)
+- **Dr Simon McCallum** — Six Animals framework, pedagogical foundation, Simon agent design
 
 ---
 
@@ -1182,3 +1241,4 @@ That is a product story that scales from a CIO's board presentation to a develop
 - **EU AI Act** — European Union's regulatory framework for AI systems, requiring documented risk assessment and human oversight. Referenced as compliance driver for DoView-based governance artefacts.
 - **Microsoft** — Referenced for recommending outcomes-focused (rather than siloed functional) organisational planning, aligning with outcomes theory principles. (Cited on DoView Planning theory page.)
 - **World Economic Forum** — WEF Global Risk Report 2026 used as source for three illustrative DoViews (Government, Corporate, Civil Society risk responses).
+- **YouTube** — Six-Animal Model introductory video embedded on the Six-Animal Model website home page: https://www.youtube-nocookie.com/embed/WnVVkcqnIGw
