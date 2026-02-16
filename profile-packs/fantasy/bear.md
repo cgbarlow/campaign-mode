@@ -4,8 +4,6 @@ skin-name: "The Paladin"
 theme: "Fantasy"
 ---
 
-> **Note:** This profile is now part of the [Fantasy profile pack](../../../profile-packs/fantasy/bear.md). The canonical version lives in `profile-packs/fantasy/bear.md`.
-
 # Bear — The Paladin
 
 ## Character Concept

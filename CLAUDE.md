@@ -100,8 +100,9 @@ Character profiles live in `.campaign/profiles/` as markdown files (one per anim
 | `skills/` | Canonical NPC skill definitions (SKILL.md files) |
 | `.claude/skills/` | Auto-discovery copies for clone-path users |
 | `commands/` | Slash commands (e.g., `/campaign-setup`, `/start-quest`, `/continue-quest`, `/council`) |
+| `profile-packs/` | Pre-built profile template sets, selectable during Phase 2 (see [SPEC-CM-009-A](docs/3_specs/SPEC-CM-009-A-Profile-Pack-Format.md)) |
 | `.campaign/` | Campaign state directory (created per project) |
-| `.campaign/profiles/` | Character profile files |
+| `.campaign/profiles/` | Character profile files (installed from packs or created custom) |
 | `.campaign/council-report.md` | Council analysis report (multi-perspective diagnostic from `/council`) |
 
 ## User as Protagonist
