@@ -22,14 +22,11 @@ Use `AskUserQuestion` to offer these options:
 1. **Start a new quest** — Begin fresh with Gandalf. (Proceed to Step 2.)
 2. **Continue the existing quest** — Pick up where you left off. (Present the continue-quest options below instead of proceeding to Step 2.)
 
-If the user chooses to continue the existing quest, present mid-campaign options via `AskUserQuestion`:
+If the user chooses to continue the existing quest, present mid-campaign options via `AskUserQuestion`. **Present exactly 4 options** — the tool does not support more than 4.
 
 1. **Continue working on the quest** — Return to campaign execution.
-2. **Request a Guardian checkpoint** — Have the Guardian evaluate your progress.
-3. **Consult Gandalf for strategic counsel** — Get mentorship on your current challenge.
-4. **Consult Simon for reflection** — Step back for meta-analysis: how are you working, what roles are you playing, what patterns is Simon noticing?
-5. **Face the Dragon** — Test whether your success criteria are met.
-6. **Consult an animal advisor** — Get a specific animal perspective on your work.
+2. **Consult an advisor** — Get perspective from an animal advisor, Gandalf (strategic counsel), or Simon (meta-reflection). *(Follow up with a second `AskUserQuestion` to select which advisor.)*
+3. **Request evaluation** — Guardian checkpoint (progress check) or Dragon confrontation (final test against success criteria). *(Follow up with a second `AskUserQuestion` to select which.)*
 
 Then invoke the appropriate agent based on the user's choice:
 

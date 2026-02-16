@@ -401,7 +401,7 @@ Use `AskUserQuestion` to offer the user their next step with the recommended fir
 - **Consult {recommended advisor} first** — with a one-line reason tied to the quest (e.g., "Your quest has significant unknowns — the Cat can map the risks before you begin"). Use profile names if profiles are assigned.
 - **Begin working** — The user is ready to start the quest. In your response, plant natural-language triggers so the user knows how to reach the next phases without needing slash commands: tell them "When you're ready for a checkpoint, say 'I'm ready for a checkpoint'" and "When you're ready to face the Dragon, say 'I'm ready to face the Dragon'."
 - **Review quest summary** — Show the quest definition, success criteria, and campaign mode in a clear summary
-- **Consult a different advisor** — The user wants a different animal perspective first. If selected, present the full animal selection menu (with profile names if applicable).
+- **Consult a different advisor** — The user wants a different animal perspective first. If selected, present a follow-up `AskUserQuestion` with up to 4 animal advisors most relevant to the quest context (with profile names if applicable). The user can select "Other" for any animal not listed.
 
 ### Before Dragon Confrontation
 When the party believes they're ready:

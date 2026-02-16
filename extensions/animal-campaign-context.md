@@ -44,12 +44,11 @@ Do not invoke other agents yourself — acknowledge the signal and suggest the n
 
 At the end of every Phase 3 consultation, use `AskUserQuestion` to suggest the next perspective. This creates continuity between animal consultations rather than leaving the user alone.
 
-**Options to present:**
+**Options to present** (exactly 4 — the tool does not support more):
 1. **Consult {suggested next animal}** — with a one-line reason based on the conversation
 2. **Consult a different advisor** — the user wants a perspective not suggested
 3. **Continue working** — the user is ready to work on their own
-4. **Request a checkpoint** — the user wants a Guardian evaluation
-5. **Consult Gandalf** — the user wants strategic counsel from the mentor
+4. **Request evaluation or counsel** — Guardian checkpoint, Dragon confrontation, or Gandalf strategic counsel
 
 Adapt your suggestion to what was actually discussed. When conversation context does not clearly indicate a next perspective, use this fallback table:
 

@@ -54,15 +54,12 @@ Before presenting options, use Glob to check for profile files in `.campaign/pro
 
 ## Step 3: Present Mid-Campaign Options
 
-Use `AskUserQuestion` to offer these options (using profile names where they exist):
+Use `AskUserQuestion` to offer these options (using profile names where they exist). **Present exactly 4 options** — the tool does not support more than 4.
 
 1. **Continue working on the quest** — Return to campaign execution with the full quest context.
-2. **Request a Guardian checkpoint** — Have the Guardian evaluate your progress against quality criteria.
-3. **Consult Gandalf for strategic counsel** — Get mentorship on your current challenge or revisit quest framing.
-4. **Consult Simon for reflection** — Step back for meta-analysis: how are you working, what roles are you playing, what patterns is Simon noticing?
-5. **Face the Dragon** — Test whether your success criteria are genuinely met.
-6. **Consult an animal advisor** — Get a specific animal perspective on your work.
-7. **Reconvene the council** — Get a fresh multi-perspective analysis from all six animal advisors.
+2. **Consult an advisor** — Get perspective from an animal advisor, Gandalf (strategic counsel), or Simon (meta-reflection). *(Follow up with a second `AskUserQuestion` to select which advisor.)*
+3. **Request evaluation** — Guardian checkpoint (progress check) or Dragon confrontation (final test against success criteria). *(Follow up with a second `AskUserQuestion` to select which.)*
+4. **Reconvene the council** — Get a fresh multi-perspective analysis from all six animal advisors.
 
 Invoke the appropriate agent based on the user's choice:
 
