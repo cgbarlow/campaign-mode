@@ -321,6 +321,7 @@ campaign-mode/
 │   │   ├── ADR-CM-013-Plugin-Guidelines-Parity.md
 │   │   ├── ADR-CM-014-Animal-Campaign-Extensions.md
 │   │   ├── ADR-CM-015-Plugin-Injection-Sandbox-Fix.md
+│   │   ├── ADR-CM-016-Profile-Packs.md
 │   │   └── reference/                   # ADR format specifications and references
 │   ├── 3_specs/                         # Design specifications
 │   │   ├── SPEC-CM-001-A-Skill-Architecture.md
@@ -337,7 +338,8 @@ campaign-mode/
 │   │   ├── SPEC-CM-007-B-Campaign-Guidelines.md
 │   │   ├── SPEC-CM-007-C-Plugin-Path-Resolution.md
 │   │   ├── SPEC-CM-007-D-Plugin-Guidelines-Injection.md
-│   │   └── SPEC-CM-008-A-Animal-Campaign-Extensions.md
+│   │   ├── SPEC-CM-008-A-Animal-Campaign-Extensions.md
+│   │   └── SPEC-CM-009-A-Profile-Pack-Format.md
 │   ├── 4_examples/                      # Example content
 │   │   ├── council-report.md            # Example council diagnostic report
 │   │   └── profiles/                    # Example character profiles
@@ -348,6 +350,9 @@ campaign-mode/
 │       ├── ROADMAP-CM-001-Guidelines-Parity.md
 │       ├── ROADMAP-CM-002-Animal-Campaign-Extensions.md
 │       └── ROADMAP-CM-003-v0.2.8.md
+├── profile-packs/                       # Pre-built profile template sets
+│   ├── fantasy/                         # D&D-inspired theme (9 profiles)
+│   └── hundred-acre-wood/               # Winnie-the-Pooh theme (9 profiles)
 ├── CLAUDE.md                            # Campaign guidelines (loaded per session)
 ├── CONTRIBUTING.md                      # Contribution guidelines
 └── README.md
@@ -355,7 +360,19 @@ campaign-mode/
 
 ## Roadmap
 
-### v0.2.8 — Current Release
+### v0.3.0 — Current Release
+
+- **Profile Packs** — Pre-built theme templates selectable during Gandalf's Phase 2 flow. Pick a pack and all 9 profiles (6 animals + 3 NPCs) are installed instantly.
+- **Fantasy pack** — Complete 9-profile D&D-inspired set: Paladin, Rogue, Sage, Bard, Artificer, Warden + Archmage, Sentinel, Ancient Wyrm
+- **Hundred Acre Wood pack** — Complete 9-profile Pooh-inspired set: Pooh, Eeyore, Owl, Tigger, Rabbit, Piglet + Christopher Robin, Kanga, Heffalump
+- **Unified profile format** (SPEC-CM-006-A v1.1) — All agent types now use the same frontmatter: `archetype`/`skin-name`/`theme`. Dropped explicit `depth` field (inferred from content). Relaxed body section naming. Migration guide included for v1.0 profiles.
+- ADR-CM-016 documents the profile packs decision
+- SPEC-CM-009-A defines the profile pack directory structure, file requirements, and contribution process
+- Gandalf Phase 2 dialogue now offers "Install a theme pack" alongside vanilla and custom options
+- CONTRIBUTING.md expanded with profile pack submission guidelines
+- Added `.gitignore` to campaign-mode repo to properly exclude `.campaign/` state directory
+
+### v0.2.8
 
 - Added hero image to README — D&D concept art tavern scene featuring all Campaign Mode agents
 - **Critical fix:** Plugin injection now works for all installation methods — replaced `!`cat`` with `!`echo`` + Read tool to bypass Claude Code's sandbox restriction (GitHub #9354). Affects all 12 injection points across 4 command files.
