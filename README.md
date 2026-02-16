@@ -15,12 +15,12 @@ Where Six Animals answers *"how should we work together?"*, Campaign Mode answer
    ```
    https://github.com/cgbarlow/campaign-mode/
    ```
-3. **Install the plugin** — find Campaign Mode in the marketplace and install
+3. **Install plugins** — find and install both **Campaign Mode** and **Six Animals** from the marketplace
 4. **Set up your project** — run:
    ```
    /campaign-setup
    ```
-   This checks for Six Animals, copies guidelines, and creates `.campaign/`.
+   This checks for pre-requisites, copies guidelines, and creates `.campaign/`.
 5. **Choose your path:**
    - `/council` — Have all six animal advisors analyse your project before deciding what to work on
    - `/start-quest` — Jump straight into quest framing with Gandalf
@@ -187,13 +187,12 @@ See [SPEC-CM-006-A](docs/3_specs/SPEC-CM-006-A-Character-Profile-Format.md) for 
    ```
    https://github.com/cgbarlow/campaign-mode/
    ```
-3. Find Campaign Mode in the marketplace and install
+3. Find and install both **Campaign Mode** and **Six Animals** from the marketplace
 4. Run `/campaign-setup` in your project to complete setup:
    ```
    /campaign-setup
    ```
-
-> `/campaign-setup` will offer to install [Six Animals](https://github.com/SimonMcCallum/six-animals) if it's not already present.
+   This checks for pre-requisites, copies guidelines, and creates `.campaign/`.
 
 ### Option 2: Claude Code CLI
 
