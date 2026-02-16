@@ -10,7 +10,7 @@ Where Six Animals answers *"how should we work together?"*, Campaign Mode answer
 
 ### Claude Desktop
 
-1. **Add plugin** — From the **Code** tab, select **+** → **Plugins** → **Add plugin**
+1. From the **Code** tab, select **+** → **Plugins** → **Add plugin**
 2. **Add marketplace** — Select the **By Anthropic** dropdown, then select **Add marketplace from GitHub** and enter:
    ```
    https://github.com/cgbarlow/campaign-mode/
