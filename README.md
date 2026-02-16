@@ -360,7 +360,12 @@ campaign-mode/
 
 ## Roadmap
 
-### v0.3.0 — Current Release
+### v0.3.1 — Current Release
+
+- Custom profile theme selection now offers **Suggested** (Gandalf designs a set fitting the quest's setting and tone) instead of Fantasy, which is now covered by theme packs
+- Retained **Neutral** (professional roles) and **Custom** (describe your own vibe) options
+
+### v0.3.0
 
 - **Profile Packs** — Pre-built theme templates selectable during Gandalf's Phase 2 flow. Pick a pack and all 9 profiles (6 animals + 3 NPCs) are installed instantly.
 - **Fantasy pack** — Complete 9-profile D&D-inspired set: Paladin, Rogue, Sage, Bard, Artificer, Warden + Archmage, Sentinel, Ancient Wyrm
