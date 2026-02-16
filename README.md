@@ -10,8 +10,8 @@ Where Six Animals answers *"how should we work together?"*, Campaign Mode answer
 
 ### Claude Desktop
 
-1. **Open Settings** — Claude Desktop → Settings → Extensions
-2. **Add by URL** — select "Add marketplace from GitHub" and enter:
+1. **Add plugin** — From the **Code** tab, select **+** → **Plugins** → **Add plugin**
+2. **Add marketplace** — Select the **By Anthropic** dropdown, then select **Add marketplace from GitHub** and enter:
    ```
    https://github.com/cgbarlow/campaign-mode/
    ```
@@ -182,8 +182,8 @@ See [SPEC-CM-006-A](docs/3_specs/SPEC-CM-006-A-Character-Profile-Format.md) for 
 
 ### Option 1: Claude Desktop (recommended)
 
-1. Open Claude Desktop → Settings → Extensions
-2. Select "Add marketplace by URL" and enter:
+1. From the **Code** tab, select **+** → **Plugins** → **Add plugin**
+2. Select the **By Anthropic** dropdown, then select **Add marketplace from GitHub** and enter:
    ```
    https://github.com/cgbarlow/campaign-mode/
    ```
