@@ -280,16 +280,25 @@ After quest definition is complete, if the campaign mode allows (Grow: encourage
 ```
 Now that your quest is framed, would you like to give your advisory council character profiles?
 
-This is optional. You can:
-  - Use the animals as-is (vanilla — their core archetypes)
-  - Add narrative flavour (changes tone and vocabulary, not behaviour)
-  - Add behavioural modifiers (tunes how they contribute, within archetype bounds)
-
-You can profile all six animals, just a few, or none. What would you like?
+  - Use the animals as-is (vanilla)
+  - Install a theme pack:
+      • Fantasy (D&D-inspired: Paladin, Rogue, Sage, Bard, Artificer, Warden + NPC skins)
+      • Hundred Acre Wood (Pooh, Eeyore, Owl, Tigger, Rabbit, Piglet + Christopher Robin, Kanga, Heffalump)
+  - Create custom profiles (I'll help you design them)
 ```
 
-**Theme Selection:**
-If the user opts in to profiles, offer theme selection:
+**Pack Installation:**
+If the user selects a theme pack:
+
+1. Read all profile files from `profile-packs/{theme-name}/` (resolved via the Campaign Mode plugin root)
+2. Copy each file to `.campaign/profiles/{archetype}.md`
+3. Display the installed character table showing archetype → skin-name mapping for all 9 agents
+4. Offer to customise further: "These are your characters. Want to adjust any of them, or are you happy with the set?"
+
+If the user wants to customise after pack installation, proceed to the per-agent assignment flow below for the specific agents they want to change.
+
+**Custom Profile Flow:**
+If the user opts to create custom profiles instead of installing a pack, offer theme selection:
 
 ```
 What theme fits this quest?
@@ -331,7 +340,7 @@ After animal profiles are complete, ask the user if they want to theme the NPCs 
 NPC core roles are non-negotiable — profiles change flavour and voice only.
 
 **Profile Output:**
-Write all profiles to `.campaign/profiles/` as markdown files with YAML frontmatter. Each file is self-contained and exportable.
+Write all profiles to `.campaign/profiles/` as markdown files with YAML frontmatter following SPEC-CM-006-A v1.1 (unified format: `archetype`/`skin-name`/`theme`). Each file is self-contained and exportable.
 
 ## Interaction Patterns
 

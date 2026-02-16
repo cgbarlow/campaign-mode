@@ -75,6 +75,7 @@ Campaign Mode decomposes the monolithic quest-agent into three focused NPCs whil
 | ADR-CM-009 | Quest Entry Commands | Accepted | 2 | ADR-CM-008 | Chris Barlow |
 | ADR-CM-010 | Quest State Tracking | Accepted | 2 | ADR-CM-006 | Chris Barlow |
 | ADR-CM-011 | Council Feature | Accepted | 2 | ADR-CM-008, ADR-CM-009 | Chris Barlow |
+| ADR-CM-016 | Profile Packs | Accepted | 2 | ADR-CM-006 | Chris Barlow |
 
 ## Decision Sequencing
 

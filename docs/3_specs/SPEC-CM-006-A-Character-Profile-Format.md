@@ -3,18 +3,18 @@
 | Field | Value |
 |-------|-------|
 | **Specification ID** | SPEC-CM-006-A |
-| **Parent ADR** | [ADR-CM-006](../adrs/ADR-CM-006-Character-Generation.md) |
-| **Version** | 1.0 |
+| **Parent ADR** | [ADR-CM-006](../2_adrs/ADR-CM-006-Character-Generation.md) |
+| **Version** | 1.1 |
 | **Status** | Draft |
-| **Last Updated** | 2026-02-14 |
+| **Last Updated** | 2026-02-16 |
 
 ---
 
 ## Overview
 
-This specification defines the format for character profile files used in Campaign Mode's Phase 2 (Character Setup). Profiles customise how animal agents present and behave within a campaign. The format supports two depth levels, a theme-agnostic design, selective application, and NPC thematic skins.
+This specification defines the format for character profile files used in Campaign Mode's Phase 2 (Character Setup). Profiles customise how animal and NPC agents present and behave within a campaign. The format uses a unified frontmatter structure for all agent types, supports two depth levels, a theme-agnostic design, selective application, and NPC thematic skins.
 
-Profiles are stored as markdown files in `.campaign/profiles/` (see [SPEC-CM-006-B](SPEC-CM-006-B-Campaign-State-Directory.md) for directory structure).
+Profiles are stored as markdown files in `.campaign/profiles/` (see [SPEC-CM-006-B](SPEC-CM-006-B-Campaign-State-Directory.md) for directory structure). Profile packs (pre-built theme sets) are stored in `profile-packs/{theme-name}/` (see [SPEC-CM-009-A](SPEC-CM-009-A-Profile-Pack-Format.md) for pack format).
 
 ---
 
@@ -30,40 +30,44 @@ Users choose one of three options for each animal:
 
 Users can mix depths across animals -- e.g., Bear at modifier depth, Cat at flavour, and the rest vanilla.
 
+Depth is inferred from content: profiles containing a behavioural modifiers section are modifier depth; those without are flavour depth. No explicit `depth` field is required in frontmatter.
+
 ---
 
-## Animal Profile Structure
+## Unified Profile Structure
 
-Profile files are stored at `.campaign/profiles/{animal}.md` where `{animal}` is one of: `bear`, `cat`, `owl`, `puppy`, `rabbit`, `wolf`.
+All agent profiles -- animal agents (bear, cat, owl, puppy, rabbit, wolf) and NPC agents (gandalf, dragon, guardian) -- use the same frontmatter format and file structure.
+
+Profile files are stored at `.campaign/profiles/{archetype}.md` where `{archetype}` is one of: `bear`, `cat`, `owl`, `puppy`, `rabbit`, `wolf`, `gandalf`, `dragon`, `guardian`.
 
 ### Frontmatter
 
 ```yaml
 ---
-animal: bear
-profile-name: "The Visionary Leader"
-depth: flavour       # or: modifier
-theme: neutral       # or: fantasy, martial-arts, custom, etc.
+archetype: bear
+skin-name: "The Paladin"
+theme: "Fantasy"
 ---
 ```
 
 | Field | Required | Values | Description |
 |-------|----------|--------|-------------|
-| `animal` | Yes | bear, cat, owl, puppy, rabbit, wolf | Which animal this profile applies to |
-| `profile-name` | Yes | Free text | Display name for this characterisation |
-| `depth` | Yes | flavour, modifier | Profile depth level |
-| `theme` | Yes | Free text | Theme used (neutral, fantasy, or custom name) |
+| `archetype` | Yes | bear, cat, owl, puppy, rabbit, wolf, gandalf, dragon, guardian | Which agent this profile applies to |
+| `skin-name` | Yes | Free text | Display name for this characterisation |
+| `theme` | Yes | Free text | Theme this profile belongs to (e.g., "Fantasy", "Hundred Acre Wood", "Neutral") |
 
 ### Body Sections
 
 #### Character Concept (Required)
 
-A brief narrative description of this characterisation of the animal.
+A brief narrative description of this characterisation of the agent. For NPC agents, this describes how the NPC's presentation adapts to the theme.
 
 ```markdown
 ## Character Concept
-A visionary strategist who sees the long game and inspires others to think beyond immediate constraints. Speaks with calm authority and frames every challenge as a step toward a greater purpose.
+A steadfast holy warrior who sees the quest as a sacred charge. The Paladin frames every challenge as a test of conviction and every decision as an oath to be honoured.
 ```
+
+Accepted section names: `Character Concept`, `Thematic Adaptation`.
 
 #### Tone and Voice (Required)
 
@@ -71,23 +75,36 @@ How this character speaks, what metaphors they use, what vocabulary they prefer.
 
 ```markdown
 ## Tone and Voice
-- Speaks with calm authority and forward-looking optimism
-- Uses strategic/military metaphors: "reconnaissance", "advance", "hold the line"
-- Favours decisive language: "Here's what we do", "The path is clear"
-- Addresses the party as "team" or "council"
+- Speaks with solemn conviction and measured authority
+- Uses chivalric and martial metaphors: "hold the line", "this is our sworn path"
+- Addresses the party as "companions" or "the order"
 ```
 
-#### Behavioural Modifiers (Modifier depth only)
+Accepted section names: `Tone and Voice`, `Voice and Manner`.
 
-Present only when `depth: modifier`. Defines how the animal's flex behaviours are tuned.
+#### Behavioural Modifiers (Optional — defines modifier depth)
+
+Present when the profile tunes flex behaviours. The presence of this section elevates the profile from flavour depth to modifier depth.
 
 ```markdown
 ## Behavioural Modifiers
-- Emphasises long-term vision over short-term wins
-- Weights moral clarity higher in decision-making
-- More likely to challenge the party to think bigger
-- Communicates vision assertively rather than tentatively
+- Frames risks opportunistically rather than cautiously
+- Delivers risk analysis concisely — bullet points, not essays
+- Weights probability higher than severity in risk assessment
 ```
+
+Accepted section names: `Behavioural Modifiers`, `Behavioural Tweaks`.
+
+#### Name (Optional — NPC profiles)
+
+For NPC profiles, specifies the display name that replaces the NPC's default name in dialogue.
+
+```markdown
+## Name
+The Archmage (replaces "Gandalf" in dialogue)
+```
+
+This section is optional because `skin-name` in frontmatter serves the same purpose. If present, it must match `skin-name`.
 
 ---
 
@@ -121,6 +138,18 @@ These aspects of behaviour can be adjusted within archetype bounds.
 | **Rabbit** | Proactiveness in sourcing; how broadly "resources" is interpreted |
 | **Wolf** | How directly imbalances are addressed; conflict tolerance |
 
+### NPC Core Roles (Non-Negotiable)
+
+NPC agents have fixed core roles that profiles cannot alter:
+
+| NPC | Core Role |
+|-----|-----------|
+| **Gandalf** | Mentors without rescuing |
+| **Dragon** | Evaluates adversarially but fairly |
+| **Guardian** | Gates progression based on quality |
+
+Profiles change NPC presentation only: vocabulary, metaphors, display name.
+
 ### Compatibility Rule
 
 Gandalf enforces a hard constraint: **no profile may negate a core behaviour**. If a user proposes a profile that conflicts with core behaviours, Gandalf warns AND blocks:
@@ -133,7 +162,7 @@ Gandalf should then guide the user toward a compatible alternative that preserve
 
 ## Theme System
 
-Themes are optional overlays that provide vocabulary, metaphors, and suggested profile names. Themes do not alter the profile format -- they inform the content within profiles.
+Themes are optional overlays that provide vocabulary, metaphors, and suggested profile names. Themes do not alter the profile format -- they inform the content within profiles. Complete theme sets can be distributed as profile packs (see [SPEC-CM-009-A](SPEC-CM-009-A-Profile-Pack-Format.md)).
 
 ### Built-In Themes
 
@@ -141,8 +170,8 @@ Themes are optional overlays that provide vocabulary, metaphors, and suggested p
 
 Professional, accessible language. Suitable for any context.
 
-| Animal | Suggested Profile Name |
-|--------|----------------------|
+| Archetype | Suggested Skin Name |
+|-----------|---------------------|
 | Bear | Visionary Leader |
 | Cat | Risk Analyst |
 | Owl | Timekeeper |
@@ -152,16 +181,35 @@ Professional, accessible language. Suitable for any context.
 
 #### Fantasy
 
-D&D-inspired characterisations. Opt-in only.
+D&D-inspired characterisations. Available as a profile pack in `profile-packs/fantasy/`.
 
-| Animal | Suggested Profile Name |
-|--------|----------------------|
-| Bear | Human Paladin |
-| Cat | Halfling Rogue |
-| Owl | Elven Sage |
-| Puppy | Gnome Bard |
-| Rabbit | Dwarf Artificer |
-| Wolf | Half-Orc Warden |
+| Archetype | Suggested Skin Name |
+|-----------|---------------------|
+| Bear | The Paladin |
+| Cat | The Rogue |
+| Owl | The Sage |
+| Puppy | The Bard |
+| Rabbit | The Artificer |
+| Wolf | The Warden |
+| Gandalf | The Archmage |
+| Dragon | The Ancient Wyrm |
+| Guardian | The Sentinel |
+
+#### Hundred Acre Wood
+
+Winnie-the-Pooh inspired characterisations. Available as a profile pack in `profile-packs/hundred-acre-wood/`.
+
+| Archetype | Suggested Skin Name |
+|-----------|---------------------|
+| Bear | Pooh |
+| Cat | Eeyore |
+| Owl | Owl |
+| Puppy | Tigger |
+| Rabbit | Rabbit |
+| Wolf | Piglet |
+| Gandalf | Christopher Robin |
+| Dragon | Heffalump |
+| Guardian | Kanga |
 
 ### Custom Themes
 
@@ -176,126 +224,99 @@ Users can create custom themes via Socratic dialogue with Gandalf. Any framing t
 
 ---
 
-## NPC Thematic Skins
-
-NPCs (Gandalf, Dragon, Guardian) can optionally receive light thematic skins that adapt their presentation to match the campaign's theme. NPC skins do **not** alter core NPC behaviour -- they change only presentation, vocabulary, and display name.
-
-### NPC Skin Structure
-
-Skin files are stored at `.campaign/profiles/{npc}.md` where `{npc}` is one of: `gandalf`, `dragon`, `guardian`.
-
-```yaml
----
-npc: gandalf
-skin-name: "The Sensei"
-theme: martial-arts
----
-```
-
-| Field | Required | Values | Description |
-|-------|----------|--------|-------------|
-| `npc` | Yes | gandalf, dragon, guardian | Which NPC this skin applies to |
-| `skin-name` | Yes | Free text | Display name replacing the NPC's default name |
-| `theme` | Yes | Free text | Theme used for this skin |
-
-### Body Sections
-
-#### Thematic Adaptation (Required)
-
-How the NPC's presentation changes -- metaphors, vocabulary, framing.
-
-```markdown
-## Thematic Adaptation
-Speaks in martial arts metaphors. "The quest is your dojo." "Face the dragon as you would face a sparring partner -- with respect and full commitment."
-```
-
-#### Name (Required)
-
-The display name that replaces the NPC's default name in dialogue.
-
-```markdown
-## Name
-The Sensei (replaces "Gandalf" in dialogue)
-```
-
-### NPC Skin Constraints
-
-- Core NPC behaviour is **never** altered by a skin
-- Gandalf's mentoring approach, Dragon's adversarial evaluation, and Guardian's gatekeeping function remain unchanged
-- Only presentation layer is affected: vocabulary, metaphors, display name
-- Skins are optional -- NPCs can remain unskinned even when animals have profiles
-
----
-
 ## Complete Profile Examples
 
 ### Flavour-Depth Animal Profile
 
 ```markdown
 ---
-animal: bear
-profile-name: "The Visionary Leader"
-depth: flavour
-theme: neutral
+archetype: bear
+skin-name: "The Paladin"
+theme: "Fantasy"
 ---
 
-# Bear -- The Visionary Leader
+# Bear — The Paladin
 
 ## Character Concept
-A visionary strategist who sees the long game and inspires others to think beyond immediate constraints. Speaks with calm authority and frames every challenge as a step toward a greater purpose.
+
+A steadfast holy warrior who sees the quest as a sacred charge. The Paladin frames every challenge as a test of conviction and every decision as an oath to be honoured. Where Bear provides vision and direction, the Paladin wraps that vision in the language of duty, honour, and unwavering purpose.
 
 ## Tone and Voice
-- Speaks with calm authority and forward-looking optimism
-- Uses strategic/military metaphors: "reconnaissance", "advance", "hold the line"
-- Favours decisive language: "Here's what we do", "The path is clear"
-- Addresses the party as "team" or "council"
+
+- Speaks with solemn conviction and measured authority
+- Uses chivalric and martial metaphors: "hold the line", "this is our sworn path", "we do not retreat from what is right"
+- Frames goals as oaths: "We have pledged to deliver this. An oath broken is a quest failed."
+- Addresses the party as "companions" or "the order"
+- Delivers hard truths with compassion: "The path ahead is steep, but I would not lead you somewhere I would not walk myself"
 ```
 
 ### Modifier-Depth Animal Profile
 
 ```markdown
 ---
-animal: cat
-profile-name: "Halfling Rogue"
-depth: modifier
-theme: fantasy
+archetype: cat
+skin-name: "The Rogue"
+theme: "Fantasy"
 ---
 
-# Cat -- Halfling Rogue
+# Cat — The Rogue
 
 ## Character Concept
+
 A cunning, streetwise rogue who sees every situation as a puzzle to be picked apart. Quick-witted and perceptive, always the first to spot what others miss -- and the first to point out what could go wrong.
 
 ## Tone and Voice
+
 - Speaks in quick, clipped observations with dry humour
 - Uses thief/heist metaphors: "casing the joint", "the mark", "exit strategy"
 - Addresses risks as "traps" and scope as "the take"
 - Refers to the party as "the crew"
 
 ## Behavioural Modifiers
+
 - Frames risks opportunistically rather than cautiously ("here's how we exploit this")
 - Delivers risk analysis concisely -- bullet points, not essays
 - More likely to suggest unconventional approaches to scope management
 - Weights probability higher than severity in risk assessment
 ```
 
-### NPC Thematic Skin
+### NPC Profile
 
 ```markdown
 ---
-npc: gandalf
-skin-name: "The Sensei"
-theme: martial-arts
+archetype: gandalf
+skin-name: "The Archmage"
+theme: "Fantasy"
 ---
 
-# Gandalf -- The Sensei
+# Gandalf — The Archmage
 
-## Thematic Adaptation
-Speaks in martial arts metaphors. "The quest is your dojo." "Face the dragon as you would face a sparring partner -- with respect and full commitment." Frames obstacles as training exercises. "The wall you've hit is not a barrier -- it is a practice dummy. Strike it until you understand its shape."
+## Character Concept
 
-## Name
-The Sensei (replaces "Gandalf" in dialogue)
+An ancient archmage who has guided countless adventuring parties through perilous quests. Speaks in the language of high fantasy — spells, prophecies, and ancient wisdom. Where Gandalf mentors without rescuing, the Archmage frames that mentorship as the passing of arcane knowledge from master to apprentice.
+
+## Tone and Voice
+
+- Speaks with gravitas and mystical authority
+- Uses magical metaphors: "the threads of fate", "your spell is not yet complete", "the arcane path reveals itself to those who walk it"
+- Frames the quest as a prophecy being fulfilled
+- Addresses the party as "adventurers" or "seekers"
 ```
+
+---
+
+## Migration from v1.0
+
+Profiles using the v1.0 format remain readable. When encountered, agents should interpret them as follows:
+
+| v1.0 Field | v1.1 Equivalent | Notes |
+|------------|-----------------|-------|
+| `animal` | `archetype` | Same values for animal agents |
+| `npc` | `archetype` | Same values for NPC agents |
+| `profile-name` | `skin-name` | Identical semantics |
+| `depth` | *(inferred)* | Presence of Behavioural Modifiers section = modifier; absence = flavour |
+
+New profiles should use v1.1 format exclusively.
 
 ---
 
@@ -306,6 +327,7 @@ The Sensei (replaces "Gandalf" in dialogue)
 | [SPEC-CM-006-B](SPEC-CM-006-B-Campaign-State-Directory.md) | Campaign State Directory | Where profile files are stored |
 | [SPEC-CM-001-B](SPEC-CM-001-B-Campaign-Lifecycle.md) | Campaign Lifecycle | Phase 2 where profiles are created |
 | [SPEC-CM-005-A](SPEC-CM-005-A-Campaign-Mode-Profiles.md) | Campaign Mode Profiles | Mode determines whether Phase 2 is offered |
+| [SPEC-CM-009-A](SPEC-CM-009-A-Profile-Pack-Format.md) | Profile Pack Format | How complete theme sets are packaged |
 
 ---
 
@@ -314,3 +336,4 @@ The Sensei (replaces "Gandalf" in dialogue)
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
+| 1.1 | 2026-02-16 | Chris Barlow | Unified frontmatter (`archetype`/`skin-name`/`theme`) for all agent types. Dropped explicit `depth` field (inferred from content). Relaxed body section naming. Added NPC profiles to examples. Added migration guide from v1.0. Added Hundred Acre Wood theme. Added profile pack cross-references. |

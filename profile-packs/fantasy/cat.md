@@ -4,8 +4,6 @@ skin-name: "The Rogue"
 theme: "Fantasy"
 ---
 
-> **Note:** This profile is now part of the [Fantasy profile pack](../../../profile-packs/fantasy/cat.md). The canonical version lives in `profile-packs/fantasy/cat.md`.
-
 # Cat — The Rogue
 
 ## Character Concept

@@ -4,8 +4,6 @@ skin-name: "The Warden"
 theme: "Fantasy"
 ---
 
-> **Note:** This profile is now part of the [Fantasy profile pack](../../../profile-packs/fantasy/wolf.md). The canonical version lives in `profile-packs/fantasy/wolf.md`.
-
 # Wolf — The Warden
 
 ## Character Concept

@@ -19,6 +19,19 @@ Have an idea for improving Campaign Mode? [Open a feature request](https://githu
 
 Created a character profile you'd like to share? [Submit a profile](https://github.com/cgbarlow/campaign-mode/issues/new?template=profile-submission.md) following the [SPEC-CM-006-A](docs/3_specs/SPEC-CM-006-A-Character-Profile-Format.md) format. Profiles can be any theme — fantasy, sci-fi, culinary, martial arts, or anything else.
 
+### Profile Packs
+
+A profile pack is a complete set of 9 character profiles (6 animals + 3 NPCs) that can be installed as a group during Phase 2. To submit a new pack:
+
+1. Fork the repository
+2. Create a new directory under `profile-packs/` with your theme name (lowercase, hyphen-separated)
+3. Add all 9 profile files (`bear.md`, `cat.md`, `owl.md`, `puppy.md`, `rabbit.md`, `wolf.md`, `gandalf.md`, `guardian.md`, `dragon.md`)
+4. Each profile must follow [SPEC-CM-006-A v1.1](docs/3_specs/SPEC-CM-006-A-Character-Profile-Format.md) unified frontmatter format
+5. Ensure the set is thematically coherent — it should feel like a unified cast
+6. Open a pull request with a description of the theme and its creative intent
+
+See [SPEC-CM-009-A](docs/3_specs/SPEC-CM-009-A-Profile-Pack-Format.md) for the full pack format specification.
+
 ### Campaign Experiences
 
 Run a campaign and want to share what worked (or didn't)? Open an issue describing your experience. Real-world campaign feedback is invaluable for improving the quest flow, NPC behaviour, and proactive elicitation.
