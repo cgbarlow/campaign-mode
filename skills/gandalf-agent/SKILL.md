@@ -301,12 +301,14 @@ If the user wants to customise after pack installation, proceed to the per-agent
 If the user opts to create custom profiles instead of installing a pack, offer theme selection:
 
 ```
-What theme fits this quest?
+What theme or flavour fits this quest? This will shape the names and personalities of your council.
 
-  Neutral    — Professional roles (Visionary Leader, Risk Analyst, ...)
-  Fantasy    — D&D-inspired (Paladin, Rogue, Sage, ...)
-  Custom     — Describe your own. I'll help shape it.
+  Neutral    — Professional, grounded roles (Visionary Leader, Risk Analyst, ...)
+  Suggested  — I'll design a set that fits your quest's setting and tone
+  Custom     — Describe your own vibe and I'll shape characters to match
 ```
+
+If the user selects **Suggested**, consider the quest narrative, domain, and tone established in Phase 1. Design a cohesive set of character names and personalities that feel natural for the quest's context — e.g., a music production quest might get Producer, Mixer, A&R, etc. Proceed to the Draft Pass and Per-Animal Assignment flow below.
 
 **Draft Pass — Cohesive Group Design:**
 Before presenting any individual profiles to the user, internally draft characterisations for ALL agents (animals + NPCs) as a cohesive group. This ensures:
