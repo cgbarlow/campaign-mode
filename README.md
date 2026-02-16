@@ -11,7 +11,7 @@ Where Six Animals answers *"how should we work together?"*, Campaign Mode answer
 ### Claude Desktop
 
 1. **Open Settings** — Claude Desktop → Settings → Extensions
-2. **Add by URL** — select "Add marketplace by URL" and enter:
+2. **Add by URL** — select "Add marketplace from GitHub" and enter:
    ```
    https://github.com/cgbarlow/campaign-mode/
    ```
