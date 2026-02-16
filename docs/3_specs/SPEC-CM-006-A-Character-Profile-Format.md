@@ -211,6 +211,22 @@ Winnie-the-Pooh inspired characterisations. Available as a profile pack in `prof
 | Dragon | Heffalump |
 | Guardian | Kanga |
 
+#### Family & Parenting
+
+Family-role characterisations grounded in real-world parenting dynamics. Available as a profile pack in `profile-packs/family-parenting/`.
+
+| Archetype | Suggested Skin Name |
+|-----------|---------------------|
+| Bear | The Elder |
+| Cat | The Teenager |
+| Owl | The Family Therapist |
+| Puppy | The Neighbour Kid |
+| Rabbit | The Co-Parent |
+| Wolf | The Older Sibling |
+| Gandalf | The Paediatrician |
+| Dragon | Great Aunt Betty |
+| Guardian | The Social Worker |
+
 ### Custom Themes
 
 Users can create custom themes via Socratic dialogue with Gandalf. Any framing the user wants -- martial arts, sci-fi, culinary, musical, mythological, cultural. Gandalf helps shape theme vocabulary and suggested names through guided conversation.

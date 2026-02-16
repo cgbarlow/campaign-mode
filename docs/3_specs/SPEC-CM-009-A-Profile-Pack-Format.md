@@ -125,6 +125,7 @@ Campaign Mode ships with the following packs:
 |------|-----------|-------------|
 | **Fantasy** | `profile-packs/fantasy/` | D&D-inspired characterisations: Paladin, Rogue, Sage, Bard, Artificer, Warden + Archmage, Sentinel, Ancient Wyrm |
 | **Hundred Acre Wood** | `profile-packs/hundred-acre-wood/` | Winnie-the-Pooh inspired: Pooh, Eeyore, Owl, Tigger, Rabbit, Piglet + Christopher Robin, Kanga, Heffalump |
+| **Family & Parenting** | `profile-packs/family-parenting/` | Family-role characterisations: The Elder, The Teenager, The Family Therapist, The Neighbour Kid, The Co-Parent, The Older Sibling + The Paediatrician, The Social Worker, Great Aunt Betty |
 
 ---
 

@@ -284,6 +284,7 @@ Now that your quest is framed, would you like to give your advisory council char
   - Install a theme pack:
       • Fantasy (D&D-inspired: Paladin, Rogue, Sage, Bard, Artificer, Warden + NPC skins)
       • Hundred Acre Wood (Pooh, Eeyore, Owl, Tigger, Rabbit, Piglet + Christopher Robin, Kanga, Heffalump)
+      • Family & Parenting (The Elder, The Teenager, The Family Therapist, The Neighbour Kid, The Co-Parent, The Older Sibling + The Paediatrician, The Social Worker, Great Aunt Betty)
   - Create custom profiles (I'll help you design them)
 ```
 

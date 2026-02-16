@@ -352,7 +352,8 @@ campaign-mode/
 │       └── ROADMAP-CM-003-v0.2.8.md
 ├── profile-packs/                       # Pre-built profile template sets
 │   ├── fantasy/                         # D&D-inspired theme (9 profiles)
-│   └── hundred-acre-wood/               # Winnie-the-Pooh theme (9 profiles)
+│   ├── hundred-acre-wood/               # Winnie-the-Pooh theme (9 profiles)
+│   └── family-parenting/                # Family & Parenting theme (9 profiles)
 ├── CLAUDE.md                            # Campaign guidelines (loaded per session)
 ├── CONTRIBUTING.md                      # Contribution guidelines
 └── README.md
@@ -360,7 +361,12 @@ campaign-mode/
 
 ## Roadmap
 
-### v0.3.1 — Current Release
+### v0.3.2 — Current Release
+
+- **Family & Parenting pack** — New 9-profile theme: The Elder, The Teenager, The Family Therapist, The Neighbour Kid, The Co-Parent, The Older Sibling + The Paediatrician, The Social Worker, Great Aunt Betty
+- Third built-in pack added to Gandalf Phase 2 dialogue, SPEC-CM-006-A theme tables, and SPEC-CM-009-A built-in packs
+
+### v0.3.1
 
 - Custom profile theme selection now offers **Suggested** (Gandalf designs a set fitting the quest's setting and tone) instead of Fantasy, which is now covered by theme packs
 - Retained **Neutral** (professional roles) and **Custom** (describe your own vibe) options
