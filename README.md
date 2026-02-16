@@ -10,20 +10,40 @@ Where Six Animals answers *"how should we work together?"*, Campaign Mode answer
 
 ### Claude Desktop
 
-1. **Open Settings** — Claude Desktop → Settings → Plugins
-2. **Add the marketplace** — paste: `https://raw.githubusercontent.com/cgbarlow/campaign-mode/refs/heads/main/.claude-plugin/marketplace.json`
+1. **Open Settings** — Claude Desktop → Settings → Extensions
+2. **Add by URL** — select "Add marketplace by URL" and enter:
+   ```
+   https://github.com/cgbarlow/campaign-mode/
+   ```
 3. **Install the plugin** — find Campaign Mode in the marketplace and install
-4. **Set up your project** — run `/campaign-setup` (checks for Six Animals, copies guidelines, creates `.campaign/`)
+4. **Set up your project** — run:
+   ```
+   /campaign-setup
+   ```
+   This checks for Six Animals, copies guidelines, and creates `.campaign/`.
 5. **Choose your path:**
    - `/council` — Have all six animal advisors analyse your project before deciding what to work on
    - `/start-quest` — Jump straight into quest framing with Gandalf
 
 ### Claude Code CLI
 
-1. **Install Claude Code** — `curl -fsSL https://claude.ai/install.sh | bash` ([full guide](https://code.claude.com/docs/en/quickstart))
-2. **Add the marketplace** — in a Claude Code session: `/plugin marketplace add cgbarlow/campaign-mode`
-3. **Install the plugin** — `/plugin install campaign-mode@campaign-mode-marketplace`
-4. **Set up your project** — `/campaign-setup` (checks for Six Animals, copies guidelines, creates `.campaign/`)
+1. **Install Claude Code** ([full guide](https://code.claude.com/docs/en/quickstart)):
+   ```bash
+   curl -fsSL https://claude.ai/install.sh | bash
+   ```
+2. **Add the marketplace** — in a Claude Code session:
+   ```
+   /plugin marketplace add cgbarlow/campaign-mode
+   ```
+3. **Install the plugin:**
+   ```
+   /plugin install campaign-mode@campaign-mode-marketplace
+   ```
+4. **Set up your project:**
+   ```
+   /campaign-setup
+   ```
+   This checks for Six Animals, copies guidelines, and creates `.campaign/`.
 5. **Choose your path:**
    - `/council` — Have all six animal advisors analyse your project before deciding what to work on
    - `/start-quest` — Jump straight into quest framing with Gandalf
@@ -162,13 +182,16 @@ See [SPEC-CM-006-A](docs/3_specs/SPEC-CM-006-A-Character-Profile-Format.md) for 
 
 ### Option 1: Claude Desktop (recommended)
 
-1. Open Claude Desktop → Settings → Plugins
-2. Add the Campaign Mode marketplace URL:
+1. Open Claude Desktop → Settings → Extensions
+2. Select "Add marketplace by URL" and enter:
    ```
-   https://raw.githubusercontent.com/cgbarlow/campaign-mode/refs/heads/main/.claude-plugin/marketplace.json
+   https://github.com/cgbarlow/campaign-mode/
    ```
 3. Find Campaign Mode in the marketplace and install
-4. Run `/campaign-setup` in your project to complete setup
+4. Run `/campaign-setup` in your project to complete setup:
+   ```
+   /campaign-setup
+   ```
 
 > `/campaign-setup` will offer to install [Six Animals](https://github.com/SimonMcCallum/six-animals) if it's not already present.
 
@@ -184,10 +207,17 @@ Then in a Claude Code session:
 
 ```
 /plugin marketplace add cgbarlow/campaign-mode
+```
+
+```
 /plugin install campaign-mode@campaign-mode-marketplace
 ```
 
-Run `/campaign-setup` in your project to complete setup.
+Run `/campaign-setup` in your project to complete setup:
+
+```
+/campaign-setup
+```
 
 > `/campaign-setup` will offer to install [Six Animals](https://github.com/SimonMcCallum/six-animals) if it's not already present. You can also install it separately from the same marketplace:
 > ```
