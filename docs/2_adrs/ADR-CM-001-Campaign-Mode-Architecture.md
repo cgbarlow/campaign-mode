@@ -76,6 +76,7 @@ Campaign Mode decomposes the monolithic quest-agent into three focused NPCs whil
 | ADR-CM-010 | Quest State Tracking | Accepted | 2 | ADR-CM-006 | Chris Barlow |
 | ADR-CM-011 | Council Feature | Accepted | 2 | ADR-CM-008, ADR-CM-009 | Chris Barlow |
 | ADR-CM-016 | Profile Packs | Accepted | 2 | ADR-CM-006 | Chris Barlow |
+| ADR-CM-017 | Proactive Party Engagement | Accepted | 3 | ADR-CM-008, ADR-CM-014 | Chris Barlow |
 
 ## Decision Sequencing
 
@@ -103,6 +104,7 @@ All Phase 1 ADRs can proceed in parallel as they address orthogonal concerns:
 | [SPEC-CM-006-B](../3_specs/SPEC-CM-006-B-Campaign-State-Directory.md) | Campaign State Directory | .campaign/ directory structure and export protocol |
 | [SPEC-CM-007-A](../3_specs/SPEC-CM-007-A-Plugin-Structure.md) | Plugin Structure | Plugin manifest, directory layout, installation methods |
 | [SPEC-CM-007-B](../3_specs/SPEC-CM-007-B-Campaign-Guidelines.md) | Campaign Guidelines | CLAUDE.md content, auto-copy mechanism, /campaign-setup command |
+| [SPEC-CM-010-A](../3_specs/SPEC-CM-010-A-Phase-3-Party-Engagement.md) | Phase 3 Party Engagement | Proactive animal engagement during Phase 3 |
 
 ---
 

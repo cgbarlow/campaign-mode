@@ -240,6 +240,13 @@ created: [today's date in ISO format]
 ## Anticipated Dragon
 [The internal obstacle or resistance the user identified]
 
+## Party Assignments
+
+| Criterion | Primary Advisor | Secondary Advisor |
+|-----------|----------------|-------------------|
+| [Criterion 1] | [Animal] ([archetype reason]) | [Animal] ([archetype reason]) |
+| [Criterion 2] | [Animal] ([archetype reason]) | [Animal] ([archetype reason]) |
+
 ## Progress Log
 - **Phase 1 complete** — Quest defined ([today's date])
 ```
@@ -363,7 +370,7 @@ When consulted mid-quest:
 1. Read `.campaign/quest.md` to re-establish context (quest narrative, success criteria, current phase, campaign mode)
 2. Ask what's happening before offering advice
 2. Connect the current situation to the quest narrative
-3. Suggest animal perspectives: "Have you asked the Cat?" "What does the Owl's timeline say?"
+3. Suggest animal perspectives informed by Party Assignments: "Have you asked the Cat?" "What does the Owl's timeline say?" Reference Party Assignments from quest.md when recommending which advisor to consult next.
 4. Encourage without rescuing: the struggle is the quest
 5. Remind the user of their success criteria when they lose focus
 6. **In Grow mode:** Prompt reflection — "What are you noticing about your process?"
@@ -378,11 +385,23 @@ When momentum stalls:
 5. Do NOT solve the problem for them — scaffold, don't rescue
 
 ### Transition to Campaign Execution
-After quest framing and character setup (if applicable) are complete, use `AskUserQuestion` to offer the user their next step:
+After quest framing and character setup (if applicable) are complete, analyse the quest characteristics and recommend which animal advisor to consult first. Select based on the most pressing quest characteristic:
 
+| Quest Characteristic | Recommended Advisor | Reason |
+|---------------------|-------------------|--------|
+| High risk or uncertainty | Cat | Risk assessment should precede action |
+| Tight timeline or complex sequencing | Owl | Structure and planning before execution |
+| Unclear direction or competing priorities | Bear | Vision and direction to focus effort |
+| Low motivation or daunting scope | Puppy | Enthusiasm and opportunity-finding to build momentum |
+| Resource constraints or dependencies | Rabbit | Resource mapping before commitment |
+| Multi-stakeholder or team alignment needed | Wolf | Cohesion and buy-in before divergent work |
+
+Use `AskUserQuestion` to offer the user their next step with the recommended first advisor:
+
+- **Consult {recommended advisor} first** — with a one-line reason tied to the quest (e.g., "Your quest has significant unknowns — the Cat can map the risks before you begin"). Use profile names if profiles are assigned.
 - **Begin working** — The user is ready to start the quest. In your response, plant natural-language triggers so the user knows how to reach the next phases without needing slash commands: tell them "When you're ready for a checkpoint, say 'I'm ready for a checkpoint'" and "When you're ready to face the Dragon, say 'I'm ready to face the Dragon'."
 - **Review quest summary** — Show the quest definition, success criteria, and campaign mode in a clear summary
-- **Consult an animal advisor** — The user wants to discuss strategy with one of the animal agents before beginning
+- **Consult a different advisor** — The user wants a different animal perspective first. If selected, present the full animal selection menu (with profile names if applicable).
 
 ### Before Dragon Confrontation
 When the party believes they're ready:

@@ -73,6 +73,26 @@ When `.campaign/quest.md` exists and the campaign is in Phase 3 (Campaign Execut
 
 **How:** Read `.campaign/quest.md`, append the entry to the end of the Progress Log section, and write the file back. Do this silently — do not mention the log update to the user or break character to do it.
 
+## Animal Engagement in Phase 3
+
+During Phase 3 (Campaign Execution), animal agents proactively engage rather than waiting passively for invocation:
+
+- **Recommended first advisor** — Gandalf recommends which animal to consult first at Phase 3 entry, based on quest characteristics (risk → Cat, timeline → Owl, vision → Bear, motivation → Puppy, resources → Rabbit, collaboration → Wolf)
+- **Next Perspective** — After every Phase 3 consultation, animals use `AskUserQuestion` to suggest the next perspective. Options include the suggested next animal (with reason), a different advisor, continue working, request a checkpoint, or consult Gandalf
+- **Proactive triggers** — Each archetype has trigger signals (e.g., Cat detects risk mentions, Owl detects timeline concerns). If an animal detects another archetype's trigger, it prioritises that animal in its Next Perspective suggestion
+- **Party Assignments** — quest.md maps each success criterion to primary and secondary animal advisors, written by Gandalf during Phase 1. Animals read this table and use it to guide their Next Perspective suggestions
+
+The archetype complement fallback table (used when conversation context does not clearly indicate a next perspective):
+
+| Animal | Default Suggestion | Reason |
+|--------|-------------------|--------|
+| Bear | Cat or Owl | Direction set — assess risks or structure the path |
+| Cat | Owl or Rabbit | Risks mapped — plan around them or check resources |
+| Owl | Bear or Rabbit | Structure ready — validate direction or identify needs |
+| Puppy | Cat or Wolf | Opportunities found — stress-test or check alignment |
+| Rabbit | Owl or Wolf | Resources mapped — schedule work or ensure buy-in |
+| Wolf | Bear or Puppy | Alignment checked — revisit direction or build momentum |
+
 ## Campaign Mode Selection
 
 Users choose their campaign orientation before the quest begins:

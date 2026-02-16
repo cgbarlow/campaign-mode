@@ -153,7 +153,7 @@ Simon is the educator, meta-analyst, and synthesiser — operating *above* the q
         |                 Gandalf offers: Begin working / Review summary / Consult advisor
 2. Character Setup        Assign character profiles to animals (optional, mode-dependent)
         |
-3. Campaign Execution     You work the quest, invoking animals for their strengths
+3. Campaign Execution     You work the quest with proactive animal engagement
         |                 Simon available for mid-campaign reflection at any time
         |                 Say "I'm ready for a checkpoint" or "I'm ready to face the Dragon"
 4. Guardian Checkpoint    Guardian reads quest.md, evaluates readiness (mode-aware)
@@ -291,6 +291,8 @@ Architectural decisions are documented as ADRs using the WH(Y) format in [docs/2
 | [ADR-CM-013](docs/2_adrs/ADR-CM-013-Plugin-Guidelines-Parity.md) | Plugin Guidelines Parity |
 | [ADR-CM-014](docs/2_adrs/ADR-CM-014-Animal-Campaign-Extensions.md) | Animal Campaign Extensions |
 | [ADR-CM-015](docs/2_adrs/ADR-CM-015-Plugin-Injection-Sandbox-Fix.md) | Plugin Injection Sandbox Fix |
+| [ADR-CM-016](docs/2_adrs/ADR-CM-016-Profile-Packs.md) | Profile Packs |
+| [ADR-CM-017](docs/2_adrs/ADR-CM-017-Proactive-Party-Engagement.md) | Proactive Party Engagement |
 
 Supporting specifications and reference materials live alongside the ADRs in [docs/3_specs/](docs/3_specs/) and [docs/2_adrs/reference/](docs/2_adrs/reference/).
 
@@ -351,6 +353,7 @@ campaign-mode/
 │   │   ├── ADR-CM-014-Animal-Campaign-Extensions.md
 │   │   ├── ADR-CM-015-Plugin-Injection-Sandbox-Fix.md
 │   │   ├── ADR-CM-016-Profile-Packs.md
+│   │   ├── ADR-CM-017-Proactive-Party-Engagement.md
 │   │   └── reference/                   # ADR format specifications and references
 │   ├── 3_specs/                         # Design specifications
 │   │   ├── SPEC-CM-001-A-Skill-Architecture.md
@@ -368,7 +371,8 @@ campaign-mode/
 │   │   ├── SPEC-CM-007-C-Plugin-Path-Resolution.md
 │   │   ├── SPEC-CM-007-D-Plugin-Guidelines-Injection.md
 │   │   ├── SPEC-CM-008-A-Animal-Campaign-Extensions.md
-│   │   └── SPEC-CM-009-A-Profile-Pack-Format.md
+│   │   ├── SPEC-CM-009-A-Profile-Pack-Format.md
+│   │   └── SPEC-CM-010-A-Phase-3-Party-Engagement.md
 │   ├── 4_examples/                      # Example content
 │   │   ├── council-report.md            # Example council diagnostic report
 │   │   └── profiles/                    # Example character profiles
@@ -390,7 +394,21 @@ campaign-mode/
 
 ## Roadmap
 
-### v0.3.2 — Current Release
+### v0.4.0 — Current Release
+
+- **Proactive animal engagement in Phase 3** — Animals are no longer passive tools. Four new mechanisms make the advisory council an active team during Campaign Execution:
+  - **Recommended first advisor** — Gandalf analyses quest characteristics and recommends which animal to consult first at Phase 3 entry (risk → Cat, timeline → Owl, vision → Bear, motivation → Puppy, resources → Rabbit, collaboration → Wolf)
+  - **Next Perspective handoffs** — After every Phase 3 consultation, animals use `AskUserQuestion` to suggest the next advisor based on what was discussed, with an archetype complement fallback table
+  - **Proactive trigger detection** — Each archetype detects trigger signals for other archetypes (e.g., Cat detects risk mentions, Owl detects timeline concerns) and prioritises them in suggestions
+  - **Party Assignments** — quest.md now includes a table mapping each success criterion to primary and secondary animal advisors, written by Gandalf during Phase 1
+- ADR-CM-017 documents the proactive party engagement decision
+- SPEC-CM-010-A specifies all four mechanisms in detail
+- Animal campaign extensions (`extensions/animal-campaign-context.md`) expanded with three new sections: Next Perspective, Proactive Engagement, Criterion Progress Awareness
+- Gandalf Phase 3 transition now offers a recommended first advisor instead of generic options
+- quest.md template includes Party Assignments table between Anticipated Dragon and Progress Log
+- SPEC-CM-001-B updated with Phase 3 animal engagement paragraph
+
+### v0.3.2
 
 - **Family & Parenting pack** — New 9-profile theme: The Elder, The Teenager, The Family Therapist, The Neighbour Kid, The Co-Parent, The Older Sibling + The Paediatrician, The Social Worker, Great Aunt Betty
 - Third built-in pack added to Gandalf Phase 2 dialogue, SPEC-CM-006-A theme tables, and SPEC-CM-009-A built-in packs

@@ -4,9 +4,9 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-001-B |
 | **Parent ADR** | [ADR-CM-001](../adrs/ADR-CM-001-Campaign-Mode-Architecture.md) |
-| **Version** | 1.5 |
+| **Version** | 1.6 |
 | **Status** | Draft |
-| **Last Updated** | 2026-02-14 |
+| **Last Updated** | 2026-02-16 |
 
 ---
 
@@ -28,7 +28,7 @@ The user is the **protagonist** throughout — the decision-maker who drives the
         │
 2. Character Setup        →  Animals adopt campaign roles (optional; mode-dependent)
         │
-3. Campaign Execution     →  User works the quest with animal support
+3. Campaign Execution     →  User works the quest with proactive animal engagement
         │
 4. Guardian Checkpoint    →  Guardian evaluates readiness to progress (mode-aware)
         │                     (repeats at key stages)
@@ -104,11 +104,13 @@ This phase is **optional** and user-driven. Gandalf facilitates the process, off
 |--------|--------|
 | **Primary Actor** | User (with animal support) |
 | **Trigger** | Quest defined (Phase 1 complete) |
-| **Activities** | The user works through the quest, invoking animal agents for their archetype strengths. Gandalf provides strategic counsel when consulted. |
+| **Activities** | The user works through the quest, invoking animal agents for their archetype strengths. Gandalf provides strategic counsel when consulted. Animals proactively suggest next perspectives and detect cross-archetype triggers. |
 | **Outputs** | Work product, decisions, progress toward success criteria |
 | **Transition** | Key milestone reached → Phase 4; all criteria addressed → Phase 5. The user triggers transitions using natural-language phrases planted during Phase 1 (e.g., "I'm ready for a checkpoint", "I'm ready to face the Dragon"). |
 
 The user drives the work. Animals provide perspectives and support; NPCs operate with isolated context (they cannot see party reasoning).
+
+**Animal engagement:** Animals are not passive tools — they proactively engage throughout Phase 3. Gandalf recommends the first advisor at Phase 3 entry based on quest characteristics. After each animal consultation, the animal suggests the next perspective via `AskUserQuestion` (the Next Perspective protocol). Animals detect trigger signals for other archetypes and prioritise those in their suggestions. Party Assignments in quest.md map each success criterion to primary and secondary advisors, giving animals structured awareness of which perspectives matter most. See [SPEC-CM-010-A](SPEC-CM-010-A-Phase-3-Party-Engagement.md) for full details.
 
 **Mode effects:** In Grow mode, Gandalf may prompt reflective pauses. In Ship mode, execution is focused on deliverable progress. In Grow & Ship mode, reflection happens naturally through the work.
 
@@ -214,6 +216,7 @@ Quest Definition → Execution → Checkpoint → Execution → Checkpoint → D
 | [SPEC-CM-005-A](SPEC-CM-005-A-Campaign-Mode-Profiles.md) | Campaign Mode Profiles | How mode selection tunes behaviour across all phases |
 | [SPEC-CM-006-A](SPEC-CM-006-A-Character-Profile-Format.md) | Character Profile Format | Profile file structure, depth levels, themes, and core vs flex behaviours |
 | [SPEC-CM-006-B](SPEC-CM-006-B-Campaign-State-Directory.md) | Campaign State Directory | Where profile files are stored and export protocol |
+| [SPEC-CM-010-A](SPEC-CM-010-A-Phase-3-Party-Engagement.md) | Phase 3 Party Engagement | How animals proactively engage during Phase 3 |
 
 ---
 
@@ -225,5 +228,6 @@ Quest Definition → Execution → Checkpoint → Execution → Checkpoint → D
 | 1.1 | 2026-02-14 | Chris Barlow | Added mode selection to Phase 1, mode annotations to all phases, user-as-protagonist framing |
 | 1.2 | 2026-02-14 | Chris Barlow | Replaced Phase 2 placeholder with full character generation spec, added SPEC-CM-006-A and SPEC-CM-006-B references |
 | 1.3 | 2026-02-14 | Chris Barlow | Added Phase Transition Protocol, updated all phase Transition rows with proactive elicitation via `AskUserQuestion` (ADR-CM-008) |
+| 1.6 | 2026-02-16 | Chris Barlow | Added proactive animal engagement to Phase 3 — recommended first advisor, Next Perspective protocol, trigger detection, Party Assignments (ADR-CM-017) |
 | 1.5 | 2026-02-14 | Chris Barlow | Added optional pre-campaign Council step, updated flow diagram (ADR-CM-011) |
 | 1.4 | 2026-02-14 | Chris Barlow | Added `/start-quest` as Phase 1 entry point, added `/continue-quest` mid-campaign re-entry note (ADR-CM-009) |
