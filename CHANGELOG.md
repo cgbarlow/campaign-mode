@@ -2,7 +2,11 @@
 
 All notable changes to Campaign Mode are documented here.
 
-## v0.4.0 — Current Release
+## v0.4.1 — Current Release
+
+- **Fix: AskUserQuestion exceeding 4-option limit** — Consolidated option lists in `continue-quest` (7→4), `start-quest` (6→3), `animal-campaign-context` (5→4), and `gandalf-agent` animal menu (6→4). Related options are now grouped with follow-up questions where needed.
+
+## v0.4.0
 
 - **Proactive animal engagement in Phase 3** — Animals are no longer passive tools. Four new mechanisms make the advisory council an active team during Campaign Execution:
   - **Recommended first advisor** — Gandalf analyses quest characteristics and recommends which animal to consult first at Phase 3 entry (risk → Cat, timeline → Owl, vision → Bear, motivation → Puppy, resources → Rabbit, collaboration → Wolf)
