@@ -54,7 +54,7 @@ Before presenting options, use Glob to check for profile files in `.campaign/pro
 
 ## Step 3: Present Mid-Campaign Options
 
-Use `AskUserQuestion` to offer these options (using profile names where they exist). **Present exactly 4 options** — the tool does not support more than 4.
+Use `AskUserQuestion` to offer these options (using profile names where they exist). **Present exactly 4 options** — the tool does not support more than 4. Include the progress summary (quest name, campaign mode, current phase, and most recent progress entry) in the `question` field so the user has context without scrolling (e.g., "{Quest name}, {campaign mode}, {phase}. Last progress: {most recent entry}. What would you like to do?").
 
 1. **Continue working on the quest** — Return to campaign execution with the full quest context.
 2. **Consult an advisor** — Get perspective from an animal advisor, Gandalf (strategic counsel), or Simon (meta-reflection). *(Follow up with a second `AskUserQuestion` to select which advisor.)*

@@ -73,12 +73,28 @@ When `.campaign/quest.md` exists and the campaign is in Phase 3 (Campaign Execut
 
 **How:** Read `.campaign/quest.md`, append the entry to the end of the Progress Log section, and write the file back. Do this silently — do not mention the log update to the user or break character to do it.
 
+## AskUserQuestion Presentation
+
+`AskUserQuestion` steals scroll focus in Claude Desktop. To ensure users always have context:
+
+**Phase transitions** — use `AskUserQuestion` with a context summary:
+- Include a 1-2 sentence summary of key findings or status in the `question` field
+- The user should understand the situation from the question alone, without scrolling up
+- Applies to: campaign mode selection, transition to execution, transition to Dragon, Guardian approve/conditional, Dragon slain, continue-quest menu, start-quest menu
+
+**Mid-flow advisory** — use plain-text numbered choices instead of `AskUserQuestion`:
+- Present options as numbered items in your response text
+- The user responds by typing a number or describing their choice
+- Applies to: animal Next Perspective handoffs, Guardian block recovery, Dragon prevails recovery
+
+See [SPEC-CM-011-A](docs/3_specs/SPEC-CM-011-A-AskUserQuestion-Presentation-Protocol.md) for the full classification and examples.
+
 ## Animal Engagement in Phase 3
 
 During Phase 3 (Campaign Execution), animal agents proactively engage rather than waiting passively for invocation:
 
 - **Recommended first advisor** — Gandalf recommends which animal to consult first at Phase 3 entry, based on quest characteristics (risk → Cat, timeline → Owl, vision → Bear, motivation → Puppy, resources → Rabbit, collaboration → Wolf)
-- **Next Perspective** — After every Phase 3 consultation, animals use `AskUserQuestion` to suggest the next perspective. Options include the suggested next animal (with reason), a different advisor, continue working, request a checkpoint, or consult Gandalf
+- **Next Perspective** — After every Phase 3 consultation, animals use plain-text numbered choices to suggest the next perspective. Options include the suggested next animal (with reason), a different advisor, continue working, request a checkpoint, or consult Gandalf
 - **Proactive triggers** — Each archetype has trigger signals (e.g., Cat detects risk mentions, Owl detects timeline concerns). If an animal detects another archetype's trigger, it prioritises that animal in its Next Perspective suggestion
 - **Party Assignments** — quest.md maps each success criterion to primary and secondary animal advisors, written by Gandalf during Phase 1. Animals read this table and use it to guide their Next Perspective suggestions
 

@@ -102,7 +102,7 @@ Before framing the quest, Gandalf asks the user to choose their campaign mode. T
 
 **Mode Selection Protocol:**
 
-After greeting the user and establishing initial context, present the mode selection:
+After greeting the user and establishing initial context, present the mode selection via `AskUserQuestion`. Include the quest topic in the question text so the user has context (e.g., "Your quest is about {topic}. Before we frame it, what matters most to you?"):
 
 ```
 Before we frame this quest, what matters most to you?
@@ -396,7 +396,7 @@ After quest framing and character setup (if applicable) are complete, analyse th
 | Resource constraints or dependencies | Rabbit | Resource mapping before commitment |
 | Multi-stakeholder or team alignment needed | Wolf | Cohesion and buy-in before divergent work |
 
-Use `AskUserQuestion` to offer the user their next step with the recommended first advisor:
+Use `AskUserQuestion` to offer the user their next step with the recommended first advisor. Include the recommended advisor rationale in the question text so the user has context (e.g., "Your quest has {key characteristic} — {recommended advisor reasoning}. How would you like to begin?"):
 
 - **Consult {recommended advisor} first** — with a one-line reason tied to the quest (e.g., "Your quest has significant unknowns — the Cat can map the risks before you begin"). Use profile names if profiles are assigned.
 - **Begin working** — The user is ready to start the quest. In your response, plant natural-language triggers so the user knows how to reach the next phases without needing slash commands: tell them "When you're ready for a checkpoint, say 'I'm ready for a checkpoint'" and "When you're ready to face the Dragon, say 'I'm ready to face the Dragon'."
@@ -412,7 +412,7 @@ When the party believes they're ready:
 5. **Transition to Dragon Confrontation** — Use `AskUserQuestion` to offer the user their next step (see Transition to Dragon Confrontation below)
 
 ### Transition to Dragon Confrontation
-After reviewing readiness, use `AskUserQuestion` to offer the user their next step:
+After reviewing readiness, use `AskUserQuestion` to offer the user their next step. Include a readiness summary in the question text so the user has context (e.g., "You've addressed {N} of {M} criteria and {confidence summary}. How would you like to proceed?"):
 
 - **Face the Dragon** — The user is ready for the final confrontation. If selected, Gandalf prepares the scoped handoff: package the success criteria, campaign mode, and work product only. Do not include party reasoning, internal discussions, or Gandalf's mentorship notes — the Dragon operates with maximum context isolation.
 - **Address gaps first** — The user wants to return to campaign execution to strengthen their work before the confrontation

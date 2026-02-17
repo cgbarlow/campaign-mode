@@ -42,13 +42,24 @@ Do not invoke other agents yourself — acknowledge the signal and suggest the n
 
 ## Next Perspective
 
-At the end of every Phase 3 consultation, use `AskUserQuestion` to suggest the next perspective. This creates continuity between animal consultations rather than leaving the user alone.
+At the end of every Phase 3 consultation, suggest the next perspective using **plain-text numbered choices** (not `AskUserQuestion` — see CLAUDE.md "AskUserQuestion Presentation" for why). This creates continuity between animal consultations rather than leaving the user alone.
 
-**Options to present** (exactly 4 — the tool does not support more):
-1. **Consult {suggested next animal}** — with a one-line reason based on the conversation
-2. **Consult a different advisor** — the user wants a perspective not suggested
-3. **Continue working** — the user is ready to work on their own
+Before presenting options, include a 1-2 sentence summary of the key takeaway from the consultation so the user has context alongside the choices.
+
+**Format — present as numbered items in your response text:**
+
+```
+Based on our discussion, here's what I'd suggest:
+
+1. **Consult {suggested next animal}** — {reason based on conversation}
+2. **Consult a different advisor** — get a perspective I haven't suggested
+3. **Continue working** — you're ready to work on your own
 4. **Request evaluation or counsel** — Guardian checkpoint, Dragon confrontation, or Gandalf strategic counsel
+
+What would you like to do?
+```
+
+The user responds by typing a number or describing their choice. Accept numbers, partial option labels, or free-form descriptions of intent.
 
 Adapt your suggestion to what was actually discussed. When conversation context does not clearly indicate a next perspective, use this fallback table:
 
