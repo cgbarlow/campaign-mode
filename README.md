@@ -1,18 +1,18 @@
-# Campaign Mode
+# Are you ready for Campaign Mode?
 
 **Six perspectives. Three challengers. One quest. Your blind spots, found.**
 
-Inspired by Dr Simon McCallum's [Six Animals](https://github.com/SimonMcCallum/six-animals) collaboration framework — a psychologically-grounded model where six animal archetypes represent genuinely different ways of thinking — Campaign Mode gives you a structured quest to put all of them to work on your challenge.
+Inspired by Dr Simon McCallum's [Six Animals](https://github.com/SimonMcCallum/six-animals) collaboration framework, a psychologically-grounded model where six animal archetypes represent genuinely different ways of thinking. Campaign Mode gives you a structured quest to put all of them to work on your challenge.
 
 ![Campaign Mode agents gathered in a fantasy tavern — the six animal advisors (Bear, Cat, Owl, Puppy, Rabbit, Wolf) plan around a map table while Simon observes from by the hearth, Gandalf and the Guardian stand watch, and the Dragon peers in through the window](docs/campaign-mode-agents.jpg)
 
 ## You Deserve More Than a Single Perspective
 
-You're working on something that matters. But working alone — or with a single AI perspective — you miss things. The risks you didn't think to check. The assumptions you didn't know you were making. The angle you never considered because it's not how you think.
+You're working on something that matters. But working alone, or with a single AI perspective, you miss things. The risks you didn't think to check. The assumptions you didn't know you were making. The angle you never considered because it's not how you think.
 
-Campaign Mode recruits a party of AI advisors who think differently from each other, and from you. You frame your work as a quest with clear success criteria, structured phases, and a defined endpoint. Your advisors challenge your assumptions, surface your blind spots, and stress-test your work before it matters. You confront your dragons in a safe environment — and you come out with something you're genuinely proud of.
+Campaign Mode recruits a party of AI advisors who think differently from each other, and from you. You frame your work as a quest with clear success criteria, structured phases, and a defined endpoint. Your advisors challenge your assumptions, surface your blind spots, and stress-test your work before it matters. You confront your dragons in a safe environment - and you come out with something you're genuinely proud of.
 
-Whether you're here to learn, to ship, or both — you drive the quest. The agents serve you; they don't drive it.
+Whether you're here to learn, to ship, or both - you drive the quest. The agents serve you; they don't drive it.
 
 ## Quick Start
 
