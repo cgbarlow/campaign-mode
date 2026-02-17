@@ -120,6 +120,7 @@ Simon is the educator and meta-analyst — operating *above* the quest while Gan
 
 ### Campaign Flow
 
+```
    Council (optional)     Your animals analyse the project; Simon synthesises findings
         |
 1. Quest Definition       You choose your mode. Gandalf frames the challenge.
@@ -133,7 +134,7 @@ Simon is the educator and meta-analyst — operating *above* the quest while Gan
 5. Dragon Confrontation   Dragon tests your work against your success criteria
         |
 6. Debrief                Simon reflects on your journey (depth varies by mode)
-
+```
 
 Your campaign state is persisted in `.campaign/quest.md` — so you can leave and return between sessions. Use `/continue-quest` to pick up where you left off.
 
