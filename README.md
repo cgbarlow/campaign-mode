@@ -2,7 +2,7 @@
 
 **Six perspectives. Three challengers. One quest. Your blind spots, found.**
 
-Inspired by Dr Simon McCallum's [Six Animals](https://github.com/SimonMcCallum/six-animals) collaboration framework — a psychologically-grounded model where six animal archetypes represent genuinely different ways of thinking — Campaign Mode gives you a structured quest to put all of them to work on your challenge.
+Inspired by Dr Simon McCallum's [Six Animals](https://github.com/SimonMcCallum/six-animals) collaboration framework, a psychologically-grounded model where six animal archetypes represent genuinely different ways of thinking. Campaign Mode gives you a structured quest to put all of them to work on your challenge.
 
 ![Campaign Mode agents gathered in a fantasy tavern — the six animal advisors (Bear, Cat, Owl, Puppy, Rabbit, Wolf) plan around a map table while Simon observes from by the hearth, Gandalf and the Guardian stand watch, and the Dragon peers in through the window](docs/campaign-mode-agents.jpg)
 
