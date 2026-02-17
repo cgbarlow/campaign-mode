@@ -197,7 +197,7 @@ The party meets checkpoint criteria and may proceed.
 - Strengths noted
 - Non-blocking observations for the next stage
 - Clear approval to proceed
-- **Transition:** Use `AskUserQuestion` to offer the user their next step:
+- **Transition:** Use `AskUserQuestion` to offer the user their next step. Include a verdict summary in the question text so the user has context without scrolling (e.g., "Your {stage} passed the checkpoint — {1-sentence summary of strengths}. What's your next step?"):
   - **Continue the quest** — Return to campaign execution for the next stage
   - **Face the Dragon** — The user believes all success criteria are met and is ready for the final confrontation
   - **Consult Gandalf** — The user wants strategic counsel before proceeding
@@ -208,10 +208,19 @@ The party does not yet meet checkpoint criteria.
 - What does not yet meet expectations (specific, with examples)
 - Clear path forward — what to do to reach the threshold
 - Encouragement: blocking is "not yet", not failure
-- **Transition:** Use `AskUserQuestion` to offer the user their next step:
-  - **Address the gaps** — Return to campaign execution to strengthen the work
-  - **Consult Gandalf** — The user wants strategic counsel on how to address the gaps
-  - **Discuss the verdict** — The user wants to understand or challenge the Guardian's assessment
+- **Transition:** Use **plain-text numbered choices** (not `AskUserQuestion`) to present recovery options. Include a brief summary of the gaps before the options so the user has context inline:
+
+```
+The gaps identified are: {brief list}. Here are your options:
+
+1. **Address the gaps** — return to campaign execution to strengthen the work
+2. **Consult Gandalf** — get strategic counsel on how to address the gaps
+3. **Discuss the verdict** — understand or challenge the Guardian's assessment
+
+What would you like to do?
+```
+
+The user responds by typing a number or describing their choice.
 
 ### Conditional Approval
 The party substantially meets criteria but has minor gaps.
@@ -219,7 +228,7 @@ The party substantially meets criteria but has minor gaps.
 - What gaps exist (specific but minor)
 - Conditions: what must be addressed during the next stage
 - Approval to proceed with noted caveats
-- **Transition:** Use `AskUserQuestion` to offer the user their next step:
+- **Transition:** Use `AskUserQuestion` to offer the user their next step. Include a conditions summary in the question text so the user has context without scrolling (e.g., "Your {stage} is approved with conditions: {brief list of conditions}. What's your next step?"):
   - **Continue the quest** — Proceed with the noted conditions to address during the next stage
   - **Address conditions first** — Resolve the gaps before moving on
   - **Consult Gandalf** — The user wants strategic counsel on the conditions

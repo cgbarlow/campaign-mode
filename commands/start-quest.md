@@ -22,7 +22,7 @@ Use `AskUserQuestion` to offer these options:
 1. **Start a new quest** — Begin fresh with Gandalf. (Proceed to Step 2.)
 2. **Continue the existing quest** — Pick up where you left off. (Present the continue-quest options below instead of proceeding to Step 2.)
 
-If the user chooses to continue the existing quest, present mid-campaign options via `AskUserQuestion`. **Present exactly 4 options** — the tool does not support more than 4.
+If the user chooses to continue the existing quest, present mid-campaign options via `AskUserQuestion`. **Present exactly 4 options** — the tool does not support more than 4. Include the quest context in the `question` field so the user has context without scrolling (e.g., "You have an active quest: {quest name} ({phase}, {mode}). What would you like to do?").
 
 1. **Continue working on the quest** — Return to campaign execution.
 2. **Consult an advisor** — Get perspective from an animal advisor, Gandalf (strategic counsel), or Simon (meta-reflection). *(Follow up with a second `AskUserQuestion` to select which advisor.)*

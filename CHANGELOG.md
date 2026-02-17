@@ -2,7 +2,18 @@
 
 All notable changes to Campaign Mode are documented here.
 
-## v0.4.1 — Current Release
+## v0.4.2 — Current Release
+
+- **AskUserQuestion UX conventions** — Hybrid approach to address Claude Desktop focus-stealing on `AskUserQuestion`. Phase transition questions keep `AskUserQuestion` with mandatory context summaries; mid-flow advisory questions switch to plain-text numbered choices.
+  - **Phase transitions** (keep `AskUserQuestion` + context summary): campaign mode selection, transition to execution, transition to Dragon, Guardian approve/conditional, Dragon slain, continue-quest menu, start-quest menu
+  - **Mid-flow advisory** (switch to plain text): animal Next Perspective handoffs, Guardian block recovery, Dragon prevails recovery
+  - Every `AskUserQuestion` now requires a 1-2 sentence summary in the `question` field so users can decide without scrolling up
+  - Plain-text questions use numbered options; agents parse the user's response (number, partial label, or free-form description)
+- ADR-CM-018 documents the AskUserQuestion UX conventions decision
+- SPEC-CM-011-A specifies the full classification, context summary requirements, and plain-text format
+- Updated: CLAUDE.md, animal-campaign-context.md, Guardian SKILL.md, Dragon SKILL.md, Gandalf SKILL.md, continue-quest.md, start-quest.md
+
+## v0.4.1
 
 - **Fix: AskUserQuestion exceeding 4-option limit** — Consolidated option lists in `continue-quest` (7→4), `start-quest` (6→3), `animal-campaign-context` (5→4), and `gandalf-agent` animal menu (6→4). Related options are now grouped with follow-up questions where needed.
 
