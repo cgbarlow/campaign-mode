@@ -8,11 +8,11 @@ Inspired by Dr Simon McCallum's [Six Animals](https://github.com/SimonMcCallum/s
 
 ## You Deserve More Than a Single Perspective
 
-You're working on something that matters. But working alone — or with a single AI perspective — you miss things. The risks you didn't think to check. The assumptions you didn't know you were making. The angle you never considered because it's not how you think.
+You're working on something that matters. But working alone, or with a single AI perspective, you miss things. The risks you didn't think to check. The assumptions you didn't know you were making. The angle you never considered because it's not how you think.
 
 Campaign Mode recruits a party of AI advisors who think differently from each other, and from you. You frame your work as a quest with clear success criteria, structured phases, and a defined endpoint. Your advisors challenge your assumptions, surface your blind spots, and stress-test your work before it matters. You confront your dragons in a safe environment — and you come out with something you're genuinely proud of.
 
-Whether you're here to learn, to ship, or both — you drive the quest. The agents serve you; they don't drive it.
+Whether you're here to learn, to ship, or both - you drive the quest. The agents serve you; they don't drive it.
 
 ## Quick Start
 
