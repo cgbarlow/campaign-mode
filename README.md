@@ -1,4 +1,4 @@
-# Campaign Mode
+# Are you ready for Campaign Mode?
 
 **Six perspectives. Three challengers. One quest. Your blind spots, found.**
 
