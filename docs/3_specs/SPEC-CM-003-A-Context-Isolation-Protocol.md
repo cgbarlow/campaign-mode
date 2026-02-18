@@ -4,9 +4,9 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-003-A |
 | **Parent ADR** | [ADR-CM-003](../adrs/ADR-CM-003-NPC-Context-Isolation.md) |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Draft |
-| **Last Updated** | 2026-02-14 |
+| **Last Updated** | 2026-02-18 |
 
 ---
 
@@ -32,6 +32,7 @@ Gandalf has the **softest** isolation requirement because the mentor role requir
 - Quest definition (which Gandalf created)
 - Party's current situation and challenges (when consulted)
 - General progress information
+- Conversation transcripts from `.campaign/conversations/` (advisory context for continuity across sessions)
 
 **Does NOT receive:**
 - Dragon's evaluation criteria or assessments
@@ -55,6 +56,7 @@ The Guardian has **moderate** isolation to ensure objective quality evaluation.
 - Dragon's success criteria or assessment methods
 - Party's reasoning, justifications, or confidence levels (unless expressed in the work product itself)
 - Previous Guardian checkpoint results (each checkpoint is independently evaluated)
+- Conversation transcripts from `.campaign/conversations/` (contain party reasoning and advisory context)
 
 **Rationale:** The Guardian must evaluate work quality on its own merits. Access to party reasoning would bias evaluation toward intent over evidence. Each checkpoint is independently assessed to prevent cumulative bias.
 
@@ -73,6 +75,7 @@ The Dragon has the **strictest** isolation to ensure purely objective adversaria
 - Intermediate work products (only the final submission)
 - Party's reasoning, justifications, or explanations
 - Any information about the party's process, struggles, or journey
+- Conversation transcripts from `.campaign/conversations/` (contain all of the above)
 
 **Rationale:** The Dragon is the ultimate test of whether the work stands on its own. If the Dragon can see that the party struggled mightily or that Gandalf guided them through a tough spot, it may unconsciously give credit for effort rather than evaluating output. Maximum isolation ensures the Dragon evaluates only what's delivered.
 
@@ -129,6 +132,12 @@ The invoking prompt should explicitly scope what the NPC receives:
 │  (shared conversation, mutual visibility)             │
 ├─────────────────────────────────────────────────────┤
 │                                                       │
+│  .campaign/conversations/  [transcript files]         │
+│  ┌───────────────────────────────────────────┐       │
+│  │ Animals, Gandalf, Council: READ + WRITE   │       │
+│  │ Guardian, Dragon:          WRITE ONLY     │       │
+│  └───────────────────────────────────────────┘       │
+│                                                       │
 │  ┌──────────┐    ┌──────────┐    ┌──────────┐       │
 │  │ Gandalf  │    │ Guardian │    │  Dragon  │       │
 │  │ Advisory │    │ Independ.│    │ Maximum  │       │
@@ -136,15 +145,16 @@ The invoking prompt should explicitly scope what the NPC receives:
 │  │ Sees:    │    │ Sees:    │    │ Sees:    │       │
 │  │ Quest +  │    │ Stage    │    │ Criteria │       │
 │  │ situation│    │ work     │    │ + final  │       │
-│  │          │    │ product  │    │ work     │       │
+│  │ + transcr│    │ product  │    │ work     │       │
 │  └──────────┘    └──────────┘    └──────────┘       │
 │       ↑               ↑               ↑              │
 │       │               │               │              │
-│  [quest context]  [stage work]   [criteria +         │
-│                                   final work]        │
+│  [quest context   [stage work]   [criteria +         │
+│   + transcripts]                  final work]        │
 │                                                       │
 │  ╳ No cross-NPC communication                        │
 │  ╳ No party reasoning flows to evaluators            │
+│  ╳ No transcript reading by Guardian or Dragon       │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -176,6 +186,7 @@ The invoking prompt should explicitly scope what the NPC receives:
 | [SPEC-CM-002-B](SPEC-CM-002-B-Dragon-Agent.md) | Dragon Agent | Dragon's maximum isolation profile |
 | [SPEC-CM-002-C](SPEC-CM-002-C-Guardian-Agent.md) | Guardian Agent | Guardian's independent isolation profile |
 | [SPEC-CM-001-B](SPEC-CM-001-B-Campaign-Lifecycle.md) | Campaign Lifecycle | Which phases require isolation |
+| [SPEC-CM-012-A](SPEC-CM-012-A-Conversation-Transcript-Protocol.md) | Conversation Transcript Protocol | Transcript isolation rules extend this protocol |
 
 ---
 
@@ -183,4 +194,5 @@ The invoking prompt should explicitly scope what the NPC receives:
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
+| 1.1 | 2026-02-18 | Chris Barlow | Added conversation transcript isolation rules — Gandalf receives transcripts, Guardian and Dragon do not. Updated isolation boundaries diagram. |
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |

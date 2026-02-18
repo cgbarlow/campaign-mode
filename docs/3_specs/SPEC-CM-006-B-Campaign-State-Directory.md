@@ -4,15 +4,15 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-006-B |
 | **Parent ADR** | [ADR-CM-006](../adrs/ADR-CM-006-Character-Generation.md) |
-| **Version** | 1.2 |
+| **Version** | 1.3 |
 | **Status** | Draft |
-| **Last Updated** | 2026-02-14 |
+| **Last Updated** | 2026-02-18 |
 
 ---
 
 ## Overview
 
-This specification defines the `.campaign/` directory structure used to store campaign state. The directory stores character profile files, the quest definition file (`quest.md`) which tracks campaign mode, success criteria, current phase, and progress log, and the council report file (`council-report.md`) which captures multi-perspective project analysis. This specification establishes the directory convention, file formats, and export protocol.
+This specification defines the `.campaign/` directory structure used to store campaign state. The directory stores character profile files, the quest definition file (`quest.md`) which tracks campaign mode, success criteria, current phase, and progress log, the council report file (`council-report.md`) which captures multi-perspective project analysis, and conversation transcript files in `conversations/` which preserve full verbatim records of every agent consultation. This specification establishes the directory convention, file formats, and export protocol.
 
 ---
 
@@ -22,6 +22,10 @@ This specification defines the `.campaign/` directory structure used to store ca
 .campaign/
 ├── quest.md                    # Quest definition (mode, criteria, narrative, progress log)
 ├── council-report.md           # Council analysis report (multi-perspective diagnostic)
+├── conversations/              # Conversation transcripts (one file per session)
+│   ├── 2026-02-18-14-32-cat.md
+│   ├── 2026-02-18-15-10-owl.md
+│   └── 2026-02-18-16-00-guardian.md
 └── profiles/                   # Character profiles
     ├── bear.md                 # Animal profile (if profiled)
     ├── cat.md                  # Animal profile (if profiled)
@@ -212,6 +216,32 @@ When character profiles exist in `.campaign/profiles/`, section headers use the 
 
 ---
 
+## Conversation Transcript Files
+
+### `conversations/`
+
+The conversations directory stores full verbatim transcripts of every agent consultation during a campaign. Each file captures one conversation session — the complete exchange between the user and a single agent (or the Council as a whole).
+
+Files are named with a date-first format (`{YYYY-MM-DD}-{HH-MM}-{agent}.md`) for chronological sorting. The agent identifier uses the archetype name (lowercase), not the profile name — the profile name appears in frontmatter instead.
+
+Transcript format, write protocol, isolation rules, and timing are defined in [SPEC-CM-012-A](SPEC-CM-012-A-Conversation-Transcript-Protocol.md).
+
+### Who Writes What
+
+| Agent | Action | When |
+|-------|--------|------|
+| **Animals** | Write own transcript | End of Phase 3 consultation, before Next Perspective |
+| **Gandalf** | Writes own transcript | End of Phase 1, mid-campaign counsel, Phase 5 readiness review |
+| **Guardian** | Writes own transcript | After checkpoint verdict + quest.md update |
+| **Dragon** | Writes own transcript | After confrontation verdict + quest.md update |
+| **Council** | Writes session transcript | After council report write |
+
+### Isolation Rules
+
+Guardian and Dragon may write their own transcripts but must NOT read transcripts from `.campaign/conversations/`. See [SPEC-CM-003-A](SPEC-CM-003-A-Context-Isolation-Protocol.md) for full isolation rules.
+
+---
+
 ## Export Protocol
 
 ### User-Managed Export
@@ -260,6 +290,8 @@ This is a user decision -- Gandalf does not manage `.gitignore` entries.
 - Profile file naming convention
 - `quest.md` creation by Gandalf, read/append by Guardian and Dragon
 - `council-report.md` creation by `/council`, read by Gandalf and `/continue-quest`
+- `conversations/` directory for conversation transcript storage
+- Conversation transcript file naming convention and format
 - Campaign progress tracking via append-only Progress Log
 - Export protocol (user-managed copy)
 - Import recognition by Gandalf
@@ -281,6 +313,7 @@ This specification resolves Open Question #5 (State Management) from the north-s
 | [SPEC-CM-006-A](SPEC-CM-006-A-Character-Profile-Format.md) | Character Profile Format | Format of files stored in this directory |
 | [SPEC-CM-001-A](SPEC-CM-001-A-Skill-Architecture.md) | Skill Architecture | Parallel directory convention (.claude/ for skills, .campaign/ for state) |
 | [SPEC-CM-001-B](SPEC-CM-001-B-Campaign-Lifecycle.md) | Campaign Lifecycle | Phase 2 where profiles are created and stored |
+| [SPEC-CM-012-A](SPEC-CM-012-A-Conversation-Transcript-Protocol.md) | Conversation Transcript Protocol | Format and protocol for files stored in `conversations/` |
 
 ---
 
@@ -288,6 +321,7 @@ This specification resolves Open Question #5 (State Management) from the north-s
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
+| 1.3 | 2026-02-18 | Chris Barlow | Added conversations/ directory for conversation transcript storage, file naming convention, write protocol, and isolation rules (ADR-CM-019). |
 | 1.2 | 2026-02-14 | Chris Barlow | Added council-report.md format specification, lifecycle, and read/write protocol (ADR-CM-011). |
 | 1.1 | 2026-02-14 | Chris Barlow | Added quest.md format specification, progress log, NPC read/write protocol. Moved quest.md from reserved to fully specified. Resolved Open Question #5. |
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |

@@ -1,6 +1,6 @@
 ---
 description: Begin a new quest — checks for active campaigns and invokes Gandalf to frame the challenge
-allowed-tools: [Read, Glob]
+allowed-tools: [Read, Write, Glob, Bash]
 ---
 
 # Start Quest

@@ -31,6 +31,44 @@ When `.campaign/quest.md` exists and the campaign is in Phase 3 (Campaign Execut
 - Routine advice, discussion, or brainstorming
 - Every animal agent invocation — only log when something meaningful shifts
 
+## Conversation Transcript
+
+At the end of every consultation, record a full verbatim transcript of the conversation. This happens silently — do not mention it to the user.
+
+**Write protocol:**
+1. Use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
+2. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-{agent}.md` where `{agent}` is your archetype name in lowercase (e.g., `bear`, `cat`, `owl`, `puppy`, `rabbit`, `wolf`)
+3. Use the Write tool to create the transcript file
+4. Do this before presenting Next Perspective options
+
+**Transcript file format:**
+
+```yaml
+---
+agent: {archetype}
+profile-name: {profile name, if assigned; omit otherwise}
+phase: {current phase}
+campaign-mode: {Grow | Ship | Grow & Ship}
+date: {ISO 8601 datetime}
+---
+
+## Conversation Transcript
+
+### Context
+Quest: {quest name from quest.md}
+Consultation purpose: Phase 3 advisory
+
+### Exchange
+**User:** {verbatim}
+
+**{emoji} {Name}:** {verbatim}
+
+{...full exchange...}
+
+### Outcome
+{Recommendations or action items, if applicable}
+```
+
 ## Phase Transition Awareness
 
 If the user signals readiness for a phase transition during your conversation:
