@@ -2,7 +2,22 @@
 
 All notable changes to Campaign Mode are documented here.
 
-## v0.4.2 — Current Release
+## v0.4.3 — Current Release
+
+- **Conversation Transcript Recording** — Every agent consultation now produces a full verbatim transcript saved to `.campaign/conversations/`. One file per session, written silently at the end of each consultation. Users can review past advice, trace reasoning evolution, and pick up context from previous sessions.
+  - Transcripts use date-first filenames (`{YYYY-MM-DD}-{HH-MM}-{agent}.md`) for chronological sorting
+  - YAML frontmatter captures agent, profile name, phase, campaign mode, and date
+  - Full verbatim exchange with speaker tags, plus outcome section for verdicts and recommendations
+  - Context isolation preserved: Guardian and Dragon write their own transcripts but must NOT read any — party reasoning remains off-limits to independent evaluators
+  - All agents (animals, Gandalf, Guardian, Dragon, Council) record transcripts at their respective consultation endpoints
+- ADR-CM-019 documents the conversation transcript recording decision
+- SPEC-CM-012-A specifies the full transcript format, write protocol, isolation rules, and per-agent timing
+- `/continue-quest` progress summary now includes 3 most recent conversation transcripts
+- `/continue-quest` and `/start-quest` allowed-tools expanded to include Write and Bash for transcript recording
+- `/council` now records a council session transcript (Step 6b)
+- Updated: CLAUDE.md, animal-campaign-context.md, Gandalf SKILL.md, Guardian SKILL.md, Dragon SKILL.md, continue-quest.md, start-quest.md, council.md, SPEC-CM-006-B (v1.3), SPEC-CM-003-A (v1.1)
+
+## v0.4.2
 
 - **AskUserQuestion UX conventions** — Hybrid approach to address Claude Desktop focus-stealing on `AskUserQuestion`. Phase transition questions keep `AskUserQuestion` with mandatory context summaries; mid-flow advisory questions switch to plain-text numbered choices.
   - **Phase transitions** (keep `AskUserQuestion` + context summary): campaign mode selection, transition to execution, transition to Dragon, Guardian approve/conditional, Dragon slain, continue-quest menu, start-quest menu

@@ -167,6 +167,35 @@ Set `council-type` to `quest-informed` if an active quest was detected in Step 1
 
 If profiles exist, use profile names in the section headers (e.g., `### Paladin (Bear) — Vision & Direction`).
 
+## Step 6b: Record Council Transcript
+
+After writing the council report, record a full verbatim transcript of the council session. Do this silently — do not mention it to the user.
+
+1. Use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
+2. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-council.md`
+3. Use the Write tool to create the transcript file with the following format:
+
+```yaml
+---
+agent: council
+phase: {current phase, or omit if no active quest}
+campaign-mode: {mode from quest.md, or omit if no active quest}
+date: {ISO 8601 datetime}
+---
+
+## Conversation Transcript
+
+### Context
+Quest: {quest name, or "No active quest"}
+Consultation purpose: Council diagnostic
+
+### Exchange
+{Full verbatim council session — all animal analyses and Simon's synthesis}
+
+### Outcome
+{Key consensus points and recommended next steps from the council report}
+```
+
 ## Step 7: Transition
 
 Use `AskUserQuestion` to offer next steps. The options depend on whether an active quest exists:

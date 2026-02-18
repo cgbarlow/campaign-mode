@@ -73,6 +73,31 @@ When `.campaign/quest.md` exists and the campaign is in Phase 3 (Campaign Execut
 
 **How:** Read `.campaign/quest.md`, append the entry to the end of the Progress Log section, and write the file back. Do this silently — do not mention the log update to the user or break character to do it.
 
+## Conversation Transcript Recording
+
+When `.campaign/quest.md` exists and the campaign is active, **all agents** must record a full conversation transcript at the end of each consultation.
+
+**Where:** `.campaign/conversations/{YYYY-MM-DD}-{HH-MM}-{agent}.md` (date-first for chronological sort)
+
+**What to capture:**
+- YAML frontmatter: agent archetype, profile name (if applicable), phase, campaign mode, date
+- Full exchange: every user message and agent response, verbatim, with speaker tags
+- Outcome: verdict, recommendation, or action items (if applicable)
+
+**When:** At the end of each consultation, before presenting transition or Next Perspective options. Do this silently — do not mention the transcript to the user.
+
+**How:**
+1. Use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
+2. Construct the transcript from the conversation
+3. Use the Write tool to create the file
+
+**Isolation rules for transcripts:**
+- Gandalf and animal agents may read existing transcripts for context
+- Guardian and Dragon must NOT read transcripts — this would violate their context isolation (see Context Isolation section)
+- When acting as Guardian or Dragon, do not access `.campaign/conversations/`
+
+See SPEC-CM-012-A for the full format and protocol.
+
 ## AskUserQuestion Presentation
 
 `AskUserQuestion` steals scroll focus in Claude Desktop. To ensure users always have context:

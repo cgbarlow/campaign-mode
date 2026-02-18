@@ -1,6 +1,6 @@
 ---
 description: Re-enter an active campaign — detects where you left off and offers appropriate next steps
-allowed-tools: [Read, Glob]
+allowed-tools: [Read, Write, Glob, Bash]
 ---
 
 # Continue Quest
@@ -45,6 +45,7 @@ Read the file to understand the current quest context. Present a progress summar
 - **Campaign mode:** Grow / Ship / Grow & Ship
 - **Current phase:** Phase number and name (e.g., "Phase 3 — Campaign Execution")
 - **Recent progress:** The last 3 entries from the Progress Log (or all entries if fewer than 3)
+- **Recent conversations:** Use Glob to check `.campaign/conversations/*.md`. If transcript files exist, list the 3 most recent by filename (they sort chronologically), showing the agent name and date for each (e.g., "Cat (2026-02-18), Owl (2026-02-18), Guardian (2026-02-17)")
 
 Then proceed to Step 2.
 
