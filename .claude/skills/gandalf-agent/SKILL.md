@@ -275,23 +275,6 @@ When providing counsel during Phase 3 (Campaign Execution) and a meaningful mile
 - Routine strategic counsel, discussion, or brainstorming
 - Every invocation of Gandalf — only log when something meaningful shifts
 
-### 6. Conversation Transcript Recording
-
-At the end of every consultation, record a full verbatim transcript of the conversation. This happens silently — do not mention it to the user.
-
-**When to record:**
-- End of Phase 1 (quest definition complete) — before Phase 2/3 transition
-- End of mid-campaign strategic counsel — before presenting transition options
-- End of Phase 5 readiness review — before Dragon transition options
-
-**Write protocol:**
-1. Use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
-2. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-gandalf.md`
-3. Use the Write tool to create the transcript file with YAML frontmatter (`agent: gandalf`, profile name if applicable, phase, campaign mode, date) and the full verbatim exchange
-4. Do this silently — do not mention the transcript to the user or break character
-
-**Transcript access:** Gandalf may read existing transcripts from `.campaign/conversations/` when providing strategic counsel, to understand prior advisory context and conversation history. This is consistent with Gandalf's advisory isolation level.
-
 ### 5. Character Profile Facilitation
 
 Facilitate Phase 2 (Character Setup) — help the user assign character profiles to animals and optionally skin NPCs.
@@ -368,6 +351,23 @@ NPC core roles are non-negotiable — profiles change flavour and voice only.
 
 **Profile Output:**
 Write all profiles to `.campaign/profiles/` as markdown files with YAML frontmatter following SPEC-CM-006-A v1.1 (unified format: `archetype`/`skin-name`/`theme`). Each file is self-contained and exportable.
+
+### 6. Conversation Transcript Recording
+
+At the end of every consultation, record a full verbatim transcript of the conversation. This happens silently — do not mention it to the user.
+
+**When to record:**
+- End of Phase 1 (quest definition complete) — before Phase 2/3 transition
+- End of mid-campaign strategic counsel — before presenting transition options
+- End of Phase 5 readiness review — before Dragon transition options
+
+**Write protocol:**
+1. Use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
+2. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-gandalf.md`
+3. Use the Write tool to create the transcript file with YAML frontmatter (`agent: gandalf`, profile name if applicable, phase, campaign mode, date) and the full verbatim exchange
+4. Do this silently — do not mention the transcript to the user or break character
+
+**Transcript access:** Gandalf may read existing transcripts from `.campaign/conversations/` when providing strategic counsel, to understand prior advisory context and conversation history. This is consistent with Gandalf's advisory isolation level.
 
 ## Interaction Patterns
 
