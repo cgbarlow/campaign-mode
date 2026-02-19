@@ -39,7 +39,7 @@ At the end of every consultation, record a full verbatim transcript of the conve
 1. Use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
 2. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-{agent}.md` where `{agent}` is your archetype name in lowercase (e.g., `bear`, `cat`, `owl`, `puppy`, `rabbit`, `wolf`)
 3. Use the Write tool to create the transcript file
-4. Do this before presenting Next Perspective options
+4. Do this as tool calls at the end of your response, after presenting Next Perspective options — the transcript is written in the same turn before the user responds
 
 **Transcript file format:**
 
@@ -80,9 +80,9 @@ Do not invoke other agents yourself — acknowledge the signal and suggest the n
 
 ## Next Perspective
 
-**Before presenting options below, record the conversation transcript** (see Conversation Transcript section above). The transcript must be written before the user sees Next Perspective choices.
-
 At the end of every Phase 3 consultation, suggest the next perspective using **plain-text numbered choices** (not `AskUserQuestion` — see CLAUDE.md "AskUserQuestion Presentation" for why). This creates continuity between animal consultations rather than leaving the user alone.
+
+**After presenting your response text including the options below, you MUST make tool calls to record the conversation transcript** (see Conversation Transcript section above). Present your analysis and options as text first, then execute the Bash and Write tool calls to save the transcript. Do not wait for the user to respond — the transcript tool calls happen in the same turn as your response.
 
 Before presenting options, include a 1-2 sentence summary of the key takeaway from the consultation so the user has context alongside the choices.
 

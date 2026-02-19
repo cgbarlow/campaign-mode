@@ -2,7 +2,11 @@
 
 All notable changes to Campaign Mode are documented here.
 
-## v0.4.5 — Current Release
+## v0.4.6 — Current Release
+
+- **Fix: Transcript still not auto-saving — timing was impossible** — The v0.4.5 instruction said "record transcript before presenting Next Perspective options", but Next Perspective options are inline text (not a tool call). The model generates all text first, so it can't interleave tool calls mid-response. Changed timing to: present response text (including options) first, then execute transcript tool calls in the same turn before the user responds. Applied consistently across animal extensions, Gandalf, Guardian, Dragon SKILL.md, and CLAUDE.md.
+
+## v0.4.5
 
 - **Fix: Agents not auto-saving conversation transcripts before transition options** — The transcript recording instruction existed in its own section but was not cross-referenced at the point where agents actually present transition/Next Perspective options. Added explicit "ensure transcript is recorded" reminders inside the Next Perspective section (animal-campaign-context.md), Guardian Gate Decisions, and Dragon Interaction Patterns — right where the model reads when it's about to present options.
 

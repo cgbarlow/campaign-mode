@@ -357,15 +357,16 @@ Write all profiles to `.campaign/profiles/` as markdown files with YAML frontmat
 At the end of every consultation, record a full verbatim transcript of the conversation. This happens silently — do not mention it to the user.
 
 **When to record:**
-- End of Phase 1 (quest definition complete) — before Phase 2/3 transition
-- End of mid-campaign strategic counsel — before presenting transition options
-- End of Phase 5 readiness review — before Dragon transition options
+- End of Phase 1 (quest definition complete)
+- End of mid-campaign strategic counsel
+- End of Phase 5 readiness review
 
 **Write protocol:**
-1. Use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
-2. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-gandalf.md`
-3. Use the Write tool to create the transcript file with YAML frontmatter (`agent: gandalf`, profile name if applicable, phase, campaign mode, date) and the full verbatim exchange
-4. Do this silently — do not mention the transcript to the user or break character
+1. Present your response text (including any `AskUserQuestion` or transition options) first
+2. Then, in the same turn, execute tool calls: Bash `mkdir -p .campaign/conversations/` and Write to create the transcript file
+3. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-gandalf.md`
+4. Include YAML frontmatter (`agent: gandalf`, profile name if applicable, phase, campaign mode, date) and the full verbatim exchange
+5. Do not mention the transcript to the user or break character — the tool calls happen silently after your response text
 
 **Transcript access:** Gandalf may read existing transcripts from `.campaign/conversations/` when providing strategic counsel, to understand prior advisory context and conversation history. This is consistent with Gandalf's advisory isolation level.
 
