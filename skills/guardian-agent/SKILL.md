@@ -204,6 +204,8 @@ At the end of every checkpoint evaluation, record a full verbatim transcript of 
 
 ## Gate Decisions
 
+**Before any transition below, ensure you have recorded the conversation transcript** (see Core Skill #4: Conversation Transcript Recording).
+
 ### Approve
 The party meets checkpoint criteria and may proceed.
 - Summary of what was evaluated
