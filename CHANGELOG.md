@@ -2,7 +2,11 @@
 
 All notable changes to Campaign Mode are documented here.
 
-## v0.4.3 — Current Release
+## v0.4.4 — Current Release
+
+- **Fix: Gandalf skipping Phase 2 (Character Profile) offer** — Core Skill #6 (Conversation Transcript Recording) was incorrectly placed before Core Skill #5 (Character Profile Facilitation) in Gandalf's SKILL.md, causing the model to skip the profile offer and jump straight to the Phase 3 transition. Moved transcript recording to after profile facilitation, restoring correct document order (1→2→3→4→5→6).
+
+## v0.4.3
 
 - **Conversation Transcript Recording** — Every agent consultation now produces a full verbatim transcript saved to `.campaign/conversations/`. One file per session, written silently at the end of each consultation. Users can review past advice, trace reasoning evolution, and pick up context from previous sessions.
   - Transcripts use date-first filenames (`{YYYY-MM-DD}-{HH-MM}-{agent}.md`) for chronological sorting
