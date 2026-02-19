@@ -2,7 +2,11 @@
 
 All notable changes to Campaign Mode are documented here.
 
-## v0.4.4 — Current Release
+## v0.4.5 — Current Release
+
+- **Fix: Agents not auto-saving conversation transcripts before transition options** — The transcript recording instruction existed in its own section but was not cross-referenced at the point where agents actually present transition/Next Perspective options. Added explicit "ensure transcript is recorded" reminders inside the Next Perspective section (animal-campaign-context.md), Guardian Gate Decisions, and Dragon Interaction Patterns — right where the model reads when it's about to present options.
+
+## v0.4.4
 
 - **Fix: Gandalf skipping Phase 2 (Character Profile) offer** — Core Skill #6 (Conversation Transcript Recording) was incorrectly placed before Core Skill #5 (Character Profile Facilitation) in Gandalf's SKILL.md, causing the model to skip the profile offer and jump straight to the Phase 3 transition. Moved transcript recording to after profile facilitation, restoring correct document order (1→2→3→4→5→6).
 

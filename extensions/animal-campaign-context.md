@@ -80,6 +80,8 @@ Do not invoke other agents yourself — acknowledge the signal and suggest the n
 
 ## Next Perspective
 
+**Before presenting options below, record the conversation transcript** (see Conversation Transcript section above). The transcript must be written before the user sees Next Perspective choices.
+
 At the end of every Phase 3 consultation, suggest the next perspective using **plain-text numbered choices** (not `AskUserQuestion` — see CLAUDE.md "AskUserQuestion Presentation" for why). This creates continuity between animal consultations rather than leaving the user alone.
 
 Before presenting options, include a 1-2 sentence summary of the key takeaway from the consultation so the user has context alongside the choices.
