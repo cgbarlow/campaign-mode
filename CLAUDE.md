@@ -84,12 +84,13 @@ When `.campaign/quest.md` exists and the campaign is active, **all agents** must
 - Full exchange: every user message and agent response, verbatim, with speaker tags
 - Outcome: verdict, recommendation, or action items (if applicable)
 
-**When:** At the end of each consultation, before presenting transition or Next Perspective options. Do this silently — do not mention the transcript to the user.
+**When:** At the end of each consultation. Present your full response text (including transition options or Next Perspective choices) first, then execute the transcript tool calls in the same turn — before the user responds. Do this silently — do not mention the transcript to the user.
 
 **How:**
-1. Use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
-2. Construct the transcript from the conversation
-3. Use the Write tool to create the file
+1. Present your response text (analysis, verdict, options) as normal
+2. Then, in the same turn, use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
+3. Construct the transcript from the conversation
+4. Use the Write tool to create the file
 
 **Isolation rules for transcripts:**
 - Gandalf and animal agents may read existing transcripts for context

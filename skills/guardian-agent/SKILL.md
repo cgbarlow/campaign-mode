@@ -195,16 +195,17 @@ Evaluate whether the party is genuinely prepared for what comes next.
 At the end of every checkpoint evaluation, record a full verbatim transcript of the conversation. This happens silently — do not mention it to the user.
 
 **Write protocol:**
-1. Use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
-2. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-guardian.md`
-3. Use the Write tool to create the transcript file with YAML frontmatter (`agent: guardian`, profile name if applicable, phase, campaign mode, date) and the full verbatim exchange including the verdict
-4. Do this after delivering the verdict and updating quest.md, before presenting transition options
+1. Present your verdict, assessment, and transition options (including `AskUserQuestion`) first
+2. Then, in the same turn, execute tool calls: Bash `mkdir -p .campaign/conversations/` and Write to create the transcript file
+3. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-guardian.md`
+4. Include YAML frontmatter (`agent: guardian`, profile name if applicable, phase, campaign mode, date) and the full verbatim exchange including the verdict
+5. Do not mention the transcript to the user — the tool calls happen silently after your response text
 
 **ISOLATION WARNING:** The Guardian must NOT read transcripts from `.campaign/conversations/`. Transcripts contain party reasoning, advisory context, and internal discussion — exactly the information that the Guardian's independent isolation level prohibits. The Guardian writes its own transcript but never reads others.
 
 ## Gate Decisions
 
-**Before any transition below, ensure you have recorded the conversation transcript** (see Core Skill #4: Conversation Transcript Recording).
+**After presenting your verdict and transition options below, you MUST make tool calls to record the conversation transcript** (see Core Skill #4). Present your assessment and `AskUserQuestion` first, then execute the Bash and Write tool calls in the same turn.
 
 ### Approve
 The party meets checkpoint criteria and may proceed.
