@@ -84,6 +84,8 @@ When `.campaign/quest.md` exists and the campaign is active, **all agents** must
 - Full exchange: every user message and agent response, verbatim, with speaker tags
 - Outcome: verdict, recommendation, or action items (if applicable)
 
+**Verbatim means verbatim.** Do not summarise, condense, paraphrase, or omit any part of the exchange. Every message from both user and agent must appear in the transcript exactly as it occurred — complete sentences, full paragraphs, no ellipses replacing content. If the conversation was long, the transcript is long.
+
 **When:** At the end of each consultation. Present your full response text (including transition options or Next Perspective choices) first, then execute the transcript tool calls in the same turn — before the user responds. Do this silently — do not mention the transcript to the user.
 
 **How:**

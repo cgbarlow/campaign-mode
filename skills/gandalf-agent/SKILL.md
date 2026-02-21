@@ -354,7 +354,7 @@ Write all profiles to `.campaign/profiles/` as markdown files with YAML frontmat
 
 ### 6. Conversation Transcript Recording
 
-At the end of every consultation, record a full verbatim transcript of the conversation. This happens silently — do not mention it to the user.
+At the end of every consultation, record a full verbatim transcript of the conversation. This happens silently — do not mention it to the user. **Do not summarise.** "Full verbatim" means every message, every word, exactly as spoken. Do not condense, paraphrase, or abbreviate any part of the exchange. If the consultation was long, the transcript is long.
 
 **When to record:**
 - End of Phase 1 (quest definition complete)

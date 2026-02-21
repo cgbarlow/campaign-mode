@@ -82,11 +82,15 @@ Quest: {quest name}
 Consultation purpose: {e.g., Phase 3 advisory, Guardian checkpoint, Dragon confrontation}
 
 ### Exchange
-**User:** {verbatim}
+**User:** {verbatim user message}
 
-**🐱 Rogue:** {verbatim}
+**🐱 Rogue:** {verbatim agent response}
 
-{...full exchange...}
+**User:** {verbatim user message}
+
+**🐱 Rogue:** {verbatim agent response}
+
+{...continue for every message in the conversation — no omissions, no summaries...}
 
 ### Outcome
 {Verdict, recommendation, action items — if applicable}
@@ -107,7 +111,7 @@ Consultation purpose: {e.g., Phase 3 advisory, Guardian checkpoint, Dragon confr
 | Section | Description | Required |
 |---------|-------------|----------|
 | **Context** | Quest name and consultation purpose | Yes |
-| **Exchange** | Full verbatim exchange with speaker tags | Yes |
+| **Exchange** | Full verbatim exchange with speaker tags — every message, every word, no summarisation, no condensing, no omissions | Yes |
 | **Outcome** | Verdict, recommendation, or action items | Only if applicable (e.g., Guardian verdict, Dragon verdict, specific recommendations) |
 
 ### Speaker Tags in Exchange
@@ -126,7 +130,7 @@ Every agent follows this protocol at the end of each consultation:
 
 1. **Ensure directory exists:** Use Bash to run `mkdir -p .campaign/conversations/`
 2. **Construct filename:** Use the agent's archetype name and the current date/time in the format `{YYYY-MM-DD}-{HH-MM}-{agent}.md`
-3. **Construct transcript:** Build the full transcript from the conversation, including frontmatter, context, verbatim exchange, and outcome (if applicable)
+3. **Construct transcript:** Build the full transcript from the conversation, including frontmatter, context, verbatim exchange, and outcome (if applicable). **Verbatim means verbatim** — every message from both user and agent must appear exactly as it occurred. Do not summarise, condense, paraphrase, or omit any part of the exchange. If the conversation was long, the transcript is long.
 4. **Write file:** Use the Write tool to create the file in `.campaign/conversations/`
 5. **Do silently:** Do not mention the transcript to the user. Do not break character to perform this step. This is a background housekeeping task.
 

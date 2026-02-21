@@ -2,7 +2,11 @@
 
 All notable changes to Campaign Mode are documented here.
 
-## v0.4.6 — Current Release
+## v0.4.7 — Current Release
+
+- **Fix: Transcripts sometimes summarised instead of verbatim** — Instructions said "full verbatim" but never explicitly warned against summarising. LLMs naturally compress long content unless told not to, and the template placeholder `{...full exchange...}` was ambiguous. Added explicit anti-summarisation language ("Do not summarise, condense, paraphrase, or omit") to every transcript recording instruction: CLAUDE.md, animal-campaign-context.md, Gandalf SKILL.md, Guardian SKILL.md, Dragon SKILL.md. Expanded template examples to show multiple message turns instead of an ambiguous ellipsis. Updated SPEC-CM-012-A body sections table, write protocol, and template format to reinforce the requirement.
+
+## v0.4.6
 
 - **Fix: Transcript still not auto-saving — timing was impossible** — The v0.4.5 instruction said "record transcript before presenting Next Perspective options", but Next Perspective options are inline text (not a tool call). The model generates all text first, so it can't interleave tool calls mid-response. Changed timing to: present response text (including options) first, then execute transcript tool calls in the same turn before the user responds. Applied consistently across animal extensions, Gandalf, Guardian, Dragon SKILL.md, and CLAUDE.md.
 

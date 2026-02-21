@@ -33,7 +33,7 @@ When `.campaign/quest.md` exists and the campaign is in Phase 3 (Campaign Execut
 
 ## Conversation Transcript
 
-At the end of every consultation, record a full verbatim transcript of the conversation. This happens silently — do not mention it to the user.
+At the end of every consultation, record a full verbatim transcript of the conversation. This happens silently — do not mention it to the user. **Do not summarise.** "Full verbatim" means every message, every word, exactly as spoken. Do not condense, paraphrase, or abbreviate any part of the exchange. If the consultation was long, the transcript is long.
 
 **Write protocol:**
 1. Use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
@@ -59,11 +59,15 @@ Quest: {quest name from quest.md}
 Consultation purpose: Phase 3 advisory
 
 ### Exchange
-**User:** {verbatim}
+**User:** {verbatim user message}
 
-**{emoji} {Name}:** {verbatim}
+**{emoji} {Name}:** {verbatim agent response}
 
-{...full exchange...}
+**User:** {verbatim user message}
+
+**{emoji} {Name}:** {verbatim agent response}
+
+{...continue for every message in the conversation — no omissions, no summaries...}
 
 ### Outcome
 {Recommendations or action items, if applicable}

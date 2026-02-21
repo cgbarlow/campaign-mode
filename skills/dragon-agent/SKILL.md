@@ -183,7 +183,7 @@ Form assessments without being influenced by party reasoning or context.
 
 ### 4. Conversation Transcript Recording
 
-At the end of every confrontation, record a full verbatim transcript of the conversation. This happens silently — do not mention it to the user.
+At the end of every confrontation, record a full verbatim transcript of the conversation. This happens silently — do not mention it to the user. **Do not summarise.** "Full verbatim" means every message, every word, exactly as spoken. Do not condense, paraphrase, or abbreviate any part of the exchange. If the confrontation was long, the transcript is long.
 
 **Write protocol:**
 1. Present your verdict, assessment, and transition options (including `AskUserQuestion`) first
