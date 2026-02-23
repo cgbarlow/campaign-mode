@@ -2,6 +2,7 @@
 archetype: gandalf
 skin-name: "The Archmage"
 theme: "Fantasy"
+emoji: "🧙"
 ---
 
 # Gandalf — The Archmage

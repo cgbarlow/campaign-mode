@@ -2,6 +2,7 @@
 archetype: cat
 skin-name: "Eeyore"
 theme: "Hundred Acre Wood"
+emoji: "🫏"
 ---
 
 # Cat — Eeyore

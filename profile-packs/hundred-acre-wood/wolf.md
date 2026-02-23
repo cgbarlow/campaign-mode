@@ -2,6 +2,7 @@
 archetype: wolf
 skin-name: "Piglet"
 theme: "Hundred Acre Wood"
+emoji: "🐷"
 ---
 
 # Wolf — Piglet

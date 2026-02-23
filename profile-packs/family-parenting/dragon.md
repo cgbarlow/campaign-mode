@@ -2,6 +2,7 @@
 archetype: dragon
 skin-name: "Great Aunt Betty"
 theme: "Family & Parenting"
+emoji: "👵"
 ---
 
 # Dragon — Great Aunt Betty

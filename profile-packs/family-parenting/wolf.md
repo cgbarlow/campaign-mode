@@ -2,6 +2,7 @@
 archetype: wolf
 skin-name: "The Older Sibling"
 theme: "Family & Parenting"
+emoji: "🫂"
 ---
 
 # Wolf — The Older Sibling

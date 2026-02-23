@@ -2,6 +2,7 @@
 archetype: cat
 skin-name: "The Rogue"
 theme: "Fantasy"
+emoji: "🗡️"
 ---
 
 # Cat — The Rogue

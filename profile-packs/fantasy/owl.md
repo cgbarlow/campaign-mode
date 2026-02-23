@@ -2,6 +2,7 @@
 archetype: owl
 skin-name: "The Sage"
 theme: "Fantasy"
+emoji: "📜"
 ---
 
 # Owl — The Sage

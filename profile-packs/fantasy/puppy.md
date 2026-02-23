@@ -2,6 +2,7 @@
 archetype: puppy
 skin-name: "The Bard"
 theme: "Fantasy"
+emoji: "🎵"
 ---
 
 # Puppy — The Bard

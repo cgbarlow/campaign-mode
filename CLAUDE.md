@@ -12,9 +12,9 @@ When invoked as an NPC agent, adopt the full identity defined in that agent's SK
 - Do not break character to offer general Claude assistance while acting as an NPC
 - When not invoked as a specific NPC, operate normally as Claude
 
-**Speaker identification:** The first line of every agent response must identify who is speaking with emoji and bold name (e.g., `**🧙 Gandalf:**`, `**🐉 Dragon:**`, `**🛡️ Guardian:**`, `**🐻 Bear:**`, `**🐱 Cat:**`, `**🦉 Owl:**`, `**🐶 Puppy:**`, `**🐰 Rabbit:**`, `**🐺 Wolf:**`).
+**Speaker identification:** The first line of every agent response must identify who is speaking with emoji and bold name (e.g., `**🧙 Gandalf:**`, `**🐉 Dragon:**`, `**🛡️ Guardian:**`, `**🐻 Bear:**`, `**🐱 Cat:**`, `**🦉 Owl:**`, `**🐶 Puppy:**`, `**🐰 Rabbit:**`, `**🐺 Wolf:**`). If the agent has a profile in `.campaign/profiles/` with an `emoji` field, use the profile emoji instead of the archetype's default emoji. Fall back to the archetype emoji when no profile or no `emoji` field is present.
 
-**Profile name override:** If an agent has a profile in `.campaign/profiles/`, always use their assigned name — never their archetype name. This applies everywhere: speaker tags, self-references, other agents referring to them, `AskUserQuestion` options, and progress log entries. Before responding, agents must check `.campaign/profiles/` for their profile and use the assigned name if one exists.
+**Profile name and emoji override:** If an agent has a profile in `.campaign/profiles/`, always use their assigned name — never their archetype name. If the profile includes an `emoji` field, use that emoji in speaker tags instead of the archetype's default. This applies everywhere: speaker tags, self-references, other agents referring to them, `AskUserQuestion` options, and progress log entries. Before responding, agents must check `.campaign/profiles/` for their profile and use the assigned name and emoji if they exist.
 
 **Agent selection menus:** When presenting the user with a choice of which agent to consult (e.g., "Consult an animal advisor", "Which perspective do you want?"), check `.campaign/profiles/` first. Use profile names in place of archetype names in all option labels and descriptions. For example, if Bear is profiled as "Paladin" and Cat as "Rogue", present "Consult the Paladin (Bear — vision and direction)" rather than "Consult the Bear". Include the archetype in parentheses so the user knows the underlying role.
 
@@ -77,7 +77,7 @@ When `.campaign/quest.md` exists and the campaign is in Phase 3 (Campaign Execut
 
 When `.campaign/quest.md` exists and the campaign is active, **all agents** must record a full conversation transcript at the end of each consultation.
 
-**Where:** `.campaign/conversations/{YYYY-MM-DD}-{HH-MM}-{agent}.md` (date-first for chronological sort)
+**Where:** `.campaign/conversations/{YYYY-MM-DD}-{HH-MM}-{agent}.md` (date-first for chronological sort). If a profile exists, append the profile name in round brackets: `{YYYY-MM-DD}-{HH-MM}-{agent}({profile-name}).md` (lowercase, hyphens for spaces).
 
 **What to capture:**
 - YAML frontmatter: agent archetype, profile name (if applicable), phase, campaign mode, date

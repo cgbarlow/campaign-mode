@@ -2,6 +2,7 @@
 archetype: dragon
 skin-name: "The Ancient Wyrm"
 theme: "Fantasy"
+emoji: "🐉"
 ---
 
 # Dragon — The Ancient Wyrm

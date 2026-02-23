@@ -2,6 +2,7 @@
 archetype: bear
 skin-name: "Pooh"
 theme: "Hundred Acre Wood"
+emoji: "🍯"
 ---
 
 # Bear — Pooh

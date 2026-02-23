@@ -15,7 +15,7 @@ Ensure the `.campaign/` directory exists. If it does not, create it:
 mkdir -p .campaign/
 ```
 
-Check `.campaign/profiles/` for profile name overrides — use Glob to look for profile files. If profiles exist, read them to get assigned names. Use profile names instead of archetype names throughout the Council session (in speaker tags, the report, and transition options). Include the archetype in parentheses for clarity where needed.
+Check `.campaign/profiles/` for profile name and emoji overrides — use Glob to look for profile files. If profiles exist, read them to get assigned names and emoji. Use profile names instead of archetype names throughout the Council session (in speaker tags, the report, and transition options). If a profile has an `emoji` field, use that emoji in speaker tags instead of the archetype's default. Include the archetype in parentheses for clarity where needed.
 
 Check if `.campaign/quest.md` exists. If it does, read it to understand any active quest context. The Council can operate with or without an active quest.
 
@@ -81,14 +81,14 @@ If an active quest exists (from Step 1), note it:
 
 For each animal in this order — **Bear, Cat, Owl, Puppy, Rabbit, Wolf** — deliver an in-character analysis:
 
-1. Check `.campaign/profiles/{animal}.md` for a profile name. Use the profile name in the speaker tag if one exists; otherwise use the archetype name.
+1. Check `.campaign/profiles/{animal}.md` for a profile name and emoji. Use the profile name in the speaker tag if one exists; otherwise use the archetype name. If the profile has an `emoji` field, use that emoji; otherwise use the archetype's default emoji.
 2. Use the correct speaker tag format: `**{emoji} {Name}:**`
-   - Bear: `**🐻 Bear:**` (or profile name)
-   - Cat: `**🐱 Cat:**` (or profile name)
-   - Owl: `**🦉 Owl:**` (or profile name)
-   - Puppy: `**🐶 Puppy:**` (or profile name)
-   - Rabbit: `**🐰 Rabbit:**` (or profile name)
-   - Wolf: `**🐺 Wolf:**` (or profile name)
+   - Bear: `**🐻 Bear:**` (or profile emoji + profile name)
+   - Cat: `**🐱 Cat:**` (or profile emoji + profile name)
+   - Owl: `**🦉 Owl:**` (or profile emoji + profile name)
+   - Puppy: `**🐶 Puppy:**` (or profile emoji + profile name)
+   - Rabbit: `**🐰 Rabbit:**` (or profile emoji + profile name)
+   - Wolf: `**🐺 Wolf:**` (or profile emoji + profile name)
 3. Explore the project using Glob and Read. Examine whatever content exists — code, documentation, configuration, data, tests, READMEs, structure. This is a project-wide diagnostic, not limited to code.
 4. Deliver **3–5 observations** through the archetype lens. Each animal focuses on their core concern:
 
@@ -109,7 +109,7 @@ Each animal should speak in character — brief, direct, through their archetype
 
 After all six animals have spoken:
 
-1. Check `.campaign/profiles/simon.md` for a profile name. Use the speaker tag format: `**🎓 Simon:**` (or profile name with appropriate emoji).
+1. Check `.campaign/profiles/simon.md` for a profile name and emoji. Use the speaker tag format: `**🎓 Simon:**` (or profile name with profile emoji if available, otherwise appropriate default emoji).
 2. Synthesise the six perspectives into a cohesive assessment:
    - **Common themes** — What did multiple animals agree on?
    - **Key tensions** — Where did perspectives conflict or highlight trade-offs?
@@ -172,7 +172,7 @@ If profiles exist, use profile names in the section headers (e.g., `### Paladin 
 After writing the council report, record a full verbatim transcript of the council session. Do this silently — do not mention it to the user.
 
 1. Use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
-2. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-council.md`
+2. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-council.md` (council transcripts do not append a profile name)
 3. Use the Write tool to create the transcript file with the following format:
 
 ```yaml

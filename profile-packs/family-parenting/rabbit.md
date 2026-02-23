@@ -2,6 +2,7 @@
 archetype: rabbit
 skin-name: "The Co-Parent"
 theme: "Family & Parenting"
+emoji: "🤝"
 ---
 
 # Rabbit — The Co-Parent

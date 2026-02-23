@@ -2,6 +2,7 @@
 archetype: rabbit
 skin-name: "Rabbit"
 theme: "Hundred Acre Wood"
+emoji: "🐰"
 ---
 
 # Rabbit — Rabbit

@@ -2,6 +2,7 @@
 archetype: gandalf
 skin-name: "Christopher Robin"
 theme: "Hundred Acre Wood"
+emoji: "👦"
 ---
 
 # Gandalf — Christopher Robin

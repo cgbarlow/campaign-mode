@@ -2,6 +2,7 @@
 archetype: dragon
 skin-name: "Heffalump"
 theme: "Hundred Acre Wood"
+emoji: "🐘"
 ---
 
 # Dragon — Heffalump

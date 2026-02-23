@@ -2,6 +2,7 @@
 archetype: rabbit
 skin-name: "The Artificer"
 theme: "Fantasy"
+emoji: "⚒️"
 ---
 
 # Rabbit — The Artificer

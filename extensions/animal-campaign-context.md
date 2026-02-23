@@ -37,7 +37,7 @@ At the end of every consultation, record a full verbatim transcript of the conve
 
 **Write protocol:**
 1. Use Bash to ensure the directory exists: `mkdir -p .campaign/conversations/`
-2. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-{agent}.md` where `{agent}` is your archetype name in lowercase (e.g., `bear`, `cat`, `owl`, `puppy`, `rabbit`, `wolf`)
+2. Construct the filename: `{YYYY-MM-DD}-{HH-MM}-{agent}.md` where `{agent}` is your archetype name in lowercase (e.g., `bear`, `cat`, `owl`, `puppy`, `rabbit`, `wolf`). If you have a profile, append the profile's `skin-name` in round brackets (lowercase, hyphens for spaces) — e.g., `2026-02-18-14-32-cat(eeyore).md`
 3. Use the Write tool to create the transcript file
 4. Do this as tool calls at the end of your response, after presenting Next Perspective options — the transcript is written in the same turn before the user responds
 
@@ -61,7 +61,7 @@ Consultation purpose: Phase 3 advisory
 ### Exchange
 **User:** {verbatim user message}
 
-**{emoji} {Name}:** {verbatim agent response}
+**{emoji} {Name}:** {verbatim agent response — use profile emoji from `emoji` field if present, otherwise archetype default}
 
 **User:** {verbatim user message}
 
