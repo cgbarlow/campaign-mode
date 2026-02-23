@@ -2,6 +2,7 @@
 archetype: cat
 skin-name: "The Teenager"
 theme: "Family & Parenting"
+emoji: "📱"
 ---
 
 # Cat — The Teenager

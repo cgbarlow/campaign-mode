@@ -2,6 +2,7 @@
 archetype: owl
 skin-name: "Owl"
 theme: "Hundred Acre Wood"
+emoji: "🦉"
 ---
 
 # Owl — Owl

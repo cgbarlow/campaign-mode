@@ -45,7 +45,7 @@ The solution is automatic transcript recording: every agent consultation produce
 
 ### Option 1: Per-Session Transcript Files (Selected)
 
-One file per conversation session in `.campaign/conversations/`, named with date-first format (`{YYYY-MM-DD}-{HH-MM}-{agent}.md`) for chronological sorting.
+One file per conversation session in `.campaign/conversations/`, named with date-first format (`{YYYY-MM-DD}-{HH-MM}-{agent}.md`, or `{YYYY-MM-DD}-{HH-MM}-{agent}({profile-name}).md` when a profile exists) for chronological sorting.
 
 **Pros:**
 - Each conversation is a discrete, findable file

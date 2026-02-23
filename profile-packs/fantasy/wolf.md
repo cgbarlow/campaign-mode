@@ -2,6 +2,7 @@
 archetype: wolf
 skin-name: "The Warden"
 theme: "Fantasy"
+emoji: "🏹"
 ---
 
 # Wolf — The Warden

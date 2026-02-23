@@ -2,6 +2,7 @@
 archetype: owl
 skin-name: "The Family Therapist"
 theme: "Family & Parenting"
+emoji: "🛋️"
 ---
 
 # Owl — The Family Therapist

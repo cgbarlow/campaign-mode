@@ -2,6 +2,7 @@
 archetype: puppy
 skin-name: "Tigger"
 theme: "Hundred Acre Wood"
+emoji: "🐯"
 ---
 
 # Puppy — Tigger

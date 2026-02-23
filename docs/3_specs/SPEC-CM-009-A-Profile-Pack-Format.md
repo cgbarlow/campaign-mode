@@ -4,9 +4,9 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-009-A |
 | **Parent ADR** | [ADR-CM-016](../2_adrs/ADR-CM-016-Profile-Packs.md) |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Draft |
-| **Last Updated** | 2026-02-16 |
+| **Last Updated** | 2026-02-23 |
 
 ---
 
@@ -52,12 +52,14 @@ Each profile file in a pack must follow [SPEC-CM-006-A v1.1](SPEC-CM-006-A-Chara
 archetype: bear
 skin-name: "The Paladin"
 theme: "Fantasy"
+emoji: "⚔️"
 ---
 ```
 
 - `archetype` must match the file name (without `.md`)
 - `skin-name` is the display name for this characterisation
 - `theme` must match the pack's theme name (title case or natural form)
+- `emoji` (optional) overrides the archetype's default emoji in speaker tags. When present, agents use this emoji instead of the hardcoded archetype emoji.
 
 ### Required Body Sections
 
@@ -166,3 +168,4 @@ Community members can submit new profile packs via pull request. See [CONTRIBUTI
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-02-16 | Chris Barlow | Initial specification |
+| 1.1 | 2026-02-23 | Chris Barlow | Added optional `emoji` field to Required Frontmatter section for profile-specific emoji overrides. |

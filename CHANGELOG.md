@@ -2,7 +2,21 @@
 
 All notable changes to Campaign Mode are documented here.
 
-## v0.4.7 — Current Release
+## v0.4.8 — Current Release
+
+- **Profile emoji overrides** — Profiles can now include an optional `emoji` field in frontmatter. When present, speaker tags use the profile emoji instead of the archetype's hardcoded default. For example, Eeyore (Cat archetype in Hundred Acre Wood pack) now shows `**🫏 Eeyore:**` instead of `**🐱 Eeyore:**`. Fall back to archetype emoji when no profile or no emoji field exists.
+  - All 27 built-in profile pack files updated with character-appropriate emoji
+  - SPEC-CM-006-A v1.2: added `emoji` field to frontmatter table, updated examples, added emoji column to theme tables
+  - SPEC-CM-009-A: added `emoji` as optional frontmatter in Required Frontmatter section
+  - CLAUDE.md: speaker identification and profile name override paragraphs updated with emoji override logic
+  - council.md: Steps 1, 4, and 5 updated to read and use profile emoji
+  - All three NPC SKILL.md files: speaker identification sections updated with emoji override instructions
+  - animal-campaign-context.md: transcript format example updated to note profile emoji usage
+  - SPEC-CM-012-A v1.1: speaker tag examples updated to show profile emoji; filename convention updated to append profile name
+- **Transcript filename includes profile name** — When a profile exists, transcript filenames now append the profile's `skin-name` in round brackets: `{YYYY-MM-DD}-{HH-MM}-{agent}({profile-name}).md` (lowercase, hyphens for spaces). For example, `2026-02-18-14-32-cat(eeyore).md`. Makes it easy to identify which character was consulted when scanning conversation logs. No brackets when no profile is assigned.
+  - Updated: SPEC-CM-012-A, CLAUDE.md, animal-campaign-context.md, all NPC SKILL.md files, council.md, SPEC-CM-006-B, ADR-CM-019
+
+## v0.4.7
 
 - **Fix: Transcripts sometimes summarised instead of verbatim** — Instructions said "full verbatim" but never explicitly warned against summarising. LLMs naturally compress long content unless told not to, and the template placeholder `{...full exchange...}` was ambiguous. Added explicit anti-summarisation language ("Do not summarise, condense, paraphrase, or omit") to every transcript recording instruction: CLAUDE.md, animal-campaign-context.md, Gandalf SKILL.md, Guardian SKILL.md, Dragon SKILL.md. Expanded template examples to show multiple message turns instead of an ambiguous ellipsis. Updated SPEC-CM-012-A body sections table, write protocol, and template format to reinforce the requirement.
 

@@ -4,9 +4,9 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-006-A |
 | **Parent ADR** | [ADR-CM-006](../2_adrs/ADR-CM-006-Character-Generation.md) |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 | **Status** | Draft |
-| **Last Updated** | 2026-02-16 |
+| **Last Updated** | 2026-02-23 |
 
 ---
 
@@ -47,6 +47,7 @@ Profile files are stored at `.campaign/profiles/{archetype}.md` where `{archetyp
 archetype: bear
 skin-name: "The Paladin"
 theme: "Fantasy"
+emoji: "⚔️"
 ---
 ```
 
@@ -55,6 +56,7 @@ theme: "Fantasy"
 | `archetype` | Yes | bear, cat, owl, puppy, rabbit, wolf, gandalf, dragon, guardian | Which agent this profile applies to |
 | `skin-name` | Yes | Free text | Display name for this characterisation |
 | `theme` | Yes | Free text | Theme this profile belongs to (e.g., "Fantasy", "Hundred Acre Wood", "Neutral") |
+| `emoji` | No | Single emoji | Emoji for speaker tags. Overrides the archetype's default emoji when present. |
 
 ### Body Sections
 
@@ -170,62 +172,62 @@ Themes are optional overlays that provide vocabulary, metaphors, and suggested p
 
 Professional, accessible language. Suitable for any context.
 
-| Archetype | Suggested Skin Name |
-|-----------|---------------------|
-| Bear | Visionary Leader |
-| Cat | Risk Analyst |
-| Owl | Timekeeper |
-| Puppy | Morale Officer |
-| Rabbit | Resource Coordinator |
-| Wolf | Team Captain |
+| Archetype | Suggested Skin Name | Emoji |
+|-----------|---------------------|-------|
+| Bear | Visionary Leader | |
+| Cat | Risk Analyst | |
+| Owl | Timekeeper | |
+| Puppy | Morale Officer | |
+| Rabbit | Resource Coordinator | |
+| Wolf | Team Captain | |
 
 #### Fantasy
 
 D&D-inspired characterisations. Available as a profile pack in `profile-packs/fantasy/`.
 
-| Archetype | Suggested Skin Name |
-|-----------|---------------------|
-| Bear | The Paladin |
-| Cat | The Rogue |
-| Owl | The Sage |
-| Puppy | The Bard |
-| Rabbit | The Artificer |
-| Wolf | The Warden |
-| Gandalf | The Archmage |
-| Dragon | The Ancient Wyrm |
-| Guardian | The Sentinel |
+| Archetype | Suggested Skin Name | Emoji |
+|-----------|---------------------|-------|
+| Bear | The Paladin | ⚔️ |
+| Cat | The Rogue | 🗡️ |
+| Owl | The Sage | 📜 |
+| Puppy | The Bard | 🎵 |
+| Rabbit | The Artificer | ⚒️ |
+| Wolf | The Warden | 🏹 |
+| Gandalf | The Archmage | 🧙 |
+| Dragon | The Ancient Wyrm | 🐉 |
+| Guardian | The Sentinel | 🛡️ |
 
 #### Hundred Acre Wood
 
 Winnie-the-Pooh inspired characterisations. Available as a profile pack in `profile-packs/hundred-acre-wood/`.
 
-| Archetype | Suggested Skin Name |
-|-----------|---------------------|
-| Bear | Pooh |
-| Cat | Eeyore |
-| Owl | Owl |
-| Puppy | Tigger |
-| Rabbit | Rabbit |
-| Wolf | Piglet |
-| Gandalf | Christopher Robin |
-| Dragon | Heffalump |
-| Guardian | Kanga |
+| Archetype | Suggested Skin Name | Emoji |
+|-----------|---------------------|-------|
+| Bear | Pooh | 🍯 |
+| Cat | Eeyore | 🫏 |
+| Owl | Owl | 🦉 |
+| Puppy | Tigger | 🐯 |
+| Rabbit | Rabbit | 🐰 |
+| Wolf | Piglet | 🐷 |
+| Gandalf | Christopher Robin | 👦 |
+| Dragon | Heffalump | 🐘 |
+| Guardian | Kanga | 🦘 |
 
 #### Family & Parenting
 
 Family-role characterisations grounded in real-world parenting dynamics. Available as a profile pack in `profile-packs/family-parenting/`.
 
-| Archetype | Suggested Skin Name |
-|-----------|---------------------|
-| Bear | The Elder |
-| Cat | The Teenager |
-| Owl | The Family Therapist |
-| Puppy | The Neighbour Kid |
-| Rabbit | The Co-Parent |
-| Wolf | The Older Sibling |
-| Gandalf | The Paediatrician |
-| Dragon | Great Aunt Betty |
-| Guardian | The Social Worker |
+| Archetype | Suggested Skin Name | Emoji |
+|-----------|---------------------|-------|
+| Bear | The Elder | 👴 |
+| Cat | The Teenager | 📱 |
+| Owl | The Family Therapist | 🛋️ |
+| Puppy | The Neighbour Kid | 🧒 |
+| Rabbit | The Co-Parent | 🤝 |
+| Wolf | The Older Sibling | 🫂 |
+| Gandalf | The Paediatrician | 🩺 |
+| Dragon | Great Aunt Betty | 👵 |
+| Guardian | The Social Worker | 📋 |
 
 ### Custom Themes
 
@@ -249,6 +251,7 @@ Users can create custom themes via Socratic dialogue with Gandalf. Any framing t
 archetype: bear
 skin-name: "The Paladin"
 theme: "Fantasy"
+emoji: "⚔️"
 ---
 
 # Bear — The Paladin
@@ -273,6 +276,7 @@ A steadfast holy warrior who sees the quest as a sacred charge. The Paladin fram
 archetype: cat
 skin-name: "The Rogue"
 theme: "Fantasy"
+emoji: "🗡️"
 ---
 
 # Cat — The Rogue
@@ -303,6 +307,7 @@ A cunning, streetwise rogue who sees every situation as a puzzle to be picked ap
 archetype: gandalf
 skin-name: "The Archmage"
 theme: "Fantasy"
+emoji: "🧙"
 ---
 
 # Gandalf — The Archmage
@@ -353,3 +358,4 @@ New profiles should use v1.1 format exclusively.
 |---------|------|--------|---------|
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
 | 1.1 | 2026-02-16 | Chris Barlow | Unified frontmatter (`archetype`/`skin-name`/`theme`) for all agent types. Dropped explicit `depth` field (inferred from content). Relaxed body section naming. Added NPC profiles to examples. Added migration guide from v1.0. Added Hundred Acre Wood theme. Added profile pack cross-references. |
+| 1.2 | 2026-02-23 | Chris Barlow | Added optional `emoji` field to frontmatter for profile-specific emoji overrides. Added emoji column to all theme tables. Updated profile examples with emoji. |

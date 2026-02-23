@@ -222,7 +222,7 @@ When character profiles exist in `.campaign/profiles/`, section headers use the 
 
 The conversations directory stores full verbatim transcripts of every agent consultation during a campaign. Each file captures one conversation session — the complete exchange between the user and a single agent (or the Council as a whole).
 
-Files are named with a date-first format (`{YYYY-MM-DD}-{HH-MM}-{agent}.md`) for chronological sorting. The agent identifier uses the archetype name (lowercase), not the profile name — the profile name appears in frontmatter instead.
+Files are named with a date-first format (`{YYYY-MM-DD}-{HH-MM}-{agent}.md`) for chronological sorting. The agent identifier uses the archetype name (lowercase). When a profile exists, the profile's `skin-name` is appended in round brackets (lowercase, hyphens for spaces) — e.g., `2026-02-18-14-32-cat(eeyore).md`. The profile name also appears in frontmatter.
 
 Transcript format, write protocol, isolation rules, and timing are defined in [SPEC-CM-012-A](SPEC-CM-012-A-Conversation-Transcript-Protocol.md).
 

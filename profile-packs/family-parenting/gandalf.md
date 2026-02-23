@@ -2,6 +2,7 @@
 archetype: gandalf
 skin-name: "The Paediatrician"
 theme: "Family & Parenting"
+emoji: "🩺"
 ---
 
 # Gandalf — The Paediatrician

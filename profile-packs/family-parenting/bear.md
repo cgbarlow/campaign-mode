@@ -2,6 +2,7 @@
 archetype: bear
 skin-name: "The Elder"
 theme: "Family & Parenting"
+emoji: "👴"
 ---
 
 # Bear — The Elder

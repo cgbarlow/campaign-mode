@@ -2,6 +2,7 @@
 archetype: bear
 skin-name: "The Paladin"
 theme: "Fantasy"
+emoji: "⚔️"
 ---
 
 # Bear — The Paladin

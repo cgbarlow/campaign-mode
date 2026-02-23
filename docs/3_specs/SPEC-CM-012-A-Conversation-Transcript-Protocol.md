@@ -4,9 +4,9 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-012-A |
 | **Parent ADR** | [ADR-CM-019](../2_adrs/ADR-CM-019-Conversation-Transcript-Recording.md) |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Draft |
-| **Last Updated** | 2026-02-18 |
+| **Last Updated** | 2026-02-23 |
 
 ---
 
@@ -30,11 +30,13 @@ Created on first use via `mkdir -p .campaign/conversations/`.
 
 ```
 {YYYY-MM-DD}-{HH-MM}-{agent}.md
+{YYYY-MM-DD}-{HH-MM}-{agent}({profile-name}).md
 ```
 
 - Date-first ensures chronological sort order when listing files by name
 - Time uses 24-hour format
 - Agent is the archetype name (lowercase), not the profile name
+- If a profile exists, append the profile's `skin-name` in round brackets — lowercase, spaces replaced with hyphens. Omit the brackets entirely when no profile is assigned.
 
 ### Agent Values
 
@@ -56,10 +58,12 @@ Valid agent identifiers for filenames:
 ### Example Filenames
 
 ```
-2026-02-18-14-32-cat.md
-2026-02-18-15-10-owl.md
-2026-02-18-16-00-guardian.md
-2026-02-19-09-15-gandalf.md
+2026-02-18-14-32-cat.md                         (no profile)
+2026-02-18-14-32-cat(eeyore).md                  (Hundred Acre Wood profile)
+2026-02-18-15-10-owl(the-sage).md                (Fantasy profile)
+2026-02-18-16-00-guardian(kanga).md               (Hundred Acre Wood profile)
+2026-02-19-09-15-gandalf.md                      (no profile)
+2026-02-19-09-15-gandalf(christopher-robin).md   (Hundred Acre Wood profile)
 ```
 
 ---
@@ -116,9 +120,9 @@ Consultation purpose: {e.g., Phase 3 advisory, Guardian checkpoint, Dragon confr
 
 ### Speaker Tags in Exchange
 
-Use the same speaker identification format as the agent's normal responses:
-- Animals: `**{emoji} {Name}:**` (e.g., `**🐱 Rogue:**` or `**🐱 Cat:**`)
-- NPCs: `**{emoji} {Name}:**` (e.g., `**🧙 Gandalf:**`, `**🛡️ Guardian:**`, `**🐉 Dragon:**`)
+Use the same speaker identification format as the agent's normal responses. If the agent's profile has an `emoji` field, use the profile emoji instead of the archetype default:
+- Animals: `**{emoji} {Name}:**` (e.g., `**🗡️ Rogue:**` with profile emoji, or `**🐱 Cat:**` with archetype default)
+- NPCs: `**{emoji} {Name}:**` (e.g., `**🧙 The Archmage:**`, `**🦘 Kanga:**` with profile emoji, or `**🛡️ Guardian:**` with archetype default)
 - User: `**User:**`
 - Council animals: Each animal uses its own speaker tag within the council transcript
 
@@ -129,7 +133,7 @@ Use the same speaker identification format as the agent's normal responses:
 Every agent follows this protocol at the end of each consultation:
 
 1. **Ensure directory exists:** Use Bash to run `mkdir -p .campaign/conversations/`
-2. **Construct filename:** Use the agent's archetype name and the current date/time in the format `{YYYY-MM-DD}-{HH-MM}-{agent}.md`
+2. **Construct filename:** Use the agent's archetype name and the current date/time in the format `{YYYY-MM-DD}-{HH-MM}-{agent}.md`. If a profile exists, append the profile's `skin-name` in round brackets (lowercase, hyphens for spaces): `{YYYY-MM-DD}-{HH-MM}-{agent}({profile-name}).md`
 3. **Construct transcript:** Build the full transcript from the conversation, including frontmatter, context, verbatim exchange, and outcome (if applicable). **Verbatim means verbatim** — every message from both user and agent must appear exactly as it occurred. Do not summarise, condense, paraphrase, or omit any part of the exchange. If the conversation was long, the transcript is long.
 4. **Write file:** Use the Write tool to create the file in `.campaign/conversations/`
 5. **Do silently:** Do not mention the transcript to the user. Do not break character to perform this step. This is a background housekeeping task.
@@ -185,3 +189,4 @@ Context isolation (ADR-CM-003, SPEC-CM-003-A) applies to transcript files. Trans
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-02-18 | Chris Barlow | Initial specification |
+| 1.1 | 2026-02-23 | Chris Barlow | Speaker tags use profile emoji when available. Filename convention appends profile name in round brackets when a profile exists. |

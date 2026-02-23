@@ -2,6 +2,7 @@
 archetype: puppy
 skin-name: "The Neighbour Kid"
 theme: "Family & Parenting"
+emoji: "🧒"
 ---
 
 # Puppy — The Neighbour Kid

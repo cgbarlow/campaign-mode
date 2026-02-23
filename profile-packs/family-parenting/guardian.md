@@ -2,6 +2,7 @@
 archetype: guardian
 skin-name: "The Social Worker"
 theme: "Family & Parenting"
+emoji: "📋"
 ---
 
 # Guardian — The Social Worker

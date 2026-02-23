@@ -2,6 +2,7 @@
 archetype: guardian
 skin-name: "The Sentinel"
 theme: "Fantasy"
+emoji: "🛡️"
 ---
 
 # Guardian — The Sentinel

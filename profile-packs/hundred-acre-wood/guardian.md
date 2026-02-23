@@ -2,6 +2,7 @@
 archetype: guardian
 skin-name: "Kanga"
 theme: "Hundred Acre Wood"
+emoji: "🦘"
 ---
 
 # Guardian — Kanga
