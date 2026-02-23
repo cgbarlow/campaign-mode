@@ -16,12 +16,12 @@ Whether you're here to learn, to ship, or both - you drive the quest. The agents
 
 ## Quick Start
 
-### Claude Desktop
+### Claude Cowork and Claude Code Desktop
 
-1. From the **Code** tab, select **+** → **Plugins** → **Add plugin**
+1. From either the **Cowork** or **Code** tab in Claude Desktop, select **+** → **Plugins** → **Add plugin**
 2. **Add marketplace** — Select the **By Anthropic** dropdown, then select **Add marketplace from GitHub** and enter:
    ```
-   https://github.com/cgbarlow/campaign-mode/
+   cgbarlow/campaign-mode/
    ```
 3. **Install plugins** — find and install both **Campaign Mode** and **Six Animals** from the marketplace
 4. **Set up your project** — run:
