@@ -292,6 +292,7 @@ Now that your quest is framed, would you like to give your advisory council char
       • Fantasy (D&D-inspired: Paladin, Rogue, Sage, Bard, Artificer, Warden + NPC skins)
       • Hundred Acre Wood (Pooh, Eeyore, Owl, Tigger, Rabbit, Piglet + Christopher Robin, Kanga, Heffalump)
       • Family & Parenting (The Elder, The Teenager, The Family Therapist, The Neighbour Kid, The Co-Parent, The Older Sibling + The Paediatrician, The Social Worker, Great Aunt Betty)
+      • Afterlife Library (book recommender: Horatio and a table of genre-great craft lenses, the Parry, Vance, Feist, Barnes, Rosenberg and Eddings Chairs + the Corey and Sanderson Chairs)
   - Create custom profiles (I'll help you design them)
 ```
 

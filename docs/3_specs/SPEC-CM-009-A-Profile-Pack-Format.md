@@ -4,9 +4,9 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-009-A |
 | **Parent ADR** | [ADR-CM-016](../2_adrs/ADR-CM-016-Profile-Packs.md) |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 | **Status** | Draft |
-| **Last Updated** | 2026-02-23 |
+| **Last Updated** | 2026-10-07 |
 
 ---
 
@@ -128,6 +128,7 @@ Campaign Mode ships with the following packs:
 | **Fantasy** | `profile-packs/fantasy/` | D&D-inspired characterisations: Paladin, Rogue, Sage, Bard, Artificer, Warden + Archmage, Sentinel, Ancient Wyrm |
 | **Hundred Acre Wood** | `profile-packs/hundred-acre-wood/` | Winnie-the-Pooh inspired: Pooh, Eeyore, Owl, Tigger, Rabbit, Piglet + Christopher Robin, Kanga, Heffalump |
 | **Family & Parenting** | `profile-packs/family-parenting/` | Family-role characterisations: The Elder, The Teenager, The Family Therapist, The Neighbour Kid, The Co-Parent, The Older Sibling + The Paediatrician, The Social Worker, Great Aunt Betty |
+| **Afterlife Library** | `profile-packs/afterlife-library/` | Book-recommender panel of genre-great craft lenses: The Parry, Vance, Feist, Eddings, Barnes and Rosenberg Chairs + Horatio, The Corey Chair, The Sanderson Chair |
 
 ---
 
@@ -169,3 +170,4 @@ Community members can submit new profile packs via pull request. See [CONTRIBUTI
 |---------|------|--------|---------|
 | 1.0 | 2026-02-16 | Chris Barlow | Initial specification |
 | 1.1 | 2026-02-23 | Chris Barlow | Added optional `emoji` field to Required Frontmatter section for profile-specific emoji overrides. |
+| 1.2 | 2026-10-07 | Chris Barlow | Added Afterlife Library to Built-In Packs. |

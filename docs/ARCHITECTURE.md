@@ -90,7 +90,8 @@ campaign-mode/
 ├── profile-packs/                       # Pre-built profile template sets
 │   ├── fantasy/                         # D&D-inspired theme (9 profiles)
 │   ├── hundred-acre-wood/               # Winnie-the-Pooh theme (9 profiles)
-│   └── family-parenting/                # Family & Parenting theme (9 profiles)
+│   ├── family-parenting/                # Family & Parenting theme (9 profiles)
+│   └── afterlife-library/               # Afterlife Library book-recommender theme (9 profiles)
 ├── CHANGELOG.md                         # Version history
 ├── CLAUDE.md                            # Campaign guidelines (loaded per session)
 ├── CONTRIBUTING.md                      # Contribution guidelines

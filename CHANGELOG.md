@@ -2,7 +2,15 @@
 
 All notable changes to Campaign Mode are documented here.
 
-## v0.4.8 — Current Release
+## v0.4.9 — Current Release
+
+- **Afterlife Library pack** — New 9-profile theme for reading quests, based on the "Horatio, The Book Recommender" persona. Horatio (Gandalf) is an afterlife librarian who turns the reader's taste into success criteria. Each animal and NPC is a chair at the table, written as a craft lens inspired by a genre author's style rather than an impersonation: The Parry Chair (Bear, the vibe), The Vance Chair (Cat, the flaws), The Feist Chair (Owl, cost per hour and series liability), The Barnes Chair (Rabbit, better and worse comparisons), The Rosenberg Chair (Wolf, relationships and every chair heard), The Eddings Chair (Puppy, the hook and the 80 percent rule), The Corey Chair (Guardian, the wank factor gate) and The Sanderson Chair (Dragon, show versus tell against the reader's criteria)
+  - Gandalf SKILL.md (both copies): Phase 2 pack menu lists Afterlife Library
+  - SPEC-CM-006-A v1.3: Afterlife Library theme table
+  - SPEC-CM-009-A v1.2: Built-In Packs table
+  - README and ARCHITECTURE: pack count and directory tree
+
+## v0.4.8
 
 - **Profile emoji overrides** — Profiles can now include an optional `emoji` field in frontmatter. When present, speaker tags use the profile emoji instead of the archetype's hardcoded default. For example, Eeyore (Cat archetype in Hundred Acre Wood pack) now shows `**🫏 Eeyore:**` instead of `**🐱 Eeyore:**`. Fall back to archetype emoji when no profile or no emoji field exists.
   - All 27 built-in profile pack files updated with character-appropriate emoji
