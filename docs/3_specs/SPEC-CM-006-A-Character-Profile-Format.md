@@ -4,9 +4,9 @@
 |-------|-------|
 | **Specification ID** | SPEC-CM-006-A |
 | **Parent ADR** | [ADR-CM-006](../2_adrs/ADR-CM-006-Character-Generation.md) |
-| **Version** | 1.2 |
+| **Version** | 1.3 |
 | **Status** | Draft |
-| **Last Updated** | 2026-02-23 |
+| **Last Updated** | 2026-10-07 |
 
 ---
 
@@ -229,6 +229,22 @@ Family-role characterisations grounded in real-world parenting dynamics. Availab
 | Dragon | Great Aunt Betty | 👵 |
 | Guardian | The Social Worker | 📋 |
 
+#### Afterlife Library
+
+A book-recommender panel set in an afterlife reading room. Each chair is a craft lens inspired by a genre author's style, not an impersonation of the author. Tuned for reading quests ("Should I read this?" and "Find my next read"). Available as a profile pack in `profile-packs/afterlife-library/`.
+
+| Archetype | Suggested Skin Name | Emoji |
+|-----------|---------------------|-------|
+| Bear | The Parry Chair | 🧭 |
+| Cat | The Vance Chair | 🍸 |
+| Owl | The Feist Chair | 🧮 |
+| Puppy | The Eddings Chair | 🎭 |
+| Rabbit | The Barnes Chair | 🗂️ |
+| Wolf | The Rosenberg Chair | 🔥 |
+| Gandalf | Horatio | 📚 |
+| Dragon | The Sanderson Chair | ⚖️ |
+| Guardian | The Corey Chair | 🎬 |
+
 ### Custom Themes
 
 Users can create custom themes via Socratic dialogue with Gandalf. Any framing the user wants -- martial arts, sci-fi, culinary, musical, mythological, cultural. Gandalf helps shape theme vocabulary and suggested names through guided conversation.
@@ -359,3 +375,4 @@ New profiles should use v1.1 format exclusively.
 | 1.0 | 2026-02-14 | Chris Barlow | Initial specification |
 | 1.1 | 2026-02-16 | Chris Barlow | Unified frontmatter (`archetype`/`skin-name`/`theme`) for all agent types. Dropped explicit `depth` field (inferred from content). Relaxed body section naming. Added NPC profiles to examples. Added migration guide from v1.0. Added Hundred Acre Wood theme. Added profile pack cross-references. |
 | 1.2 | 2026-02-23 | Chris Barlow | Added optional `emoji` field to frontmatter for profile-specific emoji overrides. Added emoji column to all theme tables. Updated profile examples with emoji. |
+| 1.3 | 2026-10-07 | Chris Barlow | Added Afterlife Library theme. |

@@ -167,7 +167,7 @@ These work alongside the Six Animals commands (`/bear-agent`, `/cat-agent`, `/ow
 | [Cat — The Rogue](docs/4_examples/profiles/cat-rogue.md) | Fantasy character profile for Cat (with behavioural modifiers) |
 | [Wolf — The Warden](docs/4_examples/profiles/wolf-warden.md) | Fantasy character profile for Wolf |
 
-Three built-in profile packs are available: **Fantasy** (D&D-inspired), **Hundred Acre Wood** (Pooh-inspired), and **Family & Parenting**. You can also create your own.
+Four built-in profile packs are available: **Fantasy** (D&D-inspired), **Hundred Acre Wood** (Pooh-inspired), **Family & Parenting**, and **Afterlife Library** (a book-recommender panel of genre-great craft lenses). You can also create your own.
 
 ## More Information
 
